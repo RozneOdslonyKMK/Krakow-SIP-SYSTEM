@@ -38,7 +38,7 @@ Następny Przystanek (new)|Następny przystanek (new).mp3
 Przystanek|Przystanek.mp3
 Na żądanie|Na Żądanie.mp3
 Przystanek Na żądanie|Przystanek Na Żądanie.mp3
-Bądź wrażliwy. Ustąp miejsca.|Bądź wrażliwy Ustąp Miejsca.mp3
+Bądź wrażliwy. Ustąp miejsca.|Bądź wrażliwy Ustąp miejsca.mp3
 Możliwość dojścia do Dworca Głównego|Możliwość dojścia do Dworca Głównego.mp3
 Możliwość przesiadki na inne linie autobusowe|Możliwość przesiadki na inne linie a.mp3
 Możliwość przesiadki na inne linie tramwajowe|Możliwość przesiadki na inne linie t.mp3
