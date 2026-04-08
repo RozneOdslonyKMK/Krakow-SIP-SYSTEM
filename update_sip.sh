@@ -1,6 +1,9 @@
 #!/bin/bash
 cd /opt/krakow_sip_system
-# Pobierz najnowsze info z serwera
+
+# Dodaj to, aby Git nie marudził o uprawnienia:
+git config --global --add safe.directory /opt/krakow_sip_system
+
+# Reszta bez zmian
 git fetch --all
-# Wymuś nadpisanie lokalnych plików wersją z głównej gałęzi (zazwyczaj main lub master)
 git reset --hard origin/main
