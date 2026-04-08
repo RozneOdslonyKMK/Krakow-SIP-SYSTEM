@@ -272,7 +272,7 @@ class MainSIPLayout(FloatLayout):
         self.stencil.add_widget(self.ticker)
         self.add_widget(self.stencil)
 
-        self.clock_label = Label(text="00:00", font_size='90sp', font_name=self.ubuntu_font,
+        self.clock_label = Label(text="01:00", font_size='90sp', font_name=self.ubuntu_font,
                                  color=self.krakow_blue, bold=True,
                                  size_hint=(None, None), size=(250, 92),
                                  pos=(1670, self.screen_h - 92), halign='right', valign='middle',
