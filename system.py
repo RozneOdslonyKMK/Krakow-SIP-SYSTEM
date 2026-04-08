@@ -3,7 +3,6 @@ import csv
 import math
 from datetime import datetime
 
-# Środowisko i sterowniki
 os.environ['KIVY_NO_ARGS'] = '1'
 os.environ['KIVY_WINDOW'] = 'sdl2'
 os.environ['KIVY_GL_BACKEND'] = 'gl'
@@ -46,8 +45,6 @@ SESSION = {
     "is_route_changed": False,
     "selected_csv_path": ""
 }
-
-# --- EKRANY KONFIGURACJI ---
 
 class StartModeScreen(Screen):
     def __init__(self, **kwargs):
@@ -123,7 +120,6 @@ class LineSelectScreen(Screen):
         self.base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
         
         if os.path.exists(self.base_path):
-            # Skanujemy FOLDERY jako linie
             lines = [d for d in os.listdir(self.base_path) if os.path.isdir(os.path.join(self.base_path, d))]
             lines.sort(key=lambda x: (len(x), x))
             for line in lines:
@@ -198,14 +194,11 @@ class NewsEditorScreen(Screen):
         layout.add_widget(back)
         self.add_widget(layout)
 
-    def start(self, *args): # usunięto csv_file z argumentów
+    def start(self, *args):
         SESSION["news_text"] = self.ti.text
-        # Przekazujemy samą nazwę pliku (bez ścieżki) do setup_sip
         csv_name = os.path.basename(SESSION["selected_csv_path"])
         self.manager.get_screen('sip').setup_sip(csv_name)
         self.manager.current = 'sip'
-
-# --- MONITOR PODSUFITOWY ---
 
 class MainSIPLayout(FloatLayout):
     def __init__(self, csv_file, **kwargs):
@@ -218,7 +211,7 @@ class MainSIPLayout(FloatLayout):
         self.stops = []
         self.stops_db = {}
         self.current_idx = 0
-        self.is_at_stop = True # Flaga stanu
+        self.is_at_stop = True
         
         self.load_stops_db()
         self.load_route()
@@ -231,29 +224,24 @@ class MainSIPLayout(FloatLayout):
         self._loading_ad = False
         self.ads = None
         
-        # Tło
         bg = 'podklad_zmiana.png' if SESSION["is_route_changed"] else 'podklad.png'
         self.add_widget(Image(source=os.path.join(BASE_DIR, bg), allow_stretch=True, keep_ratio=False))
 
         if self.ad_files:
             Clock.schedule_once(self._rebuild_video_widget, 1.0)
 
-        # Numer linii
         l_color = (1, 1, 1, 1) if SESSION["is_route_changed"] else self.krakow_blue
-        # Pobieramy numer linii z nazwy folderu w ścieżce
         line_no = SESSION["selected_csv_path"].split('/')[-2] 
         self.add_widget(Label(text=line_no, font_size='165sp', font_name=self.ubuntu_font,
                               color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
                               pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
-        # Przystanek Obecny
         self.update_stop_label(self.stops[0]['Nazwa'])
         
-        # --- PRZYSTANEK DOCELOWY (KIERUNEK) ---
         limit_dest_width = 1197
         dest_pos_x = 428
-        dest_pos_y = self.screen_h - 184 # Pozycja pod nazwą obecnego przystanku
-
+        dest_pos_y = self.screen_h - 184
+        
         self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 92),
                                           pos=(dest_pos_x, dest_pos_y))
         
@@ -274,7 +262,6 @@ class MainSIPLayout(FloatLayout):
         self.dest_container.add_widget(self.dest_label)
         self.add_widget(self.dest_container)
 
-        # Newsy (Ticker)
         self.stencil = StencilView(size_hint=(None, None), size=(1726, 107), pos=(194, 1080-973-107))
         self.ticker = Label(text=SESSION["news_text"], font_name=self.arial_font, font_size='85sp',
                             size_hint=(None, 1), halign='left', valign='middle', height=107)
@@ -282,7 +269,6 @@ class MainSIPLayout(FloatLayout):
         self.stencil.add_widget(self.ticker)
         self.add_widget(self.stencil)
 
-        # Czas i data
         self.clock_label = Label(text="00:00", font_size='90sp', font_name=self.ubuntu_font,
                                  color=self.krakow_blue, bold=True,
                                  size_hint=(None, None), size=(250, 92),
@@ -322,16 +308,13 @@ class MainSIPLayout(FloatLayout):
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
         layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
         
-        # 1. NAGŁÓWEK
         layout.add_widget(Label(text="WYBÓR PRZYSTANKU", font_size='30sp', size_hint_y=None, height=50))
 
-        # 2. LISTA PRZYSTANKÓW (SCROLL)
         scroll = ScrollView()
         list_layout = BoxLayout(orientation='vertical', size_hint_y=None, spacing=5)
         list_layout.bind(minimum_height=list_layout.setter('height'))
 
         for i, stop in enumerate(self.stops):
-            # Używamy self.current_idx (poprawiłem nazwę zmiennej, o którą był błąd)
             is_active = (i == self.current_idx)
             btn_color = (0, 0.5, 1, 1) if is_active else (0.2, 0.2, 0.2, 1)
             
@@ -344,22 +327,18 @@ class MainSIPLayout(FloatLayout):
         scroll.add_widget(list_layout)
         layout.add_widget(scroll)
 
-        # 3. PANEL SZYBKIEJ NAWIGACJI (Dwa duże przyciski obok siebie)
         nav_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=80, spacing=10)
         
         prev_btn = Button(text="[ PREV ]", background_color=(0.7, 0.4, 0, 1), bold=True)
-        # Logika: aktualny index - 1 (ale nie mniej niż 0)
         prev_btn.bind(on_release=lambda b: self.set_stop_manually(max(0, self.current_idx - 1), view))
         
         next_btn = Button(text="[ NEXT ]", background_color=(0, 0.6, 0.3, 1), bold=True)
-        # Logika: aktualny index + 1 (ale nie więcej niż koniec listy)
         next_btn.bind(on_release=lambda b: self.set_stop_manually(min(len(self.stops)-1, self.current_idx + 1), view))
         
         nav_layout.add_widget(prev_btn)
         nav_layout.add_widget(next_btn)
         layout.add_widget(nav_layout)
 
-        # 4. PRZYCISK ZAMKNIJ
         close_btn = Button(text="ZAMKNIJ", size_hint_y=None, height=50, background_color=(0.7, 0.2, 0.2, 1))
         close_btn.bind(on_release=view.dismiss)
         layout.add_widget(close_btn)
@@ -380,18 +359,15 @@ class MainSIPLayout(FloatLayout):
         view.dismiss()
 
     def show_announcements_panel(self):
-        # 1. Tworzymy bazę panelu (identyczna jak w route_panel)
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0,0,0,0.8))
         layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
         
-        # 2. Tworzymy przewijaną listę
         scroll = ScrollView()
         list_layout = BoxLayout(orientation='vertical', size_hint_y=None, spacing=5)
         list_layout.bind(minimum_height=list_layout.setter('height'))
         
         anns_path = os.path.join(BASE_DIR, 'anns.txt')
 
-        # 3. Dodajemy nagłówek panelu
         layout.add_widget(Label(text="WYBÓR KOMUNIKATU", font_size='30sp', size_hint_y=None, height=50))
 
         if not os.path.exists(anns_path):
@@ -402,25 +378,20 @@ class MainSIPLayout(FloatLayout):
                     if '|' in line:
                         title, filename = line.strip().split('|')
                         
-                        # Tworzymy przycisk w stylu route_panel
                         btn = Button(
                             text=title, 
                             size_hint_y=None, 
                             height=60, 
-                            background_color=(0.2, 0.2, 0.2, 1) # Standardowy szary kolor
+                            background_color=(0.2, 0.2, 0.2, 1)
                         )
                         
-                        # Bindowanie funkcji odtwarzania (pamiętaj o lambdzie z domknięciem f=filename)
                         btn.bind(on_release=lambda b, f=filename: self.play_custom_audio(f, view))
                         
-                        # DODAJEMY DO list_layout, a nie do głównego layoutu!
                         list_layout.add_widget(btn)
 
-        # 4. Składamy wszystko w całość
         scroll.add_widget(list_layout)
         layout.add_widget(scroll)
         
-        # 5. Opcjonalny przycisk Zamknij na dole (żeby nie trzeba było klikać obok panelu)
         close_btn = Button(text="ZAMKNIJ", size_hint_y=None, height=60, background_color=(0.7, 0.2, 0.2, 1))
         close_btn.bind(on_release=view.dismiss)
         layout.add_widget(close_btn)
@@ -429,28 +400,23 @@ class MainSIPLayout(FloatLayout):
         view.open()
 
     def play_custom_audio(self, filename, view):
-        # Tutaj dodaj swoją logikę odtwarzania, np.:
         audio_path = os.path.join(BASE_DIR, 'audio', filename)
         if os.path.exists(audio_path):
             sound = SoundLoader.load(audio_path)
             if sound:
                 sound.play()
             print(f"Odtwarzam: {audio_path}")
-            # Jeśli chcesz, żeby panel zniknął po wybraniu komunikatu, odkomentuj:
             view.dismiss()
         else:
             print(f"Błąd: Plik {filename} nie istnieje w folderze audio")
 
     def go_back_to_menu(self):
-        # 1. Zatrzymujemy wideo i czyścimy pamięć
         if self.ads:
             self.ads.state = 'stop'
             self.ads.unload()
         
-        # 2. Odpinamy klawiaturę, żeby nie działała w menu
         Window.unbind(on_key_down=self._on_keyboard_down)
         
-        # 3. Zmieniamy ekran (SIPApp.get_running_app().root to nasz ScreenManager)
         App.get_running_app().root.current = 'routes'
         
     def update_stop_label(self, full_name):
@@ -458,11 +424,9 @@ class MainSIPLayout(FloatLayout):
         limit_width = 1316
 
         if not hasattr(self, 'stop_container'):
-            # 1. Kontener na górze (pośrodku niebieskiego paska)
             self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 100),
                                             pos=(309, self.screen_h - 95))
             
-            # 2. Label - WAŻNE: pos musi być taki sam jak kontenera, żeby trafił w "okno"
             self.lbl_stop = Label(text=clean_name, font_size='75sp', font_name=self.ubuntu_font,
                                   color=self.krakow_blue, bold=True, size_hint=(None, None),
                                   size=(limit_width, 100), pos=(309, self.screen_h - 95),
@@ -473,12 +437,10 @@ class MainSIPLayout(FloatLayout):
         else:
             self.lbl_stop.text = clean_name
 
-        # Aktualizacja szerokości do przewijania
         self.lbl_stop.texture_update()
         self.lbl_stop.width = self.lbl_stop.texture_size[0]
         self.should_scroll_stop = self.lbl_stop.width > limit_width
         
-        # Reset pozycji na start pola
         self.lbl_stop.x = 309
             
     def load_stops_db(self):
@@ -487,7 +449,6 @@ class MainSIPLayout(FloatLayout):
             with open(db_p, mode='r', encoding='utf-8') as f:
                 reader = csv.DictReader(f, delimiter=';')
                 for row in reader:
-                    # Dopasowanie: "Wizjonerów 01" -> klucz "Wizjonerów"
                     base_name = row['Nazwa'].rsplit(' ', 1)[0]
                     self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
 
@@ -504,44 +465,37 @@ class MainSIPLayout(FloatLayout):
         return 6371 * 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
 
     def scroll_news(self, dt):
-        # 1. NEWSY
         self.ticker.texture_update()
         self.ticker.width = self.ticker.texture_size[0]
         self.ticker.x -= 4
         if self.ticker.right < 0: self.ticker.x = 1726
         
-        # 2. OBECNY PRZYSTANEK
         if hasattr(self, 'should_scroll_stop') and self.should_scroll_stop:
             self.lbl_stop.x -= 2
-            if self.lbl_stop.right < 309: # 309 to lewa krawędź pola
-                self.lbl_stop.x = 309 + 1316 # Wróć na prawą krawędź pola
+            if self.lbl_stop.right < 309:
+                self.lbl_stop.x = 309 + 1316
         elif hasattr(self, 'lbl_stop'):
             self.lbl_stop.x = 309
 
-        # 3. KIERUNEK
         if hasattr(self, 'should_scroll_dest') and self.should_scroll_dest:
             self.dest_label.x -= 2
-            if self.dest_label.right < 428: # 428 to lewa krawędź pola
+            if self.dest_label.right < 428:
                 self.dest_label.x = 428 + 1197
         elif hasattr(self, 'dest_label'):
             self.dest_label.x = 428
 
     def next_ad(self, *args):
-        # Usuwamy blokadę ładowania, jeśli została z poprzedniej próby
         if hasattr(self, '_loading_ad') and self._loading_ad:
-            # Jeśli minęło za dużo czasu, a nadal wisi blokada, zdejmij ją
             self._loading_ad = False 
 
         if not self.ad_files:
             return
 
-        # 1. Całkowite niszczenie starego obiektu (kluczowe przy zapętleniu)
         if self.ads:
             try:
                 self.ads.unbind(eos=self.next_ad)
                 self.ads.state = 'stop'
                 self.ads.unload()
-                # Usuwamy z kontenera, jeśli go używamy
                 if hasattr(self, 'video_container'):
                     self.remove_widget(self.video_container)
                 else:
@@ -551,26 +505,22 @@ class MainSIPLayout(FloatLayout):
             
             self.ads = None
 
-        # 2. Przeliczenie indeksu (powrót z ostatniej na pierwszą)
         self.current_ad_idx = (self.current_ad_idx + 1) % len(self.ad_files)
         
-        # 3. Krótka przerwa, żeby podkład.png "oddetchnął"
         Clock.schedule_once(self._rebuild_video_widget, 0.5)
 
     def _rebuild_video_widget(self, dt):
         if not self.ad_files:
             return
         
-        self._loading_ad = True # Blokujemy podwójne wywołania podczas ładowania
+        self._loading_ad = True
 
-        # Tworzymy kontener (nożyczki)
         self.video_container = StencilView(
             size_hint=(None, None),
             size=(1402, 789),
             pos=(259, self.screen_h - 184 - 789)
         )
 
-        # Tworzymy NOWY obiekt wideo
         self.ads = Video(
             source=self.ad_files[self.current_ad_idx],
             state='play',
@@ -582,13 +532,11 @@ class MainSIPLayout(FloatLayout):
             pos=(259, self.screen_h - 184 - 789)
         )
         
-        # Ponowne bindowanie zdarzenia końca
         self.ads.bind(eos=self.next_ad)
         
         self.video_container.add_widget(self.ads)
         self.add_widget(self.video_container)
         
-        # Na wszelki wypadek wymuszamy start za 0.2s
         Clock.schedule_once(self._force_play, 0.2)
 
     def _force_play(self, dt):
@@ -606,25 +554,20 @@ class MainSIPLayout(FloatLayout):
     def on_touch_down(self, touch):
         if SESSION["mode"] == "Dom":
             if self.is_at_stop:
-                # --- AKCJA: ODJAZD Z PRZYSTANKU ---
                 if self.current_idx < len(self.stops) - 1:
                     self.is_at_stop = False
                     next_stop_data = self.stops[self.current_idx + 1]
                     
-                    # Co zrobić, gdy skończy mówić "Następny przystanek: Nazwa"?
                     def po_skonczeniu_audio():
                         self.update_stop_label(next_stop_data['Nazwa'])
                     
-                    # Budujemy listę plików do odtworzenia
                     sekwencja = ["Następny Przystanek.mp3", f"{next_stop_data['Audio']}.mp3"]
                     self.play_sequence(sekwencja, callback=po_skonczeniu_audio)
             else:
-                # --- AKCJA: WJAZD NA NASTĘPNY PRZYSTANEK ---
                 self.current_idx += 1
                 self.is_at_stop = True
                 current_stop = self.stops[self.current_idx]
                 
-                # Tylko zapowiedź nazwy (napis zmienił się już przy odjeździe)
                 self.play_sequence([f"{current_stop['Audio']}.mp3"])
         return True
 
@@ -641,17 +584,15 @@ class MainSIPLayout(FloatLayout):
         if target_idx >= len(self.stops): return
 
         target_stop = self.stops[target_idx]
-        coords = self.stops_db.get(target_stop['Nazwa'].rsplit(' ', 1)[0]) # Dopasowanie bazy
+        coords = self.stops_db.get(target_stop['Nazwa'].rsplit(' ', 1)[0])
         if not coords: return
 
         dist = self.calculate_distance(my_lat, my_lon, coords['lat'], coords['lon'])
 
-        # Logika odjazdu (GPS)
         if self.is_at_stop and dist > 0.040: 
             self.is_at_stop = False
             if self.current_idx < len(self.stops) - 1:
                 next_data = self.stops[self.current_idx + 1]
-                # Napis zmieni się dopiero jak lektor skończy mówić
                 self.play_sequence(["Następny Przystanek.mp3", f"{next_data['Audio']}.mp3"], 
                                 callback=lambda: self.update_stop_label(next_data['Nazwa']))
 
@@ -661,11 +602,9 @@ class MainSIPLayout(FloatLayout):
             self.play_sequence([f"{self.stops[self.current_idx]['Audio']}.mp3"])
             
     def play_sequence(self, file_list, callback=None):
-        # Jeśli dostaniemy jeden napis zamiast listy, robimy z niego listę
         if isinstance(file_list, str):
             file_list = [file_list]
             
-        # Jeśli lista pusta, odpalamy callback (np. zmianę napisu)
         if not file_list:
             if callback: 
                 Clock.schedule_once(lambda dt: callback(), 0.1)
@@ -676,19 +615,18 @@ class MainSIPLayout(FloatLayout):
 
         if not os.path.exists(full_path):
             print(f"Błąd: Brak pliku {current_file}")
-            self.play_sequence(file_list, callback) # Przeskocz do następnego
+            self.play_sequence(file_list, callback)
             return
 
         sound = SoundLoader.load(full_path)
         if sound:
             def on_stop_handler(inst):
-                inst.unload() # Ważne na Linuxie: zwolnij kartę dźwiękową
+                inst.unload()
                 Clock.schedule_once(lambda dt: self.play_sequence(file_list, callback), 0.1)
             
             sound.bind(on_stop=on_stop_handler)
             sound.play()
         else:
-            # Jeśli SoundLoader zawiedzie, leć dalej
             self.play_sequence(file_list, callback)
 
 class SipScreen(Screen):
@@ -698,11 +636,9 @@ class SipScreen(Screen):
         self.add_widget(self.sip_layout)
 
     def on_enter(self):
-        # Dopiero gdy ekran faktycznie się pojawi, puszczamy JEDNĄ zapowiedź
         if hasattr(self, 'sip_layout'):
             start_stop = self.sip_layout.stops[0]
             self.sip_layout.update_stop_label(start_stop['Nazwa'])
-            # Opóźnienie 1s, żeby dźwięk nie "strzelił" przed pokazaniem obrazu
             Clock.schedule_once(lambda dt: self.sip_layout.play_sequence([f"{start_stop['Audio']}.mp3"]), 1.0)
 
 class SIPApp(App):
