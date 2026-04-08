@@ -1,0 +1,49 @@
+Proszę odsunąć się od drzwi|Proszę odsunąć się od drzwi.mp3
+Blokada kasowników|Proszę przygotować bilety do kontroli.mp3
+Włączona klimatyzacja|Uwaga Włączona klimatyzacja Prosimy o zamknięcie okien.mp3
+Granica II strefy|Granica miasta II Strefa Aglomeracyjna.mp3
+Koniec trasy MPK|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż z MPK S A w Krakowie.mp3
+Koniec trasy|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż.mp3
+Przystanek końcowy|Przystanek Końcowy.mp3
+Linia 4: Kierunek Bronowice Małe|Linia 4 Kierunek Bronowice Małe.mp3
+Linia 21: Kierunek Pleszów|Linia 21 Kierunek Pleszów.mp3
+Linia 50: Kierunek Górka Narodowa P+R|Linia 50 Kierunek Górka Narodowa P+R.mp3
+Linia 108: Kierunek Bronowice Małe|Linia 108 Kierunek Bronowice Małe.mp3
+Linia 108: Kierunek Park Tetmajera|Linia 108 Kierunek Park Tetmajera.mp3
+Linia nr 113: Kierunek Czyżyny Dworzec|Linia nr 113 Kierunek Czyżyny Dworzec.mp3
+Linia nr 113: Kierunek EC Łęg|Linia nr 113 Kierunek EC Łęg.mp3
+Linia nr 124: Kierunek TAURON Arena Kraków Wieczysta|Linia nr 124 Kierunek TAURON Arena Kraków Wieczysta.mp3
+Linia nr 138: Kierunek Azory|Linia nr 138 Kierunek Azory.mp3
+Linia nr 139: Kierunek Mydlniki|Linia nr 139 Kierunek Mydlniki.mp3
+Linia nr 153: Kierunek Miejskie Centrum Opieki|Linia nr 153 Kierunek Miejskie Centrum Opieki.mp3
+Linia nr 163: Kierunek Os. Piastów|Linia nr 163 Kierunek Os. Piastów.mp3
+Linia nr 163: Kierunek Rżąka|Linia nr 163 Kierunek Rżąka.mp3
+Linia nr 184: Kierunek Prądnik Czerwony|Linia nr 184 Kierunek Prądnik Czerwony.mp3
+Linia 199: Kierunek Mydlniki Wapiennik P+R|Linia 199 Kierunek Mydlniki Wapiennik P+R.mp3
+Linia nr 238: Kierunek Młynka Pętla|Linia nr 238 Kierunek Młynka Pętla.mp3
+Linia 238: Kierunek Młynka Pętla (new)|Linia 238 Kierunek Młynka Pętla (new).mp3
+Linia nr 501: Kierunek Bulwarowa|Linia nr 501 Kierunek Bulwarowa.mp3
+Linia nr 501: Kierunek Chełmońskiego Pętla|Linia nr 501 Kierunek Chełmońskiego Pętla.mp3
+Linia nr 572: Kierunek Aleja Przyjaźni|Linia nr 572 Kierunek Aleja Przyjaźni.mp3
+4|4.mp3
+21|21.mp3
+50|50.mp3
+121|121.mp3
+Linia nr|Linia nr.mp3
+Linia|Linia.mp3
+Kierunek|Kierunek.mp3
+Kierunek (new)|Kierunek (new).mp3
+Następny Przystanek|Następny Przystanek.mp3
+Następny Przystanek (new)|Następny przystanek (new).mp3
+Przystanek|Przystanek.mp3
+Na żądanie|Na Żądanie.mp3
+Przystanek Na żądanie|Przystanek Na Żądanie.mp3
+Bądź wrażliwy. Ustąp miejsca.|Bądź wrażliwy Ustąp Miejsca.mp3
+Możliwość dojścia do Dworca Głównego|Możliwość dojścia do Dworca Głównego.mp3
+Możliwość przesiadki na inne linie autobusowe|Możliwość przesiadki na inne linie a.mp3
+Możliwość przesiadki na inne linie tramwajowe|Możliwość przesiadki na inne linie t.mp3
+Możliwość przesiadki na inne linie tramwajowe lub autobusowe|Możliwość przesiadki na inne linie t lub a.mp3
+Możliwość przesiadki na pociągi aglomeracyjne oraz na inne linie tramwajowe i autobusowe|Możliwość przesiadki na pa oraz na inne linie t i a.mp3
+Ostatni przystanek w I strefie|Uwaga Ostatni przystanek w I strefie biletowej.mp3
+Ostatni przystanek w II strefie|Uwaga Ostatni przystanek w II strefie biletowej.mp3
+SKA|Szybka Kolej Aglomeracyjna.mp3
