@@ -1,6 +1,7 @@
 Proszę odsunąć się od drzwi|Proszę odsunąć się od drzwi.mp3
 Blokada kasowników|Proszę przygotować bilety do kontroli.mp3
 Włączona klimatyzacja|Uwaga Włączona klimatyzacja Prosimy o zamknięcie okien.mp3
+Zmiana trasy|Uwaga Zmiana Trasy.mp3
 Granica II strefy|Granica miasta II Strefa Aglomeracyjna.mp3
 Koniec trasy MPK|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż z MPK S A w Krakowie.mp3
 Koniec trasy|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż.mp3
