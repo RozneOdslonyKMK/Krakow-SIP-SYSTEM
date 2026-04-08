@@ -31,6 +31,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 Window.fullscreen = 'auto'
 Window.show_cursor = False 
 
+now = datetime.now()
+formatted_news = f"*** Jakość powietrza: DOBRA. Godzina pomiaru {now.strftime('%H')}:00 {now.strftime('%d-%m-%Y')}. ***"
+
 OPERATORS = {
     "MPK Kraków": ["Tramwaj", "Autobus"],
     "Mobilis": ["Autobus"],
@@ -41,7 +44,7 @@ SESSION = {
     "mode": "Dom",
     "operator": "",
     "type": "",
-    "news_text": "Miłej podróży!",
+    "news_text": formatted_news,
     "is_route_changed": False,
     "selected_csv_path": ""
 }
