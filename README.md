@@ -35,6 +35,6 @@ Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w
 Możesz otworzyć plik run.bat dwukrotnie klikając plik w folderze, albo poprzez CMD uruchamiając poniższe polecenie:
 ```
 cd "C:\Users\Twoja-nazwa\krakow_sip_system"
-run.bat
+.\run.bat
 ```
 Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
