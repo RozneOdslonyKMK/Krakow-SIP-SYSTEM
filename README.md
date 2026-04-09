@@ -9,7 +9,7 @@ W programie na początku odpala się coś w stylu sterownika typu Trapeze, któr
 Aby pobrać program wpisz to polecenie w terminalu:
 ```
 sudo git clone https://github.com/RozneOdslonyKMK/Krakow-SIP-SYSTEM/ /opt/krakow_sip_system
-chmod +x ./update_sip.sh
+chmod +x ./run.sh
 ```
 
 ## Uruchamianie
