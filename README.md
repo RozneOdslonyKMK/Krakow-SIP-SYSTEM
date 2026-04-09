@@ -38,3 +38,11 @@ cd "C:\Users\Twoja-nazwa\krakow_sip_system"
 .\run.bat
 ```
 Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
+
+<br>
+<br>
+
+<h1>
+    <p style="font-size: 34; text-align:center;">PAMIĘTAJ!</p>
+    <p style="text-align:center;">Obecnie system działa tylko na ekranach o rozdzielczości <b>1920x1080</b> (16:9)!!!</p>    
+</h1>
