@@ -37,7 +37,7 @@ except ImportError:
 
 Config.set('kivy', 'keyboard_mode', 'systemanddock')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-Window.fullscreen = auto
+Window.fullscreen = 'auto'
 Window.show_cursor = True 
 
 now = datetime.now()
