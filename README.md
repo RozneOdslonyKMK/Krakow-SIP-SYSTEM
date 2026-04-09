@@ -27,13 +27,14 @@ bash /opt/krakow_sip_system/run.sh
 ## Przed pierwszym uruchomieniem
 Zainstaluj program 🔗<a href="https://git-scm.com/install/windows">Git</a> oraz 🔗<a href="https://www.python.org/downloads/windows/">Python 3.8</a>. Podczas instalacji programu Git należy zaznaczyć opcję "Git from the command line and also from 3rd-party software", aby komenda była widoczna w CMD, natomiast przy instalacji Pythona należy **koniecznie** zaznaczyć "Add Python to PATH". Po zainstalowaniu wymaganych programów uruchom w CMD to polecenie:
 ```
-git clone https://github.com/RozneOdslonyKMK/Krakow-SIP-SYSTEM.git "C:\Program Files\krakow_sip_system"
+git clone https://github.com/RozneOdslonyKMK/Krakow-SIP-SYSTEM.git "C:\Users\Twoja-nazwa\krakow_sip_system"
 ```
+Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
 
 ## Uruchamianie
 Możesz otworzyć plik run.bat dwukrotnie klikając plik w folderze, albo poprzez CMD uruchamiając poniższe polecenie:
 ```
-cd "C:\Program Files\krakow_sip_system"
+cd "C:\Users\Twoja-nazwa\krakow_sip_system"
 run.bat
 ```
-
+Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
