@@ -32,7 +32,7 @@ Window.fullscreen = 'auto'
 Window.show_cursor = False 
 
 now = datetime.now()
-formatted_news = f"*** Jakość powietrza: DOBRA. Godzina pomiaru: {now.strftime('%H')}:00 {now.strftime('%d-%m-%Y')}. ***"
+formatted_news = f"******* Jakość powietrza: DOBRA. Godzina pomiaru: {now.strftime('%H')}:00 {now.strftime('%d-%m-%Y')}. *******"
 
 OPERATORS = {
     "MPK Kraków": ["Tramwaj", "Autobus"],
