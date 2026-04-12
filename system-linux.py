@@ -24,7 +24,13 @@ from kivy.core.window import Window
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 from kivy.config import Config
-from gps import *
+
+GPS_AVAILABLE = False
+try:
+    from gps import *
+    GPS_AVAILABLE = True
+except ImportError:
+    print("Biblioteka GPS nie znaleziona. Tryb automatyczny (Pojazd) będzie nieaktywny.")
 
 Config.set('kivy', 'keyboard_mode', 'systemanddock')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -372,12 +378,12 @@ class MainSIPLayout(FloatLayout):
 
         Window.bind(on_key_down=self._on_keyboard_down)
         
-        if SESSION["mode"] == "Pojazd":
+        if SESSION["mode"] == "Pojazd" and GPS_AVAILABLE:
             try:
                 self.gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
                 Clock.schedule_interval(self.gps_loop, 1)
             except:
-                print("Błąd GPSD")
+                print("Błąd połączenia z serwerem GPSD.")
 
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
         if 'ctrl' in modifiers:
@@ -664,12 +670,14 @@ class MainSIPLayout(FloatLayout):
         return True
 
     def gps_loop(self, dt):
-        report = self.gpsd.next()
-        if report['class'] == 'TPV':
-            my_lat = getattr(report, 'lat', 0.0)
-            my_lon = getattr(report, 'lon', 0.0)
-            if my_lat != 0.0:
-                self.process_gps_logic(my_lat, my_lon)
+        if not GPS_AVAILABLE: return
+        try:
+            report = self.gpsd.next()
+            if report['class'] == 'TPV':
+                my_lat, my_lon = getattr(report, 'lat', 0.0), getattr(report, 'lon', 0.0)
+                if my_lat != 0.0: self.process_gps_logic(my_lat, my_lon)
+        except:
+            pass
 
     def process_gps_logic(self, my_lat, my_lon):
         target_idx = self.current_idx if self.is_at_stop else self.current_idx + 1
