@@ -40,13 +40,24 @@ OPERATORS = {
     "KLM": ["Tramwaj", "Autobus"]
 }
 
+SPECIAL_MODES = {
+    "TRAM_WYJAZD": {"line": "", "label": "Wyjazd na linię", "stops": True},
+    "TRAM_ZJAZD": {"line": "", "label": "Zajezdnia", "stops": True},
+    "PRZEJAZD_TECH": {"line": "", "label": "Przejazd Techniczny", "stops": False},
+    "NAUKA_JAZDY": {"line": "", "label": "Nauka Jazdy", "stops": False},
+    "JAZDA_PROBNA": {"line": "TEST", "label": "Jazda Próbna", "stops": False},
+    "MPK_KRAKOW": {"line": "", "label": "MPK S.A. w Krakowie", "stops": False},
+    "MOBILIS": {"line": "", "label": "MOBILIS KRAKÓW", "stops": False}
+}
+
 SESSION = {
     "mode": "Dom",
     "operator": "",
     "type": "",
     "news_text": formatted_news,
     "is_route_changed": False,
-    "selected_csv_path": ""
+    "selected_csv_path": "",
+    "special_mode_id": None
 }
 
 class StartModeScreen(Screen):
@@ -117,21 +128,35 @@ class LineSelectScreen(Screen):
     def load_lines(self):
         self.clear_widgets()
         layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
-        grid = GridLayout(cols=6, spacing=10)
+        grid = GridLayout(cols=6, spacing=10, size_hint_y=None)
+        grid.bind(minimum_height=grid.setter('height'))
+        
+        scroll = ScrollView()
         
         op_dir = SESSION["operator"].split()[0].lower()
         self.base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
         
+        lines = []
         if os.path.exists(self.base_path):
             lines = [d for d in os.listdir(self.base_path) if os.path.isdir(os.path.join(self.base_path, d))]
             lines.sort(key=lambda x: (len(x), x))
-            for line in lines:
-                btn = Button(text=line, font_size='30sp', bold=True, background_color=(0, 0.23, 0.45, 1))
-                btn.bind(on_release=lambda x, l=line: self.select_line(l))
-                grid.add_widget(btn)
         
-        layout.add_widget(Label(text="WYBIERZ NUMER LINII", size_hint_y=0.1))
-        layout.add_widget(grid)
+        for line in lines:
+            btn = Button(text=line, font_size='30sp', bold=True, background_color=(0, 0.23, 0.45, 1), size_hint_y=None, height=100)
+            btn.bind(on_release=lambda x, l=line: self.select_line(l))
+            grid.add_widget(btn)
+
+        grid.add_widget(Label(text="TRYBY SPECJALNE", size_hint_y=None, height=50))
+        for mode_id, data in SPECIAL_MODES.items():
+            if "MOBILIS" in mode_id and SESSION["operator"] != "Mobilis": continue
+            
+            btn = Button(text=data["label"], font_size='18sp', background_color=(0.4, 0.4, 0.4, 1), size_hint_y=None, height=100)
+            btn.bind(on_release=lambda x, m=mode_id: self.select_special(m))
+            grid.add_widget(btn)
+
+        scroll.add_widget(grid)
+        layout.add_widget(Label(text="WYBIERZ NUMER LINII LUB TRYB", size_hint_y=0.1))
+        layout.add_widget(scroll)
         
         back = Button(text="POWRÓT", size_hint_y=0.15, background_color=(0.5, 0.5, 0.5, 1))
         back.bind(on_release=lambda x: setattr(self.manager, 'current', 'type_select'))
@@ -139,10 +164,23 @@ class LineSelectScreen(Screen):
         self.add_widget(layout)
 
     def select_line(self, line_no):
+        SESSION["special_mode_id"] = None
         line_path = os.path.join(self.base_path, line_no)
         files = [f for f in os.listdir(line_path) if f.endswith('.csv')]
         self.manager.get_screen('routes').update_routes(line_no, files, line_path)
         self.manager.current = 'routes'
+
+    def select_special(self, mode_id):
+        SESSION["special_mode_id"] = mode_id
+        if SPECIAL_MODES[mode_id]["stops"]:
+            line_path = os.path.join(self.base_path, "SPECIAL_" + mode_id)
+            if not os.path.exists(line_path): os.makedirs(line_path)
+            files = [f for f in os.listdir(line_path) if f.endswith('.csv')]
+            self.manager.get_screen('routes').update_routes(mode_id, files, line_path)
+            self.manager.current = 'routes'
+        else:
+            SESSION["selected_csv_path"] = ""
+            self.manager.current = 'news_editor'
 
 class RouteSelectScreen(Screen):
     def update_routes(self, line_no, files, line_path):
@@ -211,6 +249,8 @@ class MainSIPLayout(FloatLayout):
         self.krakow_blue = (0, 0.23, 0.45, 1)
         self.screen_h = 1080
         
+        self.special_id = SESSION.get("special_mode_id")
+        
         self.stops = []
         self.stops_db = {}
         self.current_idx = 0
@@ -234,8 +274,12 @@ class MainSIPLayout(FloatLayout):
             Clock.schedule_once(self._rebuild_video_widget, 1.0)
 
         l_color = (1, 1, 1, 1) if SESSION["is_route_changed"] else self.krakow_blue
-        line_no = SESSION["selected_csv_path"].split('/')[-2] 
-        self.add_widget(Label(text=line_no, font_size='165sp', font_name=self.ubuntu_font,
+        line_display = SESSION["selected_csv_path"].split('/')[-2] if SESSION["selected_csv_path"] else ""
+        
+        if self.special_id:
+            line_display = SPECIAL_MODES[self.special_id]["line"]
+            
+        self.add_widget(Label(text=line_display, font_size='165sp', font_name=self.ubuntu_font,
                               color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
                               pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
@@ -248,11 +292,19 @@ class MainSIPLayout(FloatLayout):
         self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 92),
                                           pos=(dest_pos_x, dest_pos_y))
         
-        if '_' in csv_file:
-            direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ')
-        else:
-            direction = csv_file.replace('.csv', '')
+        if self.special_id:
+            direction = SPECIAL_MODES[self.special_id]["label"]
+            if self.special_id == "TRAM_ZJAZD" and self.stops:
+                last_stop_name = self.stops[-1]['Nazwa'].upper()
+                if "PH" in last_stop_name: direction = "Zajezdnia Nowa Huta"
+                elif "PT" in last_stop_name: direction = "Zajezdnia Podgórze"
+                    
+        elif self.stops and 'Kierunek' in self.stops[0] and self.stops[0]['Kierunek']:
+            direction = self.stops[0]['Kierunek']
 
+        else:
+            direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
+        
         self.dest_label = Label(text=direction, font_size='65sp', font_name=self.ubuntu_font,
                                 color=self.krakow_blue, size_hint=(None, None),
                                 size=(limit_dest_width, 92), pos=(dest_pos_x, dest_pos_y),
@@ -456,9 +508,16 @@ class MainSIPLayout(FloatLayout):
                     self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
 
     def load_route(self):
-        with open(SESSION["selected_csv_path"], mode='r', encoding='utf-8') as f:
+        self.stops = []
+        path = SESSION["selected_csv_path"]
+        if not path or not os.path.exists(path):
+            self.stops = [{'Nazwa': '', 'Audio': 'cisza', 'Kierunek': ''}]
+            return
+
+        with open(path, mode='r', encoding='utf-8') as f:
             reader = csv.DictReader(f, delimiter=';')
-            for row in reader: self.stops.append(row)
+            for row in reader: 
+                self.stops.append(row)
 
     def calculate_distance(self, lat1, lon1, lat2, lon2):
         phi1, phi2 = math.radians(lat1), math.radians(lat2)
