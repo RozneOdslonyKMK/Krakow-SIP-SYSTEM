@@ -86,8 +86,12 @@ class StartModeScreen(Screen):
         btn_poj = Button(text="POJAZD\n(Automatyczny GPS)", halign='center', font_size='30sp', background_color=(0.7, 0, 0, 1))
         
         btn_dom.bind(on_release=lambda x: self.set_mode("Dom"))
-        btn_poj.bind(on_release=lambda x: self.set_mode("Pojazd"))
         
+        if sys.platform != "win32":
+            btn_poj.bind(on_release=lambda x: self.set_mode("Pojazd"))
+        else:
+            continue
+            
         layout.add_widget(btn_dom)
         layout.add_widget(btn_poj)
         self.add_widget(layout)
