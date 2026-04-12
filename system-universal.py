@@ -1,11 +1,18 @@
 import os
 import csv
 import math
+import sys
 from datetime import datetime
 
 os.environ['KIVY_NO_ARGS'] = '1'
-os.environ['KIVY_WINDOW'] = 'sdl2'
-os.environ['KIVY_GL_BACKEND'] = 'gl'
+
+if sys.platform != "win32":
+    os.environ['KIVY_WINDOW'] = 'sdl2'
+    os.environ['KIVY_GL_BACKEND'] = 'gl'
+else:
+    os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+    os.environ['KIVY_VIDEO'] = 'ffpyplayer'
+    print("INFO: Skonfigurowano backend ANGLE dla systemu Windows")
 
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
