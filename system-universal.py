@@ -318,14 +318,12 @@ class MainSIPLayout(FloatLayout):
                               color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
                               pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
-        self.update_stop_label(self.stops[0]['Nazwa'])
+        limit_dest_width = 1316 
+        dest_pos_x = 309
+        dest_pos_y = self.screen_h - 95
         
-        limit_dest_width = 1197
-        dest_pos_x = 428
-        dest_pos_y = self.screen_h - 184
-        
-        self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 92),
-                                          pos=(dest_pos_x, dest_pos_y))
+        self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 100),
+                                         pos=(dest_pos_x, dest_pos_y))
 
         direction = ""
         
@@ -352,10 +350,10 @@ class MainSIPLayout(FloatLayout):
         else:
             direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
         
-        self.dest_label = Label(text=direction, font_size='65sp', font_name=self.ubuntu_font,
-                                color=self.krakow_blue, size_hint=(None, None),
-                                size=(limit_dest_width, 92), pos=(dest_pos_x, dest_pos_y),
-                                halign='left', valign='middle', text_size=(None, 92))
+        self.dest_label = Label(text=direction, font_size='75sp', font_name=self.ubuntu_font,
+                                color=self.krakow_blue, bold=True, size_hint=(None, None),
+                                size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
+                                halign='left', valign='middle', text_size=(None, 100))
         
         self.dest_label.texture_update()
         self.dest_label.width = self.dest_label.texture_size[0]
@@ -386,6 +384,8 @@ class MainSIPLayout(FloatLayout):
         self.add_widget(self.date_label)
         Clock.schedule_interval(self.update_ui, 1)
         Clock.schedule_interval(self.scroll_news, 0.02)
+
+        self.update_stop_label(self.stops[0]['Nazwa'])
 
         Window.bind(on_key_down=self._on_keyboard_down)
         
@@ -523,16 +523,27 @@ class MainSIPLayout(FloatLayout):
         
     def update_stop_label(self, full_name):
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name
-        limit_width = 1316
+        
+        prefix_x = 360
+        text_start_x = 428
+        stop_pos_y = self.screen_h - 184
+        limit_width = 1197
+
+        if not hasattr(self, 'lbl_prefix'):
+            self.lbl_prefix = Label(text="> ", font_size='65sp', font_name=self.ubuntu_font,
+                                   color=self.krakow_blue, size_hint=(None, None),
+                                   size=(60, 92), pos=(prefix_x, stop_pos_y),
+                                   halign='left', valign='middle')
+            self.add_widget(self.lbl_prefix)
 
         if not hasattr(self, 'stop_container'):
-            self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 100),
-                                            pos=(309, self.screen_h - 95))
+            self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 92),
+                                             pos=(text_start_x, stop_pos_y))
             
-            self.lbl_stop = Label(text=clean_name, font_size='75sp', font_name=self.ubuntu_font,
-                                  color=self.krakow_blue, bold=True, size_hint=(None, None),
-                                  size=(limit_width, 100), pos=(309, self.screen_h - 95),
-                                  halign='left', valign='middle', text_size=(None, 100))
+            self.lbl_stop = Label(text=clean_name, font_size='65sp', font_name=self.ubuntu_font,
+                                 color=self.krakow_blue, size_hint=(None, None),
+                                 size=(limit_width, 92), pos=(text_start_x, stop_pos_y),
+                                 halign='left', valign='middle', text_size=(None, 92))
             
             self.stop_container.add_widget(self.lbl_stop)
             self.add_widget(self.stop_container)
@@ -543,7 +554,7 @@ class MainSIPLayout(FloatLayout):
         self.lbl_stop.width = self.lbl_stop.texture_size[0]
         self.should_scroll_stop = self.lbl_stop.width > limit_width
         
-        self.lbl_stop.x = 309
+        self.lbl_stop.x = text_start_x
             
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'stops.csv')
@@ -579,19 +590,19 @@ class MainSIPLayout(FloatLayout):
         self.ticker.x -= 4
         if self.ticker.right < 0: self.ticker.x = 1726
         
-        if hasattr(self, 'should_scroll_stop') and self.should_scroll_stop:
-            self.lbl_stop.x -= 2
-            if self.lbl_stop.right < 309:
-                self.lbl_stop.x = 309 + 1316
-        elif hasattr(self, 'lbl_stop'):
-            self.lbl_stop.x = 309
-
         if hasattr(self, 'should_scroll_dest') and self.should_scroll_dest:
             self.dest_label.x -= 2
-            if self.dest_label.right < 428:
-                self.dest_label.x = 428 + 1197
+            if self.dest_label.right < 309:
+                self.dest_label.x = 309 + 1316
         elif hasattr(self, 'dest_label'):
-            self.dest_label.x = 428
+            self.dest_label.x = 309
+
+        if hasattr(self, 'should_scroll_stop') and self.should_scroll_stop:
+            self.lbl_stop.x -= 2
+            if self.lbl_stop.right < 428:
+                self.lbl_stop.x = 428 + 1197
+        elif hasattr(self, 'lbl_stop'):
+            self.lbl_stop.x = 428
 
     def next_ad(self, *args):
         if hasattr(self, '_loading_ad') and self._loading_ad:
