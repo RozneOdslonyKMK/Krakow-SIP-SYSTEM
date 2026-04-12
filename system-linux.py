@@ -148,7 +148,11 @@ class LineSelectScreen(Screen):
 
         grid.add_widget(Label(text="TRYBY SPECJALNE", size_hint_y=None, height=50))
         for mode_id, data in SPECIAL_MODES.items():
-            if "MOBILIS" in mode_id and SESSION["operator"] != "Mobilis": continue
+            if mode_id == "MPK_KRAKOW" and "Mobilis" in SESSION["operator"]:
+                continue
+                
+            if mode_id == "MOBILIS" and "MPK" in SESSION["operator"]:
+                continue
             
             btn = Button(text=data["label"], font_size='18sp', background_color=(0.4, 0.4, 0.4, 1), size_hint_y=None, height=100)
             btn.bind(on_release=lambda x, m=mode_id: self.select_special(m))
