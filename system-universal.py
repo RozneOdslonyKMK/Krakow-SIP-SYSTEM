@@ -90,7 +90,9 @@ class StartModeScreen(Screen):
         if sys.platform != "win32":
             btn_poj.bind(on_release=lambda x: self.set_mode("Pojazd"))
         else:
-            continue
+            btn_poj.disabled = True
+            btn_poj.text = "POJAZD\n(GPS niedostępny na Windows)"
+            btn_poj.background_color = (0.3, 0.3, 0.3, 1)
             
         layout.add_widget(btn_dom)
         layout.add_widget(btn_poj)
