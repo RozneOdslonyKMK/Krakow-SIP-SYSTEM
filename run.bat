@@ -37,7 +37,7 @@ echo --- Uruchamianie SIP --- >> "%LATEST_LOG%"
 
 if exist "update_sip.bat" call update_sip.bat >> "%LATEST_LOG%" 2>&1
 
-python system-windows.py >> "%LATEST_LOG%" 2>&1
+python system-universal.py >> "%LATEST_LOG%" 2>&1
 
 echo --- ZAMKNIĘCIE SYSTEMU: %date% %time% --- >> "%LATEST_LOG%"
 pause
