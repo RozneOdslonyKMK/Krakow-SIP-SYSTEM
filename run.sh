@@ -46,6 +46,6 @@ echo "--- Zależności sprawdzone. Uruchamianie SIP ---"
 
 /usr/bin/chmod +x ./update_sip.sh
 /usr/bin/bash ./update_sip.sh
-/usr/bin/python3 system-linux.py
+/usr/bin/python3 system-universal.py
 
 echo "--- ZAMKNIĘCIE SYSTEMU: $(date +"%Y-%m-%d %H:%M:%S") ---"
