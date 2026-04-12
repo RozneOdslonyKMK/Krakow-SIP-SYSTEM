@@ -139,7 +139,10 @@ class LineSelectScreen(Screen):
         op_dir = SESSION["operator"].split()[0].lower()
         self.base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
 
-        EXCLUDED_FOLDERS = ["notusednow", "not_used_now", "not used now"]
+        EXCLUDED_FOLDERS = [
+            "notusednow", "not_used_now", "not used now"
+            "special_tram_wyjazd", "special_tram_zjazd"
+        ]
         
         lines = []
         if os.path.exists(self.base_path):
@@ -186,7 +189,9 @@ class LineSelectScreen(Screen):
     def select_special(self, mode_id):
         SESSION["special_mode_id"] = mode_id
         if SPECIAL_MODES[mode_id]["stops"]:
-            line_path = os.path.join(self.base_path, "SPECIAL_" + mode_id)
+            op_dir = SESSION["operator"].split()[0].lower()
+            base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
+            line_path = os.path.join(base_path, "SPECIAL_" + mode_id)
             if not os.path.exists(line_path): os.makedirs(line_path)
             files = [f for f in os.listdir(line_path) if f.endswith('.csv')]
             self.manager.get_screen('routes').update_routes(mode_id, files, line_path)
