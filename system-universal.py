@@ -311,7 +311,11 @@ class MainSIPLayout(FloatLayout):
             Clock.schedule_once(self._rebuild_video_widget, 1.0)
 
         l_color = (1, 1, 1, 1) if SESSION["is_route_changed"] else self.krakow_blue
-        line_display = SESSION["selected_csv_path"].split('/')[-2] if SESSION["selected_csv_path"] else ""
+        if SESSION["selected_csv_path"]:
+            path_parts = os.path.normpath(SESSION["selected_csv_path"]).split(os.sep)
+            line_display = path_parts[-2] if len(path_parts) >= 2 else ""
+        else:
+            line_display = ""
         
         if self.special_id:
             line_display = SPECIAL_MODES[self.special_id]["line"]
