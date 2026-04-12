@@ -298,17 +298,29 @@ class MainSIPLayout(FloatLayout):
         
         self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 92),
                                           pos=(dest_pos_x, dest_pos_y))
+
+        direction = ""
         
-        if self.special_id:
+        if self.special_id == "TRAM_WYJAZD":
+            if self.stops:
+                last_stop = self.stops[-1]['Nazwa']
+                direction = last_stop.rsplit(' ', 1)[0] if ' ' in last_stop else last_stop
+            else:
+                direction = "Wyjazd na linię"
+
+        elif self.special_id:
             direction = SPECIAL_MODES[self.special_id]["label"]
+            
             if self.special_id == "TRAM_ZJAZD" and self.stops:
                 last_stop_name = self.stops[-1]['Nazwa'].upper()
-                if "PH" in last_stop_name: direction = "Zajezdnia Nowa Huta"
-                elif "PT" in last_stop_name: direction = "Zajezdnia Podgórze"
-                    
+                if "PH" in last_stop_name: 
+                    direction = "Zajezdnia Nowa Huta"
+                elif "PT" in last_stop_name: 
+                    direction = "Zajezdnia Podgórze"
+        
         elif self.stops and 'Kierunek' in self.stops[0] and self.stops[0]['Kierunek']:
             direction = self.stops[0]['Kierunek']
-
+        
         else:
             direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
         
