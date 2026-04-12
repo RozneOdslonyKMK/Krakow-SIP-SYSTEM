@@ -140,7 +140,7 @@ class LineSelectScreen(Screen):
         self.base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
 
         EXCLUDED_FOLDERS = [
-            "notusednow", "not_used_now", "not used now"
+            "notusednow", "not_used_now", "not used now",
             "special_tram_wyjazd", "special_tram_zjazd"
         ]
         
