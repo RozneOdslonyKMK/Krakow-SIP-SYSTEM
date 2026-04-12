@@ -43,9 +43,12 @@ OPERATORS = {
 SPECIAL_MODES = {
     "TRAM_WYJAZD": {"line": "", "label": "Wyjazd na linię", "stops": True},
     "TRAM_ZJAZD": {"line": "", "label": "Zajezdnia", "stops": True},
+    "BUS_WYJAZD": {"line": "", "label": "Wyjazd na linię", "stops": False},
+    "BUS_ZJAZD": {"line": "", "label": "Zjazd do zajezdni", "stops": False},
     "PRZEJAZD_TECH": {"line": "", "label": "Przejazd Techniczny", "stops": False},
     "NAUKA_JAZDY": {"line": "", "label": "Nauka Jazdy", "stops": False},
-    "JAZDA_PROBNA": {"line": "TEST", "label": "Jazda Próbna", "stops": False},
+    "JAZDA_TEST": {"line": "TEST", "label": "Jazda Testowa", "stops": False},
+    "JAZDA_PROBNA": {"line": "", "label": "Jazda Próbna", "stops": False},
     "MPK_KRAKOW": {"line": "", "label": "MPK S.A. w Krakowie", "stops": False},
     "MOBILIS": {"line": "", "label": "MOBILIS KRAKÓW", "stops": False}
 }
