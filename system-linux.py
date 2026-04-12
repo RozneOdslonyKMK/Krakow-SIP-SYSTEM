@@ -138,10 +138,16 @@ class LineSelectScreen(Screen):
         
         op_dir = SESSION["operator"].split()[0].lower()
         self.base_path = os.path.join(BASE_DIR, 'routes', op_dir, SESSION["type"])
+
+        EXCLUDED_FOLDERS = ["notusednow", "not_used_now", "not used now"]
         
         lines = []
         if os.path.exists(self.base_path):
-            lines = [d for d in os.listdir(self.base_path) if os.path.isdir(os.path.join(self.base_path, d))]
+            lines = [
+                d for d in os.listdir(self.base_path)
+                if os.path.isdir(os.path.join(self.base_path, d))
+                and d.lower() not in EXCLUDED_FOLDERS
+            ]
             lines.sort(key=lambda x: (len(x), x))
         
         for line in lines:
