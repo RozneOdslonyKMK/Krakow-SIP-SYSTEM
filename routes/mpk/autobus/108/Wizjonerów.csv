@@ -1,8 +1,8 @@
-Lp;Nazwa;Audio
-1;Bronowice Małe 03;Bronowice Małe
-2;Bronowice Małe 08;Bronowice Małe
-3;Bronowice SKA 04;Bronowice SKA
-4;Bronowice SKA 06;Bronowice SKA
-5;Rondo Ofiar Katynia 02;Rondo Ofiar Katynia
-6;Odkrywców 02;Odkrywców
-7;Wizjonerów 92;Wizjonerów
+Lp;Nazwa;Audio;Kierunek
+1;Bronowice Małe 03;Bronowice Małe;Wizjonerów
+2;Bronowice Małe 08;Bronowice Małe;
+3;Bronowice SKA 04;Bronowice SKA;
+4;Bronowice SKA 06;Bronowice SKA;
+5;Rondo Ofiar Katynia 02;Rondo Ofiar Katynia;
+6;Odkrywców 02;Odkrywców;
+7;Wizjonerów 92;Wizjonerów;
