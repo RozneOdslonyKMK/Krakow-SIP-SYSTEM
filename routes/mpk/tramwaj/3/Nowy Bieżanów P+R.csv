@@ -1,26 +1,26 @@
-Lp;Nazwa;Audio
-1;Krowodrza Górka P+R 03;Krowodrza Górka P+R
-2;Krowodrza Górka P+R 02;Krowodrza Górka P+R
-3;Bratysławska 02;Bratysławska
-4;Szpital Narutowicza 02;Szpital Narutowicza
-5;Dworzec Towarowy 02;Dworzec Towarowy
-6;Politechnika 02;Politechnika
-7;Dworzec Główny Zachód 01;Dworzec Główny Zachód
-8;Teatr Słowackiego 04;Teatr Słowackiego
-9;Poczta Główna 01;Poczta Główna
-10;Starowiślna 02;Starowiślna
-11;Miodowa 01;Miodowa
-12;św. Wawrzyńca 01;Św. Wawrzyńca
-13;Plac Bohaterów Getta 01;Plac Bohaterów Getta
-14;Podgórze SKA 01;Podgórze SKA
-15;Cmentarz Podgórski 01;Cmentarz Podgórski
-16;Dworcowa 01;Dworcowa
-17;Kabel 01;Kabel
-18;Bieżanowska 01;Bieżanowska
-19;Wlotowa 01;Wlotowa
-20;Prokocim 01;Prokocim
-21;Prokocim Szpital 01;Prokocim Szpital
-22;Teligi 01;Teligi
-23;Nowy Prokocim 01;Nowy Prokocim
-24;Ćwiklińskiej 01;Ćwiklińskiej
-25;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R
+Lp;Nazwa;Audio;Kierunek
+1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Nowy Bieżanów P+R
+2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;
+3;Bratysławska 02;Bratysławska;
+4;Szpital Narutowicza 02;Szpital Narutowicza;
+5;Dworzec Towarowy 02;Dworzec Towarowy;
+6;Politechnika 02;Politechnika;
+7;Dworzec Główny Zachód 01;Dworzec Główny Zachód;
+8;Teatr Słowackiego 04;Teatr Słowackiego;
+9;Poczta Główna 01;Poczta Główna;
+10;Starowiślna 02;Starowiślna;
+11;Miodowa 01;Miodowa;
+12;św. Wawrzyńca 01;Św. Wawrzyńca;
+13;Plac Bohaterów Getta 01;Plac Bohaterów Getta;
+14;Podgórze SKA 01;Podgórze SKA;
+15;Cmentarz Podgórski 01;Cmentarz Podgórski;
+16;Dworcowa 01;Dworcowa;
+17;Kabel 01;Kabel;
+18;Bieżanowska 01;Bieżanowska;
+19;Wlotowa 01;Wlotowa;
+20;Prokocim 01;Prokocim;
+21;Prokocim Szpital 01;Prokocim Szpital;
+22;Teligi 01;Teligi;
+23;Nowy Prokocim 01;Nowy Prokocim;
+24;Ćwiklińskiej 01;Ćwiklińskiej;
+25;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R;
