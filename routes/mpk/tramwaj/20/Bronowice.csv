@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio
-1;Mały Płaszów P+R 01;Mały Płaszów P+R
-2;Rzebika 02;Rzebika
-3;Lipska 02;Lipska
-4;Gromadzka 02;Gromadzka
-5;Kuklińskiego 02;Kuklińskiego
-6;Klimeckiego 02;Klimeckiego
-7;Zabłocie 02;Zabłocie
-8;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie
-9;Rondo Mogilskie 04;Rondo Mogilskie
-10;Lubicz 01;Lubicz
-11;Teatr Słowackiego 01;Teatr Słowackiego
-12;Stary Kleparz 01;Stary Kleparz
-13;Teatr Bagatela 02;Teatr Bagatela
-14;Stefana Batorego 01;Stefana Batorego
-15;Plac Inwalidów 01;Plac Inwalidów
-16;Urzędnicza 01;Urzędnicza
-17;Biprostal 01;Biprostal
-18;UKEN 01;UKEN
-19;Głowackiego 01;Głowackiego
-20;Bronowice 91;Bronowice
+Lp;Nazwa;Audio;Kierunek
+1;Mały Płaszów P+R 01;Mały Płaszów P+R;Bronowice
+2;Rzebika 02;Rzebika;
+3;Lipska 02;Lipska;
+4;Gromadzka 02;Gromadzka;
+5;Kuklińskiego 02;Kuklińskiego;
+6;Klimeckiego 02;Klimeckiego;
+7;Zabłocie 02;Zabłocie;
+8;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;
+9;Rondo Mogilskie 04;Rondo Mogilskie;
+10;Lubicz 01;Lubicz;
+11;Teatr Słowackiego 01;Teatr Słowackiego;
+12;Stary Kleparz 01;Stary Kleparz;
+13;Teatr Bagatela 02;Teatr Bagatela;
+14;Stefana Batorego 01;Stefana Batorego;
+15;Plac Inwalidów 01;Plac Inwalidów;
+16;Urzędnicza 01;Urzędnicza;
+17;Biprostal 01;Biprostal;
+18;UKEN 01;UKEN;
+19;Głowackiego 01;Głowackiego;
+20;Bronowice 91;Bronowice;
