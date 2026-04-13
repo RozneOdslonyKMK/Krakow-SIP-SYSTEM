@@ -1,32 +1,32 @@
-Lp;Nazwa;Audio
-1;Bronowice Małe 01;Bronowice Małe
-2;Bronowice SKA 02;Bronowice SKA
-3;Wesele 02;Wesele
-4;Bronowice 02;Bronowice
-5;Głowackiego 02;Głowackiego
-6;UKEN 02;UKEN
-7;Biprostal 02;Biprostal
-8;Urzędnicza 02;Urzędnicza
-9;Plac Inwalidów 02;Plac Inwalidów
-10;Stefana Batorego 02;Stefana Batorego
-11;Teatr Bagatela 03;Teatr Bagatela
-12;Stary Kleparz 02;Stary Kleparz
-13;Teatr Słowackiego 02;Teatr Słowackiego
-14;Lubicz 02;Lubicz
-15;Rondo Mogilskie 02;Rondo Mogilskie
-16;Cystersów 01;Cystersów
-17;Białucha 01;Białucha
-18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta
-19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego
-20;AKF / PK 01;AKF PK
-21;Stella-Sawickiego 01;Stella-Sawickiego
-22;Czyżyny 01;Czyżyny
-23;Rondo Czyżyńskie 03;Rondo Czyżyńskie
-24;Bieńczycka 02;Bieńczycka
-25;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego
-26;DH Wanda 01;DH Wanda
-27;Rondo Hipokratesa 01;Rondo Hipokratesa
-28;Dunikowskiego 01;Dunikowskiego
-29;Kleeberga 01;Kleeberga
-30;Piasta Kołodzieja 01;Piasta Kołodzieja
-31;Os. Piastów 91;Os. Piastów
+Lp;Nazwa;Audio;Kierunek
+1;Bronowice Małe 01;Bronowice Małe;Os. Piastów
+2;Bronowice SKA 02;Bronowice SKA;
+3;Wesele 02;Wesele;
+4;Bronowice 02;Bronowice;
+5;Głowackiego 02;Głowackiego;
+6;UKEN 02;UKEN;
+7;Biprostal 02;Biprostal;
+8;Urzędnicza 02;Urzędnicza;
+9;Plac Inwalidów 02;Plac Inwalidów;
+10;Stefana Batorego 02;Stefana Batorego;
+11;Teatr Bagatela 03;Teatr Bagatela;
+12;Stary Kleparz 02;Stary Kleparz;
+13;Teatr Słowackiego 02;Teatr Słowackiego;
+14;Lubicz 02;Lubicz;
+15;Rondo Mogilskie 02;Rondo Mogilskie;
+16;Cystersów 01;Cystersów;
+17;Białucha 01;Białucha;
+18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;
+19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;
+20;AKF / PK 01;AKF PK;
+21;Stella-Sawickiego 01;Stella-Sawickiego;
+22;Czyżyny 01;Czyżyny;
+23;Rondo Czyżyńskie 03;Rondo Czyżyńskie;
+24;Bieńczycka 02;Bieńczycka;
+25;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
+26;DH Wanda 01;DH Wanda;
+27;Rondo Hipokratesa 01;Rondo Hipokratesa;
+28;Dunikowskiego 01;Dunikowskiego;
+29;Kleeberga 01;Kleeberga;
+30;Piasta Kołodzieja 01;Piasta Kołodzieja;
+31;Os. Piastów 91;Os. Piastów;
