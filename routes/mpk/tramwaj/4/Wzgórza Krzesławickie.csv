@@ -1,35 +1,35 @@
-Lp;Nazwa;Audio
-1;Bronowice Małe 01;Bronowice Małe
-2;Bronowice SKA 02;Bronowice SKA
-3;Wesele 02;Wesele
-4;Bronowice 02;Bronowice
-5;Głowackiego 02;Głowackiego
-6;UKEN 02;UKEN
-7;Biprostal 02;Biprostal
-8;Urzędnicza 02;Urzędnicza
-9;Plac Inwalidów 02;Plac Inwalidów
-10;Stefana Batorego 02;Stefana Batorego
-11;Teatr Bagatela 03;Teatr Bagatela
-12;Stary Kleparz 02;Stary Kleparz
-13;Teatr Słowackiego 02;Teatr Słowackiego
-14;Lubicz 02;Lubicz
-15;Rondo Mogilskie 02;Rondo Mogilskie
-16;Cystersów 01;Cystersów
-17;Białucha 01;Białucha
-18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta
-19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego
-20;AKF / PK 01;AKF PK
-21;Stella-Sawickiego 01;Stella-Sawickiego
-22;Czyżyny 01;Czyżyny
-23;Rondo Czyżyńskie 01;Rondo Czyżyńskie
-24;Os. Kolorowe 01;Os. Kolorowe
-25;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana
-26;Struga 01;Struga
-27;Zalew Nowohucki 01;Zalew Nowohucki
-28;Kombinat 01;Kombinat
-29;Zajezdnia Nowa Huta 02;Zajezdnia Nowa Huta
-30;Elektromontaż (NŻ) 02;Elektromontaż NŻ
-31;Grodzki Urząd Pracy 02;Grodzki Urząd Pracy
-32;Darwina 01;Darwina
-33;Jarzębiny 01;Jarzębiny
-34;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie
+Lp;Nazwa;Audio;Kierunek
+1;Bronowice Małe 01;Bronowice Małe;Wzgórza Krzesławickie
+2;Bronowice SKA 02;Bronowice SKA;
+3;Wesele 02;Wesele;
+4;Bronowice 02;Bronowice;
+5;Głowackiego 02;Głowackiego;
+6;UKEN 02;UKEN;
+7;Biprostal 02;Biprostal;
+8;Urzędnicza 02;Urzędnicza;
+9;Plac Inwalidów 02;Plac Inwalidów;
+10;Stefana Batorego 02;Stefana Batorego;
+11;Teatr Bagatela 03;Teatr Bagatela;
+12;Stary Kleparz 02;Stary Kleparz;
+13;Teatr Słowackiego 02;Teatr Słowackiego;
+14;Lubicz 02;Lubicz;
+15;Rondo Mogilskie 02;Rondo Mogilskie;
+16;Cystersów 01;Cystersów;
+17;Białucha 01;Białucha;
+18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;
+19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;
+20;AKF / PK 01;AKF PK;
+21;Stella-Sawickiego 01;Stella-Sawickiego;
+22;Czyżyny 01;Czyżyny;
+23;Rondo Czyżyńskie 01;Rondo Czyżyńskie;
+24;Os. Kolorowe 01;Os. Kolorowe;
+25;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;
+26;Struga 01;Struga;
+27;Zalew Nowohucki 01;Zalew Nowohucki;
+28;Kombinat 01;Kombinat;
+29;Zajezdnia Nowa Huta 02;Zajezdnia Nowa Huta;
+30;Elektromontaż (NŻ) 02;Elektromontaż NŻ;
+31;Grodzki Urząd Pracy 02;Grodzki Urząd Pracy;
+32;Darwina 01;Darwina;
+33;Jarzębiny 01;Jarzębiny;
+34;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;
