@@ -1,26 +1,26 @@
-Lp;Nazwa;Audio
-1;Górka Narodowa P+R 01;Górka Narodowa P+R
-2;Papierni Prądnickich 02;Papierni Prądnickich
-3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej
-4;Bociana 02;Bociana
-5;Siewna Wiadukt 02;Siewna Wiadukt
-6;Górnickiego 01;Górnickiego
-7;Białoprądnicka 01;Białoprądnicka
-8;Pachońskiego P+R 02;Pachońskiego P+R
-9;Krowodrza Górka P+R 02;Krowodrza Górka P+R
-10;Bratysławska 02;Bratysławska
-11;Szpital Narutowicza 02;Szpital Narutowicza
-12;Dworzec Towarowy 03;Dworzec Towarowy
-13;Nowy Kleparz 02;Nowy Kleparz
-14;Pędzichów 02;Pędzichów
-15;Stary Kleparz 03;Stary Kleparz
-16;Teatr Słowackiego 02;Teatr Słowackiego
-17;Poczta Główna 01;Poczta Główna
-18;Starowiślna 03;Starowiślna
-19;Hala Targowa 01;Hala Targowa
-20;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie
-21;Teatr Variété 01;Teatr Variété
-22;Nullo 01;Nullo
-23;Fabryczna 01;Fabryczna
-24;Ofiar Dąbia 01;Ofiar Dąbia
-25;Dąbie 93;Dąbie
+Lp;Nazwa;Audio;Kierunek
+1;Górka Narodowa P+R 01;Górka Narodowa P+R;Dąbie
+2;Papierni Prądnickich 02;Papierni Prądnickich;
+3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej;
+4;Bociana 02;Bociana;
+5;Siewna Wiadukt 02;Siewna Wiadukt;
+6;Górnickiego 01;Górnickiego;
+7;Białoprądnicka 01;Białoprądnicka;
+8;Pachońskiego P+R 02;Pachońskiego P+R;
+9;Krowodrza Górka P+R 02;Krowodrza Górka P+R;
+10;Bratysławska 02;Bratysławska;
+11;Szpital Narutowicza 02;Szpital Narutowicza;
+12;Dworzec Towarowy 03;Dworzec Towarowy;
+13;Nowy Kleparz 02;Nowy Kleparz;
+14;Pędzichów 02;Pędzichów;
+15;Stary Kleparz 03;Stary Kleparz;
+16;Teatr Słowackiego 02;Teatr Słowackiego;
+17;Poczta Główna 01;Poczta Główna;
+18;Starowiślna 03;Starowiślna;
+19;Hala Targowa 01;Hala Targowa;
+20;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;
+21;Teatr Variété 01;Teatr Variété;
+22;Nullo 01;Nullo;
+23;Fabryczna 01;Fabryczna;
+24;Ofiar Dąbia 01;Ofiar Dąbia;
+25;Dąbie 93;Dąbie;
