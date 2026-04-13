@@ -1,11 +1,11 @@
-Lp;Nazwa;Audio
-1;Salwator 01;Salwator
-2;Salwator 02;Salwator
-3;Komorowskiego 02;Komorowskiego
-4;Jubilat 02;Jubilat
-5;Filharmonia 02;Filharmonia
-6;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych
-7;Poczta Główna 03;Poczta Główna
-8;Starowiślna 02;Starowiślna
-9;Miodowa 01;Miodowa
-10;Dajwór 91;Dajwór
+Lp;Nazwa;Audio;Kierunek
+1;Salwator 01;Salwator;Dajwór
+2;Salwator 02;Salwator;
+3;Komorowskiego 02;Komorowskiego;
+4;Jubilat 02;Jubilat;
+5;Filharmonia 02;Filharmonia;
+6;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;
+7;Poczta Główna 03;Poczta Główna;
+8;Starowiślna 02;Starowiślna;
+9;Miodowa 01;Miodowa;
+10;Dajwór 91;Dajwór;
