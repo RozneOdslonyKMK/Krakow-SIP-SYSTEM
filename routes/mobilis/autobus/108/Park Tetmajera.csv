@@ -1,10 +1,10 @@
-Lp;Nazwa;Audio
-1;Bronowice Małe 03;Bronowice Małe
-2;Bronowice Małe 08;Bronowice Małe
-3;Bronowice SKA 04;Bronowice SKA
-4;Bronowice SKA 06;Bronowice SKA
-5;Rondo Ofiar Katynia 02;Rondo Ofiar Katynia
-6;Katowicka 02;Katowicka
-7;Cmentarz Bronowice (NŻ) 02;Cmentarz Bronowice NŻ
-8;Pasternik (NŻ) 03;Pasternik NŻ
-9;Park Tetmajera 01;Park Tetmajera
+Lp;Nazwa;Audio;Kierunek
+1;Bronowice Małe 03;Bronowice Małe;Park Tetmajera
+2;Bronowice Małe 08;Bronowice Małe;
+3;Bronowice SKA 04;Bronowice SKA;
+4;Bronowice SKA 06;Bronowice SKA;
+5;Rondo Ofiar Katynia 02;Rondo Ofiar Katynia;
+6;Katowicka 02;Katowicka;
+7;Cmentarz Bronowice (NŻ) 02;Cmentarz Bronowice NŻ;
+8;Pasternik (NŻ) 03;Pasternik NŻ;
+9;Park Tetmajera 01;Park Tetmajera;
