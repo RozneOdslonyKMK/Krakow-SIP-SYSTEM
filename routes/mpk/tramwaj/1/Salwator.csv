@@ -1,29 +1,29 @@
-Lp;Nazwa;Audio
-1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie
-2;Jarzębiny 02;Jarzębiny
-3;Darwina 02;Darwina
-4;Wańkowicza 01;Wańkowicza
-5;Cienista 01;Cienista
-6;Teatr Ludowy 01;Teatr Ludowy
-7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego
-8;Bieńczycka 01;Bieńczycka
-9;Rondo Czyżyńskie 04;Rondo Czyżyńskie
-10;Gałczyńskiego 02;Gałczyńskiego
-11;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu
-12;Ogród Doświadczeń 02;Ogród Doświadczeń
-13;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju
-14;Dąbie 02;Dąbie
-15;Ofiar Dąbia 02;Ofiar Dąbia
-16;Fabryczna 02;Fabryczna
-17;Nullo 02;Nullo
-18;Teatr Variété 02;Teatr Variété
-19;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie
-20;Hala Targowa 02;Hala Targowa
-21;Starowiślna 04;Starowiślna
-22;Poczta Główna 02;Poczta Główna
-23;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych
-24;Filharmonia 01;Filharmonia
-25;Jubilat 01;Jubilat
-26;Komorowskiego 01;Komorowskiego
-27;Salwator 03;Salwator
-28;Salwator 91;Salwator
+Lp;Nazwa;Audio;Kierunek
+1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Salwator
+2;Jarzębiny 02;Jarzębiny;
+3;Darwina 02;Darwina;
+4;Wańkowicza 01;Wańkowicza;
+5;Cienista 01;Cienista;
+6;Teatr Ludowy 01;Teatr Ludowy;
+7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
+8;Bieńczycka 01;Bieńczycka;
+9;Rondo Czyżyńskie 04;Rondo Czyżyńskie;
+10;Gałczyńskiego 02;Gałczyńskiego;
+11;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu;
+12;Ogród Doświadczeń 02;Ogród Doświadczeń;
+13;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju;
+14;Dąbie 02;Dąbie;
+15;Ofiar Dąbia 02;Ofiar Dąbia;
+16;Fabryczna 02;Fabryczna;
+17;Nullo 02;Nullo;
+18;Teatr Variété 02;Teatr Variété;
+19;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;
+20;Hala Targowa 02;Hala Targowa;
+21;Starowiślna 04;Starowiślna;
+22;Poczta Główna 02;Poczta Główna;
+23;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;
+24;Filharmonia 01;Filharmonia;
+25;Jubilat 01;Jubilat;
+26;Komorowskiego 01;Komorowskiego;
+27;Salwator 03;Salwator;
+28;Salwator 91;Salwator;
