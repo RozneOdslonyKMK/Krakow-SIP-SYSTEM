@@ -1,19 +1,19 @@
-Lp;Nazwa;Audio
-1;Mały Płaszów P+R 01;Mały Płaszów P+R
-2;Rzebika 02;Rzebika
-3;Lipska 03;Lipska
-4;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada
-5;Dworcowa 02;Dworcowa
-6;Cmentarz Podgórski 02;Cmentarz Podgórski
-7;Podgórze SKA 02;Podgórze SKA
-8;Limanowskiego 02;Limanowskiego
-9;Korona 02;Korona
-10;Plac Wolnica 02;Plac Wolnica
-11;Stradom 04;Stradom
-12;Wawel 01;Wawel
-13;Poczta Główna 03;Poczta Główna
-14;Teatr Słowackiego 03;Teatr Słowackiego
-15;Lubicz 02;Lubicz
-16;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny
-17;Muzeum Fotografii 01;Muzeum Fotografii
-18;Cmentarz Rakowicki 91;Cmentarz Rakowicki
+Lp;Nazwa;Audio;Kierunek
+1;Mały Płaszów P+R 01;Mały Płaszów P+R;Cmentarz Rakowicki
+2;Rzebika 02;Rzebika;
+3;Lipska 03;Lipska;
+4;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada;
+5;Dworcowa 02;Dworcowa;
+6;Cmentarz Podgórski 02;Cmentarz Podgórski;
+7;Podgórze SKA 02;Podgórze SKA;
+8;Limanowskiego 02;Limanowskiego;
+9;Korona 02;Korona;
+10;Plac Wolnica 02;Plac Wolnica;
+11;Stradom 04;Stradom;
+12;Wawel 01;Wawel;
+13;Poczta Główna 03;Poczta Główna;
+14;Teatr Słowackiego 03;Teatr Słowackiego;
+15;Lubicz 02;Lubicz;
+16;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny;
+17;Muzeum Fotografii 01;Muzeum Fotografii;
+18;Cmentarz Rakowicki 91;Cmentarz Rakowicki;
