@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio
-1;Pleszów 01;Pleszów
-2;Koksochemia (NŻ) 02;Koksochemia NŻ
-3;Meksyk (NŻ) 02;Meksyk NŻ
-4;Brama nr 5 (NŻ) 02;Brama nr 5 NŻ
-5;Giedroycia (NŻ) 02;Giedroycia NŻ
-6;Brama nr 4 (NŻ) 02;Brama nr 4 NŻ
-7;Fort Mogiła (NŻ) 02;Fort Mogiła NŻ
-8;Kopiec Wandy 02;Kopiec Wandy
-9;Kombinat 03;Kombinat
-10;Zalew Nowohucki 02;Zalew Nowohucki
-11;Struga 02;Struga
-12;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana
-13;Os. Zgody 02;Os. Zgody
-14;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego
-15;DH Wanda 01;DH Wanda
-16;Rondo Hipokratesa 01;Rondo Hipokratesa
-17;Dunikowskiego 01;Dunikowskiego
-18;Kleeberga 01;Kleeberga
-19;Piasta Kołodzieja 01;Piasta Kołodzieja
-20;Os. Piastów 91;Os. Piastów
+Lp;Nazwa;Audio;Kierunek
+1;Pleszów 01;Pleszów;Os. Piastów
+2;Koksochemia (NŻ) 02;Koksochemia NŻ;
+3;Meksyk (NŻ) 02;Meksyk NŻ;
+4;Brama nr 5 (NŻ) 02;Brama nr 5 NŻ;
+5;Giedroycia (NŻ) 02;Giedroycia NŻ;
+6;Brama nr 4 (NŻ) 02;Brama nr 4 NŻ;
+7;Fort Mogiła (NŻ) 02;Fort Mogiła NŻ;
+8;Kopiec Wandy 02;Kopiec Wandy;
+9;Kombinat 03;Kombinat;
+10;Zalew Nowohucki 02;Zalew Nowohucki;
+11;Struga 02;Struga;
+12;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;
+13;Os. Zgody 02;Os. Zgody;
+14;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
+15;DH Wanda 01;DH Wanda;
+16;Rondo Hipokratesa 01;Rondo Hipokratesa;
+17;Dunikowskiego 01;Dunikowskiego;
+18;Kleeberga 01;Kleeberga;
+19;Piasta Kołodzieja 01;Piasta Kołodzieja;
+20;Os. Piastów 91;Os. Piastów;
