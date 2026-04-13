@@ -1,27 +1,27 @@
-Lp;Nazwa;Audio
-1;Czerwone Maki P+R 01;Czerwone Maki P+R
-2;Kampus UP JP II 02;Kampus UP JP II
-3;Kampus UJ 02;Kampus UJ
-4;Ruczaj 02;Ruczaj
-5;Norymberska 02;Norymberska
-6;Grota-Roweckiego 02;Grota-Roweckiego
-7;Lipińskiego 02;Lipińskiego
-8;Borsucza 01;Borsucza
-9;Brożka (NŻ) 01;Brożka NŻ
-10;Łagiewniki 04;Łagiewniki
-11;Łagiewniki ZUS 01;Łagiewniki ZUS
-12;Łagiewniki SKA 03;Łagiewniki SKA
-13;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia
-14;Turowicza 01;Turowicza
-15;Kurdwanów P+R 03;Kurdwanów P+R
-16;Kurdwanów P+R 01;Kurdwanów P+R
-17;Witosa 02;Witosa
-18;Nowosądecka 02;Nowosądecka
-19;Piaski Nowe 02;Piaski Nowe
-20;Dauna 02;Dauna
-21;Bieżanowska 04;Bieżanowska
-22;Kabel 02;Kabel
-23;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada
-24;Lipska 01;Lipska
-25;Rzebika 01;Rzebika
-26;Mały Płaszów P+R 91;Mały Płaszów P+R
+Lp;Nazwa;Audio;Kierunek
+1;Czerwone Maki P+R 01;Czerwone Maki P+R;Mały Płaszów P+R
+2;Kampus UP JP II 02;Kampus UP JP II;
+3;Kampus UJ 02;Kampus UJ;
+4;Ruczaj 02;Ruczaj;
+5;Norymberska 02;Norymberska;
+6;Grota-Roweckiego 02;Grota-Roweckiego;
+7;Lipińskiego 02;Lipińskiego;
+8;Borsucza 01;Borsucza;
+9;Brożka (NŻ) 01;Brożka NŻ;
+10;Łagiewniki 04;Łagiewniki;
+11;Łagiewniki ZUS 01;Łagiewniki ZUS;
+12;Łagiewniki SKA 03;Łagiewniki SKA;
+13;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia;
+14;Turowicza 01;Turowicza;
+15;Kurdwanów P+R 03;Kurdwanów P+R;
+16;Kurdwanów P+R 01;Kurdwanów P+R;
+17;Witosa 02;Witosa;
+18;Nowosądecka 02;Nowosądecka;
+19;Piaski Nowe 02;Piaski Nowe;
+20;Dauna 02;Dauna;
+21;Bieżanowska 04;Bieżanowska;
+22;Kabel 02;Kabel;
+23;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada;
+24;Lipska 01;Lipska;
+25;Rzebika 01;Rzebika;
+26;Mały Płaszów P+R 91;Mały Płaszów P+R;
