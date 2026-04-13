@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio
-1;Os. Podwawelskie 01;Os. Podwawelskie
-2;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie
-3;Rondo Grunwaldzkie 04;Rondo Grunwaldzkie
-4;Konopnickiej 02;Konopnickiej
-5;Jubilat 03;Jubilat
-6;Muzeum Narodowe 05;Muzeum Narodowe
-7;AGH / UR 01;AGH UR
-8;Stefana Batorego 02;Stefana Batorego
-9;Teatr Bagatela 03;Teatr Bagatela
-10;Stary Kleparz 02;Stary Kleparz
-11;Teatr Słowackiego 02;Teatr Słowackiego
-12;Lubicz 02;Lubicz
-13;Rondo Mogilskie 06;Rondo Mogilskie
-14;Cmentarz Rakowicki 03;Cmentarz Rakowicki
-15;Narzymskiego 01;Narzymskiego
-16;Pilotów 01;Pilotów
-17;Akacjowa 01;Akacjowa
-18;Spadochroniarzy 02;Spadochroniarzy
-19;Ugorek 02;Ugorek
-20;TAURON Arena Kraków Wieczysta 05;TAURON Arena Kraków Wieczysta
+Lp;Nazwa;Audio;Kierunek
+1;Os. Podwawelskie 01;Os. Podwawelskie;TAURON Arena Kraków Wieczysta
+2;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;
+3;Rondo Grunwaldzkie 04;Rondo Grunwaldzkie;
+4;Konopnickiej 02;Konopnickiej;
+5;Jubilat 03;Jubilat;
+6;Muzeum Narodowe 05;Muzeum Narodowe;
+7;AGH / UR 01;AGH UR;
+8;Stefana Batorego 02;Stefana Batorego;
+9;Teatr Bagatela 03;Teatr Bagatela;
+10;Stary Kleparz 02;Stary Kleparz;
+11;Teatr Słowackiego 02;Teatr Słowackiego;
+12;Lubicz 02;Lubicz;
+13;Rondo Mogilskie 06;Rondo Mogilskie;
+14;Cmentarz Rakowicki 03;Cmentarz Rakowicki;
+15;Narzymskiego 01;Narzymskiego;
+16;Pilotów 01;Pilotów;
+17;Akacjowa 01;Akacjowa;
+18;Spadochroniarzy 02;Spadochroniarzy;
+19;Ugorek 02;Ugorek;
+20;TAURON Arena Kraków Wieczysta 05;TAURON Arena Kraków Wieczysta;
