@@ -1,22 +1,22 @@
-Lp;Nazwa;Audio
-1;TAURON Arena Kraków Wieczysta 03;TAURON Arena Kraków Wieczysta
-2;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta
-3;Białucha 02;Białucha
-4;Cystersów 02;Cystersów
-5;Rondo Mogilskie 03;Rondo Mogilskie
-6;Rondo Grzegórzeckie 04;Rondo Grzegórzeckie
-7;Zabłocie 01;Zabłocie
-8;Klimeckiego 01;Klimeckiego
-9;Kuklińskiego 01;Kuklińskiego
-10;Gromadzka 01;Gromadzka
-11;Lipska 03;Lipska
-12;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada
-13;Kabel 01;Kabel
-14;Bieżanowska 01;Bieżanowska
-15;Wlotowa 01;Wlotowa
-16;Prokocim 01;Prokocim
-17;Prokocim Szpital 01;Prokocim Szpital
-18;Teligi 01;Teligi
-19;Nowy Prokocim 01;Nowy Prokocim
-20;Ćwiklińskiej 01;Ćwiklińskiej
-21;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R
+Lp;Nazwa;Audio;Kierunek
+1;TAURON Arena Kraków Wieczysta 03;TAURON Arena Kraków Wieczysta;Nowy Bieżanów P+R
+2;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;
+3;Białucha 02;Białucha;
+4;Cystersów 02;Cystersów;
+5;Rondo Mogilskie 03;Rondo Mogilskie;
+6;Rondo Grzegórzeckie 04;Rondo Grzegórzeckie;
+7;Zabłocie 01;Zabłocie;
+8;Klimeckiego 01;Klimeckiego;
+9;Kuklińskiego 01;Kuklińskiego;
+10;Gromadzka 01;Gromadzka;
+11;Lipska 03;Lipska;
+12;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada;
+13;Kabel 01;Kabel;
+14;Bieżanowska 01;Bieżanowska;
+15;Wlotowa 01;Wlotowa;
+16;Prokocim 01;Prokocim;
+17;Prokocim Szpital 01;Prokocim Szpital;
+18;Teligi 01;Teligi;
+19;Nowy Prokocim 01;Nowy Prokocim;
+20;Ćwiklińskiej 01;Ćwiklińskiej;
+21;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R;
