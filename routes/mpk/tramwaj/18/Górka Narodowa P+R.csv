@@ -1,33 +1,33 @@
-Lp;Nazwa;Audio
-1;Czerwone Maki P+R 01;Czerwone Maki P+R
-2;Kampus UP JP II 02;Kampus UP JP II
-3;Kampus UJ 02;Kampus UJ
-4;Ruczaj 02;Ruczaj
-5;Norymberska 02;Norymberska
-6;Grota-Roweckiego 02;Grota-Roweckiego
-7;Lipińskiego 02;Lipińskiego
-8;Kobierzyńska 02;Kobierzyńska
-9;Słomiana 02;Słomiana
-10;Kapelanka 02;Kapelanka
-11;Szwedzka 02;Szwedzka
-12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie
-13;Orzeszkowej 02;Orzeszkowej
-14;Stradom 01;Stradom
-15;Wawel 01;Wawel
-16;Poczta Główna 03;Poczta Główna
-17;Teatr Słowackiego 03;Teatr Słowackiego
-18;Stary Kleparz 01;Stary Kleparz
-19;Pędzichów 01;Pędzichów
-20;Nowy Kleparz 01;Nowy Kleparz
-21;Dworzec Towarowy 01;Dworzec Towarowy
-22;Szpital Narutowicza 01;Szpital Narutowicza
-23;Bratysławska 01;Bratysławska
-24;Krowodrza Górka P+R 01;Krowodrza Górka P+R
-25;Pachońskiego P+R 01;Pachońskiego P+R
-26;Białoprądnicka 02;Białoprądnicka
-27;Górnickiego 02;Górnickiego
-28;Siewna Wiadukt 01;Siewna Wiadukt
-29;Bociana 01;Bociana
-30;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej
-31;Papierni Prądnickich 01;Papierni Prądnickich
-32;Górka Narodowa P+R 91;Górka Narodowa P+R
+Lp;Nazwa;Audio;Kierunek
+1;Czerwone Maki P+R 01;Czerwone Maki P+R;Górka Narodowa P+R
+2;Kampus UP JP II 02;Kampus UP JP II;
+3;Kampus UJ 02;Kampus UJ;
+4;Ruczaj 02;Ruczaj;
+5;Norymberska 02;Norymberska;
+6;Grota-Roweckiego 02;Grota-Roweckiego;
+7;Lipińskiego 02;Lipińskiego;
+8;Kobierzyńska 02;Kobierzyńska;
+9;Słomiana 02;Słomiana;
+10;Kapelanka 02;Kapelanka;
+11;Szwedzka 02;Szwedzka;
+12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;
+13;Orzeszkowej 02;Orzeszkowej;
+14;Stradom 01;Stradom;
+15;Wawel 01;Wawel;
+16;Poczta Główna 03;Poczta Główna;
+17;Teatr Słowackiego 03;Teatr Słowackiego;
+18;Stary Kleparz 01;Stary Kleparz;
+19;Pędzichów 01;Pędzichów;
+20;Nowy Kleparz 01;Nowy Kleparz;
+21;Dworzec Towarowy 01;Dworzec Towarowy;
+22;Szpital Narutowicza 01;Szpital Narutowicza;
+23;Bratysławska 01;Bratysławska;
+24;Krowodrza Górka P+R 01;Krowodrza Górka P+R;
+25;Pachońskiego P+R 01;Pachońskiego P+R;
+26;Białoprądnicka 02;Białoprądnicka;
+27;Górnickiego 02;Górnickiego;
+28;Siewna Wiadukt 01;Siewna Wiadukt;
+29;Bociana 01;Bociana;
+30;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;
+31;Papierni Prądnickich 01;Papierni Prądnickich;
+32;Górka Narodowa P+R 91;Górka Narodowa P+R;
