@@ -66,10 +66,23 @@ SPECIAL_MODES = {
     "MOBILIS": {"line": "", "label": "MOBILIS KRAKÓW", "stops": False}
 }
 
+VOICE_TYPES = {
+    "Stare": "audio",
+    "Nowe": "audio/new",
+    "Makłowicz": "audio/maklowicz"
+}
+
+SEARCH_ORDER = {
+    "audio/maklowicz": ["audio/maklowicz", "audio/new", "audio"],
+    "audio/new": ["audio/new", "audio", "audio/maklowicz"],
+    "audio": ["audio", "audio/new", "audio/maklowicz"]
+}
+
 SESSION = {
     "mode": "Dom",
     "operator": "",
     "type": "",
+    "voice_path": "audio",
     "news_text": formatted_news,
     "is_route_changed": False,
     "selected_csv_path": "",
@@ -100,6 +113,22 @@ class StartModeScreen(Screen):
 
     def set_mode(self, mode):
         SESSION["mode"] = mode
+        self.manager.current = 'voice_select'
+
+class VoiceSelectScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        layout = BoxLayout(orientation='vertical', padding=50, spacing=20)
+        layout.add_widget(Label(text="WYBIERZ TYP ZAPOWIEDZI", font_size='40sp'))
+        
+        for name, path in VOICE_TYPES.items():
+            btn = Button(text=name, font_size='30sp', background_color=(0.1, 0.4, 0.6, 1))
+            btn.bind(on_release=lambda x, p=path: self.select_voice(p))
+            layout.add_widget(btn)
+        self.add_widget(layout)
+
+    def select_voice(self, path):
+        SESSION["voice_path"] = path
         self.manager.current = 'operator_select'
 
 class OperatorSelectScreen(Screen):
@@ -281,6 +310,11 @@ class NewsEditorScreen(Screen):
 class MainSIPLayout(FloatLayout):
     def __init__(self, csv_file, **kwargs):
         super().__init__(**kwargs)
+        
+        self.audio_queue = []
+        self.is_audio_playing = False
+        self.current_sound = None
+
         self.ubuntu_font = os.path.join(BASE_DIR, 'Ubuntu-Regular.ttf')
         self.arial_font = os.path.join(BASE_DIR, 'Arial.ttf')
         self.krakow_blue = (0, 0.23, 0.45, 1)
@@ -295,6 +329,8 @@ class MainSIPLayout(FloatLayout):
         
         self.load_stops_db()
         self.load_route()
+
+        self.setup_ui_elements(csv_file)
 
         ads_dir = os.path.join(BASE_DIR, 'ads')
         self.ad_files = [os.path.join(ads_dir, f) for f in os.listdir(ads_dir) if f.endswith(('.mp4', '.mkv', '.avi'))]
@@ -401,6 +437,8 @@ class MainSIPLayout(FloatLayout):
                 Clock.schedule_interval(self.gps_loop, 1)
             except:
                 print("Błąd połączenia z serwerem GPSD.")
+
+        Clock.schedule_once(self.play_welcome_sequence, 1.5)
 
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
         if 'ctrl' in modifiers:
@@ -581,7 +619,67 @@ class MainSIPLayout(FloatLayout):
         with open(path, mode='r', encoding='utf-8') as f:
             reader = csv.DictReader(f, delimiter=';')
             for row in reader: 
+                row['Extras'] = row.get('Extras', '')
                 self.stops.append(row)
+    
+    def get_audio_path(self, filename):
+        folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
+        
+        for folder in folders:
+            full_path = os.path.join(BASE_DIR, folder, filename)
+            if os.path.exists(full_path):
+                return full_path
+        return None
+    
+    def play_welcome_sequence(self, dt):
+        if not self.stops: return
+        
+        path_parts = os.path.normpath(SESSION["selected_csv_path"]).split(os.sep)
+        line_no = path_parts[-2] if len(path_parts) >= 2 else ""
+        
+        last_stop_audio = self.stops[-1]['Audio']
+        
+        seq = [
+            "Linia.mp3", 
+            f"{line_no}.mp3", 
+            "Kierunek.mp3", 
+            f"{last_stop_audio}.mp3"
+        ]
+        self.play_sequence(seq)
+    
+    def get_stop_audio_files(self, stop_data, is_next=True):
+        files = []
+        
+        if is_next:
+            files.append("Następny Przystanek.mp3")
+        
+        stop_filename = f"{stop_data['Audio']}.mp3"
+        path_to_stop = self.get_audio_path(stop_filename)
+        
+        if path_to_stop:
+            # Nazwa przystanku istnieje - dodajemy ją i sprawdzamy dodatki
+            files.append(stop_filename)
+
+            if "(NŻ)" in stop_data['Nazwa'].upper() or "NŻ" in stop_data['Nazwa'].upper():
+                files.append("Na żądanie.mp3")
+                
+            extras = stop_data['Extras'].lower()
+            if "przesiadka_bus" in extras:
+                files.append("Możliwość przesiadki na inne linie a.mp3")
+            if "przesiadka_tram" in extras:
+                files.append("Możliwość przesiadki na inne linie t.mp3")
+            if "przesiadka_tram_bus" in extras:
+                files.append("Możliwość przesiadki na inne linie t lub a.mp3")
+            if "przesiadka_train_tram_bus" in extras:
+                files.append("Możliwość przesiadki na pa oraz na inne linie t i a.mp3")
+            if "main_station" in extras or "dworzec_główny" in extras or "dworzec_glowny" in extras:
+                files.append("Możliwość dojścia do Dworca Głównego.mp3")
+            if "wrażliwy" in extras or "wrazliwy" in extras:
+                files.append("Bądź wrażliwy Ustąp miejsca.mp3")
+        else:
+            print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename} we wszystkich folderach. Pomijam dodatki.")
+            
+        return files
 
     def calculate_distance(self, lat1, lon1, lat2, lon2):
         phi1, phi2 = math.radians(lat1), math.radians(lat2)
@@ -676,26 +774,6 @@ class MainSIPLayout(FloatLayout):
         months_pl = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]
         self.clock_label.text = now.strftime("%H:%M")
         self.date_label.text = f"{days_pl[now.weekday()]}\n{now.day} {months_pl[now.month-1]}"
-        
-    def on_touch_down(self, touch):
-        if SESSION["mode"] == "Dom":
-            if self.is_at_stop:
-                if self.current_idx < len(self.stops) - 1:
-                    self.is_at_stop = False
-                    next_stop_data = self.stops[self.current_idx + 1]
-                    
-                    def po_skonczeniu_audio():
-                        self.update_stop_label(next_stop_data['Nazwa'])
-                    
-                    sekwencja = ["Następny Przystanek.mp3", f"{next_stop_data['Audio']}.mp3"]
-                    self.play_sequence(sekwencja, callback=po_skonczeniu_audio)
-            else:
-                self.current_idx += 1
-                self.is_at_stop = True
-                current_stop = self.stops[self.current_idx]
-                
-                self.play_sequence([f"{current_stop['Audio']}.mp3"])
-        return True
 
     def gps_loop(self, dt):
         if not GPS_AVAILABLE: return
@@ -729,33 +807,64 @@ class MainSIPLayout(FloatLayout):
             self.is_at_stop = True
             self.play_sequence([f"{self.stops[self.current_idx]['Audio']}.mp3"])
             
-    def play_sequence(self, file_list, callback=None):
-        if isinstance(file_list, str):
-            file_list = [file_list]
+    def play_sequence(self, file_list, callback=None, clear_queue=False):
+        if clear_queue:
+            if self.current_sound:
+                self.current_sound.stop()
+            self.audio_queue = []
+
+        self.audio_queue.extend(file_list)
+        if callback:
+            self.audio_queue.append(callback)
             
-        if not file_list:
-            if callback: 
-                Clock.schedule_once(lambda dt: callback(), 0.1)
+        if not self.is_audio_playing:
+            self.process_queue()
+    
+    def process_queue(self, *args):
+        if not self.audio_queue:
+            self.is_audio_playing = False
             return
 
-        current_file = file_list.pop(0)
-        full_path = os.path.join(BASE_DIR, 'audio', current_file)
+        self.is_audio_playing = True
+        item = self.audio_queue.pop(0)
 
-        if not os.path.exists(full_path):
-            print(f"Błąd: Brak pliku {current_file}")
-            self.play_sequence(file_list, callback)
+        if callable(item):
+            item()
+            self.process_queue()
+            return
+
+        full_path = self.get_audio_path(item)
+        
+        if not full_path:
+            print(f"Pominięto dźwięk (brak pliku w żadnej lokalizacji): {item}")
+            self.process_queue()
             return
 
         sound = SoundLoader.load(full_path)
         if sound:
-            def on_stop_handler(inst):
-                inst.unload()
-                Clock.schedule_once(lambda dt: self.play_sequence(file_list, callback), 0.1)
-            
-            sound.bind(on_stop=on_stop_handler)
+            self.current_sound = sound
+            sound.bind(on_stop=self.process_queue)
             sound.play()
         else:
-            self.play_sequence(file_list, callback)
+            self.process_queue()
+
+    def on_touch_down(self, touch):
+        if SESSION["mode"] == "Dom":
+            if self.is_at_stop:
+                if self.current_idx < len(self.stops) - 1:
+                    self.is_at_stop = False
+                    next_stop = self.stops[self.current_idx + 1]
+                    
+                    files = self.get_stop_audio_files(next_stop, is_next=True)
+                    self.play_sequence(files, callback=lambda: self.update_stop_label(next_stop['Nazwa']))
+            else:
+                self.current_idx += 1
+                self.is_at_stop = True
+                curr_stop = self.stops[self.current_idx]
+                
+                files = self.get_stop_audio_files(curr_stop, is_next=False)
+                self.play_sequence(files)
+        return True
 
 class SipScreen(Screen):
     def setup_sip(self, csv_file):
@@ -773,6 +882,7 @@ class SIPApp(App):
     def build(self):
         sm = ScreenManager(transition=FadeTransition())
         sm.add_widget(StartModeScreen(name='start_mode'))
+        sm.add_widget(VoiceSelectScreen(name='voice_select'))
         sm.add_widget(OperatorSelectScreen(name='operator_select'))
         sm.add_widget(TypeSelectScreen(name='type_select'))
         sm.add_widget(LineSelectScreen(name='lines'))
