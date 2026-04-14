@@ -650,12 +650,15 @@ class MainSIPLayout(FloatLayout):
         
         if is_next:
             files.append("Następny Przystanek.mp3")
-        
+        else:
+            voice_mode = SESSION.get("voice_path", "audio")
+            if voice_mode in ["audio/new", "audio/maklowicz"]:
+                files.append("Przystanek.mp3")
+
         stop_filename = f"{stop_data['Audio']}.mp3"
         path_to_stop = self.get_audio_path(stop_filename)
         
         if path_to_stop:
-            # Nazwa przystanku istnieje - dodajemy ją i sprawdzamy dodatki
             files.append(stop_filename)
 
             if "(NŻ)" in stop_data['Nazwa'].upper() or "NŻ" in stop_data['Nazwa'].upper():
@@ -675,7 +678,9 @@ class MainSIPLayout(FloatLayout):
             if "wrażliwy" in extras or "wrazliwy" in extras:
                 files.append("Bądź wrażliwy Ustąp miejsca.mp3")
         else:
-            print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename} we wszystkich folderach. Pomijam dodatki.")
+            print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename}. Pomijam resztę sekwencji.")
+            if files:
+                files = [files[0]]
             
         return files
 
