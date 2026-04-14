@@ -330,8 +330,6 @@ class MainSIPLayout(FloatLayout):
         self.load_stops_db()
         self.load_route()
 
-        self.setup_ui_elements(csv_file)
-
         ads_dir = os.path.join(BASE_DIR, 'ads')
         self.ad_files = [os.path.join(ads_dir, f) for f in os.listdir(ads_dir) if f.endswith(('.mp4', '.mkv', '.avi'))]
         self.ad_files.sort()
