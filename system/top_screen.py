@@ -8,8 +8,9 @@ class MainSIPLayout(FloatLayout):
         self.is_audio_playing = False
         self.current_sound = None
 
-        self.ubuntu_font = os.path.join(BASE_DIR, 'Ubuntu-Regular.ttf')
-        self.arial_font = os.path.join(BASE_DIR, 'Arial.ttf')
+        self.ubuntu_font = os.path.join(BASE_DIR, 'fonts', 'Ubuntu-Regular.ttf')
+        self.arial_font = os.path.join(BASE_DIR, 'fonts', 'Arial.ttf')
+        self.arimo_font = os.path.join(BASE_DIR, 'fonts', 'Arimo.ttf')
         self.krakow_blue = (0, 0.23, 0.45, 1)
         self.screen_h = 1080
         
