@@ -374,6 +374,18 @@ class MainSIPLayout(FloatLayout):
                 files.append("Możliwość dojścia do Dworca Głównego.mp3")
             if "wrażliwy" in extras or "wrazliwy" in extras:
                 files.append("Bądź wrażliwy Ustąp miejsca.mp3")
+            if "i_strefa" in extras:
+                voice_mode = SESSION.get("voice_path", "audio")
+                if voice_mode in ["audio/new"]:
+                    files.append("Uwaga Ostatni przystanek w I strefie biletowej.mp3")
+            if "ii_strefa" in extras:
+                voice_mode = SESSION.get("voice_path", "audio")
+                if voice_mode in ["audio/new"]:
+                    files.append("Uwaga Ostatni przystanek w II strefie biletowej.mp3")
+            if "iii_strefa" in extras:
+                voice_mode = SESSION.get("voice_path", "audio")
+                if voice_mode in ["audio/new"]:
+                    files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
         else:
             print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename}. Pomijam resztę sekwencji.")
             if files:
