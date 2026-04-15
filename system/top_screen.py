@@ -386,6 +386,14 @@ class MainSIPLayout(FloatLayout):
                 voice_mode = SESSION.get("voice_path", "audio")
                 if voice_mode in ["audio/new"]:
                     files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
+            if "koniec_trasy" in extras:
+                voice_mode = SESSION.get("voice_path", "audio")
+                if voice_mode in ["audio"]:
+                    files.append("Koniec trasy MPK.mp3")
+                if voice_mode in ["audio/new"]:
+                    files.append("Koniec trasy.mp3")
+                if voice_mode in ["audio/maklowicz"]:
+                    files.append("Koniec trasy KMK.mp3")
         else:
             print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename}. Pomijam resztę sekwencji.")
             if files:
