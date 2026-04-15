@@ -274,7 +274,7 @@ class MainSIPLayout(FloatLayout):
 
         if not hasattr(self, 'stop_container'):
             self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 92),
-                                             pos=(text_start_x, stop_pos_y))
+                                             pos=(text_start_x + 20, stop_pos_y))
             
             self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, size_hint=(None, None),
