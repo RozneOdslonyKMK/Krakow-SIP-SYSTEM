@@ -260,7 +260,7 @@ class MainSIPLayout(FloatLayout):
     def update_stop_label(self, full_name):
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
         
-        prefix_x = 370
+        prefix_x = 360
         text_start_x = 438
         stop_pos_y = self.screen_h - 184
         limit_width = 1187
@@ -268,7 +268,7 @@ class MainSIPLayout(FloatLayout):
         if not hasattr(self, 'lbl_prefix'):
             self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
                                    color=self.krakow_blue, size_hint=(None, None),
-                                   size=(50, 92), pos=(prefix_x, stop_pos_y),
+                                   size=(60, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
             self.add_widget(self.lbl_prefix)
 
