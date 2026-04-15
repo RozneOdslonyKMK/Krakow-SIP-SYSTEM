@@ -366,6 +366,10 @@ class MainSIPLayout(FloatLayout):
                 files.append("Możliwość przesiadki na inne linie t lub a.mp3")
             if "przesiadka_train_tram_bus" in extras:
                 files.append("Możliwość przesiadki na pa oraz na inne linie t i a.mp3")
+            if "przesiadka_train_bus" in extras:
+                files.append("Możliwość przesiadki na pa oraz na inne linie a.mp3")
+            if "przesiadka_train_tram" in extras:
+                files.append("Możliwość przesiadki na pa oraz na inne linie t.mp3")
             if "main_station" in extras or "dworzec_główny" in extras or "dworzec_glowny" in extras:
                 files.append("Możliwość dojścia do Dworca Głównego.mp3")
             if "wrażliwy" in extras or "wrazliwy" in extras:
