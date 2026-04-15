@@ -268,7 +268,7 @@ class MainSIPLayout(FloatLayout):
         if not hasattr(self, 'lbl_prefix'):
             self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
                                    color=self.krakow_blue, size_hint=(None, None),
-                                   size=(60, 92), pos=(prefix_x, stop_pos_y),
+                                   size=(50, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
             self.add_widget(self.lbl_prefix)
 
