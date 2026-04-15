@@ -32,7 +32,7 @@ class MainSIPLayout(FloatLayout):
         self._loading_ad = False
         self.ads = None
         
-        bg = 'podklad_zmiana.png' if SESSION["is_route_changed"] else 'podklad.png'
+        bg = os.path.join(BASE_DIR, 'sip', 'top', 'podklad_zmiana.png') if SESSION["is_route_changed"] else os.path.join(BASE_DIR, 'sip', 'top', 'podklad.png')
         self.add_widget(Image(source=os.path.join(BASE_DIR, bg), allow_stretch=True, keep_ratio=False))
 
         if self.ad_files:
@@ -204,7 +204,7 @@ class MainSIPLayout(FloatLayout):
         list_layout = BoxLayout(orientation='vertical', size_hint_y=None, spacing=5)
         list_layout.bind(minimum_height=list_layout.setter('height'))
         
-        anns_path = os.path.join(BASE_DIR, 'anns.txt')
+        anns_path = os.path.join(BASE_DIR, 'dictionaries', 'anns.txt')
 
         layout.add_widget(Label(text="WYBÓR KOMUNIKATU", font_size='30sp', size_hint_y=None, height=50))
 
@@ -293,7 +293,7 @@ class MainSIPLayout(FloatLayout):
         self.lbl_stop.x = text_start_x
             
     def load_stops_db(self):
-        db_p = os.path.join(BASE_DIR, 'stops.csv')
+        db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
         if os.path.exists(db_p):
             with open(db_p, mode='r', encoding='utf-8') as f:
                 reader = csv.DictReader(f, delimiter=';')
