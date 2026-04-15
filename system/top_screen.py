@@ -261,7 +261,7 @@ class MainSIPLayout(FloatLayout):
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
         
         prefix_x = 360
-        text_start_x = 448
+        text_start_x = 418
         stop_pos_y = self.screen_h - 184
         limit_width = 1187
 
