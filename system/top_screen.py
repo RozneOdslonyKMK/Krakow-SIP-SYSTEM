@@ -427,7 +427,7 @@ class MainSIPLayout(FloatLayout):
             if self.lbl_stop.right < 428:
                 self.lbl_stop.x = 428 + 1197
         elif hasattr(self, 'lbl_stop'):
-            self.lbl_stop.x = 428
+            self.lbl_stop.x = 418
 
     def next_ad(self, *args):
         if hasattr(self, '_loading_ad') and self._loading_ad:
