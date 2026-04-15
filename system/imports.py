@@ -1,12 +1,36 @@
-from system.imports import *
-from system.anns_type import VoiceSelectScreen
-from system.line import LineSelectScreen
-from system.news_editor import NewsEditorScreen
-from system.operator_type import OperatorSelectScreen
-from system.route import RouteSelectScreen
-from system.top_screen import MainSIPLayout
-from system.vehicle_type import TypeSelectScreen
-from system.work_mode import StartModeScreen
+import os
+import csv
+import math
+import sys
+from datetime import datetime
+
+os.environ['KIVY_NO_ARGS'] = '1'
+
+if sys.platform != "win32":
+    os.environ['KIVY_WINDOW'] = 'sdl2'
+    os.environ['KIVY_GL_BACKEND'] = 'gl'
+else:
+    os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+    os.environ['KIVY_VIDEO'] = 'ffpyplayer'
+    print("INFO: Skonfigurowano backend ANGLE dla systemu Windows")
+
+from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+from kivy.uix.stencilview import StencilView
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.modalview import ModalView
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.video import Video
+from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
+from kivy.core.window import Window
+from kivy.core.audio import SoundLoader
+from kivy.clock import Clock
+from kivy.config import Config
 
 GPS_AVAILABLE = False
 try:
@@ -64,32 +88,3 @@ SESSION = {
     "selected_csv_path": "",
     "special_mode_id": None
 }
-
-class SipScreen(Screen):
-    def setup_sip(self, csv_file):
-        self.clear_widgets()
-        self.sip_layout = MainSIPLayout(csv_file)
-        self.add_widget(self.sip_layout)
-
-    def on_enter(self):
-        if hasattr(self, 'sip_layout'):
-            start_stop = self.sip_layout.stops[0]
-            self.sip_layout.update_stop_label(start_stop['Nazwa'])
-            Clock.schedule_once(lambda dt: self.sip_layout.play_sequence([f"{start_stop['Audio']}.mp3"]), 1.0)
-
-class SIPApp(App):
-    def build(self):
-        sm = ScreenManager(transition=FadeTransition())
-        sm.add_widget(StartModeScreen(name='start_mode'))
-        sm.add_widget(VoiceSelectScreen(name='voice_select'))
-        sm.add_widget(OperatorSelectScreen(name='operator_select'))
-        sm.add_widget(TypeSelectScreen(name='type_select'))
-        sm.add_widget(LineSelectScreen(name='lines'))
-        sm.add_widget(RouteSelectScreen(name='routes'))
-        sm.add_widget(NewsEditorScreen(name='news_editor'))
-        sm.add_widget(SipScreen(name='sip'))
-        return sm
-    def on_stop(self): Window.show_cursor = True
-
-if __name__ == '__main__':
-    SIPApp().run()
