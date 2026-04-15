@@ -84,7 +84,7 @@ class MainSIPLayout(FloatLayout):
         else:
             direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
         
-        self.dest_label = Label(text=direction.upper(), font_size='75sp', font_name=self.arimo_font,
+        self.dest_label = Label(text=direction.upper(), font_size='80sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, bold=True, size_hint=(None, None),
                                 size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
                                 halign='left', valign='middle', text_size=(None, 100))
@@ -266,7 +266,7 @@ class MainSIPLayout(FloatLayout):
         limit_width = 1197
 
         if not hasattr(self, 'lbl_prefix'):
-            self.lbl_prefix = Label(text="> ", font_size='65sp', font_name=self.arimo_font,
+            self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
                                    color=self.krakow_blue, size_hint=(None, None),
                                    size=(60, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
@@ -276,7 +276,7 @@ class MainSIPLayout(FloatLayout):
             self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 92),
                                              pos=(text_start_x, stop_pos_y))
             
-            self.lbl_stop = Label(text=clean_name.upper(), font_size='65sp', font_name=self.arimo_font,
+            self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, size_hint=(None, None),
                                  size=(limit_width, 92), pos=(text_start_x, stop_pos_y),
                                  halign='left', valign='middle', text_size=(None, 92))
