@@ -258,7 +258,7 @@ class MainSIPLayout(FloatLayout):
         App.get_running_app().root.current = 'routes'
         
     def update_stop_label(self, full_name):
-        clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name
+        clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
         
         prefix_x = 360
         text_start_x = 428
@@ -284,7 +284,7 @@ class MainSIPLayout(FloatLayout):
             self.stop_container.add_widget(self.lbl_stop)
             self.add_widget(self.stop_container)
         else:
-            self.lbl_stop.text = clean_name
+            self.lbl_stop.text = clean_name.upper()
 
         self.lbl_stop.texture_update()
         self.lbl_stop.width = self.lbl_stop.texture_size[0]
