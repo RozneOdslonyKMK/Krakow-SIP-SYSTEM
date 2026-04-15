@@ -40,7 +40,7 @@ except ImportError:
     print("Biblioteka GPS nie znaleziona. Tryb automatyczny (Pojazd) będzie nieaktywny.")
 
 Config.set('kivy', 'keyboard_mode', 'systemanddock')
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 Window.fullscreen = 'auto'
 Window.show_cursor = False 
 
