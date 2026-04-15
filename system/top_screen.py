@@ -411,18 +411,18 @@ class MainSIPLayout(FloatLayout):
     def scroll_news(self, dt):
         self.ticker.texture_update()
         self.ticker.width = self.ticker.texture_size[0]
-        self.ticker.x -= 4
+        self.ticker.x -= 6
         if self.ticker.right < 0: self.ticker.x = 1726
         
         if hasattr(self, 'should_scroll_dest') and self.should_scroll_dest:
-            self.dest_label.x -= 2
+            self.dest_label.x -= 6
             if self.dest_label.right < 309:
                 self.dest_label.x = 309 + 1316
         elif hasattr(self, 'dest_label'):
             self.dest_label.x = 309
 
         if hasattr(self, 'should_scroll_stop') and self.should_scroll_stop:
-            self.lbl_stop.x -= 2
+            self.lbl_stop.x -= 6
             if self.lbl_stop.right < 428:
                 self.lbl_stop.x = 428 + 1197
         elif hasattr(self, 'lbl_stop'):
