@@ -44,7 +44,6 @@ fi
 
 echo "--- Zależności sprawdzone. Uruchamianie SIP ---"
 
-cd /linux
 /usr/bin/chmod +x ./update_sip.sh
 /usr/bin/bash ./update_sip.sh
 cd ../

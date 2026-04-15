@@ -35,8 +35,6 @@ for %%i in (%LIBS%) do (
 
 echo --- Uruchamianie SIP --- >> "%LATEST_LOG%"
 
-cd \windows
-
 if exist "update_sip.bat" call update_sip.bat >> "%LATEST_LOG%" 2>&1
 
 cd ..\
