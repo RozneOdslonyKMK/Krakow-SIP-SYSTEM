@@ -48,7 +48,7 @@ class MainSIPLayout(FloatLayout):
         if self.special_id:
             line_display = SPECIAL_MODES[self.special_id]["line"]
             
-        self.add_widget(Label(text=line_display, font_size='165sp', font_name=self.ubuntu_font,
+        self.add_widget(Label(text=line_display, font_size='165sp', font_name=self.arimo_font,
                               color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
                               pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
@@ -84,7 +84,7 @@ class MainSIPLayout(FloatLayout):
         else:
             direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
         
-        self.dest_label = Label(text=direction, font_size='75sp', font_name=self.ubuntu_font,
+        self.dest_label = Label(text=direction, font_size='75sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, bold=True, size_hint=(None, None),
                                 size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
                                 halign='left', valign='middle', text_size=(None, 100))
@@ -103,14 +103,14 @@ class MainSIPLayout(FloatLayout):
         self.stencil.add_widget(self.ticker)
         self.add_widget(self.stencil)
 
-        self.clock_label = Label(text="01:00", font_size='90sp', font_name=self.ubuntu_font,
+        self.clock_label = Label(text="01:00", font_size='90sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, bold=True,
                                  size_hint=(None, None), size=(250, 92),
                                  pos=(1670, self.screen_h - 92), halign='right', valign='middle',
                                  text_size=(240, 92))
         self.add_widget(self.clock_label)
 
-        self.date_label = Label(text="poniedziałek\n1 stycznia", font_size='32sp', font_name=self.ubuntu_font,
+        self.date_label = Label(text="poniedziałek\n1 stycznia", font_size='32sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, line_height=0.95,
                                 size_hint=(None, None), size=(305, 92),
                                 pos=(1615, self.screen_h - 92 - 92), halign='right', valign='middle',
@@ -266,7 +266,7 @@ class MainSIPLayout(FloatLayout):
         limit_width = 1197
 
         if not hasattr(self, 'lbl_prefix'):
-            self.lbl_prefix = Label(text="> ", font_size='65sp', font_name=self.ubuntu_font,
+            self.lbl_prefix = Label(text="> ", font_size='65sp', font_name=self.arimo_font,
                                    color=self.krakow_blue, size_hint=(None, None),
                                    size=(60, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
@@ -276,7 +276,7 @@ class MainSIPLayout(FloatLayout):
             self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 92),
                                              pos=(text_start_x, stop_pos_y))
             
-            self.lbl_stop = Label(text=clean_name, font_size='65sp', font_name=self.ubuntu_font,
+            self.lbl_stop = Label(text=clean_name, font_size='65sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, size_hint=(None, None),
                                  size=(limit_width, 92), pos=(text_start_x, stop_pos_y),
                                  halign='left', valign='middle', text_size=(None, 92))
