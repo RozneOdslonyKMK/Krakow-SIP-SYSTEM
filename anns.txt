@@ -5,7 +5,7 @@ Włączona klimatyzacja|Uwaga Włączona klimatyzacja Prosimy o zamknięcie okie
 Zmiana trasy|new/Uwaga Zmiana Trasy.mp3
 Granica II strefy|Granica miasta II Strefa Aglomeracyjna.mp3
 Koniec trasy MPK|Koniec trasy MPK.mp3
-Koniec trasy|Koniec trasy.mp3
+Koniec trasy|new/Koniec trasy.mp3
 Koniec trasy KMK (Makłowicz)|maklowicz/Koniec trasy KMK.mp3
 Przystanek końcowy|Przystanek Końcowy.mp3
 Linia 4: Kierunek Bronowice Małe|new/Linia 4 Kierunek Bronowice Małe.mp3
