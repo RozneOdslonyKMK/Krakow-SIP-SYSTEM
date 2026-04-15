@@ -355,7 +355,7 @@ class MainSIPLayout(FloatLayout):
             files.append(stop_filename)
 
             if "(NŻ)" in stop_data['Nazwa'].upper() or "NŻ" in stop_data['Nazwa'].upper():
-                files.append("Na żądanie.mp3")
+                files.append("Na Żądanie.mp3")
                 
             extras = stop_data['Extras'].lower()
             if "przesiadka_bus" in extras:
