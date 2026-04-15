@@ -1,16 +1,18 @@
 Proszę odsunąć się od drzwi|Proszę odsunąć się od drzwi.mp3
+Proszę odsunąć się od drzwi (Makłowicz)|maklowicz/Proszę odsunąć się od drzwi.mp3
 Blokada kasowników|Proszę przygotować bilety do kontroli.mp3
 Włączona klimatyzacja|Uwaga Włączona klimatyzacja Prosimy o zamknięcie okien.mp3
-Zmiana trasy|Uwaga Zmiana Trasy.mp3
+Zmiana trasy|new/Uwaga Zmiana Trasy.mp3
 Granica II strefy|Granica miasta II Strefa Aglomeracyjna.mp3
-Koniec trasy MPK|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż z MPK S A w Krakowie.mp3
-Koniec trasy|Koniec trasy Prosimy opuścić pojazd Dziękujemy za wspólną podróż.mp3
+Koniec trasy MPK|Koniec trasy MPK.mp3
+Koniec trasy|Koniec trasy.mp3
+Koniec trasy KMK (Makłowicz)|maklowicz/Koniec trasy KMK.mp3
 Przystanek końcowy|Przystanek Końcowy.mp3
-Linia 4: Kierunek Bronowice Małe|Linia 4 Kierunek Bronowice Małe.mp3
-Linia 21: Kierunek Pleszów|Linia 21 Kierunek Pleszów.mp3
-Linia 50: Kierunek Górka Narodowa P+R|Linia 50 Kierunek Górka Narodowa P+R.mp3
-Linia 108: Kierunek Bronowice Małe|Linia 108 Kierunek Bronowice Małe.mp3
-Linia 108: Kierunek Park Tetmajera|Linia 108 Kierunek Park Tetmajera.mp3
+Linia 4: Kierunek Bronowice Małe|new/Linia 4 Kierunek Bronowice Małe.mp3
+Linia 21: Kierunek Pleszów|new/Linia 21 Kierunek Pleszów.mp3
+Linia 50: Kierunek Górka Narodowa P+R|new/Linia 50 Kierunek Górka Narodowa P+R.mp3
+Linia 108: Kierunek Bronowice Małe|new/Linia 108 Kierunek Bronowice Małe.mp3
+Linia 108: Kierunek Park Tetmajera|new/Linia 108 Kierunek Park Tetmajera.mp3
 Linia nr 113: Kierunek Czyżyny Dworzec|Linia nr 113 Kierunek Czyżyny Dworzec.mp3
 Linia nr 113: Kierunek EC Łęg|Linia nr 113 Kierunek EC Łęg.mp3
 Linia nr 124: Kierunek TAURON Arena Kraków Wieczysta|Linia nr 124 Kierunek TAURON Arena Kraków Wieczysta.mp3
@@ -22,29 +24,37 @@ Linia nr 163: Kierunek Rżąka|Linia nr 163 Kierunek Rżąka.mp3
 Linia nr 184: Kierunek Prądnik Czerwony|Linia nr 184 Kierunek Prądnik Czerwony.mp3
 Linia 199: Kierunek Mydlniki Wapiennik P+R|Linia 199 Kierunek Mydlniki Wapiennik P+R.mp3
 Linia nr 238: Kierunek Młynka Pętla|Linia nr 238 Kierunek Młynka Pętla.mp3
-Linia 238: Kierunek Młynka Pętla (new)|Linia 238 Kierunek Młynka Pętla (new).mp3
+Linia 238: Kierunek Młynka Pętla (new)|new/Linia 238 Kierunek Młynka Pętla.mp3
 Linia nr 501: Kierunek Bulwarowa|Linia nr 501 Kierunek Bulwarowa.mp3
 Linia nr 501: Kierunek Chełmońskiego Pętla|Linia nr 501 Kierunek Chełmońskiego Pętla.mp3
 Linia nr 572: Kierunek Aleja Przyjaźni|Linia nr 572 Kierunek Aleja Przyjaźni.mp3
-4|4.mp3
-21|21.mp3
-50|50.mp3
-121|121.mp3
-Linia nr|Linia nr.mp3
-Linia|Linia.mp3
+4|new/4.mp3
+21|new/21.mp3
+50|new/50.mp3
+121|new/121.mp3
+Linia nr|Linia.mp3
+Linia (new)|new/Linia.mp3
 Kierunek|Kierunek.mp3
-Kierunek (new)|Kierunek (new).mp3
+Kierunek (new)|new/Kierunek.mp3
 Następny Przystanek|Następny Przystanek.mp3
-Następny Przystanek (new)|Następny przystanek (new).mp3
-Przystanek|Przystanek.mp3
+Następny Przystanek (new)|new/Następny Przystanek.mp3
+Następny Przystanek (Makłowicz)|maklowicz/Następny Przystanek.mp3
+Przystanek|new/Przystanek.mp3
+Przystanek (Makłowicz)|maklowicz/Przystanek.mp3
 Na żądanie|Na Żądanie.mp3
-Przystanek Na żądanie|Przystanek Na Żądanie.mp3
+Na żądanie (new)|new/Na Żądanie.mp3
+Na żądanie (Makłowicz)|maklowicz/Na Żądanie.mp3
 Bądź wrażliwy. Ustąp miejsca.|Bądź wrażliwy Ustąp miejsca.mp3
 Możliwość dojścia do Dworca Głównego|Możliwość dojścia do Dworca Głównego.mp3
 Możliwość przesiadki na inne linie autobusowe|Możliwość przesiadki na inne linie a.mp3
 Możliwość przesiadki na inne linie tramwajowe|Możliwość przesiadki na inne linie t.mp3
 Możliwość przesiadki na inne linie tramwajowe lub autobusowe|Możliwość przesiadki na inne linie t lub a.mp3
-Możliwość przesiadki na pociągi aglomeracyjne oraz na inne linie tramwajowe i autobusowe|Możliwość przesiadki na pa oraz na inne linie t i a.mp3
-Ostatni przystanek w I strefie|Uwaga Ostatni przystanek w I strefie biletowej.mp3
-Ostatni przystanek w II strefie|Uwaga Ostatni przystanek w II strefie biletowej.mp3
+Możliwość przesiadki na pociągi aglomeracyjne oraz na inne linie tramwajowe i autobusowe|new/Możliwość przesiadki na pa oraz na inne linie t i a.mp3
+Możliwość przesiadki na inne linie autobusowe (Makłowicz)|maklowicz/Możliwość przesiadki na inne linie a.mp3
+Możliwość przesiadki na inne linie tramwajowe (Makłowicz)|maklowicz/Możliwość przesiadki na inne linie t.mp3
+Możliwość przesiadki na inne linie tramwajowe lub autobusowe (Makłowicz)|maklowicz/Możliwość przesiadki na inne linie t lub a.mp3
+Możliwość przesiadki na pociągi aglomeracyjne oraz na inne linie autobusowe (Makłowicz)|maklowicz/new/Możliwość przesiadki na pa oraz na inne linie a.mp3
+Możliwość przesiadki na pociągi aglomeracyjne oraz na inne linie tramwajowe i autobusowe (Makłowicz)|maklowicz/new/Możliwość przesiadki na pa oraz na inne linie t i a.mp3
+Ostatni przystanek w I strefie|new/Uwaga Ostatni przystanek w I strefie biletowej.mp3
+Ostatni przystanek w II strefie|new/Uwaga Ostatni przystanek w II strefie biletowej.mp3
 SKA|Szybka Kolej Aglomeracyjna.mp3
