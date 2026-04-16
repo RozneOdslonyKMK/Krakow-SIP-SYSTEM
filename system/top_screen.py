@@ -437,6 +437,9 @@ class MainSIPLayout(FloatLayout):
             self.lbl_stop.x = 418
 
     def next_ad(self, *args):
+        if hasattr(self, '_mute_checker'):
+            Clock.unschedule(self._mute_checker)
+
         if hasattr(self, '_loading_ad') and self._loading_ad:
             self._loading_ad = False 
 
@@ -467,6 +470,9 @@ class MainSIPLayout(FloatLayout):
         
         self._loading_ad = True
 
+        if hasattr(self, 'video_container') and self.video_container.parent:
+            self.content_box.remove_widget(self.video_container)
+
         self.video_container = StencilView(
             size_hint=(None, None),
             size=(1402, 789),
@@ -484,24 +490,20 @@ class MainSIPLayout(FloatLayout):
         )
         
         self.ads.bind(eos=self.next_ad)
-        
+        self.ads.bind(texture=self._on_video_texture)
         self.video_container.add_widget(self.ads)
         self.content_box.add_widget(self.video_container)
-        
-        Clock.schedule_interval(self._force_mute, 0.1) 
-        Clock.schedule_once(self._force_play, 0.2)
 
-    def _force_mute(self, dt):
-        if self.ads and self.ads.state == 'play':
-            self.ads.volume = 0
-            return False # Zatrzymuje interwał Clock
-        return True
-    
-    def _force_play(self, dt):
-        if self.ads:
-            self.ads.state = 'play'
-            self.ads.volume = 0
-        self._loading_ad = False
+    def _on_video_texture(self, instance, value):
+        if value:
+            instance.volume = 0
+            Clock.schedule_once(lambda dt: self._force_mute_sync(instance), 0.1)
+            Clock.schedule_once(lambda dt: self._force_mute_sync(instance), 0.5)
+
+    def _force_mute_sync(self, video_instance):
+        if video_instance:
+            video_instance.volume = 0
+            self._loading_ad = False
 
     def update_ui(self, *args):
         now = datetime.now()
