@@ -1,7 +1,7 @@
-Lp;Nazwa;Audio;Kierunek
-1;Park Tetmajera 01;Park Tetmajera;Bronowice Małe
-2;Truszkowskiego (NŻ) 01;Truszkowskiego;
-3;Muzeum Rydlówka (NŻ) 01;Muzeum Rydlówka;
-4;Pod Strzechą (NŻ) 01;Pod Strzechą;
-5;Bronowice Małe 02;Bronowice Małe;
-6;Bronowice Małe 03;Bronowice Małe;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Park Tetmajera 01;Park Tetmajera;Bronowice Małe;
+2;Truszkowskiego (NŻ) 01;Truszkowskiego;;
+3;Muzeum Rydlówka (NŻ) 01;Muzeum Rydlówka;;
+4;Pod Strzechą (NŻ) 01;Pod Strzechą;;
+5;Bronowice Małe 02;Bronowice Małe;;
+6;Bronowice Małe 03;Bronowice Małe;;
