@@ -1,24 +1,24 @@
-Lp;Nazwa;Audio;Kierunek
-1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Borek Fałęcki
-2;Ćwiklińskiej 02;Ćwiklińskiej;
-3;Nowy Prokocim 02;Nowy Prokocim;
-4;Teligi 02;Teligi;
-5;Prokocim Szpital 02;Prokocim Szpital;
-6;Prokocim 02;Prokocim;
-7;Wlotowa 02;Wlotowa;
-8;Bieżanowska 02;Bieżanowska;
-9;Kabel 02;Kabel;
-10;Dworcowa 02;Dworcowa;
-11;Cmentarz Podgórski 02;Cmentarz Podgórski;
-12;Podgórze SKA 02;Podgórze SKA;
-13;Limanowskiego 02;Limanowskiego;
-14;Korona 02;Korona;
-15;Smolki 01;Smolki;
-16;Rondo Matecznego 01;Rondo Matecznego;
-17;Rzemieślnicza 01;Rzemieślnicza;
-18;Łagiewniki 01;Łagiewniki;
-19;Łagiewniki ZUS 01;Łagiewniki ZUS;
-20;Łagiewniki SKA 05;Łagiewniki SKA;
-21;Kościuszkowców 01;Kościuszkowców;
-22;Solvay 01;Solvay;
-23;Borek Fałęcki 91;Borek Fałęcki;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Borek Fałęcki;
+2;Ćwiklińskiej 02;Ćwiklińskiej;;
+3;Nowy Prokocim 02;Nowy Prokocim;;
+4;Teligi 02;Teligi;;
+5;Prokocim Szpital 02;Prokocim Szpital;;
+6;Prokocim 02;Prokocim;;
+7;Wlotowa 02;Wlotowa;;
+8;Bieżanowska 02;Bieżanowska;;
+9;Kabel 02;Kabel;;
+10;Dworcowa 02;Dworcowa;;
+11;Cmentarz Podgórski 02;Cmentarz Podgórski;;
+12;Podgórze SKA 02;Podgórze SKA;;
+13;Limanowskiego 02;Limanowskiego;;
+14;Korona 02;Korona;;
+15;Smolki 01;Smolki;;
+16;Rondo Matecznego 01;Rondo Matecznego;;
+17;Rzemieślnicza 01;Rzemieślnicza;;
+18;Łagiewniki 01;Łagiewniki;;
+19;Łagiewniki ZUS 01;Łagiewniki ZUS;;
+20;Łagiewniki SKA 05;Łagiewniki SKA;;
+21;Kościuszkowców 01;Kościuszkowców;;
+22;Solvay 01;Solvay;;
+23;Borek Fałęcki 91;Borek Fałęcki;;
