@@ -137,8 +137,6 @@ class MainSIPLayout(FloatLayout):
         return csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
     
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
-        key_name = keycode[1] if keycode else None
-
         if 'ctrl' in modifiers:
             if text == 'm':
                 self.go_back_to_menu()
