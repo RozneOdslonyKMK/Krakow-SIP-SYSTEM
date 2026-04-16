@@ -490,20 +490,8 @@ class MainSIPLayout(FloatLayout):
         )
         
         self.ads.bind(eos=self.next_ad)
-        self.ads.bind(texture=self._on_video_texture)
         self.video_container.add_widget(self.ads)
         self.content_box.add_widget(self.video_container)
-
-    def _on_video_texture(self, instance, value):
-        if value:
-            instance.volume = 0
-            Clock.schedule_once(lambda dt: self._force_mute_sync(instance), 0.1)
-            Clock.schedule_once(lambda dt: self._force_mute_sync(instance), 0.5)
-
-    def _force_mute_sync(self, video_instance):
-        if video_instance:
-            video_instance.volume = 0
-            self._loading_ad = False
 
     def update_ui(self, *args):
         now = datetime.now()
