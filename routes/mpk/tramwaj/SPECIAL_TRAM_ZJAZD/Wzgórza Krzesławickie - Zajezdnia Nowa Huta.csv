@@ -1,7 +1,7 @@
-Lp;Nazwa;Audio
-1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie
-2;Jarzębiny 02;Jarzębiny
-3;Darwina 02;Darwina
-4;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy
-5;Elektromontaż (NŻ) 01;Elektromontaż
-6;PH;PH
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;;
+2;Jarzębiny 02;Jarzębiny;;
+3;Darwina 02;Darwina;;
+4;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy;;
+5;Elektromontaż (NŻ) 01;Elektromontaż;;koniec_trasy
+6;PH;PH;;

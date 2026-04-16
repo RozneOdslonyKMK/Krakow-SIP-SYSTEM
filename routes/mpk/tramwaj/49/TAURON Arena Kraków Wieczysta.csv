@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio;Kierunek
-1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;TAURON Arena Kraków Wieczysta
-2;Ćwiklińskiej 02;Ćwiklińskiej;
-3;Nowy Prokocim 02;Nowy Prokocim;
-4;Teligi 02;Teligi;
-5;Prokocim Szpital 02;Prokocim Szpital;
-6;Prokocim 02;Prokocim;
-7;Wlotowa 02;Wlotowa;
-8;Bieżanowska 02;Bieżanowska;
-9;Kabel 02;Kabel;
-10;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada;
-11;Lipska 02;Lipska;
-12;Gromadzka 02;Gromadzka;
-13;Kuklińskiego 02;Kuklińskiego;
-14;Klimeckiego 02;Klimeckiego;
-15;Zabłocie 02;Zabłocie;
-16;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;
-17;Rondo Mogilskie 02;Rondo Mogilskie;
-18;Cystersów 01;Cystersów;
-19;Białucha 01;Białucha;
-20;TAURON Arena Kraków Wieczysta 92;TAURON Arena Kraków Wieczysta;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;TAURON Arena Kraków Wieczysta;
+2;Ćwiklińskiej 02;Ćwiklińskiej;;
+3;Nowy Prokocim 02;Nowy Prokocim;;
+4;Teligi 02;Teligi;;
+5;Prokocim Szpital 02;Prokocim Szpital;;
+6;Prokocim 02;Prokocim;;
+7;Wlotowa 02;Wlotowa;;
+8;Bieżanowska 02;Bieżanowska;;
+9;Kabel 02;Kabel;;
+10;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada;;
+11;Lipska 02;Lipska;;
+12;Gromadzka 02;Gromadzka;;
+13;Kuklińskiego 02;Kuklińskiego;;
+14;Klimeckiego 02;Klimeckiego;;
+15;Zabłocie 02;Zabłocie;;
+16;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;
+17;Rondo Mogilskie 02;Rondo Mogilskie;;
+18;Cystersów 01;Cystersów;;
+19;Białucha 01;Białucha;;
+20;TAURON Arena Kraków Wieczysta 92;TAURON Arena Kraków Wieczysta;;koniec_trasy

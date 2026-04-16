@@ -1,39 +1,39 @@
-Lp;Nazwa;Audio;Kierunek
-1;Pleszów 01;Pleszów;Kurdwanów P+R
-2;Koksochemia (NŻ) 02;Koksochemia;
-3;Meksyk (NŻ) 02;Meksyk;
-4;Brama nr 5 (NŻ) 02;Brama nr 5;
-5;Giedroycia (NŻ) 02;Giedroycia;
-6;Brama nr 4 (NŻ) 02;Brama nr 4;
-7;Fort Mogiła (NŻ) 02;Fort Mogiła;
-8;Bardosa 02;Bardosa;
-9;Suche Stawy 02;Suche Stawy;
-10;Klasztorna 02;Klasztorna;
-11;Os. Na Skarpie 02;Os. Na Skarpie;
-12;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;
-13;Os. Kolorowe 02;Os. Kolorowe;
-14;Rondo Czyżyńskie 02;Rondo Czyżyńskie;
-15;Czyżyny 02;Czyżyny;
-16;Stella-Sawickiego 02;Stella-Sawickiego;
-17;AKF / PK 02;AKF PK;
-18;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;
-19;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;
-20;Białucha 02;Białucha;
-21;Cystersów 02;Cystersów;
-22;Rondo Mogilskie 01;Rondo Mogilskie
-23;Lubicz 01;Lubicz
-24;Teatr Słowackiego 01;Teatr Słowackiego
-25;Poczta Główna 01;Poczta Główna
-26;Starowiślna 02;Starowiślna
-27;Stradom 03;Stradom
-28;Plac Wolnica 01;Plac Wolnica;
-29;Korona 03;Korona;
-30;Smolki 01;Smolki;
-31;Rondo Matecznego 01;Rondo Matecznego;
-32;Rzemieślnicza 01;Rzemieślnicza;
-33;Łagiewniki 01;Łagiewniki;
-34;Łagiewniki ZUS 01;Łagiewniki ZUS;
-35;Łagiewniki SKA 05;Łagiewniki SKA;
-36;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia;
-37;Turowicza 01;Turowicza;
-38;Kurdwanów P+R 90;Kurdwanów P+R;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Pleszów 01;Pleszów;Kurdwanów P+R;
+2;Koksochemia (NŻ) 02;Koksochemia;;
+3;Meksyk (NŻ) 02;Meksyk;;
+4;Brama nr 5 (NŻ) 02;Brama nr 5;;
+5;Giedroycia (NŻ) 02;Giedroycia;;
+6;Brama nr 4 (NŻ) 02;Brama nr 4;;
+7;Fort Mogiła (NŻ) 02;Fort Mogiła;;
+8;Bardosa 02;Bardosa;;
+9;Suche Stawy 02;Suche Stawy;;
+10;Klasztorna 02;Klasztorna;;
+11;Os. Na Skarpie 02;Os. Na Skarpie;;
+12;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;
+13;Os. Kolorowe 02;Os. Kolorowe;;
+14;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
+15;Czyżyny 02;Czyżyny;;
+16;Stella-Sawickiego 02;Stella-Sawickiego;;
+17;AKF / PK 02;AKF PK;;
+18;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
+19;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
+20;Białucha 02;Białucha;;
+21;Cystersów 02;Cystersów;;
+22;Rondo Mogilskie 01;Rondo Mogilskie;;
+23;Lubicz 01;Lubicz;;
+24;Teatr Słowackiego 01;Teatr Słowackiego;;
+25;Poczta Główna 01;Poczta Główna;;
+26;Starowiślna 02;Starowiślna;;
+27;Stradom 03;Stradom;;
+28;Plac Wolnica 01;Plac Wolnica;;
+29;Korona 03;Korona;;
+30;Smolki 01;Smolki;;
+31;Rondo Matecznego 01;Rondo Matecznego;;
+32;Rzemieślnicza 01;Rzemieślnicza;;
+33;Łagiewniki 01;Łagiewniki;;
+34;Łagiewniki ZUS 01;Łagiewniki ZUS;;
+35;Łagiewniki SKA 05;Łagiewniki SKA;;
+36;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia;;
+37;Turowicza 01;Turowicza;;
+38;Kurdwanów P+R 90;Kurdwanów P+R;;koniec_trasy

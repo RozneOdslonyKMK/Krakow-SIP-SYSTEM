@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio;Kierunek
-1;Cmentarz Rakowicki 01;Cmentarz Rakowicki;Mały Płaszów P+R
-2;Cmentarz Rakowicki 02;Cmentarz Rakowicki;
-3;Muzeum Fotografii 02;Muzeum Fotografii;
-4;Uniwersytet Ekonomiczny 02;Uniwersytet Ekonomiczny;
-5;Lubicz 03;Lubicz;
-6;Teatr Słowackiego 01;Teatr Słowackiego;
-7;Poczta Główna 01;Poczta Główna;
-8;św. Gertrudy 02;Św. Gertrudy;
-9;Wawel 02;Wawel;
-10;Stradom 02;Stradom;
-11;Plac Wolnica 01;Plac Wolnica;
-12;Korona 03;Korona;
-13;Limanowskiego 01;Limanowskiego;
-14;Podgórze SKA 01;Podgórze SKA;
-15;Cmentarz Podgórski 01;Cmentarz Podgórski;
-16;Dworcowa 01;Dworcowa;
-17;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada;
-18;Lipska 01;Lipska;
-19;Rzebika 01;Rzebika;
-20;Mały Płaszów P+R 91;Mały Płaszów P+R;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Cmentarz Rakowicki 01;Cmentarz Rakowicki;Mały Płaszów P+R;
+2;Cmentarz Rakowicki 02;Cmentarz Rakowicki;;
+3;Muzeum Fotografii 02;Muzeum Fotografii;;
+4;Uniwersytet Ekonomiczny 02;Uniwersytet Ekonomiczny;;
+5;Lubicz 03;Lubicz;;
+6;Teatr Słowackiego 01;Teatr Słowackiego;;
+7;Poczta Główna 01;Poczta Główna;;
+8;św. Gertrudy 02;Św. Gertrudy;;
+9;Wawel 02;Wawel;;
+10;Stradom 02;Stradom;;
+11;Plac Wolnica 01;Plac Wolnica;;
+12;Korona 03;Korona;;
+13;Limanowskiego 01;Limanowskiego;;
+14;Podgórze SKA 01;Podgórze SKA;;
+15;Cmentarz Podgórski 01;Cmentarz Podgórski;;
+16;Dworcowa 01;Dworcowa;;
+17;Dworzec Płaszów Estakada 01;Dworzec Płaszów Estakada;;
+18;Lipska 01;Lipska;;
+19;Rzebika 01;Rzebika;;
+20;Mały Płaszów P+R 91;Mały Płaszów P+R;;koniec_trasy

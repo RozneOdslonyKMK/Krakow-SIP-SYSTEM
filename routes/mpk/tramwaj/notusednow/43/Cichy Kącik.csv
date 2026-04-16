@@ -1,28 +1,28 @@
-Lp;Nazwa;Audio;Kierunek
-1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Cichy Kącik
-2;Ćwiklińskiej 02;Ćwiklińskiej;
-3;Nowy Prokocim 02;Nowy Prokocim;
-4;Teligi 02;Teligi;
-5;Prokocim Szpital 02;Prokocim Szpital;
-6;Prokocim 02;Prokocim;
-7;Wlotowa 02;Wlotowa;
-8;Bieżanowska 02;Bieżanowska;
-9;Kabel 02;Kabel;
-10;Dworcowa 02;Dworcowa;
-11;Cmentarz Podgórski 02;Cmentarz Podgórski;
-12;Podgórze SKA 02;Podgórze SKA;
-13;Limanowskiego 02;Limanowskiego;
-14;Korona 02;Korona;
-15;Plac Wolnica 02;Plac Wolnica;
-16;Stradom 04;Stradom;
-17;Wawel 01;Wawel;
-18;Poczta Główna 03;Poczta Główna;
-19;Teatr Słowackiego 03;Teatr Słowackiego;
-20;Stary Kleparz 01;Stary Kleparz;
-21;Teatr Bagatela 02;Teatr Bagatela;
-22;UJ / AST 01;UJ AST;
-23;Muzeum Narodowe 01;Muzeum Narodowe;
-24;Oleandry 01;Oleandry;
-25;Park Jordana 01;Park Jordana;
-26;Reymana 01;Reymana;
-27;Cichy Kącik 91;Cichy Kącik;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Cichy Kącik;
+2;Ćwiklińskiej 02;Ćwiklińskiej;;
+3;Nowy Prokocim 02;Nowy Prokocim;;
+4;Teligi 02;Teligi;;
+5;Prokocim Szpital 02;Prokocim Szpital;;
+6;Prokocim 02;Prokocim;;
+7;Wlotowa 02;Wlotowa;;
+8;Bieżanowska 02;Bieżanowska;;
+9;Kabel 02;Kabel;;
+10;Dworcowa 02;Dworcowa;;
+11;Cmentarz Podgórski 02;Cmentarz Podgórski;;
+12;Podgórze SKA 02;Podgórze SKA;;
+13;Limanowskiego 02;Limanowskiego;;
+14;Korona 02;Korona;;
+15;Plac Wolnica 02;Plac Wolnica;;
+16;Stradom 04;Stradom;;
+17;Wawel 01;Wawel;;
+18;Poczta Główna 03;Poczta Główna;;
+19;Teatr Słowackiego 03;Teatr Słowackiego;;
+20;Stary Kleparz 01;Stary Kleparz;;
+21;Teatr Bagatela 02;Teatr Bagatela;;
+22;UJ / AST 01;UJ AST;;
+23;Muzeum Narodowe 01;Muzeum Narodowe;;
+24;Oleandry 01;Oleandry;;
+25;Park Jordana 01;Park Jordana;;
+26;Reymana 01;Reymana;;
+27;Cichy Kącik 91;Cichy Kącik;;koniec_trasy

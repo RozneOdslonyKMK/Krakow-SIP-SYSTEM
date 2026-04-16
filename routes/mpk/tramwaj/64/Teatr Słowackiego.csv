@@ -1,20 +1,20 @@
-Lp;Nazwa;Audio;Kierunek
-1;Os. Piastów 01;Os. Piastów;Teatr Słowackiego
-2;Piasta Kołodzieja 02;Piasta Kołodzieja;
-3;Kleeberga 02;Kleeberga;
-4;Dunikowskiego 02;Dunikowskiego;
-5;Rondo Hipokratesa 02;Rondo Hipokratesa;
-6;DH Wanda 02;DH Wanda;
-7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
-8;Bieńczycka 01;Bieńczycka;
-9;Rondo Czyżyńskie 02;Rondo Czyżyńskie;
-10;Czyżyny 02;Czyżyny;
-11;Stella-Sawickiego 02;Stella-Sawickiego;
-12;AKF / PK 02;AKF PK;
-13;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;
-14;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;
-15;Białucha 02;Białucha;
-16;Cystersów 02;Cystersów;
-17;Rondo Mogilskie 01;Rondo Mogilskie;
-18;Lubicz 01;Lubicz;
-19;Teatr Słowackiego 01;Teatr Słowackiego;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Os. Piastów 01;Os. Piastów;Teatr Słowackiego;
+2;Piasta Kołodzieja 02;Piasta Kołodzieja;;
+3;Kleeberga 02;Kleeberga;;
+4;Dunikowskiego 02;Dunikowskiego;;
+5;Rondo Hipokratesa 02;Rondo Hipokratesa;;
+6;DH Wanda 02;DH Wanda;;
+7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+8;Bieńczycka 01;Bieńczycka;;
+9;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
+10;Czyżyny 02;Czyżyny;;
+11;Stella-Sawickiego 02;Stella-Sawickiego;;
+12;AKF / PK 02;AKF PK;;
+13;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
+14;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
+15;Białucha 02;Białucha;;
+16;Cystersów 02;Cystersów;;
+17;Rondo Mogilskie 01;Rondo Mogilskie;;
+18;Lubicz 01;Lubicz;;
+19;Teatr Słowackiego 01;Teatr Słowackiego;;koniec_trasy

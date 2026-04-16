@@ -1,31 +1,31 @@
-Lp;Nazwa;Audio;Kierunek
-1;Kurdwanów P+R 10;Kurdwanów P+R;Bardosa
-2;Turowicza 02;Turowicza;
-3;Sanktuarium Bożego Miłosierdzia 02;Sanktuarium Bożego Miłosierdzia;
-4;Łagiewniki SKA 02;Łagiewniki SKA;
-5;Łagiewniki 02;Łagiewniki;
-6;Rzemieślnicza 02;Rzemieślnicza;
-7;Rondo Matecznego 02;Rondo Matecznego;
-8;Smolki 02;Smolki;
-9;Korona 01;Korona;
-10;Plac Wolnica 02;Plac Wolnica;
-11;Stradom 04;Stradom;
-12;Starowiślna 01;Starowiślna
-13;Poczta Główna 02;Poczta Główna
-14;Teatr Słowackiego 03;Teatr Słowackiego
-15;Lubicz 02;Lubicz
-16;Rondo Mogilskie 02;Rondo Mogilskie
-17;Cystersów 01;Cystersów;
-18;Białucha 01;Białucha;
-19;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;
-20;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;
-21;AKF / PK 01;AKF PK;
-22;Stella-Sawickiego 01;Stella-Sawickiego;
-23;Czyżyny 01;Czyżyny;
-24;Rondo Czyżyńskie 01;Rondo Czyżyńskie;
-25;Os. Kolorowe 01;Os. Kolorowe;
-26;Plac Centralny im. R.Reagana 04;Plac Centralny im. R.Reagana;
-27;Os. Na Skarpie 01;Os. Na Skarpie;
-28;Klasztorna 01;Klasztorna;
-29;Suche Stawy 01;Suche Stawy;
-30;Bardosa 01;Bardosa;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Kurdwanów P+R 10;Kurdwanów P+R;Bardosa;
+2;Turowicza 02;Turowicza;;
+3;Sanktuarium Bożego Miłosierdzia 02;Sanktuarium Bożego Miłosierdzia;;
+4;Łagiewniki SKA 02;Łagiewniki SKA;;
+5;Łagiewniki 02;Łagiewniki;;
+6;Rzemieślnicza 02;Rzemieślnicza;;
+7;Rondo Matecznego 02;Rondo Matecznego;;
+8;Smolki 02;Smolki;;
+9;Korona 01;Korona;;
+10;Plac Wolnica 02;Plac Wolnica;;
+11;Stradom 04;Stradom;;
+12;Starowiślna 01;Starowiślna;;
+13;Poczta Główna 02;Poczta Główna;;
+14;Teatr Słowackiego 03;Teatr Słowackiego;;
+15;Lubicz 02;Lubicz;;
+16;Rondo Mogilskie 02;Rondo Mogilskie;;
+17;Cystersów 01;Cystersów;;
+18;Białucha 01;Białucha;;
+19;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
+20;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
+21;AKF / PK 01;AKF PK;;
+22;Stella-Sawickiego 01;Stella-Sawickiego;;
+23;Czyżyny 01;Czyżyny;;
+24;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
+25;Os. Kolorowe 01;Os. Kolorowe;;
+26;Plac Centralny im. R.Reagana 04;Plac Centralny im. R.Reagana;;
+27;Os. Na Skarpie 01;Os. Na Skarpie;;
+28;Klasztorna 01;Klasztorna;;
+29;Suche Stawy 01;Suche Stawy;;
+30;Bardosa 01;Bardosa;;koniec_trasy

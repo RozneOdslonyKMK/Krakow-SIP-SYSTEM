@@ -1,20 +1,20 @@
-Lp;Nazwa;Audio;Kierunek
-1;Cichy Kącik 01;Cichy Kącik;Mały Płaszów P+R
-2;Reymana 02;Reymana;
-3;Park Jordana 02;Park Jordana;
-4;Oleandry 02;Oleandry;
-5;Muzeum Narodowe 02;Muzeum Narodowe;
-6;UJ / AST 02;UJ AST;
-7;Teatr Bagatela 01;Teatr Bagatela;
-8;Stary Kleparz 02;Stary Kleparz;
-9;Teatr Słowackiego 02;Teatr Słowackiego;
-10;Lubicz 02;Lubicz;
-11;Rondo Mogilskie 03;Rondo Mogilskie;
-12;Rondo Grzegórzeckie 04;Rondo Grzegórzeckie;
-13;Zabłocie 01;Zabłocie;
-14;Klimeckiego 01;Klimeckiego;
-15;Kuklińskiego 01;Kuklińskiego;
-16;Gromadzka 01;Gromadzka;
-17;Lipska 01;Lipska;
-18;Rzebika 01;Rzebika;
-19;Mały Płaszów P+R 91;Mały Płaszów P+R;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Cichy Kącik 01;Cichy Kącik;Mały Płaszów P+R;
+2;Reymana 02;Reymana;;
+3;Park Jordana 02;Park Jordana;;
+4;Oleandry 02;Oleandry;;
+5;Muzeum Narodowe 02;Muzeum Narodowe;;
+6;UJ / AST 02;UJ AST;;
+7;Teatr Bagatela 01;Teatr Bagatela;;
+8;Stary Kleparz 02;Stary Kleparz;;
+9;Teatr Słowackiego 02;Teatr Słowackiego;;
+10;Lubicz 02;Lubicz;;
+11;Rondo Mogilskie 03;Rondo Mogilskie;;
+12;Rondo Grzegórzeckie 04;Rondo Grzegórzeckie;;
+13;Zabłocie 01;Zabłocie;;
+14;Klimeckiego 01;Klimeckiego;;
+15;Kuklińskiego 01;Kuklińskiego;;
+16;Gromadzka 01;Gromadzka;;
+17;Lipska 01;Lipska;;
+18;Rzebika 01;Rzebika;;
+19;Mały Płaszów P+R 91;Mały Płaszów P+R;;koniec_trasy

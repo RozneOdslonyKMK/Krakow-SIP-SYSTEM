@@ -1,13 +1,13 @@
-Lp;Nazwa;Audio;Kierunek
-1;Salwator 01;Salwator;Cmentarz Rakowicki
-2;Salwator 02;Salwator;
-3;Komorowskiego 02;Komorowskiego;
-4;Jubilat 02;Jubilat;
-5;Filharmonia 02;Filharmonia;
-6;Teatr Bagatela 01;Teatr Bagatela;
-7;Stary Kleparz 02;Stary Kleparz;
-8;Teatr Słowackiego 02;Teatr Słowackiego;
-9;Lubicz 02;Lubicz;
-10;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny;
-11;Muzeum Fotografii 01;Muzeum Fotografii;
-12;Cmentarz Rakowicki 91;Cmentarz Rakowicki;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Salwator 01;Salwator;Cmentarz Rakowicki;
+2;Salwator 02;Salwator;;
+3;Komorowskiego 02;Komorowskiego;;
+4;Jubilat 02;Jubilat;;
+5;Filharmonia 02;Filharmonia;;
+6;Teatr Bagatela 01;Teatr Bagatela;;
+7;Stary Kleparz 02;Stary Kleparz;;
+8;Teatr Słowackiego 02;Teatr Słowackiego;;
+9;Lubicz 02;Lubicz;;
+10;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny;;
+11;Muzeum Fotografii 01;Muzeum Fotografii;;
+12;Cmentarz Rakowicki 91;Cmentarz Rakowicki;;koniec_trasy

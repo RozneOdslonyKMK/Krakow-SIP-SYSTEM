@@ -1,28 +1,28 @@
-Lp;Nazwa;Audio;Kierunek
-1;Dworzec Towarowy 03;Dworzec Towarowy;Mistrzejowice
-2;Nowy Kleparz 02;Nowy Kleparz;
-3;Pędzichów 02;Pędzichów;
-4;Stary Kleparz 03;Stary Kleparz;
-5;Teatr Słowackiego 02;Teatr Słowackiego;
-6;Lubicz 02;Lubicz;
-7;Rondo Mogilskie 03;Rondo Mogilskie;
-8;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;
-9;Teatr Variété 01;Teatr Variété;
-10;Nullo 01;Nullo;
-11;Fabryczna 01;Fabryczna;
-12;Ofiar Dąbia 01;Ofiar Dąbia;
-13;Dąbie 01;Dąbie;
-14;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;
-15;Ogród Doświadczeń 01;Ogród Doświadczeń;
-16;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;
-17;Gałczyńskiego 01;Gałczyńskiego;
-18;Rondo Czyżyńskie 03;Rondo Czyżyńskie;
-19;Bieńczycka 02;Bieńczycka;
-20;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
-21;DH Wanda 01;DH Wanda;
-22;Rondo Hipokratesa 01;Rondo Hipokratesa;
-23;Dunikowskiego 01;Dunikowskiego;
-24;Rondo Piastowskie 01;Rondo Piastowskie;
-25;Os. Złotego Wieku 01;Os. Złotego Wieku;
-26;Miśnieńska 01;Miśnieńska;
-27;Mistrzejowice 94;Mistrzejowice;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Dworzec Towarowy 03;Dworzec Towarowy;Mistrzejowice;
+2;Nowy Kleparz 02;Nowy Kleparz;;
+3;Pędzichów 02;Pędzichów;;
+4;Stary Kleparz 03;Stary Kleparz;;
+5;Teatr Słowackiego 02;Teatr Słowackiego;;
+6;Lubicz 02;Lubicz;;
+7;Rondo Mogilskie 03;Rondo Mogilskie;;
+8;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;
+9;Teatr Variété 01;Teatr Variété;;
+10;Nullo 01;Nullo;;
+11;Fabryczna 01;Fabryczna;;
+12;Ofiar Dąbia 01;Ofiar Dąbia;;
+13;Dąbie 01;Dąbie;;
+14;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;
+15;Ogród Doświadczeń 01;Ogród Doświadczeń;;
+16;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;
+17;Gałczyńskiego 01;Gałczyńskiego;;
+18;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;
+19;Bieńczycka 02;Bieńczycka;;
+20;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+21;DH Wanda 01;DH Wanda;;
+22;Rondo Hipokratesa 01;Rondo Hipokratesa;;
+23;Dunikowskiego 01;Dunikowskiego;;
+24;Rondo Piastowskie 01;Rondo Piastowskie;;
+25;Os. Złotego Wieku 01;Os. Złotego Wieku;;
+26;Miśnieńska 01;Miśnieńska;;
+27;Mistrzejowice 94;Mistrzejowice;;koniec_trasy

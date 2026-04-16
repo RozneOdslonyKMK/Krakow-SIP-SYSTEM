@@ -1,21 +1,21 @@
-Lp;Nazwa;Audio;Kierunek
-1;Os. Piastów 01;Os. Piastów;Pleszów
-2;Piasta Kołodzieja 02;Piasta Kołodzieja;
-3;Kleeberga 02;Kleeberga;
-4;Dunikowskiego 02;Dunikowskiego;
-5;Rondo Hipokratesa 02;Rondo Hipokratesa;
-6;DH Wanda 02;DH Wanda;
-7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 04;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
-8;Os. Zgody 01;Os. Zgody;
-9;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;
-10;Struga 01;Struga;
-11;Zalew Nowohucki 01;Zalew Nowohucki;
-12;Kombinat 01;Kombinat;
-13;Kopiec Wandy 01;Kopiec Wandy;
-14;Fort Mogiła (NŻ) 01;Fort Mogiła;
-15;Brama nr 4 (NŻ) 01;Brama nr 4;
-16;Giedroycia (NŻ) 01;Giedroycia;
-17;Brama nr 5 (NŻ) 01;Brama nr 5;
-18;Meksyk (NŻ) 01;Meksyk;
-19;Koksochemia (NŻ) 01;Koksochemia;
-20;Pleszów 91;Pleszów;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Os. Piastów 01;Os. Piastów;Pleszów;
+2;Piasta Kołodzieja 02;Piasta Kołodzieja;;
+3;Kleeberga 02;Kleeberga;;
+4;Dunikowskiego 02;Dunikowskiego;;
+5;Rondo Hipokratesa 02;Rondo Hipokratesa;;
+6;DH Wanda 02;DH Wanda;;
+7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 04;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+8;Os. Zgody 01;Os. Zgody;;
+9;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;
+10;Struga 01;Struga;;
+11;Zalew Nowohucki 01;Zalew Nowohucki;;
+12;Kombinat 01;Kombinat;;
+13;Kopiec Wandy 01;Kopiec Wandy;;
+14;Fort Mogiła (NŻ) 01;Fort Mogiła;;
+15;Brama nr 4 (NŻ) 01;Brama nr 4;;
+16;Giedroycia (NŻ) 01;Giedroycia;;
+17;Brama nr 5 (NŻ) 01;Brama nr 5;;
+18;Meksyk (NŻ) 01;Meksyk;;
+19;Koksochemia (NŻ) 01;Koksochemia;;
+20;Pleszów 91;Pleszów;;koniec_trasy

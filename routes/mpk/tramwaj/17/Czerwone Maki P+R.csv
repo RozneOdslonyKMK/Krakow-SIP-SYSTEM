@@ -1,26 +1,26 @@
-Lp;Nazwa;Audio;Kierunek
-1;Dworzec Towarowy 02;Dworzec Towarowy;Czerwone Maki P+R
-2;Politechnika 04;Politechnika;
-3;Dworzec Główny Tunel 01;Dworzec Główny Tunel;
-4;Rondo Mogilskie 03;Rondo Mogilskie;
-5;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;
-6;Hala Targowa 02;Hala Targowa;
-7;Starowiślna 04;Starowiślna;
-8;Miodowa 01;Miodowa;
-9;św. Wawrzyńca 01;Św. Wawrzyńca;
-10;Plac Bohaterów Getta 01;Plac Bohaterów Getta;
-11;Korona 02;Korona;
-12;Smolki 01;Smolki;
-13;Rondo Matecznego 01;Rondo Matecznego;
-14;Rzemieślnicza 01;Rzemieślnicza;
-15;Łagiewniki 01;Łagiewniki;
-16;Łagiewniki 05;Łagiewniki;
-17;Brożka (NŻ) 02;Brożka;
-18;Borsucza 02;Borsucza;
-19;Lipińskiego 01;Lipińskiego;
-20;Grota-Roweckiego 01;Grota-Roweckiego;
-21;Norymberska 01;Norymberska;
-22;Ruczaj 01;Ruczaj;
-23;Kampus UJ 01;Kampus UJ;
-24;Kampus UP JP II 01;Kampus UP JP II;
-25;Czerwone Maki P+R 91;Czerwone Maki P+R;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Dworzec Towarowy 02;Dworzec Towarowy;Czerwone Maki P+R;
+2;Politechnika 04;Politechnika;;
+3;Dworzec Główny Tunel 01;Dworzec Główny Tunel;;
+4;Rondo Mogilskie 03;Rondo Mogilskie;;
+5;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;;
+6;Hala Targowa 02;Hala Targowa;;
+7;Starowiślna 04;Starowiślna;;
+8;Miodowa 01;Miodowa;;
+9;św. Wawrzyńca 01;Św. Wawrzyńca;;
+10;Plac Bohaterów Getta 01;Plac Bohaterów Getta;;
+11;Korona 02;Korona;;
+12;Smolki 01;Smolki;;
+13;Rondo Matecznego 01;Rondo Matecznego;;
+14;Rzemieślnicza 01;Rzemieślnicza;;
+15;Łagiewniki 01;Łagiewniki;;
+16;Łagiewniki 05;Łagiewniki;;
+17;Brożka (NŻ) 02;Brożka;;
+18;Borsucza 02;Borsucza;;
+19;Lipińskiego 01;Lipińskiego;;
+20;Grota-Roweckiego 01;Grota-Roweckiego;;
+21;Norymberska 01;Norymberska;;
+22;Ruczaj 01;Ruczaj;;
+23;Kampus UJ 01;Kampus UJ;;
+24;Kampus UP JP II 01;Kampus UP JP II;;
+25;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
