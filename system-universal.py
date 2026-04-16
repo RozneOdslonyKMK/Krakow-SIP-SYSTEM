@@ -22,6 +22,8 @@ class SipScreen(Screen):
 
 class SIPApp(App):
     def build(self):
+        Window.show_cursor = False
+        Window.bind(on_key_down=self._on_keyboard_down)
         sm = ScreenManager(transition=FadeTransition())
         sm.add_widget(StartModeScreen(name='start_mode'))
         sm.add_widget(VoiceSelectScreen(name='voice_select'))
@@ -32,7 +34,16 @@ class SIPApp(App):
         sm.add_widget(NewsEditorScreen(name='news_editor'))
         sm.add_widget(SipScreen(name='sip'))
         return sm
-    def on_stop(self): Window.show_cursor = True
+    
+    def _on_keyboard_down(self, instance, key, scancode, codepoint, modifiers):
+        if 'ctrl' in modifiers and (key == 113):
+            Window.show_cursor = not Window.show_cursor
+            return True
+        
+        return False
+    
+    def on_stop(self): 
+        Window.show_cursor = True
 
 if __name__ == '__main__':
     SIPApp().run()
