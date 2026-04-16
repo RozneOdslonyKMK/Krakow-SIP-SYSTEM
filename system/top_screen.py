@@ -14,6 +14,7 @@ class MainSIPLayout(FloatLayout):
         self.audio_queue = []
         self.is_audio_playing = False
         self.current_sound = None
+        Window.show_cursor = False
 
         self.ubuntu_font = os.path.join(BASE_DIR, 'fonts', 'Ubuntu-Regular.ttf')
         self.arial_font = os.path.join(BASE_DIR, 'fonts', 'Arial.ttf')
@@ -136,20 +137,26 @@ class MainSIPLayout(FloatLayout):
         return csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
     
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
+        key_name = keycode[1] if keycode else None
+
         if 'ctrl' in modifiers:
             if text == 'm':
                 self.go_back_to_menu()
+                return True
             elif text == 't':
                 self.show_route_panel()
+                return True
             elif text == 'k':
                 self.show_announcements_panel()
+                return True
             elif text == 'q':
                 self.toggle_mouse_cursor()
+                return True
         return True
 
     def toggle_mouse_cursor(self):
         Window.show_cursor = not Window.show_cursor
-        print(f"Widoczność kursora: {Window.show_cursor}")
+        print(f"DEBUG: Kursor jest teraz: {Window.show_cursor}")
         
     def show_route_panel(self):
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
@@ -478,7 +485,6 @@ class MainSIPLayout(FloatLayout):
         self.ads = Video(
             source=self.ad_files[self.current_ad_idx],
             state='play',
-            volume=0,
             allow_stretch=True,
             keep_ratio=False,
             size_hint=(None, None),
@@ -491,8 +497,15 @@ class MainSIPLayout(FloatLayout):
         self.video_container.add_widget(self.ads)
         self.content_box.add_widget(self.video_container)
         
+        Clock.schedule_interval(self._force_mute, 0.1) 
         Clock.schedule_once(self._force_play, 0.2)
 
+    def _force_mute(self, dt):
+        if self.ads and self.ads.state == 'play':
+            self.ads.volume = 0
+            return False # Zatrzymuje interwał Clock
+        return True
+    
     def _force_play(self, dt):
         if self.ads:
             self.ads.state = 'play'
