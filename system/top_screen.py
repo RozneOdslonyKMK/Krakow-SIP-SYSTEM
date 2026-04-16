@@ -147,15 +147,8 @@ class MainSIPLayout(FloatLayout):
             elif text == 'k':
                 self.show_announcements_panel()
                 return True
-            elif text == 'q':
-                self.toggle_mouse_cursor()
-                return True
         return True
 
-    def toggle_mouse_cursor(self):
-        Window.show_cursor = not Window.show_cursor
-        print(f"DEBUG: Kursor jest teraz: {Window.show_cursor}")
-        
     def show_route_panel(self):
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
         layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
