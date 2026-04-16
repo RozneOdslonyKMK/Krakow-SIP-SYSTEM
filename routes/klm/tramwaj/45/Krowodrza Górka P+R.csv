@@ -1,25 +1,25 @@
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Kopiec Wandy 02;Kopiec Wandy;Krowodrza Górka P+R;
-2;Kombinat 03;Kombinat;;
-3;Zalew Nowohucki 02;Zalew Nowohucki;;
-4;Struga 02;Struga;;
-5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;
-6;Os. Kolorowe 02;Os. Kolorowe;;
-7;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
-8;Czyżyny 02;Czyżyny;;
-9;Stella-Sawickiego 02;Stella-Sawickiego;;
-10;AKF / PK 02;AKF PK;;
-11;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
-12;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
-13;Białucha 02;Białucha;;
-14;Cystersów 02;Cystersów;;
-15;Rondo Mogilskie 01;Rondo Mogilskie;;
-16;Lubicz 01;Lubicz;;
-17;Teatr Słowackiego 01;Teatr Słowackiego;;
-18;Stary Kleparz 01;Stary Kleparz;;
-19;Pędzichów 01;Pędzichów;;
-20;Nowy Kleparz 01;Nowy Kleparz;;
-21;Dworzec Towarowy 01;Dworzec Towarowy;;
-22;Szpital Narutowicza 01;Szpital Narutowicza;;
-23;Bratysławska 01;Bratysławska;;
-24;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy
+Lp;Nazwa;Audio;Kierunek
+1;Kopiec Wandy 02;Kopiec Wandy;Krowodrza Górka P+R
+2;Kombinat 03;Kombinat;
+3;Zalew Nowohucki 02;Zalew Nowohucki;
+4;Struga 02;Struga;
+5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;
+6;Os. Kolorowe 02;Os. Kolorowe;
+7;Rondo Czyżyńskie 02;Rondo Czyżyńskie;
+8;Czyżyny 02;Czyżyny;
+9;Stella-Sawickiego 02;Stella-Sawickiego;
+10;AKF / PK 02;AKF PK;
+11;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;
+12;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;
+13;Białucha 02;Białucha;
+14;Cystersów 02;Cystersów;
+15;Rondo Mogilskie 01;Rondo Mogilskie;
+16;Lubicz 01;Lubicz;
+17;Teatr Słowackiego 01;Teatr Słowackiego;
+18;Stary Kleparz 01;Stary Kleparz;
+19;Pędzichów 01;Pędzichów;
+20;Nowy Kleparz 01;Nowy Kleparz;
+21;Dworzec Towarowy 01;Dworzec Towarowy;
+22;Szpital Narutowicza 01;Szpital Narutowicza;
+23;Bratysławska 01;Bratysławska;
+24;Krowodrza Górka P+R 93;Krowodrza Górka P+R;
