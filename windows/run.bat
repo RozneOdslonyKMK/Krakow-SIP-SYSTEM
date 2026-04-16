@@ -14,11 +14,10 @@ cd /d "%ROOT_DIR%"
 
 if not exist "%LOG_DIR%" mkdir "%LOG_DIR%"
 
-for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /format:list') do set "datetime=%%I"
-set "STAMP=%datetime:~0,4%-%datetime:~4,2%-%datetime:~6,2%_%datetime:~8,2%-%datetime:~10,2%-%datetime:~12,2%"
+for /f "tokens=*" %%i in ('powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd_HH-mm-ss'"') do set "STAMP=%%i"
 
 if exist "%LATEST_LOG%" (
-    move /y "%LATEST_LOG%" "%LOG_DIR%\latest-%STAMP%.log" >nul
+    move /y "%LATEST_LOG%" "%LOG_DIR%\latest-%STAMP%.log" >nul 2>&1
 )
 
 echo --- START SYSTEMU: %date% %time% --- > "%LATEST_LOG%"
@@ -41,11 +40,11 @@ echo --- Uruchamianie SIP --- >> "%LATEST_LOG%"
 
 if exist "%WIN_DIR%\update_sip.bat" (
     pushd "%WIN_DIR%"
-    call update_sip.bat >> "%LATEST_LOG%" 2>&1
+    call "update_sip.bat" >> "%LATEST_LOG%" 2>&1
     popd
 )
 
-python system-universal.py >> "%LATEST_LOG%" 2>&1
+python "system-universal.py" >> "%LATEST_LOG%" 2>&1
 
 echo --- ZAMKNIĘCIE SYSTEMU: %date% %time% --- >> "%LATEST_LOG%"
 pause
