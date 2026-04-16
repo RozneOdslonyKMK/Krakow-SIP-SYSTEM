@@ -1,25 +1,25 @@
-Lp;Nazwa;Audio;Kierunek
-1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Wzgórza Krzesławickie
-2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;
-3;Bratysławska 02;Bratysławska;
-4;Szpital Narutowicza 02;Szpital Narutowicza;
-5;Dworzec Towarowy 02;Dworzec Towarowy;
-6;Politechnika 04;Politechnika;
-7;Dworzec Główny Tunel 01;Dworzec Główny Tunel;
-8;Rondo Mogilskie 02;Rondo Mogilskie;
-9;Cystersów 01;Cystersów;
-10;Białucha 01;Białucha;
-11;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;
-12;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;
-13;AKF / PK 01;AKF PK;
-14;Stella-Sawickiego 01;Stella-Sawickiego;
-15;Czyżyny 01;Czyżyny;
-16;Rondo Czyżyńskie 03;Rondo Czyżyńskie;
-17;Bieńczycka 02;Bieńczycka;
-18;Rondo Kocmyrzowskie im. Ks. Gorzelanego 03;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
-19;Teatr Ludowy 02;Teatr Ludowy;
-20;Cienista 02;Cienista;
-21;Wańkowicza 02;Wańkowicza;
-22;Darwina 01;Darwina;
-23;Jarzębiny 01;Jarzębiny;
-24;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Wzgórza Krzesławickie;
+2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;
+3;Bratysławska 02;Bratysławska;;
+4;Szpital Narutowicza 02;Szpital Narutowicza;;
+5;Dworzec Towarowy 02;Dworzec Towarowy;;
+6;Politechnika 04;Politechnika;;
+7;Dworzec Główny Tunel 01;Dworzec Główny Tunel;;
+8;Rondo Mogilskie 02;Rondo Mogilskie;;
+9;Cystersów 01;Cystersów;;
+10;Białucha 01;Białucha;;
+11;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
+12;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
+13;AKF / PK 01;AKF PK;;
+14;Stella-Sawickiego 01;Stella-Sawickiego;;
+15;Czyżyny 01;Czyżyny;;
+16;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;
+17;Bieńczycka 02;Bieńczycka;;
+18;Rondo Kocmyrzowskie im. Ks. Gorzelanego 03;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+19;Teatr Ludowy 02;Teatr Ludowy;;
+20;Cienista 02;Cienista;;
+21;Wańkowicza 02;Wańkowicza;;
+22;Darwina 01;Darwina;;
+23;Jarzębiny 01;Jarzębiny;;
+24;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;;koniec_trasy
