@@ -1,18 +1,18 @@
-Lp;Nazwa;Audio;Kierunek
-1;Jarzębiny 02;Jarzębiny;Os. Piastów
-2;Darwina 02;Darwina;
-3;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy;
-4;Elektromontaż 01;Elektromontaż;
-5;Zajezdnia Nowa Huta 01;Zajezdnia Nowa Huta;
-6;Kombinat 02;Kombinat;
-7;Zalew Nowohucki 02;Zalew Nowohucki;
-8;Struga 02;Struga;
-9;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;
-10;Os. Zgody 02;Os. Zgody;
-11;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;
-12;DH Wanda 01;DH Wanda;
-13;Rondo Hipokratesa 01;Rondo Hipokratesa;
-14;Dunikowskiego 01;Dunikowskiego;
-15;Kleeberga 01;Kleeberga;
-16;Piasta Kołodzieja 01;Piasta Kołodzieja;
-17;Os. Piastów 91;Os. Piastów;
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Jarzębiny 02;Jarzębiny;Os. Piastów;
+2;Darwina 02;Darwina;;
+3;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy;;
+4;Elektromontaż 01;Elektromontaż;;
+5;Zajezdnia Nowa Huta 01;Zajezdnia Nowa Huta;;
+6;Kombinat 02;Kombinat;;
+7;Zalew Nowohucki 02;Zalew Nowohucki;;
+8;Struga 02;Struga;;
+9;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;;
+10;Os. Zgody 02;Os. Zgody;;
+11;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+12;DH Wanda 01;DH Wanda;;
+13;Rondo Hipokratesa 01;Rondo Hipokratesa;;
+14;Dunikowskiego 01;Dunikowskiego;;
+15;Kleeberga 01;Kleeberga;;
+16;Piasta Kołodzieja 01;Piasta Kołodzieja;;
+17;Os. Piastów 91;Os. Piastów;;koniec_trasy
