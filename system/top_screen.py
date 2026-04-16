@@ -4,6 +4,13 @@ class MainSIPLayout(FloatLayout):
     def __init__(self, csv_file, **kwargs):
         super().__init__(**kwargs)
         
+        self.base_size = (1920, 1080)
+        self.content_box = RelativeLayout(size_hint=(None, None), size=self.base_size)
+        self.add_widget(self.content_box)
+        
+        Window.bind(on_resize=self._apply_scaling)
+        Clock.schedule_once(self._apply_scaling, 0)
+        
         self.audio_queue = []
         self.is_audio_playing = False
         self.current_sound = None
@@ -15,7 +22,6 @@ class MainSIPLayout(FloatLayout):
         self.screen_h = 1080
         
         self.special_id = SESSION.get("special_mode_id")
-        
         self.stops = []
         self.stops_db = {}
         self.current_idx = 0
@@ -27,62 +33,38 @@ class MainSIPLayout(FloatLayout):
         ads_dir = os.path.join(BASE_DIR, 'ads')
         self.ad_files = [os.path.join(ads_dir, f) for f in os.listdir(ads_dir) if f.endswith(('.mp4', '.mkv', '.avi'))]
         self.ad_files.sort()
-
         self.current_ad_idx = 0 
         self._loading_ad = False
         self.ads = None
         
-        bg = os.path.join(BASE_DIR, 'sip', 'top', 'podklad_zmiana.png') if SESSION["is_route_changed"] else os.path.join(BASE_DIR, 'sip', 'top', 'podklad.png')
-        self.add_widget(Image(source=os.path.join(BASE_DIR, bg), allow_stretch=True, keep_ratio=False))
+        bg = 'podklad_zmiana.png' if SESSION["is_route_changed"] else 'podklad.png'
+        bg_source = os.path.join(BASE_DIR, 'sip', 'top', bg)
+        self.content_box.add_widget(Image(source=bg_source, allow_stretch=True, keep_ratio=False))
 
         if self.ad_files:
             Clock.schedule_once(self._rebuild_video_widget, 1.0)
 
         l_color = (1, 1, 1, 1) if SESSION["is_route_changed"] else self.krakow_blue
+        line_display = ""
         if SESSION["selected_csv_path"]:
             path_parts = os.path.normpath(SESSION["selected_csv_path"]).split(os.sep)
             line_display = path_parts[-2] if len(path_parts) >= 2 else ""
-        else:
-            line_display = ""
         
         if self.special_id:
             line_display = SPECIAL_MODES[self.special_id]["line"]
             
-        self.add_widget(Label(text=line_display, font_size='165sp', font_name=self.arimo_font,
-                              color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
-                              pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
+        self.content_box.add_widget(Label(
+            text=line_display, font_size='165sp', font_name=self.arimo_font,
+            color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
+            pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
         limit_dest_width = 1316 
-        dest_pos_x = 309
-        dest_pos_y = self.screen_h - 95
+        dest_pos_x, dest_pos_y = 309, 1080 - 95
         
         self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 100),
                                          pos=(dest_pos_x, dest_pos_y))
 
-        direction = ""
-        
-        if self.special_id == "TRAM_WYJAZD":
-            if self.stops:
-                last_stop = self.stops[-1]['Nazwa']
-                direction = last_stop.rsplit(' ', 1)[0] if ' ' in last_stop else last_stop
-            else:
-                direction = "Wyjazd na linię"
-
-        elif self.special_id:
-            direction = SPECIAL_MODES[self.special_id]["label"]
-            
-            if self.special_id == "TRAM_ZJAZD" and self.stops:
-                last_stop_name = self.stops[-1]['Nazwa'].upper()
-                if "PH" in last_stop_name: 
-                    direction = "Zajezdnia Nowa Huta"
-                elif "PT" in last_stop_name: 
-                    direction = "Zajezdnia Podgórze"
-        
-        elif self.stops and 'Kierunek' in self.stops[0] and self.stops[0]['Kierunek']:
-            direction = self.stops[0]['Kierunek']
-        
-        else:
-            direction = csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
+        direction = self._get_direction_text(csv_file)
         
         self.dest_label = Label(text=direction.upper(), font_size='80sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, bold=True, size_hint=(None, None),
@@ -94,44 +76,65 @@ class MainSIPLayout(FloatLayout):
         self.should_scroll_dest = self.dest_label.width > limit_dest_width
         
         self.dest_container.add_widget(self.dest_label)
-        self.add_widget(self.dest_container)
+        self.content_box.add_widget(self.dest_container)
 
         self.stencil = StencilView(size_hint=(None, None), size=(1726, 107), pos=(194, 1080-973-107))
         self.ticker = Label(text=SESSION["news_text"], font_name=self.arial_font, font_size='85sp',
                             size_hint=(None, 1), halign='left', valign='middle', height=107)
         self.ticker.x = 1920
         self.stencil.add_widget(self.ticker)
-        self.add_widget(self.stencil)
+        self.content_box.add_widget(self.stencil)
 
-        self.clock_label = Label(text="01:00", font_size='90sp', font_name=self.arimo_font,
+        self.clock_label = Label(text="00:00", font_size='90sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, bold=True,
                                  size_hint=(None, None), size=(250, 92),
-                                 pos=(1670, self.screen_h - 92), halign='right', valign='middle',
+                                 pos=(1670, 1080 - 92), halign='right', valign='middle',
                                  text_size=(240, 92))
-        self.add_widget(self.clock_label)
+        self.content_box.add_widget(self.clock_label)
 
-        self.date_label = Label(text="poniedziałek\n1 stycznia", font_size='32sp', font_name=self.arimo_font,
+        self.date_label = Label(text="", font_size='32sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, line_height=0.95,
                                 size_hint=(None, None), size=(305, 92),
-                                pos=(1615, self.screen_h - 92 - 92), halign='right', valign='middle',
+                                pos=(1615, 1080 - 184), halign='right', valign='middle',
                                 text_size=(295, 92))
-        self.add_widget(self.date_label)
+        self.content_box.add_widget(self.date_label)
+
         Clock.schedule_interval(self.update_ui, 1)
         Clock.schedule_interval(self.scroll_news, 0.02)
-
-        self.update_stop_label(self.stops[0]['Nazwa'])
+        
+        if self.stops:
+            self.update_stop_label(self.stops[0]['Nazwa'])
 
         Window.bind(on_key_down=self._on_keyboard_down)
         
         if SESSION["mode"] == "Pojazd" and GPS_AVAILABLE:
-            try:
-                self.gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
-                Clock.schedule_interval(self.gps_loop, 1)
-            except:
-                print("Błąd połączenia z serwerem GPSD.")
+            self._init_gps()
 
         Clock.schedule_once(self.play_welcome_sequence, 1.5)
 
+    def _apply_scaling(self, *args):
+        win_w, win_h = Window.size
+        scale = min(win_w / self.base_size[0], win_h / self.base_size[1])
+        self.content_box.scale = scale
+        self.content_box.pos = (
+            (win_w - self.base_size[0] * scale) / 2,
+            (win_h - self.base_size[1] * scale) / 2
+        )
+    
+    def _get_direction_text(self, csv_file):
+        if self.special_id == "TRAM_WYJAZD":
+            return self.stops[-1]['Nazwa'].rsplit(' ', 1)[0] if self.stops else "Wyjazd na linię"
+        elif self.special_id:
+            direction = SPECIAL_MODES[self.special_id]["label"]
+            if self.special_id == "TRAM_ZJAZD" and self.stops:
+                last_stop = self.stops[-1]['Nazwa'].upper()
+                if "PH" in last_stop: return "Zajezdnia Nowa Huta"
+                if "PT" in last_stop: return "Zajezdnia Podgórze"
+            return direction
+        elif self.stops and self.stops[0].get('Kierunek'):
+            return self.stops[0]['Kierunek']
+        return csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
+    
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
         if 'ctrl' in modifiers:
             if text == 'm':
@@ -140,8 +143,14 @@ class MainSIPLayout(FloatLayout):
                 self.show_route_panel()
             elif text == 'k':
                 self.show_announcements_panel()
+            elif text == 'q':
+                self.toggle_mouse_cursor()
         return True
 
+    def toggle_mouse_cursor(self):
+        Window.show_cursor = not Window.show_cursor
+        print(f"Widoczność kursora: {Window.show_cursor}")
+        
     def show_route_panel(self):
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
         layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
@@ -270,7 +279,7 @@ class MainSIPLayout(FloatLayout):
                                    color=self.krakow_blue, size_hint=(None, None),
                                    size=(60, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
-            self.add_widget(self.lbl_prefix)
+            self.content_box.add_widget(self.lbl_prefix)
 
         if not hasattr(self, 'stop_container'):
             self.stop_container = StencilView(size_hint=(None, None), size=(limit_width, 92),
@@ -282,7 +291,7 @@ class MainSIPLayout(FloatLayout):
                                  halign='left', valign='middle', text_size=(None, 92))
             
             self.stop_container.add_widget(self.lbl_stop)
-            self.add_widget(self.stop_container)
+            self.content_box.add_widget(self.stop_container)
         else:
             self.lbl_stop.text = clean_name.upper()
 
@@ -480,13 +489,14 @@ class MainSIPLayout(FloatLayout):
         self.ads.bind(eos=self.next_ad)
         
         self.video_container.add_widget(self.ads)
-        self.add_widget(self.video_container)
+        self.content_box.add_widget(self.video_container)
         
         Clock.schedule_once(self._force_play, 0.2)
 
     def _force_play(self, dt):
         if self.ads:
             self.ads.state = 'play'
+            self.ads.volume = 0
         self._loading_ad = False
 
     def update_ui(self, *args):
