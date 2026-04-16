@@ -1,6 +1,7 @@
 #!/bin/bash
 
 APP_DIR="/opt/krakow_sip_system"
+RUN_DIR="$APP_DIR/linux"
 LOG_DIR="$APP_DIR/logs"
 LATEST_LOG="$LOG_DIR/latest.log"
 
@@ -44,9 +45,8 @@ fi
 
 echo "--- Zależności sprawdzone. Uruchamianie SIP ---"
 
-/usr/bin/chmod +x ./update_sip.sh
-/usr/bin/bash ./update_sip.sh
-cd ../
-/usr/bin/python3 system-universal.py
+/usr/bin/chmod +x $RUN_DIR/update_sip.sh
+/usr/bin/bash $RUN_DIR/update_sip.sh
+/usr/bin/python3 $APP_DIR/system-universal.py
 
 echo "--- ZAMKNIĘCIE SYSTEMU: $(date +"%Y-%m-%d %H:%M:%S") ---"
