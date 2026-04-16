@@ -9,19 +9,22 @@ W programie na początku odpala się coś w stylu sterownika typu Trapeze, któr
 Aby pobrać program wpisz to polecenie w terminalu:
 ```
 sudo git clone https://github.com/RozneOdslonyKMK/Krakow-SIP-SYSTEM/ /opt/krakow_sip_system
+cd /opt/krakow_sip_system/linux
 chmod +x ./run.sh
 ```
 
 ## Uruchamianie
 Wpisz w terminalu to polecenie:
 ```
-/opt/krakow_sip_system/run.sh
+cd /opt/krakow_sip_system/linux
+chmod +x ./run.sh
+./run.sh
 ```
 
 ## Autostart
 Dodaj nowe polecenie autostartu o nazwie np. SIP. W oknie ustawień autostartu w polu polecenia wpisz:
 ```
-bash /opt/krakow_sip_system/run.sh
+bash /opt/krakow_sip_system/linux/run.sh
 ```
 
 # Windows
@@ -35,7 +38,7 @@ Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w
 ## Uruchamianie
 Możesz otworzyć plik run.bat dwukrotnie klikając plik w folderze, albo poprzez CMD uruchamiając poniższe polecenie:
 ```
-cd "C:\Users\Twoja-nazwa\krakow_sip_system"
+cd "C:\Users\Twoja-nazwa\krakow_sip_system\windows"
 .\run.bat
 ```
 Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
