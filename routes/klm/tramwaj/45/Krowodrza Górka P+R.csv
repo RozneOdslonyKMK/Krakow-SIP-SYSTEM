@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 45   Direction: Krowodrza Górka P+R   Stops amount: 24   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Kopiec Wandy 02;Kopiec Wandy;Krowodrza Górka P+R;
 2;Kombinat 03;Kombinat;;
@@ -23,3 +30,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 22;Szpital Narutowicza 01;Szpital Narutowicza;;
 23;Bratysławska 01;Bratysławska;;
 24;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy
+# Generated at 2026-04-17 17:10
