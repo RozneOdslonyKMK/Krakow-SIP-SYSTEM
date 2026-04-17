@@ -7,7 +7,7 @@
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Dworzec Główny Zachód 03;Dworzec Główny Zachód;Os. Piastów;
-2;Politechnika 01;Politechnika;;
+2;Politechnika 01;Politechnika (bus);;
 3;Cmentarz Rakowicki Zachód (NŻ) 03;Cmentarz Rakowicki Zachód;;
 4;Biskupa Prandoty 01;Biskupa Prandoty;;
 5;UR al. 29 Listopada 01;UR al. 29 Listopada;;
@@ -25,4 +25,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 17;Powstańców Magazyny (NŻ) 02;Powstańców Magazyny;;
 18;Piastów SKA 02;Piastów SKA;;
 19;Os. Piastów 04;Os. Piastów;;koniec_trasy
-# Generated at 2026-04-18 00:43
+# Generated at 2026-04-18 00:57
