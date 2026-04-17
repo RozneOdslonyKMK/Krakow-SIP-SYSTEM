@@ -1,2 +1,24 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 104   Direction: Swoszowice SKA   Stops amount: 15   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Czerwone Maki P+R 04;Czerwone Maki P+R;Swoszowice SKA;
+2;Czerwone Maki P+R 02;Czerwone Maki P+R;;
+3;Bunscha 02;Bunscha;;
+4;Babińskiego 01;Babińskiego;;
+5;Kobierzyn 01;Kobierzyn;;
+6;Komuny Paryskiej 02;Komuny Paryskiej;;
+7;Zawiła (NŻ) 02;Zawiła;;
+8;Borkowska 01;Borkowska;;
+9;Kliny Zacisze 02;Kliny Zacisze;;
+10;Os. Pod Fortem 02;Os. Pod Fortem;;
+11;Kliny Zacisze 01;Kliny Zacisze;;
+12;Forteczna 02;Forteczna;;
+13;Zawiszy 02;Zawiszy;;
+14;Kąpielowa (NŻ) 04;Kąpielowa;;
+15;Swoszowice SKA 01;Swoszowice SKA;;
+# Generated at 2026-04-18 00:27
