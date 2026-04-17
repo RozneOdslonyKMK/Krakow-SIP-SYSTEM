@@ -86,14 +86,14 @@ class MainSIPLayout(FloatLayout):
         self.stencil.add_widget(self.ticker)
         self.content_box.add_widget(self.stencil)
 
-        self.clock_label = Label(text="00:00", font_size='90sp', font_name=self.arimo_font,
+        self.clock_label = Label(text="01:00", font_size='90sp', font_name=self.arimo_font,
                                  color=self.krakow_blue, bold=True,
                                  size_hint=(None, None), size=(250, 92),
                                  pos=(1670, 1080 - 92), halign='right', valign='middle',
                                  text_size=(240, 92))
         self.content_box.add_widget(self.clock_label)
 
-        self.date_label = Label(text="", font_size='32sp', font_name=self.arimo_font,
+        self.date_label = Label(text="poniedziałek\n1 stycznia", font_size='32sp', font_name=self.arimo_font,
                                 color=self.krakow_blue, line_height=0.95,
                                 size_hint=(None, None), size=(305, 92),
                                 pos=(1615, 1080 - 184), halign='right', valign='middle',
