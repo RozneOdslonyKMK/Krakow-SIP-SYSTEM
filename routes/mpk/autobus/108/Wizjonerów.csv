@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 108   Direction: Wizjonerów   Stops amount: 7   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bronowice Małe 03;Bronowice Małe;Wizjonerów;
 2;Bronowice Małe 08;Bronowice Małe;;
@@ -6,3 +13,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 5;Rondo Ofiar Katynia 02;Rondo Ofiar Katynia;;
 6;Odkrywców 02;Odkrywców;;
 7;Wizjonerów 92;Wizjonerów;;
+# Generated at 2026-04-17 17:00
