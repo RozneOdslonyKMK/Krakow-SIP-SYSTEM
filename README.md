@@ -27,6 +27,15 @@ Dodaj nowe polecenie autostartu o nazwie np. SIP. W oknie ustawień autostartu w
 bash /opt/krakow_sip_system/linux/run.sh
 ```
 
+## Generator tras
+Jeśli jesteś zainteresowany stworzeniem własnej trasy, której nie ma w plikach, uruchom w terminalu poniższe polecenie:
+```
+cd /opt/krakow_sip_system/linux
+chmod +x ./run_generator.sh
+./run_generator.sh
+```
+Pamiętaj, żeby zapisać wygenerowaną trasę jako kopię w innym folderze niż katalog programu `/opt/krakow_sip_system/`, ponieważ przy aktualizacji system nadpisze wszystkie pliki synchronizując dane z GitHubem (np. w `/home/twoja-nazwa/Desktop/trasy sip`).
+
 # Windows
 ## Przed pierwszym uruchomieniem
 Zainstaluj program 🔗<a href="https://git-scm.com/install/windows">Git</a> oraz 🔗<a href="https://www.python.org/downloads/windows/">Python 3.8</a>. Podczas instalacji programu Git należy zaznaczyć opcję "Git from the command line and also from 3rd-party software", aby komenda była widoczna w CMD, natomiast przy instalacji Pythona należy **koniecznie** zaznaczyć "Add Python to PATH". Po zainstalowaniu wymaganych programów uruchom w CMD to polecenie:
@@ -43,10 +52,13 @@ cd "C:\Users\Twoja-nazwa\krakow_sip_system\windows"
 ```
 Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach
 
-<br>
-<br>
+## Generator tras
+Jeśli jesteś zainteresowany stworzeniem własnej trasy, której nie ma w plikach, otwórz plik run_generator.bat dwukrotnie klikając, albo poprzez CMD uruchamiając poniższe polecenie:
+```
+cd "C:\Users\Twoja-nazwa\krakow_sip_system\windows"
+.\run_generator.bat
+```
+Zamień "Twoja-nazwa" na rzeczywistą nazwę użytkownika Windows, która jest w plikach oraz pamiętaj, żeby zapisać wygenerowaną trasę jako kopię w innym folderze niż katalog programu `C:\Users\Twoja-nazwa\krakow_sip_system\windows`, ponieważ przy aktualizacji system nadpisze wszystkie pliki synchronizując dane z GitHubem (np. w `C:\Users\Twoja-nazwa\Desktop\trasy sip`).
 
-<h1>
-    <p style="font-size: 34; text-align:center;">PAMIĘTAJ!</p>
-    <p style="text-align:center;">Obecnie system działa tylko na ekranach o rozdzielczości <b>1920x1080</b> (16:9)!!!</p>    
-</h1>
+<br>
+<br>
