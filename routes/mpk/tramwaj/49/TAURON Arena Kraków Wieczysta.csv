@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 49   Direction: TAURON Arena Kraków Wieczysta   Stops amount: 20   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;TAURON Arena Kraków Wieczysta;
 2;Ćwiklińskiej 02;Ćwiklińskiej;;
@@ -19,3 +26,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 18;Cystersów 01;Cystersów;;
 19;Białucha 01;Białucha;;
 20;TAURON Arena Kraków Wieczysta 92;TAURON Arena Kraków Wieczysta;;koniec_trasy
+# Generated at 2026-04-17 16:07
