@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 108   Direction: Park Tetmajera   Stops amount: 9   Route changed: False
+# Line operator: Mobilis sp. z o.o.   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bronowice Małe 03;Bronowice Małe;Park Tetmajera;
 2;Bronowice Małe 08;Bronowice Małe;;
@@ -8,3 +15,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 7;Cmentarz Bronowice (NŻ) 02;Cmentarz Bronowice;;
 8;Pasternik (NŻ) 03;Pasternik;;
 9;Park Tetmajera 01;Park Tetmajera;;
+# Generated at 2026-04-17 17:02
