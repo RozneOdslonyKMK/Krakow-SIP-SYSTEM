@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 17   Direction: Czerwone Maki P+R   Stops amount: 25   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Dworzec Towarowy 02;Dworzec Towarowy;Czerwone Maki P+R;
 2;Politechnika 04;Politechnika;;
@@ -24,3 +31,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 23;Kampus UJ 01;Kampus UJ;;
 24;Kampus UP JP II 01;Kampus UP JP II;;
 25;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
+# Generated at 2026-04-17 15:56
