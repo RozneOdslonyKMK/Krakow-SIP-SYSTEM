@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 22   Direction: Kopiec Wandy   Stops amount: 33   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Borek Fałęcki 01;Borek Fałęcki;Kopiec Wandy;
 2;Solvay 02;Solvay;;
@@ -32,3 +39,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 31;Zalew Nowohucki 01;Zalew Nowohucki;;
 32;Kombinat 01;Kombinat;;
 33;Kopiec Wandy 92;Kopiec Wandy;;koniec_trasy
+# Generated at 2026-04-17 16:04
