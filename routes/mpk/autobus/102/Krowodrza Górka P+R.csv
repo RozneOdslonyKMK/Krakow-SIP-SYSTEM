@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 102   Direction: Krowodrza Górka P+R   Stops amount: 30   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bielany 01;Bielany;Krowodrza Górka P+R;
 2;Bielany Szkoła 04;Bielany Szkoła;;
@@ -29,3 +36,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 28;Krowodrza Urzędy Skarbowe 02;Krowodrza Urzędy Skarbowe;;
 29;Krowodrza Górka P+R 07;Krowodrza Górka P+R;;
 30;Krowodrza Górka P+R 04;Krowodrza Górka P+R;;
+# Generated at 2026-04-17 16:59
