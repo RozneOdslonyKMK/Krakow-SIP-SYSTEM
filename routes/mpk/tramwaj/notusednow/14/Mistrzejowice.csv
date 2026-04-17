@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 14   Direction: Mistrzejowice   Stops amount: 32   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bronowice 02;Bronowice;Mistrzejowice;
 2;Głowackiego 02;Głowackiego;;
@@ -31,3 +38,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 30;Os. Złotego Wieku 01;Os. Złotego Wieku;;
 31;Miśnieńska 01;Miśnieńska;;
 32;Mistrzejowice 94;Mistrzejowice;;koniec_trasy
+# Generated at 2026-04-17 16:48
