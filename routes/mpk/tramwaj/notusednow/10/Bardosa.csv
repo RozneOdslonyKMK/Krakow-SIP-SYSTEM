@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 10   Direction: Bardosa   Stops amount: 30   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Kurdwanów P+R 10;Kurdwanów P+R;Bardosa;
 2;Turowicza 02;Turowicza;;
@@ -29,3 +36,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 28;Klasztorna 01;Klasztorna;;
 29;Suche Stawy 01;Suche Stawy;;
 30;Bardosa 01;Bardosa;;koniec_trasy
+# Generated at 2026-04-17 16:19
