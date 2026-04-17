@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 0   Direction: Dajwór   Stops amount: 10   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Salwator 01;Salwator;Dajwór;
 2;Salwator 02;Salwator;;
@@ -8,4 +15,5 @@ Lp;Nazwa;Audio;Kierunek;Extras
 7;Poczta Główna 03;Poczta Główna;;
 8;Starowiślna 02;Starowiślna;;
 9;Miodowa 01;Miodowa;;
-10;Dajwór 91;Dajwór;;koniec_trasy
+10;Dajwór 91;Dajwór;;
+# Generated at 2026-04-17 17:05
