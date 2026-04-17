@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 9   Direction: Mistrzejowice   Stops amount: 34   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Mistrzejowice;
 2;Ćwiklińskiej 02;Ćwiklińskiej;;
@@ -33,3 +40,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 32;Os. Złotego Wieku 01;Os. Złotego Wieku;;
 33;Miśnieńska 01;Miśnieńska;;
 34;Mistrzejowice 94;Mistrzejowice;;koniec_trasy
+# Generated at 2026-04-17 16:19
