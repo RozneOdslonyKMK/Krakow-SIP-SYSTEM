@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 46   Direction: Bardosa   Stops amount: 13   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Os. Piastów 01;Os. Piastów;Bardosa;
 2;Piasta Kołodzieja 02;Piasta Kołodzieja;;
@@ -12,3 +19,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 11;Klasztorna 01;Klasztorna;;
 12;Suche Stawy 01;Suche Stawy;;
 13;Bardosa 92;Bardosa;;koniec_trasy
+# Generated at 2026-04-17 16:52
