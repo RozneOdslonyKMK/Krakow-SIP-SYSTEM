@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 2   Direction: Cmentarz Rakowicki   Stops amount: 12   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Salwator 01;Salwator;Cmentarz Rakowicki;
 2;Salwator 02;Salwator;;
@@ -11,3 +18,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 10;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny;;
 11;Muzeum Fotografii 01;Muzeum Fotografii;;
 12;Cmentarz Rakowicki 91;Cmentarz Rakowicki;;koniec_trasy
+# Generated at 2026-04-17 16:16
