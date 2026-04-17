@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 6   Direction: Mały Płaszów P+R   Stops amount: 21   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Cichy Kącik 01;Cichy Kącik;Mały Płaszów P+R;
 2;Reymana 02;Reymana;;
@@ -20,3 +27,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 19;Lipska 01;Lipska;;
 20;Rzebika 01;Rzebika;;
 21;Mały Płaszów P+R 91;Mały Płaszów P+R;;koniec_trasy
+# Generated at 2026-04-17 16:18
