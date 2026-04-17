@@ -3,7 +3,7 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 8   Direction: Rondo Hipokratesa   Stops amount: 29   Route changed: True
+# Line: 9   Direction: Rondo Hipokratesa   Stops amount: 29   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Rondo Hipokratesa;
@@ -35,4 +35,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 27;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
 28;DH Wanda 01;DH Wanda;;
 29;Rondo Hipokratesa 92;Rondo Hipokratesa;;koniec_trasy
-# Generated at 2026-04-17 15:48
+# Generated at 2026-04-17 15:51
