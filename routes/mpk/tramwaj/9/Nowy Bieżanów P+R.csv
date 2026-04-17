@@ -3,7 +3,7 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 8   Direction: Nowy Bieżanów P+R   Stops amount: 29   Route changed: True
+# Line: 9   Direction: Nowy Bieżanów P+R   Stops amount: 29   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Rondo Hipokratesa 02;Rondo Hipokratesa;Nowy Bieżanów P+R;
@@ -35,4 +35,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 27;Nowy Prokocim 01;Nowy Prokocim;;
 28;Ćwiklińskiej 01;Ćwiklińskiej;;
 29;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R;;koniec_trasy
-# Generated at 2026-04-17 15:48
+# Generated at 2026-04-17 15:51
