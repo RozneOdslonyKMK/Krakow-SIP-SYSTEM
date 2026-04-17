@@ -1,4 +1,4 @@
-﻿ID;Nazwa;ID TRAM;ID BUS;Lat;Lon;Strefa;Dzielnica;Ulica;Exit-only (E)/Tram (T)/Bus (B);NŻ;Ex ID;Ex Nazwa
+ID;Nazwa;ID TRAM;ID BUS;Lat;Lon;Strefa;Dzielnica;Ulica;Exit-only (E)/Tram (T)/Bus (B);NŻ;Ex ID;Ex Nazwa
 782-1;Agatowa (NŻ) 01;;782-01;50.021911666;20.042668333;I;Bieżanów-Prokocim;ul. Agatowa;B;NŻ;;
 782-2;Agatowa (NŻ) 02;;782-02;50.021763611;20.043033888;I;Bieżanów-Prokocim;ul. Agatowa;B;NŻ;;
 110-1;Agencja Kraków Wschód (NŻ) 01;110-1t;;50.0876932;20.0794901;I;Wzgórza Krzesławickie;ul. Mrozowa;T;NŻ;;
@@ -207,9 +207,7 @@
 355-4;Biprostal 04;;355-04;50.073446388;19.916006111;;;;B;;;
 355-5;Biprostal 05;;355-05;50.072443333;19.915158888;;;;B;;;
 841-1;Biskupa Prandoty 01;;841-01;50.079110833;19.949920000;;;;B;;;
-841-1;Biskupa Prandoty 01;;841-01;50.079110;19.949920;;;;B;;;
 841-2;Biskupa Prandoty 02;;841-02;50.078017500;19.948652500;;;;B;;;
-841-2;Biskupa Prandoty 02;;841-02;50.078020;19.948650;;;;B;;;
 2803-1;Biskupice Rymarówka (NŻ) 01;;2803-01;49.972433333;20.123949722;;;;B;NŻ;;
 2803-2;Biskupice Rymarówka (NŻ) 02;;2803-02;49.972701111;20.122697777;;;;B;NŻ;;
 2804-1;Biskupice Szczygłów (NŻ) 01;;2804-01;49.969010000;20.132820833;;;;B;NŻ;;
@@ -320,13 +318,13 @@
 360-7;Bronowice Małe 07;;360-07;50.082202222;19.883498888;;;;B;;;
 360-8;Bronowice Małe 08;;360-08;50.082083611;19.883027500;;;;B;;;
 360-9;Bronowice Małe 09;;360-09;50.081640;19.880750;;;;B;;;
-388-1;Bronowice SKA 01;388-1t;;50.081331;19.889698;;;;T;;;
-388-2;Bronowice SKA 02;388-2t;;50.081524;19.888593;;;;T;;;
-388-3;Bronowice SKA 03;;388-03;50.081287500;19.890906111;;;;B;;;
-388-4;Bronowice SKA 04;;388-04;50.081632500;19.888428333;;;;B;;;
-388-5;Bronowice SKA 05;;388-05;50.081740833;19.888523333;;;;B;;;
-388-6;Bronowice SKA 06;;388-06;50.080823055;19.890658611;;;;B;;;
-388-7;Bronowice SKA 07;;388-07;50.081535000;19.890548333;;;;B;;;
+388-1;Bronowice SKA 01;388-1t;;50.081331;19.889698;;;;T;;;Balicka Wiadukt 01,   Bronowice Wiadukt 01
+388-2;Bronowice SKA 02;388-2t;;50.081524;19.888593;;;;T;;;Balicka Wiadukt 02,   Bronowice Wiadukt 02
+388-3;Bronowice SKA 03;;388-03;50.081287500;19.890906111;;;;B;;;Balicka Wiadukt 03,   Bronowice Wiadukt 03
+388-4;Bronowice SKA 04;;388-04;50.081632500;19.888428333;;;;B;;;Balicka Wiadukt 04,   Bronowice Wiadukt 04
+388-5;Bronowice SKA 05;;388-05;50.081740833;19.888523333;;;;B;;;Balicka Wiadukt 05,   Bronowice Wiadukt 05
+388-6;Bronowice SKA 06;;388-06;50.080823055;19.890658611;;;;B;;;Balicka Wiadukt 06,   Bronowice Wiadukt 06
+388-7;Bronowice SKA 07;;388-07;50.081535000;19.890548333;;;;B;;;Balicka Wiadukt 07,   Bronowice Wiadukt 07
 396-1;Bronowice Wielkie 01;;396-01;50.105209444;19.880874166;;;;B;;;
 396-2;Bronowice Wielkie 02;;396-02;50.106031944;19.880098055;;;;B;;;
 ;Bronowice Małe Wizjonerów;;;50.083529;19.886246;I;Bronowice;ul. Wizjonerów;B;;;
@@ -3524,8 +3522,8 @@
 2548-2;Zastów Działki 02;;2548-02;50.121536111;20.056387500;;;;;;;
 2183-1;Zastów Pętla 01;;2183-01;50.121233611;20.050666111;;;;;;;
 2183-81;Zastów Pętla 81;;2183-81;50.121325833;20.050531944;;;;;;;
-534-1;Zawiła 01;;534-01;50.006506111;19.900934166;;;;;;;
-534-2;Zawiła 02;;534-02;50.006397222;19.901194444;;;;;;;
+534-1;Zawiła (NŻ) 01;;534-01;50.006506111;19.900934166;;;;;NŻ;;
+534-2;Zawiła (NŻ) 02;;534-02;50.006397222;19.901194444;;;;;NŻ;;
 548-1;Zawiszy 01;;548-01;49.999428333;19.913492500;;;;;;;
 548-2;Zawiszy 02;;548-02;49.999698611;19.911808055;;;;;;;
 431-1;Zawodzie 01;;431-01;50.093761944;19.952091944;;;;;;;
