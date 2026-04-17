@@ -97,7 +97,6 @@ class CSVEditor:
             self.combo_line.set("")
 
     def refresh_direction(self):
-        """Pobiera kierunek z pierwszej kolumny Kierunek w tabeli"""
         first_child = self.tree.get_children()
         if first_child:
             vals = self.tree.item(first_child[0])['values']
