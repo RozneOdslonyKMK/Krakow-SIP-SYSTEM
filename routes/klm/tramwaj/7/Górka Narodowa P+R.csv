@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 7   Direction: Górka Narodowa P+R   Stops amount: 26   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Dąbie 03;Dąbie;Górka Narodowa P+R;
 2;Dąbie 02;Dąbie;;
@@ -25,3 +32,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 24;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;
 25;Papierni Prądnickich 01;Papierni Prądnickich;;
 26;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy
+# Generated at 2026-04-17 17:07
