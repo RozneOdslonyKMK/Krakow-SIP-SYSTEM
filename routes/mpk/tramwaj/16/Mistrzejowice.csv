@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 16   Direction: Mistrzejowice   Stops amount: 14   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bardosa 02;Bardosa;Mistrzejowice;
 2;Suche Stawy 02;Suche Stawy;;
@@ -13,3 +20,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 12;Os. Złotego Wieku 01;Os. Złotego Wieku;;
 13;Miśnieńska 01;Miśnieńska;;
 14;Mistrzejowice 94;Mistrzejowice;;koniec_trasy
+# Generated at 2026-04-17 15:54
