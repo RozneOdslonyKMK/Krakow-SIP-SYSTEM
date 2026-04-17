@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 5   Direction: Wzgórza Krzesławickie   Stops amount: 24   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Wzgórza Krzesławickie;
 2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;
@@ -23,3 +30,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 22;Darwina 01;Darwina;;
 23;Jarzębiny 01;Jarzębiny;;
 24;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;;koniec_trasy
+# Generated at 2026-04-17 15:46
