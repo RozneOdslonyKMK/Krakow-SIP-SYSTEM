@@ -4,7 +4,7 @@
 #
 # Route Info:
 # Line: 1   Direction: Salwator   Stops amount: 28   Route changed: False
-# Line operator: mpk   Vehicle type: tramwaj
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Salwator;
 2;Jarzębiny 02;Jarzębiny;;
@@ -34,4 +34,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 26;Komorowskiego 01;Komorowskiego;;
 27;Salwator 03;Salwator;;
 28;Salwator 91;Salwator;;koniec_trasy
-# Generated at 2026-04-17 01:48
+# Generated at 2026-04-17 15:42
