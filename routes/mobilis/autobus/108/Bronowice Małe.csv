@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 108   Direction: Bronowice Małe   Stops amount: 6   Route changed: False
+# Line operator: Mobilis sp. z o.o.   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Park Tetmajera 01;Park Tetmajera;Bronowice Małe;
 2;Truszkowskiego (NŻ) 01;Truszkowskiego;;
@@ -5,3 +12,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 4;Pod Strzechą (NŻ) 01;Pod Strzechą;;
 5;Bronowice Małe 02;Bronowice Małe;;
 6;Bronowice Małe 03;Bronowice Małe;;
+# Generated at 2026-04-17 02:37
