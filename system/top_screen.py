@@ -315,11 +315,28 @@ class MainSIPLayout(FloatLayout):
             self.stops = [{'Nazwa': '', 'Audio': 'cisza', 'Kierunek': ''}]
             return
 
-        with open(path, mode='r', encoding='utf-8') as f:
-            reader = csv.DictReader(f, delimiter=';')
-            for row in reader: 
+        try:
+            with open(path, mode='r', encoding='utf-8') as f:
+                lines = f.readlines()
+
+            csv_content = []
+            for line in lines:
+                if line.startswith('#'):
+                    if "Route changed:" in line:
+                        is_changed = "True" in line
+                        SESSION["is_route_changed"] = is_changed
+                    continue
+                
+                csv_content.append(line)
+
+            reader = csv.DictReader(csv_content, delimiter=';')
+            for row in reader:
                 row['Extras'] = row.get('Extras', '')
                 self.stops.append(row)
+                
+        except Exception as e:
+            print(f"Błąd ładowania trasy: {e}")
+            self.stops = [{'Nazwa': 'BŁĄD PLIKU', 'Audio': 'cisza', 'Kierunek': ''}]
     
     def get_audio_path(self, filename):
         folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
