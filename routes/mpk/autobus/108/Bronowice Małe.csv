@@ -1,5 +1,13 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 108   Direction: Bronowice Małe   Stops amount: 4   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Wizjonerów 02;Wizjonerów;Bronowice Małe;
 2;Bronowice SKA 07;Bronowice SKA;;
 3;Bronowice Małe 07;Bronowice Małe;;
 4;Bronowice Małe 94;Bronowice Małe;;
+# Generated at 2026-04-17 17:00
