@@ -1,2 +1,28 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 105   Direction: Os. Piastów   Stops amount: 19   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Dworzec Główny Zachód 03;Dworzec Główny Zachód;Os. Piastów;
+2;Politechnika 01;Politechnika;;
+3;Cmentarz Rakowicki Zachód (NŻ) 03;Cmentarz Rakowicki Zachód;;
+4;Biskupa Prandoty 01;Biskupa Prandoty;;
+5;UR al. 29 Listopada 01;UR al. 29 Listopada;;
+6;Opolska Estakada 01;Opolska Estakada;;
+7;Dobrego Pasterza 02;Dobrego Pasterza;;
+8;Majora 02;Majora;;
+9;Sudolska 02;Sudolska;;
+10;Powstańców 02;Powstańców;;
+11;Powstańców Garaże 02;Powstańców Garaże;;
+12;Prądnik Czerwony P+R 01;Prądnik Czerwony P+R;;
+13;Prądnik Czerwony P+R 04;Prądnik Czerwony P+R;;
+14;Cmentarz Prądnik Czerwony 02;Cmentarz Prądnik Czerwony;;
+15;Cmentarz Prądnik Czerwony Wschód (NŻ) 02;Cmentarz Prądnik Czerwony Wschód;;
+16;Dziekanowicka (NŻ) 02;Dziekanowicka;;
+17;Powstańców Magazyny (NŻ) 02;Powstańców Magazyny;;
+18;Piastów SKA 02;Piastów SKA;;
+19;Os. Piastów 04;Os. Piastów;;koniec_trasy
+# Generated at 2026-04-18 00:43
