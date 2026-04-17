@@ -1,2 +1,27 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 105   Direction: Dworzec Główny Zachód   Stops amount: 18   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Os. Piastów 04;Os. Piastów;Dworzec Główny Zachód;
+2;Urząd Skarbowy Nowa Huta 01;Urząd Skarbowy Nowa Huta;;
+3;Piastów SKA 01;Piastów SKA;;
+4;Powstańców Magazyny (NŻ) 01;Powstańców Magazyny;;
+5;Dziekanowicka (NŻ) 01;Dziekanowicka;;
+6;Cmentarz Prądnik Czerwony Wschód (NŻ) 01;Cmentarz Prądnik Czerwony Wschód;;
+7;Cmentarz Prądnik Czerwony 01;Cmentarz Prądnik Czerwony;;
+8;Prądnik Czerwony P+R 04;Prądnik Czerwony P+R;;
+9;Powstańców Garaże 01;Powstańców Garaże;;
+10;Powstańców 01;Powstańców;;
+11;Majora 01;Majora;;
+12;Dobrego Pasterza 04;Dobrego Pasterza;;
+13;Opolska Estakada 02;Opolska Estakada;;
+14;UR al. 29 Listopada 02;UR al. 29 Listopada;;
+15;Biskupa Prandoty 02;Biskupa Prandoty;;
+16;Cmentarz Rakowicki Zachód (NŻ) 02;Cmentarz Rakowicki Zachód;;
+17;Politechnika 06;Politechnika;;
+18;Dworzec Główny Zachód 03;Dworzec Główny Zachód;;
+# Generated at 2026-04-18 00:38
