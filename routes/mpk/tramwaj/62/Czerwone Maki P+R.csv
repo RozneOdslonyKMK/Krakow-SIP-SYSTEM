@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 62   Direction: Czerwone Maki P+R   Stops amount: 32   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;Czerwone Maki P+R;
 2;Os. Kolorowe 02;Os. Kolorowe;;
@@ -31,3 +38,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 30;Kampus UJ 01;Kampus UJ;;
 31;Kampus UP JP II 01;Kampus UP JP II;;
 32;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
+# Generated at 2026-04-17 16:10
