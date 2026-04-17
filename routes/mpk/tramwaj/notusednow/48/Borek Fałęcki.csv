@@ -1,3 +1,10 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 48   Direction: Borek Fałęcki   Stops amount: 35   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Bronowice Małe 01;Bronowice Małe;Borek Fałęcki;
 2;Bronowice SKA 02;Bronowice SKA;;
@@ -34,3 +41,4 @@ Lp;Nazwa;Audio;Kierunek;Extras
 33;Kościuszkowców 01;Kościuszkowców;;
 34;Solvay 01;Solvay;;
 35;Borek Fałęcki 91;Borek Fałęcki;;koniec_trasy
+# Generated at 2026-04-17 16:53
