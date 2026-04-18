@@ -9,6 +9,7 @@ class CSVEditor:
     def __init__(self, root):
         self.root = root
         self.root.title("Generator tras")
+        self.root.iconbitmap("generator-icon-1024.ico")
         self.root.geometry("800x605")
 
         self.cols = ["Lp", "Nazwa", "Audio", "Kierunek", "Extras"]
@@ -265,5 +266,11 @@ class CSVEditor:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    
+    try:
+        root.iconbitmap("generator-icon-1024.ico")
+    except Exception as e:
+        print(f"Nie udało się załadować ikony: {e}")
+
     app = CSVEditor(root)
     root.mainloop()
