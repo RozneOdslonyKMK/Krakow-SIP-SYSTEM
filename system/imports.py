@@ -1,4 +1,6 @@
 import os
+from kivy.config import Config
+Config.set('kivy', 'window_icon', 'app-icon.png')
 import csv
 import math
 import sys
@@ -31,7 +33,6 @@ from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
-from kivy.config import Config
 
 GPS_AVAILABLE = False
 try:
