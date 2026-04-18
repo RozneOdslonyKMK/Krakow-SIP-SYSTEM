@@ -21,6 +21,8 @@ class SipScreen(Screen):
             Clock.schedule_once(lambda dt: self.sip_layout.play_sequence([f"{start_stop['Audio']}.mp3"]), 1.0)
 
 class SIPApp(App):
+    icon = 'app-icon.png'
+    
     def build(self):
         Window.show_cursor = False
         Window.bind(on_key_down=self._on_keyboard_down)
