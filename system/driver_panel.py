@@ -209,7 +209,7 @@ class DriverPanel(Screen):
     def show_numpad_special(self, special_key):
         self.refresh_layout("Linia.png", "settings")
         self.input_buffer = ""
-        self.add_numpad_buttons(callback=lambda: self.show_kierunek_special(special_key))
+        self.show_numpad_linia(callback=lambda: self.show_kierunek_special(special_key))
 
     def show_kierunek_special(self, special_key):
         sub_folder = "wyjazdy" if "WYJAZD" in special_key else "zjazdy"
