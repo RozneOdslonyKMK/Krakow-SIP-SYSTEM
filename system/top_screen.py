@@ -263,53 +263,75 @@ class MainSIPLayout(FloatLayout):
         else:
             print(f"Błąd: Plik {filename} nie istnieje w folderze audio")
         
+    # def update_stop_label(self, full_name):
+    #     print(f"DEBUG: Próba wyświetlenia przystanku: {full_name}")
+    #     clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
+        
+    #     prefix_x = 360
+    #     text_start_x = 418
+    #     stop_pos_y = 1080 - 184
+    #     limit_width = 1187
+
+    #     if not hasattr(self, 'lbl_prefix'):
+    #         self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
+    #                                color=self.krakow_blue, size_hint=(None, None),
+    #                                size=(60, 92), pos=(prefix_x, stop_pos_y),
+    #                                halign='left', valign='middle')
+    #         self.content_box.add_widget(self.lbl_prefix)
+
+    #     if not hasattr(self, 'stop_container'):
+    #         self.stop_container = StencilView(size_hint=(None, None), 
+    #                                          size=(limit_width, 92),
+    #                                          pos=(text_start_x, stop_pos_y))
+            
+    #         self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', 
+    #                              font_name=self.arimo_font,
+    #                              color=self.krakow_blue, size_hint=(None, None),
+    #                              size=(limit_width, 92), 
+    #                              pos=(text_start_x, stop_pos_y),
+    #                              halign='left', valign='middle',
+    #                              text_size=(limit_width, 92))
+            
+    #         self.stop_container.add_widget(self.lbl_stop)
+    #         self.content_box.add_widget(self.stop_container)
+    #     else:
+    #         self.lbl_stop.text = clean_name.upper()
+
+    #     self.lbl_stop.texture_update()
+    #     new_width = self.lbl_stop.texture_size[0]
+    #     self.lbl_stop.width = max(new_width, limit_width)
+    #     self.should_scroll_stop = new_width > limit_width
+        
+    #     self.lbl_stop.x = text_start_x
+
+    #     # Dodaj to na samym końcu funkcji update_stop_label
+    #     from kivy.uix.button import Button
+    #     test_btn = Button(text="KLIKNIJ MNIE", pos=(418, 500), size_hint=(None, None), size=(200, 100))
+    #     self.content_box.add_widget(test_btn)
+
     def update_stop_label(self, full_name):
-        print(f"DEBUG: Próba wyświetlenia przystanku: {full_name}")
+        print(f"DEBUG: TESTOWA AKTUALIZACJA: {full_name}")
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
         
-        prefix_x = 360
-        text_start_x = 418
-        stop_pos_y = 1080 - 184
-        limit_width = 1187
+        # Usuwamy stare, jeśli istnieją, żeby nie śmiecić przy testach
+        if hasattr(self, 'lbl_stop'):
+            self.content_box.remove_widget(self.lbl_stop)
 
-        if not hasattr(self, 'lbl_prefix'):
-            self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
-                                   color=self.krakow_blue, size_hint=(None, None),
-                                   size=(60, 92), pos=(prefix_x, stop_pos_y),
-                                   halign='left', valign='middle')
-            self.content_box.add_widget(self.lbl_prefix)
-
-        if not hasattr(self, 'stop_container'):
-            self.stop_container = StencilView(size_hint=(None, None), 
-                                             size=(limit_width, 92),
-                                             pos=(text_start_x, stop_pos_y))
-            
-            self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', 
-                                 font_name=self.arimo_font,
-                                 color=self.krakow_blue, size_hint=(None, None),
-                                 size=(limit_width, 92), 
-                                 pos=(text_start_x, stop_pos_y),
-                                 halign='left', valign='middle',
-                                 text_size=(limit_width, 92))
-            
-            # self.stop_container.add_widget(self.lbl_stop)
-            # self.content_box.add_widget(self.stop_container)
-            if self.lbl_stop.parent is None:
-                self.content_box.add_widget(self.lbl_stop)
-        else:
-            self.lbl_stop.text = clean_name.upper()
-
-        self.lbl_stop.texture_update()
-        new_width = self.lbl_stop.texture_size[0]
-        self.lbl_stop.width = max(new_width, limit_width)
-        self.should_scroll_stop = new_width > limit_width
+        self.lbl_stop = Label(
+            text=clean_name.upper(),
+            font_size='80sp',
+            font_name=self.arimo_font,
+            color=(1, 1, 1, 1), # BIAŁY
+            size_hint=(None, None),
+            size=(1187, 92),
+            pos=(418, 1080 - 184),
+            halign='left',
+            valign='middle',
+            text_size=(1187, 92) # KONIECZNE
+        )
         
-        self.lbl_stop.x = text_start_x
-
-        # Dodaj to na samym końcu funkcji update_stop_label
-        from kivy.uix.button import Button
-        test_btn = Button(text="KLIKNIJ MNIE", pos=(418, 500), size_hint=(None, None), size=(200, 100))
-        self.content_box.add_widget(test_btn)
+        self.content_box.add_widget(self.lbl_stop)
+        print(f"DEBUG: Label dodany do {self.content_box} na pos {self.lbl_stop.pos}")
         
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
