@@ -41,6 +41,7 @@ class SipScreen(Screen):
                 new_path = data.get("selected_csv_path")
                     
                 if new_path and new_path != self.last_synced_path:
+                    self.last_synced_path = new_path
                     if not os.path.isabs(new_path):
                         new_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), new_path)
                     
