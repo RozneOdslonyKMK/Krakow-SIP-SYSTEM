@@ -8,8 +8,8 @@ class MainSIPLayout(FloatLayout):
         self.content_box = FloatLayout(size_hint=(None, None), size=self.base_size)
         self.add_widget(self.content_box)
         
-        Window.bind(on_resize=self._apply_scaling)
-        Clock.schedule_once(self._apply_scaling, 0)
+        # Window.bind(on_resize=self._apply_scaling)
+        # Clock.schedule_once(self._apply_scaling, 0)
         
         self.audio_queue = []
         self.is_audio_playing = False
