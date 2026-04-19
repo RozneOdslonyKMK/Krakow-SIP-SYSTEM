@@ -38,7 +38,7 @@ class SipScreen(Screen):
                         return
                         
                     data = json.loads(content)
-                    new_path = data.get("csv_path")
+                    new_path = data.get("selected_csv_path")
                     
                     if new_path and new_path != self.last_synced_path:
                         if not os.path.isabs(new_path):
