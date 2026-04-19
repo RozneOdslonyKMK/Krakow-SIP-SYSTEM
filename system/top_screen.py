@@ -291,7 +291,8 @@ class MainSIPLayout(FloatLayout):
                                  pos=(text_start_x, stop_pos_y),
                                  halign='left', valign='middle')
             
-            self.stop_container.add_widget(self.lbl_stop)
+            # self.stop_container.add_widget(self.lbl_stop)
+            self.content_box.add_widget(self.lbl_stop)
             self.content_box.add_widget(self.stop_container)
         else:
             self.lbl_stop.text = clean_name.upper()
