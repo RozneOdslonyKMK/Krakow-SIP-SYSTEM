@@ -32,18 +32,23 @@ class SipScreen(Screen):
         if os.path.exists(sync_file):
             try:
                 with open(sync_file, "r") as f:
-                    content = f.read()
-                    if not content: return
+                    content = f.read().strip()
                     
-                    data = json.load(f)
-                    new_path = data.get("selected_csv_path")
+                    if not content:
+                        return
+                        
+                    data = json.loads(content)
+                    new_path = data.get("csv_path")
                     
                     if new_path and new_path != self.last_synced_path:
-                        print(f"SIP odebrał nową trasę: {new_path}")
+                        if not os.path.isabs(new_path):
+                            new_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), new_path)
+                        
+                        print(f"SIP ładuje trasę: {new_path}")
                         self.setup_sip(new_path)
                         self.last_synced_path = new_path
-            except Exception as e:
-                print(f"Błąd odczytu synchronizacji: {e}")
+            except (json.JSONDecodeError, OSError):
+                pass
 
     def setup_sip(self, csv_file):
         self.clear_widgets()
