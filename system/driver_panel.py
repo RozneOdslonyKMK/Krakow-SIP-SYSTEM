@@ -50,17 +50,17 @@ class DriverPanel(Screen):
 
     def setup_labels(self):
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
-        self.clock_lbl = Label(text="--:--:--", font_size='36sp', bold=True,
+        self.clock_lbl = Label(text="--:--:--", font_size='60sp', bold=True,
                                size_hint=(None, None), size=c_size,
                                pos=c_pos, halign='center', valign='middle')
         
         d_pos, d_size = self.pos_conv(812, 138, 178, 66)
-        self.delay_lbl = Label(text="--:--", font_size='34sp', bold=True,
+        self.delay_lbl = Label(text="--:--", font_size='60sp', bold=True,
                                size_hint=(None, None), size=d_size,
                                pos=d_pos)
 
         l_pos, l_size = self.pos_conv(812, 31, 178, 66)
-        self.line_brygada_lbl = Label(text="---/---", font_size='34sp',
+        self.line_brygada_lbl = Label(text="---/---", font_size='60sp',
                                       size_hint=(None, None), size=l_size,
                                       pos=l_pos)
 
@@ -253,6 +253,7 @@ class DriverPanel(Screen):
         self.refresh_layout("Kierunek.png", "settings")
         
         rel_path = os.path.join(
+            BASE_DIR,
             "routes", 
             SESSION.get("operator_folder", ""),
             SESSION.get("type_folder", ""),
@@ -277,14 +278,34 @@ class DriverPanel(Screen):
         else:
             self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=self.pos_conv(248, 128, 530, 112)))
 
+    def show_lektor_menu(self, *args):
+        self.refresh_layout("Lektor.png", "settings")
+        
+        voice_options = list(VOICE_TYPES.keys())
+        
+        def select_voice(index):
+            if index < len(voice_options):
+                choice = voice_options[index]
+                SESSION["voice_path"] = VOICE_TYPES[choice]
+                self.start_drive()
+
+        self.add_list_logic(select_voice, back_func=self.start_drive)
+
     def confirm_route(self, full_path):
+        raw_line = self.input_buffer
+        formatted_line = raw_line.zfill(3)
+
+        SESSION["selected_csv_path"] = full_path
+        SESSION["line_number"] = formatted_line
+
         sync_data = {
             "selected_csv_path": full_path,
             "special_key": SESSION.get("special_key"),
-            "line": SESSION.get("line_number")
+            "line": formatted_line
         }
         with open("sync.json", "w") as f:
             json.dump(sync_data, f)
+        self.start_drive()
     
     def start_special_drive(self, special_key):
         data = SPECIAL_MODES.get(special_key)
@@ -319,17 +340,34 @@ class DriverPanel(Screen):
 
     def start_drive(self):
         self.refresh_layout("bg_01.png", "drive")
+
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        d_pos, d_size = self.pos_conv(812, 138, 178, 66)
+        self.delay_lbl.pos = d_pos
+        self.delay_lbl.size = d_size
+        
+        l_pos, l_size = self.pos_conv(812, 31, 178, 66)
+        self.line_brygada_lbl.pos = l_pos
+        self.line_brygada_lbl.size = l_size
+
+        line_val = SESSION.get("line_number", "---")
+        self.line_brygada_lbl.text = f"{line_val}/---"
+
         self.layout.add_widget(self.clock_lbl)
         self.layout.add_widget(self.delay_lbl)
         self.layout.add_widget(self.line_brygada_lbl)
-        self.add_btn(782, 480, 238, 116, lambda x: print("Menu lektora"))
+
+        self.add_btn(782, 480, 238, 116, self.show_lektor_menu)
 
         app = App.get_running_app()
         csv_to_load = SESSION["selected_csv_path"]
 
         if os.path.exists(csv_to_load):
-            app.sip_screen.setup_sip(csv_to_load)
-            app.sm.current = 'sip' 
+            if hasattr(app, 'sip_screen'):
+                app.sip_screen.setup_sip(csv_to_load)
         else:
             print(f"BŁĄD: Nie znaleziono trasy {csv_to_load}")
 
