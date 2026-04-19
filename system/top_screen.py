@@ -308,9 +308,6 @@ class MainSIPLayout(FloatLayout):
                     self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
 
     def load_route(self, csv_file):
-        if not csv_file:
-            return
-        
         self.stops = []
         path = csv_file
         if not path or not os.path.exists(path):
