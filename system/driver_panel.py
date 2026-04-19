@@ -348,8 +348,6 @@ class DriverPanel(Screen):
                     is_disabled = True
                 elif i == 1 and "Autobus" not in dostepne_pojazdy:
                     is_disabled = True
-                elif i >= 2:
-                    is_disabled = True
 
             self.add_btn(260, y, 508, 66, lambda inst, idx=i: callback(idx), disabled=is_disabled)
 
