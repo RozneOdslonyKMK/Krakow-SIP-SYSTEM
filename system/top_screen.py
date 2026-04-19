@@ -302,6 +302,7 @@ class MainSIPLayout(FloatLayout):
 
         # 3. AKTUALIZACJA SZEROKOŚCI DLA PRZEWIJANIA
         self.lbl_stop.texture_update()
+        print(f"DEBUG: Rozmiar tekstury po update: {self.lbl_stop.texture_size}")
         new_width = self.lbl_stop.texture_size[0]
         self.lbl_stop.width = new_width
         
