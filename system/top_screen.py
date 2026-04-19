@@ -5,7 +5,7 @@ class MainSIPLayout(FloatLayout):
         super().__init__(**kwargs)
         
         self.base_size = (1920, 1080)
-        self.content_box = RelativeLayout(size_hint=(None, None), size=self.base_size)
+        self.content_box = FloatLayout(size_hint=(None, None), size=self.base_size)
         self.add_widget(self.content_box)
         
         Window.bind(on_resize=self._apply_scaling)
@@ -269,30 +269,26 @@ class MainSIPLayout(FloatLayout):
         
         prefix_x = 360
         text_start_x = 418
-        # Upewnij się, że self.screen_h nie jest zerem!
-        stop_pos_y = (self.screen_h if self.screen_h > 0 else 1080) - 184
+        stop_pos_y = 1080 - 184
         limit_width = 1187
 
-        # 1. PREFIX
         if not hasattr(self, 'lbl_prefix'):
-            self.lbl_prefix = Label(text="> ", font_size='80sp', 
+            self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
                                    color=self.krakow_blue, size_hint=(None, None),
                                    size=(60, 92), pos=(prefix_x, stop_pos_y),
                                    halign='left', valign='middle')
             self.content_box.add_widget(self.lbl_prefix)
 
-        # 2. KONTENER (nożyczki)
         if not hasattr(self, 'stop_container'):
             self.stop_container = StencilView(size_hint=(None, None), 
                                              size=(limit_width, 92),
                                              pos=(text_start_x, stop_pos_y))
             
-            # Wskazówka: Label wewnątrz StencilView (nie-layoutu) 
-            # musi mieć pozycję dopasowaną do rodzica
             self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', 
+                                 font_name=self.arimo_font,
                                  color=self.krakow_blue, size_hint=(None, None),
                                  size=(limit_width, 92), 
-                                 pos=(text_start_x, stop_pos_y), # Musi być identyczna z pos kontenera
+                                 pos=(text_start_x, stop_pos_y),
                                  halign='left', valign='middle')
             
             self.stop_container.add_widget(self.lbl_stop)
@@ -300,26 +296,13 @@ class MainSIPLayout(FloatLayout):
         else:
             self.lbl_stop.text = clean_name.upper()
 
-        # 3. AKTUALIZACJA SZEROKOŚCI DLA PRZEWIJANIA
         self.lbl_stop.texture_update()
-        print(f"DEBUG: Rozmiar tekstury po update: {self.lbl_stop.texture_size}")
         new_width = self.lbl_stop.texture_size[0]
         self.lbl_stop.width = new_width
         
-        # Jeśli tekst jest szerszy niż limit, flaga przewijania na True
         self.should_scroll_stop = new_width > limit_width
-        
-        # Reset pozycji (bardzo ważne!)
         self.lbl_stop.x = text_start_x
         
-        from kivy.graphics import Color, Rectangle
-        with self.lbl_stop.canvas.before:
-            Color(1, 0, 1, 0.5) # Różowy
-            self.rect = Rectangle(pos=self.lbl_stop.pos, size=self.lbl_stop.size)
-
-        # Dodaj update pozycji prostokąta przy zmianie pozycji labela
-        self.lbl_stop.bind(pos=lambda ins, pos: setattr(self.rect, 'pos', pos))
-            
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
         if os.path.exists(db_p):
