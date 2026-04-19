@@ -102,7 +102,7 @@ class MainSIPLayout(FloatLayout):
         self.content_box.add_widget(self.date_label)
 
         Clock.schedule_interval(self.update_ui, 1)
-        Clock.schedule_interval(self.scroll_news, 0.02)
+        # Clock.schedule_interval(self.scroll_news, 0.02)
         
         if self.stops:
             self.update_stop_label(self.stops[0]['Nazwa'])
