@@ -12,7 +12,7 @@ class CSVEditor:
         self.root.iconbitmap("generator-icon-1024.ico")
         self.root.geometry("800x605")
 
-        self.cols = ["Lp", "Nazwa", "Audio", "Kierunek", "Extras"]
+        self.cols = ["Lp", "Nazwa", "Audio", "Kierunek", "Extras", "Czas"]
         self.stops_dictionary = self.load_dictionary()
         self.active_edit = None
         self.current_file_path = None
