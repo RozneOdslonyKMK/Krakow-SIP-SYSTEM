@@ -258,7 +258,7 @@ class DriverPanel(Screen):
             SESSION.get("type_folder", ""),
             self.input_buffer
         )
-        full_path = os.path.join(BASE_DIR, rel_path)
+        full_path = os.path.join(rel_path)
         
         if os.path.exists(full_path):
             pliki = [f for f in os.listdir(full_path) if f.endswith(".csv")]
