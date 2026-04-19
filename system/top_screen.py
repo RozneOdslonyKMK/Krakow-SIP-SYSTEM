@@ -298,6 +298,9 @@ class MainSIPLayout(FloatLayout):
             self.lbl_stop.text = clean_name.upper()
 
         self.lbl_stop.texture_update()
+        def check_real_pos(dt):
+            print(f"POZYCJA OKNA: {self.lbl_stop.to_window(*self.lbl_stop.pos)}")
+        Clock.schedule_once(check_real_pos, 0.5)
         new_width = self.lbl_stop.texture_size[0]
         self.lbl_stop.width = max(new_width, limit_width)
         self.should_scroll_stop = new_width > limit_width
