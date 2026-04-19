@@ -289,10 +289,13 @@ class MainSIPLayout(FloatLayout):
                                  color=self.krakow_blue, size_hint=(None, None),
                                  size=(limit_width, 92), 
                                  pos=(text_start_x, stop_pos_y),
-                                 halign='left', valign='middle')
+                                 halign='left', valign='middle',
+                                 text_size=(limit_width, 92))
             
-            self.stop_container.add_widget(self.lbl_stop)
-            self.content_box.add_widget(self.stop_container)
+            # self.stop_container.add_widget(self.lbl_stop)
+            # self.content_box.add_widget(self.stop_container)
+            if self.lbl_stop.parent is None:
+                self.content_box.add_widget(self.lbl_stop)
         else:
             self.lbl_stop.text = clean_name.upper()
 
