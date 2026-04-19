@@ -335,9 +335,11 @@ class MainSIPLayout(FloatLayout):
                 self.stops.append(clean_row)
                 
             if self.stops:
-                print(f"Pomyślnie załadowano {len(self.stops)} przystanków dla SIP.")
-                target_name = self.stops[0].get('Nazwa', '')
-                self.update_stop_label(target_name)
+                print(f"Pomyślnie załadowano {len(self.stops)} przystanków.")
+                first_stop = self.stops[0].get('Nazwa', '')
+                self.update_stop_label(first_stop)
+            else:
+                print("Lista przystanków jest pusta po wczytaniu!")
                 
         except Exception as e:
             print(f"Błąd ładowania trasy: {e}")
