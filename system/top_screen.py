@@ -8,8 +8,8 @@ class MainSIPLayout(FloatLayout):
         self.content_box = FloatLayout(size_hint=(None, None), size=self.base_size)
         self.add_widget(self.content_box)
         
-        # Window.bind(on_resize=self._apply_scaling)
-        # Clock.schedule_once(self._apply_scaling, 0)
+        Window.bind(on_resize=self._apply_scaling)
+        Clock.schedule_once(self._apply_scaling, 0)
         
         self.audio_queue = []
         self.is_audio_playing = False
@@ -102,7 +102,7 @@ class MainSIPLayout(FloatLayout):
         self.content_box.add_widget(self.date_label)
 
         Clock.schedule_interval(self.update_ui, 1)
-        # Clock.schedule_interval(self.scroll_news, 0.02)
+        Clock.schedule_interval(self.scroll_news, 0.02)
         
         if self.stops:
             self.update_stop_label(self.stops[0]['Nazwa'])
@@ -291,29 +291,22 @@ class MainSIPLayout(FloatLayout):
                                  pos=(text_start_x, stop_pos_y),
                                  halign='left', valign='middle')
             
-            # self.stop_container.add_widget(self.lbl_stop)
-            self.content_box.add_widget(self.lbl_stop)
+            self.stop_container.add_widget(self.lbl_stop)
             self.content_box.add_widget(self.stop_container)
         else:
             self.lbl_stop.text = clean_name.upper()
 
         self.lbl_stop.texture_update()
-        def check_real_pos(dt):
-            print(f"POZYCJA OKNA: {self.lbl_stop.to_window(*self.lbl_stop.pos)}")
-        Clock.schedule_once(check_real_pos, 0.5)
         new_width = self.lbl_stop.texture_size[0]
         self.lbl_stop.width = max(new_width, limit_width)
         self.should_scroll_stop = new_width > limit_width
         
         self.lbl_stop.x = text_start_x
 
-        from kivy.graphics import Color, Rectangle
-        with self.lbl_stop.canvas.before:
-            Color(1, 0, 1, 0.5) # Różowy
-            self.rect = Rectangle(pos=(0,0), size=self.lbl_stop.size)
-
-        # Dodaj update pozycji prostokąta przy zmianie pozycji labela
-        self.lbl_stop.bind(pos=lambda ins, pos: setattr(self.rect, 'pos', pos))
+        # Dodaj to na samym końcu funkcji update_stop_label
+        from kivy.uix.button import Button
+        test_btn = Button(text="KLIKNIJ MNIE", pos=(418, 500), size_hint=(None, None), size=(200, 100))
+        self.content_box.add_widget(test_btn)
         
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
