@@ -47,6 +47,9 @@ echo "--- Zależności sprawdzone. Uruchamianie SIP ---"
 
 /usr/bin/chmod +x $RUN_DIR/update_sip.sh
 /usr/bin/bash $RUN_DIR/update_sip.sh
-/usr/bin/python3 $APP_DIR/system-universal.py sip && /usr/bin/python3 $APP_DIR/system-universal.py driver
+/usr/bin/python3 $APP_DIR/system-universal.py sip & 
+sleep 0.5
+/usr/bin/python3 $APP_DIR/system-universal.py driver
 
 echo "--- ZAMKNIĘCIE SYSTEMU: $(date +"%Y-%m-%d %H:%M:%S") ---"
+kill $!
