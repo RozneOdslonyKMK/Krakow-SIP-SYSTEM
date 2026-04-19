@@ -312,7 +312,7 @@ class MainSIPLayout(FloatLayout):
             return
         
         self.stops = []
-        path = SESSION["selected_csv_path"]
+        path = csv_path
         if not path or not os.path.exists(path):
             self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': ''}]
             return
@@ -333,12 +333,18 @@ class MainSIPLayout(FloatLayout):
 
             reader = csv.DictReader(csv_content, delimiter=';')
             for row in reader:
-                row['Extras'] = row.get('Extras', '')
-                self.stops.append(row)
+                clean_row = {k.strip(): v.strip() for k, v in row.items() if k is not None}
+                clean_row['Extras'] = clean_row.get('Extras', '')
+                self.stops.append(clean_row)
+                
+            if self.stops:
+                print(f"Pomyślnie załadowano {len(self.stops)} przystanków dla SIP.")
+                # Tutaj wywołaj funkcję, która faktycznie odświeży napisy na ekranie!
+                self.update_display() 
                 
         except Exception as e:
             print(f"Błąd ładowania trasy: {e}")
-            self.stops = [{'Nazwa': 'BŁĄD PLIKU', 'Audio': 'cisza', 'Kierunek': ''}]
+            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': ''}]
     
     def get_audio_path(self, filename):
         folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
