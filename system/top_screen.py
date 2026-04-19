@@ -312,7 +312,7 @@ class MainSIPLayout(FloatLayout):
             return
         
         self.stops = []
-        path = csv_path
+        path = csv_file
         if not path or not os.path.exists(path):
             self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': ''}]
             return
