@@ -321,7 +321,7 @@ class MainSIPLayout(FloatLayout):
             text=clean_name.upper(),
             font_size='80sp',
             font_name=self.arimo_font,
-            color=(0, 0, 0, 1), # BIAŁY
+            color=self.krakow_blue,
             size_hint=(None, None),
             size=(1187, 92),
             pos=(418, 1080 - 184),
