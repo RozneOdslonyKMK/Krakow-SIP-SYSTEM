@@ -308,44 +308,44 @@ class MainSIPLayout(FloatLayout):
                     self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
 
     def load_route(self, csv_file):
-        print(f"DEBUG: load_route otrzymało argument: {csv_file}") # KROK 1
-        
-        if not csv_file:
-            print("DEBUG: csv_file jest pusty!")
-            return
-        
-        if not os.path.exists(csv_file):
-            print(f"DEBUG: PLIK NIE ISTNIEJE POD: {csv_file}") # KROK 2
-            return
-            
         self.stops = []
+        path = csv_file
+        if not path or not os.path.exists(path):
+            self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': ''}]
+            return
+
         try:
-            print(f"DEBUG: Próba otwarcia pliku...")
-            with open(csv_file, mode='r', encoding='utf-8') as f:
+            with open(path, mode='r', encoding='utf-8') as f:
                 lines = f.readlines()
-            
-            print(f"DEBUG: Przeczytano {len(lines)} linii z pliku.") # KROK 3
 
             csv_content = []
             for line in lines:
-                if line.startswith('#'): continue
+                if line.startswith('#'):
+                    if "Route changed:" in line:
+                        is_changed = "True" in line
+                        SESSION["is_route_changed"] = is_changed
+                    continue
+                
                 csv_content.append(line)
 
             reader = csv.DictReader(csv_content, delimiter=';')
             for row in reader:
                 clean_row = {k.strip(): v.strip() for k, v in row.items() if k is not None}
+                clean_row['Extras'] = clean_row.get('Extras', '')
                 self.stops.append(clean_row)
                 
             if self.stops:
-                print(f"Pomyślnie załadowano {len(self.stops)} przystanków dla SIP.")
-                target_name = self.stops[0].get('Nazwa', '')
-                self.update_stop_label(target_name)
+                print(f"Pomyślnie załadowano {len(self.stops)} przystanków.")
+                first_stop = self.stops[0].get('Nazwa', '')
+                self.update_stop_label(first_stop)
+                self.canvas.ask_update()
             else:
-                print("DEBUG: DictReader nie znalazł żadnych wierszy (zły separator?)")
+                print("Lista przystanków jest pusta po wczytaniu!")
                 
         except Exception as e:
-            print(f"BŁĄD KRYTYCZNY W load_route: {e}")
-                
+            print(f"Błąd ładowania trasy: {e}")
+            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': ''}]
+    
     def get_audio_path(self, filename):
         folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
         
