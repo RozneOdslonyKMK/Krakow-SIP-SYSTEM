@@ -339,8 +339,7 @@ class MainSIPLayout(FloatLayout):
                 
             if self.stops:
                 print(f"Pomyślnie załadowano {len(self.stops)} przystanków dla SIP.")
-                # Tutaj wywołaj funkcję, która faktycznie odświeży napisy na ekranie!
-                self.update_display() 
+                self.update_stop_label() 
                 
         except Exception as e:
             print(f"Błąd ładowania trasy: {e}")
