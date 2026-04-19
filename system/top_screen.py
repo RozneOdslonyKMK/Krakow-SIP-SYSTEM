@@ -298,9 +298,9 @@ class MainSIPLayout(FloatLayout):
 
         self.lbl_stop.texture_update()
         new_width = self.lbl_stop.texture_size[0]
-        self.lbl_stop.width = new_width
-        
+        self.lbl_stop.width = max(new_width, limit_width)
         self.should_scroll_stop = new_width > limit_width
+        
         self.lbl_stop.x = text_start_x
         
     def load_stops_db(self):
