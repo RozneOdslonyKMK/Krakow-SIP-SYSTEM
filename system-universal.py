@@ -32,6 +32,9 @@ class SipScreen(Screen):
         if os.path.exists(sync_file):
             try:
                 with open(sync_file, "r") as f:
+                    content = f.read()
+                    if not content: return
+                    
                     data = json.load(f)
                     new_path = data.get("selected_csv_path")
                     
