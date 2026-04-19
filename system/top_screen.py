@@ -155,7 +155,18 @@ class MainSIPLayout(FloatLayout):
             elif text == 'k':
                 self.show_announcements_panel()
                 return True
+            elif text == 'p':
+                self.toggle_fullscreen()
+                return True
         return True
+
+    def toggle_fullscreen(self):
+        if Window.fullscreen in (True, 'auto'):
+            Window.fullscreen = False
+            Window.show_cursor = True 
+        else:
+            Window.fullscreen = 'auto'
+            Window.show_cursor = False
 
     def show_route_panel(self):
         view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
@@ -258,13 +269,9 @@ class MainSIPLayout(FloatLayout):
             sound = SoundLoader.load(audio_path)
             if sound:
                 sound.play()
-            print(f"Odtwarzam: {audio_path}")
             view.dismiss()
-        else:
-            print(f"Błąd: Plik {filename} nie istnieje w folderze audio")
 
     def update_stop_label(self, full_name):
-        print(f"DEBUG: Próba wyświetlenia przystanku: {full_name}")
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
         
         text_start_x = 418
@@ -364,15 +371,11 @@ class MainSIPLayout(FloatLayout):
                 self.stops.append(clean_row)
                 
             if self.stops:
-                print(f"Pomyślnie załadowano {len(self.stops)} przystanków.")
                 first_stop = self.stops[0].get('Nazwa', '')
                 self.update_stop_label(first_stop)
                 self.canvas.ask_update()
-            else:
-                print("Lista przystanków jest pusta po wczytaniu!")
                 
         except Exception as e:
-            print(f"Błąd ładowania trasy: {e}")
             self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': ''}]
     
     def get_audio_path(self, filename):
@@ -457,7 +460,6 @@ class MainSIPLayout(FloatLayout):
                 if voice_mode in ["audio/maklowicz"]:
                     files.append("Koniec trasy KMK.mp3")
         else:
-            print(f"BŁĄD: Brak pliku nazwy przystanku {stop_filename}. Pomijam resztę sekwencji.")
             if files:
                 files = [files[0]]
             
@@ -615,7 +617,6 @@ class MainSIPLayout(FloatLayout):
         full_path = self.get_audio_path(item)
         
         if not full_path:
-            print(f"Pominięto dźwięk (brak pliku w żadnej lokalizacji): {item}")
             self.process_queue()
             return
 
