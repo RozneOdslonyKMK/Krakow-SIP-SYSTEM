@@ -338,6 +338,8 @@ class MainSIPLayout(FloatLayout):
                 print(f"Pomyślnie załadowano {len(self.stops)} przystanków.")
                 first_stop = self.stops[0].get('Nazwa', '')
                 self.update_stop_label(first_stop)
+                self.canvas.ask_update()
+                print("DEBUG: Canvas update requested")
             else:
                 print("Lista przystanków jest pusta po wczytaniu!")
                 
