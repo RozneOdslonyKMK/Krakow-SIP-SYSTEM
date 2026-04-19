@@ -29,26 +29,30 @@ class SipScreen(Screen):
         if mode != "sip": return
         
         sync_file = "sync.json"
-        if os.path.exists(sync_file):
-            try:
-                with open(sync_file, "r") as f:
-                    content = f.read().strip()
+        if not os.path.exists(sync_file): return
+
+        try:
+            with open(sync_file, "r") as f:
+                content = f.read().strip()
+                if not content: return
+                data = json.loads(content)
+                
+                new_path_raw = data.get("csv_path")
+                
+                if new_path_raw and new_path_raw != self.last_synced_path:
+                    print(f"ZMIANA WYKRYTA: {new_path_raw}")
                     
-                    if not content:
-                        return
-                        
-                    data = json.loads(content)
-                    new_path = data.get("selected_csv_path")
+                    self.last_synced_path = new_path_raw
                     
-                    if new_path and new_path != self.last_synced_path:
-                        if not os.path.isabs(new_path):
-                            new_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), new_path)
-                        
-                        print(f"SIP ładuje trasę: {new_path}")
-                        self.setup_sip(new_path)
-                        self.last_synced_path = new_path
-            except (json.JSONDecodeError, OSError):
-                pass
+                    final_path = new_path_raw
+                    if not os.path.isabs(final_path):
+                        base_dir = os.path.dirname(os.path.abspath(__file__))
+                        final_path = os.path.join(base_dir, final_path)
+                    
+                    if hasattr(self, 'sip_layout'):
+                        self.sip_layout.load_route(final_path)
+        except (json.JSONDecodeError, OSError) as e:
+            pass
 
     def setup_sip(self, csv_file):
         self.clear_widgets()
