@@ -96,7 +96,7 @@ class SIPApp(App):
 
         return self.sm
     
-    def _on_keyboard_down(self, instance, key, scancode, codepoint, modifiers):
+    def _on_keyboard_down(self, instance, key, text, scancode, codepoint, modifiers):
         if 'ctrl' in modifiers:
             if key == 113:
                 Window.show_cursor = not Window.show_cursor
@@ -104,8 +104,19 @@ class SIPApp(App):
             if key == 109:
                 self.sm.current = 'sip' if self.sm.current == 'driver' else 'driver'
                 return True
+            if text == 'p':
+                self.toggle_fullscreen()
+                return True
         return False
     
+    def toggle_fullscreen(self):
+        if Window.fullscreen in (True, 'auto'):
+            Window.fullscreen = False
+            print("DEBUG: Tryb okienkowy")
+        else:
+            Window.fullscreen = 'auto'
+            print("DEBUG: Tryb pełnoekranowy")
+
     def on_request_close(self, *args):
         if hasattr(self, 'driver_panel'):
             self.driver_panel.init_shutdown()
