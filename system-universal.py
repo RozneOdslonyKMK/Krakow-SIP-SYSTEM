@@ -33,7 +33,7 @@ class SipScreen(Screen):
             try:
                 with open(sync_file, "r") as f:
                     data = json.load(f)
-                    new_path = data.get("csv_path")
+                    new_path = data.get("selected_csv_path")
                     
                     if new_path and new_path != self.last_synced_path:
                         print(f"SIP odebrał nową trasę: {new_path}")
