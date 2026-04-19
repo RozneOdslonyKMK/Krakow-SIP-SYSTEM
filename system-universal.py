@@ -75,8 +75,12 @@ class SIPApp(App):
 
         if mode == "sip":
             self.sm.current = 'sip'
+            self.title = "Ekran podsufitowy SIP"
+            self.icon = 'app-icon.png'
         else:
             self.sm.current = 'driver'
+            self.title = "Panel prowadzącego"
+            self.icon = 'app-icon.png'
 
         return self.sm
     
