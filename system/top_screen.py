@@ -303,6 +303,14 @@ class MainSIPLayout(FloatLayout):
         self.should_scroll_stop = new_width > limit_width
         
         self.lbl_stop.x = text_start_x
+
+        from kivy.graphics import Color, Rectangle
+        with self.lbl_stop.canvas.before:
+            Color(1, 0, 1, 0.5) # Różowy
+            self.rect = Rectangle(pos=(0,0), size=self.lbl_stop.size)
+
+        # Dodaj update pozycji prostokąta przy zmianie pozycji labela
+        self.lbl_stop.bind(pos=lambda ins, pos: setattr(self.rect, 'pos', pos))
         
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
