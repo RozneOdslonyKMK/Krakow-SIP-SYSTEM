@@ -37,7 +37,7 @@ class SipScreen(Screen):
                 if not content: return
                 data = json.loads(content)
                 
-                new_path_raw = data.get("csv_path")
+                new_path_raw = data.get("selected_csv_path")
                 
                 if new_path_raw and new_path_raw != self.last_synced_path:
                     print(f"ZMIANA WYKRYTA: {new_path_raw}")
