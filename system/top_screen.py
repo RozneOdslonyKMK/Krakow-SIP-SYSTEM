@@ -315,6 +315,12 @@ class MainSIPLayout(FloatLayout):
             final_path = csv_file
         else:
             final_path = os.path.join(BASE_DIR, csv_file)
+
+        print(f"DEBUG: Próba otwarcia pliku: {final_path}")
+    
+        if not os.path.exists(final_path):
+            print(f"BŁĄD: Plik nie istnieje pod ścieżką: {final_path}")
+            return
             
         self.stops = []
         path = SESSION["selected_csv_path"]
