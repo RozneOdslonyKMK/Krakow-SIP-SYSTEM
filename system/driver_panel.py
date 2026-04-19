@@ -50,17 +50,17 @@ class DriverPanel(Screen):
 
     def setup_labels(self):
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
-        self.clock_lbl = Label(text="--:--:--", font_size='28sp', bold=True,
+        self.clock_lbl = Label(text="--:--:--", font_size='36sp', bold=True,
                                size_hint=(None, None), size=c_size,
                                pos=c_pos, halign='center', valign='middle')
         
         d_pos, d_size = self.pos_conv(812, 138, 178, 66)
-        self.delay_lbl = Label(text="--:--", font_size='26sp', bold=True,
+        self.delay_lbl = Label(text="--:--", font_size='34sp', bold=True,
                                size_hint=(None, None), size=d_size,
                                pos=d_pos)
 
         l_pos, l_size = self.pos_conv(812, 31, 178, 66)
-        self.line_brygada_lbl = Label(text="---/---", font_size='22sp',
+        self.line_brygada_lbl = Label(text="---/---", font_size='34sp',
                                       size_hint=(None, None), size=l_size,
                                       pos=l_pos)
 
@@ -201,7 +201,7 @@ class DriverPanel(Screen):
             self.add_btn(x, y, 128, 112, lambda instance, v=val: self.handle_numpad(v))
         
         pos, size = self.pos_conv(254, 154, 250, 78)
-        self.numpad_lbl = Label(text="", font_size='40sp', color=(0,0,0,1),
+        self.numpad_lbl = Label(text="", font_size='50sp', color=(1,1,1,1),
                                 size_hint=(None, None), size=size,
                                 pos=pos)
         self.layout.add_widget(self.numpad_lbl)
