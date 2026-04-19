@@ -44,7 +44,8 @@ if exist "%WIN_DIR%\update_sip.bat" (
     popd
 )
 
-python "system-universal.py" >> "%LATEST_LOG%" 2>&1
+start python system-universal.py sip >> "%LATEST_LOG%" 2>&1
+start python system-universal.py driver >> "%LATEST_LOG%" 2>&1
 
 echo --- ZAMKNIĘCIE SYSTEMU: %date% %time% --- >> "%LATEST_LOG%"
 pause
