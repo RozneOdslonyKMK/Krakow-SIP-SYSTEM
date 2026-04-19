@@ -48,6 +48,10 @@ class SipScreen(Screen):
                     print(f"SIP ładuje trasę: {new_path}")
                     self.setup_sip(new_path)
                     self.last_synced_path = new_path
+                    
+
+                    if hasattr(self, 'sip_layout'):
+                        self.sip_layout.load_route(final_path)
         except (json.JSONDecodeError, OSError) as e:
             pass
 
