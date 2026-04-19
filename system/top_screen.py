@@ -287,7 +287,6 @@ class MainSIPLayout(FloatLayout):
             )
             self.content_box.add_widget(self.lbl_prefix)
 
-        # 2. KONTENER (StencilView)
         if not hasattr(self, 'stop_container'):
             self.stop_container = StencilView(
                 size_hint=(None, None), 
@@ -347,10 +346,11 @@ class MainSIPLayout(FloatLayout):
         self.stops = []
         path = csv_file
         if not path or not os.path.exists(path):
-            self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': ''}]
+            self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': '', 'time': '--:--'}]
             return
 
         try:
+            base_time = datetime.now()
             with open(path, mode='r', encoding='utf-8') as f:
                 lines = f.readlines()
 
@@ -365,19 +365,49 @@ class MainSIPLayout(FloatLayout):
                 csv_content.append(line)
 
             reader = csv.DictReader(csv_content, delimiter=';')
+
             for row in reader:
                 clean_row = {k.strip(): v.strip() for k, v in row.items() if k is not None}
+                
+                try:
+                    offset_minutes = int(clean_row.get('Czas', 0))
+                    arrival_time = base_time + datetime.timedelta(minutes=offset_minutes)
+                    formatted_time = arrival_time.strftime("%H:%M")
+                except:
+                    formatted_time = "--:--"
+
+                clean_row['name'] = clean_row.get('Nazwa', 'Brak Nazwy')
+                clean_row['time'] = formatted_time
                 clean_row['Extras'] = clean_row.get('Extras', '')
+
                 self.stops.append(clean_row)
                 
             if self.stops:
                 first_stop = self.stops[0].get('Nazwa', '')
                 self.update_stop_label(first_stop)
+                self.save_to_sync()
                 self.canvas.ask_update()
                 
         except Exception as e:
-            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': ''}]
+            print(f"BŁĄD SIP (load_route): {e}")
+            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': '', 'time': '--:--'}]
     
+    def save_to_sync(self):
+        try:
+            sync_file = "sync.json"
+            data = {}
+            if os.path.exists(sync_file):
+                with open(sync_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            
+            data["full_route_data"] = self.stops
+            data["last_update_source"] = "sip"
+            
+            with open(sync_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+        except Exception as e:
+            print(f"Błąd zapisu do sync.json: {e}")
+            
     def get_audio_path(self, filename):
         folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
         
@@ -644,4 +674,29 @@ class MainSIPLayout(FloatLayout):
                 
                 files = self.get_stop_audio_files(curr_stop, is_next=False)
                 self.play_sequence(files)
+                
+        try:
+            with open("sync.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            data["current_stop_index"] = self.current_idx
+            data["last_update_source"] = "sip"
+            
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(data, f)
+        except:
+            pass
         return True
+
+    def save_full_route_to_sync(self):
+        try:
+            data = {}
+            if os.path.exists("sync.json"):
+                with open("sync.json", "r") as f: data = json.load(f)
+            
+            data["full_route_data"] = self.stops 
+            
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(data, f)
+        except:
+            pass

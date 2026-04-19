@@ -28,6 +28,9 @@ class DriverPanel(Screen):
         self.layout = FloatLayout(size=(self.screen_width, self.screen_height))
         self.input_buffer = ""
         self.current_page = 1
+        self.color_white = (1, 1, 1, 1)
+        self.color_black = (0, 0, 0, 1)
+        self.color_blue = (0, 0.23, 0.65, 1)
         
         self.bg = Image(source=os.path.join(BASE_DIR, 'trapeze', 'Boot.png'),
                         allow_stretch=True, keep_ratio=False)
@@ -71,6 +74,21 @@ class DriverPanel(Screen):
     def update_ui_data(self, dt):
         self.clock_lbl.text = datetime.now().strftime("%H:%M:%S")
 
+        try:
+            if os.path.exists("sync.json"):
+                with open("sync.json", "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    new_idx = data.get("current_stop_index", 0)
+                    
+                    if not hasattr(self, 'last_sync_idx'): self.last_sync_idx = new_idx
+                    
+                    if new_idx != self.last_sync_idx:
+                        self.last_sync_idx = new_idx
+                        SESSION["current_stop_index"] = new_idx
+                        self.show_list_elements(mode="stops")
+        except Exception as e:
+            print(f"Błąd odczytu sync.json: {e}")
+
     def add_btn(self, x, y, w, h, callback, disabled=False):
         pos, size = self.pos_conv(x, y, w, h)
         btn = Button(
@@ -101,10 +119,10 @@ class DriverPanel(Screen):
         self.layout.add_widget(self.bg)
         
         if screen_type == "drive":
-            self.add_btn(782, 360, 238, 116, lambda x: self.init_shutdown())
+            self.add_btn(782, 360, 238, 116, lambda x: self.show_tryb_pracy())
         elif screen_type == "settings":
             self.add_btn(782, 360, 100, 100, self.handle_info)
-            self.add_btn(902, 360, 118, 116, lambda x: self.init_shutdown())
+            self.add_btn(902, 360, 118, 116, lambda x: self.show_tryb_pracy())
 
     def show_tryb_pracy(self):
         self.refresh_layout("Tryb_Pracy.png", "settings")
@@ -235,14 +253,37 @@ class DriverPanel(Screen):
                 csv_full_path = os.path.join(full_path, plik)
                 self.add_btn(248, y, 530, 112, lambda inst, p=csv_full_path: self.confirm_route(p))
         else:
-            self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=self.pos_conv(248, 128, 530, 112)))
+            p_pos, p_size = self.pos_conv(248, 128, 530, 112)
+            self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=p_pos, size=p_size, size_hint=(None, None)))
 
     def handle_numpad(self, val):
         if val == 'C':
             self.input_buffer = self.input_buffer[:-1]
         elif val == 'OK':
             if self.input_buffer:
-                self.show_kierunek()
+                line_to_check = self.input_buffer
+
+                rel_path = os.path.join(
+                    BASE_DIR,
+                    "routes", 
+                    SESSION.get("operator_folder", ""),
+                    SESSION.get("type_folder", ""),
+                )
+                routes_path = os.path.join(rel_path)
+                line_exists = False
+                if os.path.exists(routes_path):
+                    items = os.listdir(routes_path)
+                    line_exists = any(
+                        os.path.isdir(os.path.join(routes_path, f)) and f.startswith(line_to_check) 
+                        for f in items
+                    )
+
+                if line_exists:
+                    self.show_kierunek()
+                else:
+                    print(f"BŁĄD: Linia {line_to_check} nie została znaleziona w {routes_path}")
+                    self.input_buffer = ""
+                
         else:
             if len(self.input_buffer) < 4:
                 self.input_buffer += val
@@ -276,7 +317,8 @@ class DriverPanel(Screen):
                 csv_full_path = os.path.join(full_path, plik)
                 self.add_btn(248, y, 530, 112, lambda inst, p=csv_full_path: self.confirm_route(p))
         else:
-            self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=self.pos_conv(248, 128, 530, 112)))
+            p_pos, p_size = self.pos_conv(248, 128, 530, 112)
+            self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=p_pos, size=p_size, size_hint=(None, None)))
 
     def show_lektor_menu(self, *args):
         self.refresh_layout("Lektor.png", "settings")
@@ -297,14 +339,21 @@ class DriverPanel(Screen):
 
         SESSION["selected_csv_path"] = full_path
         SESSION["line_number"] = formatted_line
+        SESSION["current_stop_index"] = 0
 
         sync_data = {
             "selected_csv_path": full_path,
-            "special_key": SESSION.get("special_key"),
-            "line": formatted_line
+            "line": formatted_line,
+            "current_stop_index": 0,
+            "last_update_source": "driver",
+            "special_key": SESSION.get("special_key")
         }
-        with open("sync.json", "w") as f:
-            json.dump(sync_data, f)
+        try:
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(sync_data, f)
+        except Exception as e:
+            print(f"Błąd zapisu startowego: {e}")
+            
         self.start_drive()
     
     def start_special_drive(self, special_key):
@@ -339,7 +388,10 @@ class DriverPanel(Screen):
             )
 
     def start_drive(self):
+        SESSION["is_running"] = True
         self.refresh_layout("bg_01.png", "drive")
+
+        # self.update_top_bar(self.name)
 
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
@@ -353,6 +405,12 @@ class DriverPanel(Screen):
         self.line_brygada_lbl.pos = l_pos
         self.line_brygada_lbl.size = l_size
 
+        # m_pos, m_size = self.pos_conv(248, 91, 530, 505)
+        # with self.layout.canvas.after:
+        #     from kivy.graphics import Color, Rectangle
+        #     Color(self.color_black)
+        #     self.map_rect = Rectangle(pos=m_pos, size=m_size)
+
         line_val = SESSION.get("line_number", "---")
         self.line_brygada_lbl.text = f"{line_val}/---"
 
@@ -360,7 +418,8 @@ class DriverPanel(Screen):
         self.layout.add_widget(self.delay_lbl)
         self.layout.add_widget(self.line_brygada_lbl)
 
-        self.add_btn(782, 480, 238, 116, self.show_lektor_menu)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
+        self.add_btn(4, 244, 118, 112, self.toggle_map_view)
 
         app = App.get_running_app()
         csv_to_load = SESSION["selected_csv_path"]
@@ -368,8 +427,52 @@ class DriverPanel(Screen):
         if os.path.exists(csv_to_load):
             if hasattr(app, 'sip_screen'):
                 app.sip_screen.setup_sip(csv_to_load)
+                self.show_list_elements(mode="stops")
         else:
             print(f"BŁĄD: Nie znaleziono trasy {csv_to_load}")
+
+    def update_top_bar(self, name_fallback):
+        p_pos, p_size = self.pos_conv(248, 4, 530, 81)
+        
+        trasa = SESSION.get("current_route_data", [])
+        idx = SESSION.get("current_stop_index", 0)
+        
+        if trasa and 0 <= idx < len(trasa):
+            stop_name = str(trasa[idx].get("name", "BŁĄD DANYCH"))
+        else:
+            stop_name = str(name_fallback)
+
+        if hasattr(self, 'current_stop_lbl'):
+            self.layout.remove_widget(self.current_stop_lbl)
+        if hasattr(self, 'top_time_lbl'):
+            self.layout.remove_widget(self.top_time_lbl)
+
+        self.current_stop_lbl = Label(
+            text=stop_name.upper(), 
+            font_size='24sp', 
+            color=self.color_white,
+            size_hint=(None, None), 
+            size=(p_size[0]*0.7, p_size[1]),
+            pos=p_pos, 
+            halign='left', 
+            valign='middle', 
+            text_size=(p_size[0]*0.7, p_size[1])
+        )
+        
+        self.top_time_lbl = Label(
+            text=datetime.now().strftime("%H:%M"), 
+            font_size='24sp',
+            size_hint=(None, None), 
+            size=(p_size[0]*0.3, p_size[1]),
+            pos=(p_pos[0] + p_size[0]*0.7, p_pos[1]), 
+            color=self.color_blue,
+            halign='right', 
+            valign='middle', 
+            text_size=(p_size[0]*0.3, p_size[1])
+        )
+        
+        self.layout.add_widget(self.current_stop_lbl)
+        self.layout.add_widget(self.top_time_lbl)
 
     def add_list_logic(self, callback, back_func, has_paging=False, is_vehicle_screen=False):
         self.add_btn(260, 6, 55, 84, lambda x: back_func())
@@ -392,11 +495,136 @@ class DriverPanel(Screen):
         if has_paging:
             self.add_btn(260, 399, 508, 66, lambda x: callback("paging"))
 
+    def handle_speaker_btn(self, instance):
+        if SESSION.get("is_running"):
+            self.show_list_elements(mode="anns")
+        else:
+            self.show_lektor_menu()
+
     def handle_info(self, instance):
         if self.bg.source.endswith("Linia.png"):
             self.bg.source = os.path.join(BASE_DIR, 'trapeze', 'Info.png')
         elif self.bg.source.endswith("Info.png"):
             self.bg.source = os.path.join(BASE_DIR, 'trapeze', 'Linia.png')
+
+    def load_announcements(self):
+        ann_path = os.path.join(BASE_DIR, "dictionaries", "anns.txt")
+        anns = []
+        if os.path.exists(ann_path):
+            with open(ann_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    if "|" in line:
+                        text, audio = line.strip().split("|")
+                        anns.append({"text": text, "audio": audio})
+        return anns
+    
+    def show_list_elements(self, mode="stops"):
+        self.force_sync_from_file()
+
+        list_coords = [
+            (248, 480, 530, 116),
+            (248, 360, 530, 116),
+            (248, 244, 530, 112),
+            (248, 128, 530, 112),
+            (248, 4, 530, 120)
+        ]
+        
+        for child in [c for c in self.layout.children if isinstance(c, FloatLayout)]:
+             self.layout.remove_widget(child)
+
+        if mode == "anns":
+            anns = self.load_announcements()
+            for i in range(5):
+                coord_idx = 4 - i
+                if i < len(anns):
+                    x, y, w, h = list_coords[coord_idx]
+                    self.draw_list_item(anns[i]["text"], "", x, y, w, h)
+        
+        elif mode == "stops":
+            trasa = SESSION.get("current_route_data", [])
+            curr_idx = SESSION.get("current_stop_index", 0)
+            
+            offsets = [2, 1, 0, -1, -2]
+            
+            for i, offset in enumerate(offsets):
+                coord_idx = 4 - i
+                x, y, w, h = list_coords[coord_idx]
+                
+                target_idx = curr_idx + offset
+                if 0 <= target_idx < len(trasa):
+                    name = trasa[target_idx].get('name', '---')
+                    time = trasa[target_idx].get('time', '--:--')
+                    
+                    self.draw_list_item(
+                        name, time,
+                        x, y, w, h, 
+                        is_first=(coord_idx == 4),
+                        target_idx=target_idx
+                    )
+    
+    def draw_list_item(self, name, time, x, y, w, h, is_first=False, target_idx=None):
+        pos, size = self.pos_conv(x, y, w, h)
+        
+        item_box = FloatLayout(size_hint=(None, None), size=size, pos=pos)
+        
+        name_lbl = Label(
+            text=name.upper(), font_size='60sp', bold=True, color=self.color_white,
+            size_hint=(0.85, 0.5), pos_hint={'x': 0.02, 'top': 0.95},
+            halign='left', valign='top', text_size=(size[0]*0.85, size[1]*0.5)
+        )
+        
+        time_lbl = Label(
+            text=time, font_size='60sp', color=self.color_blue,
+            size_hint=(0.2, 0.5), pos_hint={'right': 0.98, 'top': 0.95},
+            halign='right', valign='top', text_size=(size[0]*0.2, size[1]*0.5)
+        )
+
+        btn = Button(background_color=(0,0,0,0), size_hint=(1, 1), pos_hint={'x': 0, 'y': 0})
+        if target_idx is not None:
+            btn.bind(on_release=lambda instance: self.change_stop_manually(target_idx))
+
+        item_box.add_widget(btn)
+
+        item_box.add_widget(name_lbl)
+        item_box.add_widget(time_lbl)
+
+        if is_first:
+            target = SESSION.get("target_station", "KIERUNEK")
+            target_lbl = Label(
+                text=target.upper(), font_size='55sp', color=self.color_blue,
+                size_hint=(0.85, 0.3), pos_hint={'x': 0.02, 'y': 0.05},
+                halign='left', valign='bottom', text_size=(size[0]*0.85, size[1]*0.3)
+            )
+            item_box.add_widget(target_lbl)
+
+        self.layout.add_widget(item_box)
+
+    def change_stop_manually(self, new_idx):
+        trasa = SESSION.get("current_route_data", [])
+        if not (0 <= new_idx < len(trasa)):
+            return
+
+        print(f"Kierowca wybiera przystanek: {new_idx} ({trasa[new_idx]['name']})")
+        
+        SESSION["current_stop_index"] = new_idx
+        
+        try:
+            with open("sync.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            data["current_stop_index"] = new_idx
+            data["last_update_source"] = "driver"
+            
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+        except Exception as e:
+            print(f"Błąd zapisu rozkazu: {e}")
+            
+        self.show_list_elements(mode="stops")
+        # self.update_top_bar("")
+        
+    def toggle_map_view(self, instance):
+        print("DEBUG: Przełączanie widoku mapy (OSM Placeholder)")
 
     def init_shutdown(self, *args):
         self.layout.clear_widgets()
@@ -406,3 +634,50 @@ class DriverPanel(Screen):
         
         Clock.schedule_once(lambda dt: sys.exit(), 1.5)
         return True
+
+    def check_sync(self, dt):
+        sync_file = "sync.json"
+        if not os.path.exists(sync_file):
+            return
+        
+        try:
+            with open(sync_file, "r", encoding="utf-8") as f:
+                content = f.read().strip()
+                if not content: 
+                    return
+                data = json.loads(content)
+
+            full_data = data.get("full_route_data", [])
+            
+            if full_data:
+                current_local_data = SESSION.get("current_route_data", [])
+                
+                if not current_local_data or len(current_local_data) != len(full_data):
+                    print(f"DEBUG: Ładowanie {len(full_data)} przystanków z sync.json do SESSION")
+                    SESSION["current_route_data"] = full_data
+                    self.show_list_elements(mode="stops")
+
+            new_idx = data.get("current_stop_index", 0)
+            if not hasattr(self, 'local_idx'): self.local_idx = -1
+            
+            if new_idx != self.local_idx:
+                print(f"DEBUG: Zmiana indeksu na {new_idx}")
+                self.local_idx = new_idx
+                SESSION["current_stop_index"] = new_idx
+                self.show_list_elements(mode="stops")
+                # self.update_top_bar("")
+
+        except (json.JSONDecodeError, OSError) as e:
+            pass
+    
+    def force_sync_from_file(self):
+        try:
+            if os.path.exists("sync.json"):
+                with open("sync.json", "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if "full_route_data" in data:
+                        global SESSION
+                        SESSION["current_route_data"] = data["full_route_data"]
+                        SESSION["current_stop_index"] = data.get("current_stop_index", 0)
+        except:
+            pass

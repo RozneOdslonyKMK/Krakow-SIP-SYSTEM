@@ -95,5 +95,8 @@ SESSION = {
     "special_mode_id": None,
     "label": "",
     "line_number": "",
-    "special_key": ""
+    "special_key": "",
+    "current_route_data": [],
+    "current_stop_index": 0,
+    "mode": "Dom"
 }
