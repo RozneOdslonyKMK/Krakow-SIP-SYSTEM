@@ -279,7 +279,7 @@ class DriverPanel(Screen):
 
     def confirm_route(self, full_path):
         sync_data = {
-            "csv_path": full_path,
+            "selected_csv_path": full_path,
             "special_key": SESSION.get("special_key"),
             "line": SESSION.get("line_number")
         }
