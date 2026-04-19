@@ -47,8 +47,6 @@ class SipScreen(Screen):
                         base_dir = os.path.dirname(os.path.abspath(__file__))
                         full_path = os.path.join(base_dir, full_path)
                     
-                    print(f"SIP ładuje trasę: {full_path}")
-                    
                     self.setup_sip(full_path)
                     
         except (json.JSONDecodeError, OSError):
@@ -113,11 +111,9 @@ class SIPApp(App):
         if Window.fullscreen in (True, 'auto'):
             Window.fullscreen = False
             Window.show_cursor = True 
-            print("DEBUG: Przełączono na tryb okienkowy")
         else:
             Window.fullscreen = 'auto'
             Window.show_cursor = False
-            print("DEBUG: Przełączono na tryb pełnoekranowy")
 
     def on_request_close(self, *args):
         if hasattr(self, 'driver_panel'):
