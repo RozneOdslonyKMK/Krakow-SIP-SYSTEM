@@ -33,6 +33,7 @@ from kivy.uix.textinput import TextInput
 from kivy.core.window import Window
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
+import json
 
 GPS_AVAILABLE = False
 try:
@@ -57,7 +58,7 @@ OPERATORS = {
 
 SPECIAL_MODES = {
     "TRAM_WYJAZD": {"line": "", "label": "Wyjazd na linię", "stops": True},
-    "TRAM_ZJAZD": {"line": "", "label": "Zajezdnia", "stops": True},
+    "TRAM_ZJAZD": {"line": "", "label": "Zjazd do zajezdni", "stops": True},
     "BUS_WYJAZD": {"line": "", "label": "Wyjazd na linię", "stops": False},
     "BUS_ZJAZD": {"line": "", "label": "Zjazd do zajezdni", "stops": False},
     "PRZEJAZD_TECH": {"line": "", "label": "Przejazd Techniczny", "stops": False},
@@ -83,10 +84,16 @@ SEARCH_ORDER = {
 SESSION = {
     "mode": "Dom",
     "operator": "",
+    "operator_folder": "",
     "type": "",
+    "mode_type": "",
+    "type_folder": "",
     "voice_path": "audio",
     "news_text": formatted_news,
     "is_route_changed": False,
     "selected_csv_path": "",
-    "special_mode_id": None
+    "special_mode_id": None,
+    "label": "",
+    "line_number": "",
+    "special_key": ""
 }

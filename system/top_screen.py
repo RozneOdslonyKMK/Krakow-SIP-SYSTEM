@@ -21,15 +21,15 @@ class MainSIPLayout(FloatLayout):
         self.arimo_font = os.path.join(BASE_DIR, 'fonts', 'Arimo.ttf')
         self.krakow_blue = (0, 0.23, 0.45, 1)
         self.screen_h = 1080
-        
-        self.special_id = SESSION.get("special_mode_id")
+
+        self.special_id = SESSION.get("special_key")
         self.stops = []
         self.stops_db = {}
         self.current_idx = 0
         self.is_at_stop = True
         
         self.load_stops_db()
-        self.load_route()
+        self.load_route(csv_file)
 
         ads_dir = os.path.join(BASE_DIR, 'ads')
         self.ad_files = [os.path.join(ads_dir, f) for f in os.listdir(ads_dir) if f.endswith(('.mp4', '.mkv', '.avi'))]
@@ -47,15 +47,16 @@ class MainSIPLayout(FloatLayout):
 
         l_color = (1, 1, 1, 1) if SESSION["is_route_changed"] else self.krakow_blue
         line_display = ""
-        if SESSION["selected_csv_path"]:
-            path_parts = os.path.normpath(SESSION["selected_csv_path"]).split(os.sep)
-            line_display = path_parts[-2] if len(path_parts) >= 2 else ""
-        
         if self.special_id:
-            line_display = SPECIAL_MODES[self.special_id]["line"]
-            
+            line_display = SPECIAL_MODES[self.special_id].get("line", "")
+            if not line_display and SESSION.get("line_number"):
+                line_display = SESSION.get("line_number")
+        elif csv_file:
+            path_parts = os.path.normpath(csv_file).split(os.sep)
+            line_display = path_parts[-2] if len(path_parts) >= 2 else ""
+
         self.content_box.add_widget(Label(
-            text=line_display, font_size='165sp', font_name=self.arimo_font,
+            text=str(line_display), font_size='165sp', font_name=self.arimo_font,
             color=l_color, bold=True, size_hint=(None, None), size=(309, 184),
             pos=(0, 1080-184), halign='center', valign='middle', text_size=(309, 184)))
 
@@ -125,23 +126,30 @@ class MainSIPLayout(FloatLayout):
     def _get_direction_text(self, csv_file):
         if self.special_id == "TRAM_WYJAZD":
             return self.stops[-1]['Nazwa'].rsplit(' ', 1)[0] if self.stops else "Wyjazd na linię"
-        elif self.special_id:
-            direction = SPECIAL_MODES[self.special_id]["label"]
-            if self.special_id == "TRAM_ZJAZD" and self.stops:
+
+        elif self.special_id == "TRAM_ZJAZD":
+            if self.stops:
                 last_stop = self.stops[-1]['Nazwa'].upper()
-                if "PH" in last_stop: return "Zajezdnia Nowa Huta"
-                if "PT" in last_stop: return "Zajezdnia Podgórze"
-            return direction
+                if "PH" in last_stop or "HUTA" in last_stop: 
+                    return "Zajezdnia Nowa Huta"
+                if "PT" in last_stop or "PODGÓRZE" in last_stop: 
+                    return "Zajezdnia Podgórze"
+            return "Zjazd do zajezdni"
+
+        elif self.special_id:
+            return SPECIAL_MODES[self.special_id]["label"]
+
         elif self.stops and self.stops[0].get('Kierunek'):
             return self.stops[0]['Kierunek']
-        return csv_file.split('_', 1)[1].replace('.csv', '').replace('_', ' ') if '_' in csv_file else csv_file.replace('.csv', '')
+            
+        if csv_file:
+            return os.path.basename(csv_file).replace('.csv', '').replace('_', ' ')
+            
+        return "Brak Trasy"
     
     def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
         if 'ctrl' in modifiers:
-            if text == 'm':
-                self.go_back_to_menu()
-                return True
-            elif text == 't':
+            if text == 't':
                 self.show_route_panel()
                 return True
             elif text == 'k':
@@ -254,15 +262,6 @@ class MainSIPLayout(FloatLayout):
             view.dismiss()
         else:
             print(f"Błąd: Plik {filename} nie istnieje w folderze audio")
-
-    def go_back_to_menu(self):
-        if self.ads:
-            self.ads.state = 'stop'
-            self.ads.unload()
-        
-        Window.unbind(on_key_down=self._on_keyboard_down)
-        
-        App.get_running_app().root.current = 'routes'
         
     def update_stop_label(self, full_name):
         clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
@@ -308,7 +307,10 @@ class MainSIPLayout(FloatLayout):
                     base_name = row['Nazwa'].rsplit(' ', 1)[0]
                     self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
 
-    def load_route(self):
+    def load_route(self, csv_file):
+        if not csv_file:
+            return
+        
         self.stops = []
         path = SESSION["selected_csv_path"]
         if not path or not os.path.exists(path):
