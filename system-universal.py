@@ -51,7 +51,7 @@ class SipScreen(Screen):
                     
 
                     if hasattr(self, 'sip_layout'):
-                        self.sip_layout.load_route(final_path)
+                        self.sip_layout.load_route(new_path)
         except (json.JSONDecodeError, OSError) as e:
             pass
 
