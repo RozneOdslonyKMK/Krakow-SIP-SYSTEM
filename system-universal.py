@@ -37,22 +37,21 @@ class SipScreen(Screen):
                 if not content: return
                 data = json.loads(content)
                 
-                # 1. Pobieramy surową wartość
-                new_path = data.get("selected_csv_path")
+                path_from_json = data.get("selected_csv_path")
                     
-                if new_path and new_path != self.last_synced_path:
-                    self.last_synced_path = new_path
-                    if not os.path.isabs(new_path):
-                        new_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), new_path)
+                if path_from_json and path_from_json != self.last_synced_path:
+                    self.last_synced_path = path_from_json
                     
-                    print(f"SIP ładuje trasę: {new_path}")
-                    self.setup_sip(new_path)
-                    self.last_synced_path = new_path
+                    full_path = path_from_json
+                    if not os.path.isabs(full_path):
+                        base_dir = os.path.dirname(os.path.abspath(__file__))
+                        full_path = os.path.join(base_dir, full_path)
                     
-
-                    if hasattr(self, 'sip_layout'):
-                        self.sip_layout.load_route(new_path)
-        except (json.JSONDecodeError, OSError) as e:
+                    print(f"SIP ładuje trasę: {full_path}")
+                    
+                    self.setup_sip(full_path)
+                    
+        except (json.JSONDecodeError, OSError):
             pass
 
     def setup_sip(self, csv_file):
