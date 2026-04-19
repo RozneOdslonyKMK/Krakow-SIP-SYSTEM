@@ -339,7 +339,7 @@ class MainSIPLayout(FloatLayout):
                 
             if self.stops:
                 print(f"Pomyślnie załadowano {len(self.stops)} przystanków dla SIP.")
-                self.update_stop_label() 
+                self.update_stop_label(full_name)
                 
         except Exception as e:
             print(f"Błąd ładowania trasy: {e}")
