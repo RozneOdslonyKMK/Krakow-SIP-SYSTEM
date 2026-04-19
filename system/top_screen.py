@@ -262,52 +262,6 @@ class MainSIPLayout(FloatLayout):
             view.dismiss()
         else:
             print(f"Błąd: Plik {filename} nie istnieje w folderze audio")
-        
-    # def update_stop_label(self, full_name):
-    #     print(f"DEBUG: Próba wyświetlenia przystanku: {full_name}")
-    #     clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
-        
-    #     prefix_x = 360
-    #     text_start_x = 418
-    #     stop_pos_y = 1080 - 184
-    #     limit_width = 1187
-
-    #     if not hasattr(self, 'lbl_prefix'):
-    #         self.lbl_prefix = Label(text="> ", font_size='80sp', font_name=self.arimo_font,
-    #                                color=self.krakow_blue, size_hint=(None, None),
-    #                                size=(60, 92), pos=(prefix_x, stop_pos_y),
-    #                                halign='left', valign='middle')
-    #         self.content_box.add_widget(self.lbl_prefix)
-
-    #     if not hasattr(self, 'stop_container'):
-    #         self.stop_container = StencilView(size_hint=(None, None), 
-    #                                          size=(limit_width, 92),
-    #                                          pos=(text_start_x, stop_pos_y))
-            
-    #         self.lbl_stop = Label(text=clean_name.upper(), font_size='80sp', 
-    #                              font_name=self.arimo_font,
-    #                              color=self.krakow_blue, size_hint=(None, None),
-    #                              size=(limit_width, 92), 
-    #                              pos=(text_start_x, stop_pos_y),
-    #                              halign='left', valign='middle',
-    #                              text_size=(limit_width, 92))
-            
-    #         self.stop_container.add_widget(self.lbl_stop)
-    #         self.content_box.add_widget(self.stop_container)
-    #     else:
-    #         self.lbl_stop.text = clean_name.upper()
-
-    #     self.lbl_stop.texture_update()
-    #     new_width = self.lbl_stop.texture_size[0]
-    #     self.lbl_stop.width = max(new_width, limit_width)
-    #     self.should_scroll_stop = new_width > limit_width
-        
-    #     self.lbl_stop.x = text_start_x
-
-    #     # Dodaj to na samym końcu funkcji update_stop_label
-    #     from kivy.uix.button import Button
-    #     test_btn = Button(text="KLIKNIJ MNIE", pos=(418, 500), size_hint=(None, None), size=(200, 100))
-    #     self.content_box.add_widget(test_btn)
 
     def update_stop_label(self, full_name):
         print(f"DEBUG: Próba wyświetlenia przystanku: {full_name}")
@@ -317,7 +271,6 @@ class MainSIPLayout(FloatLayout):
         stop_pos_y = 1080 - 184
         limit_width = 1187
 
-        # 1. PREFIX (Strzałka ">")
         if not hasattr(self, 'lbl_prefix'):
             self.lbl_prefix = Label(
                 text="> ", font_size='80sp', font_name=self.arimo_font,
@@ -335,10 +288,6 @@ class MainSIPLayout(FloatLayout):
                 pos=(text_start_x, stop_pos_y)
             )
             
-            # 3. LABEL (Wewnątrz kontenera)
-            # WAŻNE: Wewnątrz StencilView pozycjonujemy relatywnie do kontenera!
-            # Jeśli kontener ma pos=(418, 896), to Label w nim ma mieć pos=(418, 896) 
-            # TYLKO jeśli content_box to FloatLayout, a Label nie ma rodzica typu Relative.
             self.lbl_stop = Label(
                 text=clean_name.upper(), 
                 font_size='80sp', 
@@ -349,7 +298,7 @@ class MainSIPLayout(FloatLayout):
                 pos=(text_start_x, stop_pos_y), 
                 halign='left', 
                 valign='middle',
-                text_size=(None, 92) # None pozwala teksturze rosnąć (ważne dla scrolla)
+                text_size=(None, 92)
             )
             
             self.stop_container.add_widget(self.lbl_stop)
@@ -357,14 +306,11 @@ class MainSIPLayout(FloatLayout):
         else:
             self.lbl_stop.text = clean_name.upper()
 
-        # 4. LOGIKA PRZEWIJANIA (Texture Update)
         self.lbl_stop.texture_update()
         new_width = self.lbl_stop.texture_size[0]
         
-        # Ustawiamy szerokość Labela na taką, jaką ma tekst (żeby scroll miał co przewijać)
         self.lbl_stop.width = max(new_width, limit_width)
         
-        # Jeśli scrollujemy, wyłączamy text_size, żeby tekst się nie zawijał
         if new_width > limit_width:
             self.lbl_stop.text_size = (None, 92)
             self.should_scroll_stop = True
@@ -372,13 +318,15 @@ class MainSIPLayout(FloatLayout):
             self.lbl_stop.text_size = (limit_width, 92)
             self.should_scroll_stop = False
         
-        # Reset pozycji (Powrót na start)
         self.lbl_stop.x = text_start_x
 
-        # 5. WYMUSZENIE WARSTWY (Na wierzch)
         self.content_box.remove_widget(self.stop_container)
         self.content_box.add_widget(self.stop_container)
         
+        if hasattr(self, 'lbl_prefix'):
+            self.content_box.remove_widget(self.lbl_prefix)
+            self.content_box.add_widget(self.lbl_prefix)
+            
     def load_stops_db(self):
         db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
         if os.path.exists(db_p):
