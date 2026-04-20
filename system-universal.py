@@ -105,6 +105,12 @@ class SipScreen(Screen):
         self.sip_content.load_route(csv_file)
         self.stops = self.sip_content.stops
 
+        if SESSION.get("mode") == "sip":
+            SESSION["sip_launched"] == True
+            curr_stop = self.stops[0]
+            files = self.get_stop_audio_files(curr_stop, is_next=False)
+            self.play_sequence(files)
+
     def on_enter(self):
         if hasattr(self, 'sip_content') and self.sip_content.stops:
             start_stop = self.sip_content.stops[0]
