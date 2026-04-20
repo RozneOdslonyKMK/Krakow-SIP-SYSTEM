@@ -114,6 +114,13 @@ class MainSIPLayout(FloatLayout):
 
         Clock.schedule_once(self.play_welcome_sequence, 1.5)
 
+    def get_sync_data(self):
+        try:
+            with open("sync.json", "r", encoding="utf-8") as f:
+                return json.load(f)
+        except:
+            return {}
+        
     def _apply_scaling(self, *args):
         win_w, win_h = Window.size
         scale = min(win_w / self.base_size[0], win_h / self.base_size[1])
@@ -300,11 +307,13 @@ class MainSIPLayout(FloatLayout):
                 font_name=self.arimo_font,
                 color=self.krakow_blue, 
                 size_hint=(None, None),
-                size=(limit_width, 92), 
+                height=92, 
                 pos=(text_start_x, stop_pos_y), 
                 halign='left', 
                 valign='middle',
-                text_size=(None, 92)
+                text_size=(None, None),
+                shorten=False,
+                mipmap=True
             )
             
             self.stop_container.add_widget(self.lbl_stop)
@@ -312,17 +321,19 @@ class MainSIPLayout(FloatLayout):
         else:
             self.lbl_stop.text = clean_name.upper()
 
+        self.lbl_stop.text_size = (None, None)
         self.lbl_stop.texture_update()
         new_width = self.lbl_stop.texture_size[0]
         
-        self.lbl_stop.width = max(new_width, limit_width)
+        self.lbl_stop.width = new_width
         
         if new_width > limit_width:
-            self.lbl_stop.text_size = (None, 92)
             self.should_scroll_stop = True
+            self.lbl_stop.text_size = (None, 92)
         else:
-            self.lbl_stop.text_size = (limit_width, 92)
             self.should_scroll_stop = False
+            self.lbl_stop.width = limit_width
+            self.lbl_stop.text_size = (limit_width, 92)
         
         self.lbl_stop.x = text_start_x
 
@@ -409,7 +420,11 @@ class MainSIPLayout(FloatLayout):
             print(f"Błąd zapisu do sync.json: {e}")
             
     def get_audio_path(self, filename):
-        folders = SEARCH_ORDER.get(SESSION["voice_path"], [SESSION["voice_path"]])
+        sync = self.get_sync_data()
+        v_path = sync.get("voice_path", SESSION.get("voice_path", "audio"))
+        s_order = sync.get("search_order", SEARCH_ORDER)
+        
+        folders = s_order.get(v_path, [v_path])
         
         for folder in folders:
             full_path = os.path.join(BASE_DIR, folder, filename)
@@ -420,8 +435,8 @@ class MainSIPLayout(FloatLayout):
     def play_welcome_sequence(self, dt):
         if not self.stops: return
         
-        path_parts = os.path.normpath(SESSION["selected_csv_path"]).split(os.sep)
-        line_no = path_parts[-2] if len(path_parts) >= 2 else ""
+        sync = self.get_sync_data()
+        line_no = sync.get("line_number", "---")
         
         last_stop_audio = self.stops[-1]['Audio']
         
@@ -435,12 +450,15 @@ class MainSIPLayout(FloatLayout):
     
     def get_stop_audio_files(self, stop_data, is_next=True):
         files = []
+        sync = self.get_sync_data()
         
+        voice_mode = sync.get("voice_path", SESSION.get("voice_path", "audio"))
+        available_voices = sync.get("voice_types", {}).values()
+
         if is_next:
             files.append("Następny Przystanek.mp3")
         else:
-            voice_mode = SESSION.get("voice_path", "audio")
-            if voice_mode in ["audio/new", "audio/maklowicz"]:
+            if voice_mode in available_voices and voice_mode != "audio":
                 files.append("Przystanek.mp3")
 
         stop_filename = f"{stop_data['Audio']}.mp3"
@@ -449,45 +467,43 @@ class MainSIPLayout(FloatLayout):
         if path_to_stop:
             files.append(stop_filename)
 
-            if "(NŻ)" in stop_data['Nazwa'].upper() or "NŻ" in stop_data['Nazwa'].upper():
+            if any(x in stop_data['Nazwa'].upper() for x in ["(NŻ)", "NŻ"]):
                 files.append("Na Żądanie.mp3")
                 
             extras = stop_data['Extras'].lower()
-            if "przesiadka_bus" in extras:
-                files.append("Możliwość przesiadki na inne linie a.mp3")
-            if "przesiadka_tram" in extras:
-                files.append("Możliwość przesiadki na inne linie t.mp3")
-            if "przesiadka_tram_bus" in extras:
-                files.append("Możliwość przesiadki na inne linie t lub a.mp3")
-            if "przesiadka_train_tram_bus" in extras:
-                files.append("Możliwość przesiadki na pa oraz na inne linie t i a.mp3")
-            if "przesiadka_train_bus" in extras:
-                files.append("Możliwość przesiadki na pa oraz na inne linie a.mp3")
-            if "przesiadka_train_tram" in extras:
-                files.append("Możliwość przesiadki na pa oraz na inne linie t.mp3")
-            if "main_station" in extras or "dworzec_główny" in extras or "dworzec_glowny" in extras:
+
+            transfer_map = {
+                "przesiadka_bus": "Możliwość przesiadki na inne linie a.mp3",
+                "przesiadka_tram": "Możliwość przesiadki na inne linie t.mp3",
+                "przesiadka_tram_bus": "Możliwość przesiadki na inne linie t lub a.mp3",
+                "przesiadka_train_tram_bus": "Możliwość przesiadki na pa oraz na inne linie t i a.mp3",
+                "przesiadka_train_bus": "Możliwość przesiadki na pa oraz na inne linie a.mp3",
+                "przesiadka_train_tram": "Możliwość przesiadki na pa oraz na inne linie t.mp3"
+            }
+            for key, audio in transfer_map.items():
+                if key in extras:
+                    files.append(audio)
+
+            if any(x in extras for x in ["main_station", "dworzec_główny", "dworzec_glowny"]):
                 files.append("Możliwość dojścia do Dworca Głównego.mp3")
-            if "wrażliwy" in extras or "wrazliwy" in extras:
+            
+            if any(x in extras for x in ["wrażliwy", "wrazliwy"]):
                 files.append("Bądź wrażliwy Ustąp miejsca.mp3")
-            if "1_strefa" in extras:
-                voice_mode = SESSION.get("voice_path", "audio")
-                if voice_mode in ["audio/new"]:
+                
+            if voice_mode == "audio/new":
+                if "1_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w I strefie biletowej.mp3")
-            if "2_strefa" in extras:
-                voice_mode = SESSION.get("voice_path", "audio")
-                if voice_mode in ["audio/new"]:
+                elif "2_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w II strefie biletowej.mp3")
-            if "3_strefa" in extras:
-                voice_mode = SESSION.get("voice_path", "audio")
-                if voice_mode in ["audio/new"]:
+                elif "3_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
+
             if "koniec_trasy" in extras:
-                voice_mode = SESSION.get("voice_path", "audio")
-                if voice_mode in ["audio"]:
+                if voice_mode == "audio":
                     files.append("Koniec trasy MPK.mp3")
-                if voice_mode in ["audio/new"]:
+                elif voice_mode == "audio/new":
                     files.append("Koniec trasy.mp3")
-                if voice_mode in ["audio/maklowicz"]:
+                elif voice_mode == "audio/maklowicz":
                     files.append("Koniec trasy KMK.mp3")
         else:
             if files:
@@ -515,10 +531,13 @@ class MainSIPLayout(FloatLayout):
         elif hasattr(self, 'dest_label'):
             self.dest_label.x = 309
 
-        if hasattr(self, 'should_scroll_stop') and self.should_scroll_stop:
-            self.lbl_stop.x -= 6
-            if self.lbl_stop.right < 428:
-                self.lbl_stop.x = 428 + 1197
+        if hasattr(self, 'should_scroll_stop'):
+            if self.should_scroll_stop:
+                self.lbl_stop.x -= 6
+                if self.lbl_stop.right < 418:
+                    self.lbl_stop.x = 418 + 1187
+            else:
+                self.lbl_stop.x = 418
         elif hasattr(self, 'lbl_stop'):
             self.lbl_stop.x = 418
 

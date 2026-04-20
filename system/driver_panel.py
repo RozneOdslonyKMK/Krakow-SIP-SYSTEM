@@ -33,8 +33,6 @@ class DriverPanel(Screen):
         self.color_black = (0, 0, 0, 1)
         self.color_blue = (0, 0.23, 0.65, 1)
         
-        SESSION["is_running"] = False
-        SESSION["current_view"] = "settings"
         self.bg = Image(source=os.path.join(BASE_DIR, 'trapeze', 'Boot.png'),
                         allow_stretch=True, keep_ratio=False)
         self.layout.add_widget(self.bg)
@@ -71,6 +69,8 @@ class DriverPanel(Screen):
                                       pos=l_pos)
 
     def on_enter(self):
+        SESSION["is_running"] = False
+        SESSION["current_view"] = "settings"
         Clock.schedule_once(self.start_loading, 2)
         Clock.schedule_interval(self.update_ui_data, 1)
 
@@ -119,16 +119,22 @@ class DriverPanel(Screen):
     def refresh_layout(self, bg_name, screen_type):
         self.layout.clear_widgets()
         self.bg.source = os.path.join(BASE_DIR, 'trapeze', bg_name)
+        self.current_bg_name = bg_name
         self.layout.add_widget(self.bg)
         
         if screen_type == "drive":
             self.add_btn(782, 360, 238, 116, lambda x: self.show_tryb_pracy())
+            SESSION["current_view"] = "drive"
         elif screen_type == "settings":
             self.add_btn(782, 360, 100, 100, self.handle_info)
             self.add_btn(902, 360, 118, 116, lambda x: self.show_tryb_pracy())
+            SESSION["is_running"] = False
+            SESSION["current_route_data"] = []
+            SESSION["current_view"] = "settings"
 
     def show_tryb_pracy(self):
         SESSION["settings_back_func"] = self.show_tryb_pracy
+        SESSION["is_running"] = False
         SESSION["current_view"] = "settings"
         self.refresh_layout("Tryb_Pracy.png", "settings")
         
@@ -137,6 +143,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         self.add_list_logic(self.select_tryb, back_func=self.show_tryb_pracy)
 
@@ -157,6 +164,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         self.add_list_logic(self.select_operator, back_func=self.show_tryb_pracy)
 
@@ -178,6 +186,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         self.add_list_logic(self.select_pojazd, back_func=self.show_operator, is_vehicle_screen=True)
 
@@ -206,6 +215,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         self.add_list_logic(self.select_typ_kursu, back_func=self.show_wybor_pojazdu, has_paging=True)
 
@@ -256,6 +266,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         self.input_buffer = ""
         coords = [
@@ -368,6 +379,7 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         line_folder = SESSION.get("line_folder")
         
@@ -402,22 +414,35 @@ class DriverPanel(Screen):
         self.clock_lbl.size = c_size
         
         self.layout.add_widget(self.clock_lbl)
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
 
         voice_options = list(VOICE_TYPES.keys())
-        
+
+        back_to = SESSION.get("settings_back_func", self.show_operator)
+
         def select_voice(index):
             if index < len(voice_options):
                 choice = voice_options[index]
                 SESSION["voice_path"] = VOICE_TYPES[choice]
-                self.start_drive()
+                print(f"DRIVER: Wybrano lektora: {choice}")
+                
+                if SESSION.get("is_running"):
+                    self.show_list_elements(mode="stops")
+                else:
+                    back_to()
 
-        self.add_list_logic(select_voice, back_func=self.start_drive)
+        self.add_list_logic(select_voice, back_func=back_to)
 
     def confirm_route(self, full_path):
         self.load_route_data_from_csv(full_path)
 
         raw_line = self.input_buffer
-        formatted_line = raw_line.zfill(3)
+        prefix = raw_line[:3]
+        try:
+            formatted_line = str(int(prefix))
+            if not formatted_line: formatted_line = "0"
+        except ValueError:
+            formatted_line = prefix
 
         SESSION["selected_csv_path"] = full_path
         SESSION["line_number"] = formatted_line
@@ -425,15 +450,19 @@ class DriverPanel(Screen):
         
         sync_data = {
             "selected_csv_path": full_path,
-            "line": formatted_line,
+            "line_number": formatted_line,
+            "line": raw_line,
             "current_stop_index": 0,
             "last_update_source": "driver",
             "full_route_data": self.stops,
+            "voice_types": VOICE_TYPES,
+            "search_order": SEARCH_ORDER,
+            "voice_path": SESSION.get("voice_path", ""),
             "special_key": SESSION.get("special_key")
         }
         try:
             with open("sync.json", "w", encoding="utf-8") as f:
-                json.dump(sync_data, f, ensure_ascii=False)
+                json.dump(sync_data, f, ensure_ascii=False, indent=4)
                 f.flush()
                 os.fsync(f.fileno())
         except Exception as e:
@@ -628,24 +657,23 @@ class DriverPanel(Screen):
             self.add_btn(260, 399, 508, 66, lambda x: callback("paging"))
 
     def handle_speaker_btn(self, instance):
+        print(f"DEBUG: view={SESSION.get('current_view')}, running={SESSION.get('is_running')}")
+        bg = getattr(self, 'current_bg_name', "")
         curr_view = SESSION.get("current_view")
-        
-        if SESSION.get("is_running") == True:
+
+        if bg.startswith("bg"):
             if curr_view == "anns":
                 self.show_list_elements(mode="stops")
-                SESSION["current_view"] = "drive"
             else:
                 self.show_list_elements(mode="anns")
-                SESSION["current_view"] = "anns"
 
         else:
-            if curr_view == "lektor_menu":
+            if bg == "Lektor.png" or curr_view == "lektor_menu":
                 back_func = SESSION.get("settings_back_func")
                 if back_func:
                     back_func()
                 else:
                     self.show_operator_selection()
-                
                 SESSION["current_view"] = "settings"
             else:
                 self.show_lektor_menu()
@@ -842,3 +870,4 @@ class DriverPanel(Screen):
                         SESSION["current_stop_index"] = data.get("current_stop_index", 0)
         except:
             pass
+        
