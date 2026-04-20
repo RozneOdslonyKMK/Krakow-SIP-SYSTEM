@@ -2,7 +2,6 @@ import os
 import sys
 import random
 import subprocess
-import psutil
 from datetime import datetime
 
 from kivy.config import Config
