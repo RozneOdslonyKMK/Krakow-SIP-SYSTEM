@@ -40,30 +40,22 @@ class SipScreen(Screen):
                 if not content: return
                 data = json.loads(content)
                 
-            # --- SEKCJA 1: ZMIANA TRASY (PLIKU CSV) ---
             path_from_json = data.get("selected_csv_path")
             if path_from_json and path_from_json != self.last_synced_path:
                 print(f"SIP: Wykryto zmianę trasy na: {path_from_json}")
                 self.last_synced_path = path_from_json
                 self.setup_sip(path_from_json)
-                # Tutaj MOŻE być return, bo setup_sip i tak zresetuje stan
                 return 
 
-            # --- SEKCJA 2: ZMIANA PRZYSTANKU (INDEKSU) ---
             source = data.get("last_update_source")
             new_idx = data.get("current_stop_index")
-
-            # Debugowanie - sprawdźmy co SIP widzi w pliku
-            # print(f"DEBUG SIP: source={source}, new_idx={new_idx}, local_idx={self.current_idx}")
 
             if source == "driver" and new_idx is not None:
                 if new_idx != self.current_idx:
                     print(f"SIP: Kierowca wymusił przeskok na przystanek {new_idx}")
                     
-                    # WYWOŁUJEMY PRZESKOK
                     self.jump_to_stop(new_idx)
                     
-                    # Resetujemy flagę, żeby SIP wiedział, że zmiana została przetworzona
                     self.update_sync_source_to_sip()
 
         except Exception as e:
@@ -89,7 +81,6 @@ class SipScreen(Screen):
             with open("sync.json", "r", encoding="utf-8") as f:
                 data = json.load(f)
             
-            # Zmieniamy źródło na sip, by zatrzymać pętlę u nas
             data["last_update_source"] = "sip" 
             
             with open("sync.json", "w", encoding="utf-8") as f:
