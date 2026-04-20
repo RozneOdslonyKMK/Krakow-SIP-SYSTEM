@@ -390,7 +390,7 @@ class MainSIPLayout(FloatLayout):
                 
         except Exception as e:
             print(f"BŁĄD SIP (load_route): {e}")
-            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': '', 'time': '--:--'}]
+            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': '', 'Czas': '--:--'}]
     
     def save_to_sync(self):
         try:

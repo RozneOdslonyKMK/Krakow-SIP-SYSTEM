@@ -1,6 +1,8 @@
 import os
 import sys
 import random
+import subprocess
+import psutil
 from datetime import datetime
 
 from kivy.config import Config
@@ -32,6 +34,8 @@ class DriverPanel(Screen):
         self.color_black = (0, 0, 0, 1)
         self.color_blue = (0, 0.23, 0.65, 1)
         
+        SESSION["is_running"] = False
+        SESSION["current_view"] = "settings"
         self.bg = Image(source=os.path.join(BASE_DIR, 'trapeze', 'Boot.png'),
                         allow_stretch=True, keep_ratio=False)
         self.layout.add_widget(self.bg)
@@ -125,7 +129,16 @@ class DriverPanel(Screen):
             self.add_btn(902, 360, 118, 116, lambda x: self.show_tryb_pracy())
 
     def show_tryb_pracy(self):
+        SESSION["settings_back_func"] = self.show_tryb_pracy
+        SESSION["current_view"] = "settings"
         self.refresh_layout("Tryb_Pracy.png", "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.add_list_logic(self.select_tryb, back_func=self.show_tryb_pracy)
 
     def select_tryb(self, index):
@@ -136,7 +149,16 @@ class DriverPanel(Screen):
             self.show_operator()
 
     def show_operator(self):
+        SESSION["settings_back_func"] = self.show_operator
+        SESSION["current_view"] = "settings"
         self.refresh_layout("Operator.png", "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.add_list_logic(self.select_operator, back_func=self.show_tryb_pracy)
 
     def select_operator(self, index):
@@ -148,7 +170,16 @@ class DriverPanel(Screen):
             self.show_wybor_pojazdu()
     
     def show_wybor_pojazdu(self):
+        SESSION["settings_back_func"] = self.show_wybor_pojazdu
+        SESSION["current_view"] = "settings"
         self.refresh_layout("Pojazd.png", "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.add_list_logic(self.select_pojazd, back_func=self.show_operator, is_vehicle_screen=True)
 
     def select_pojazd(self, index):
@@ -166,8 +197,17 @@ class DriverPanel(Screen):
                 print(f"Ten operator nie obsługuje: {selected}")
 
     def show_typ_kursu(self):
+        SESSION["settings_back_func"] = self.show_typ_kursu
+        SESSION["current_view"] = "settings"
         bg = "Typ_kursu_01.png" if self.current_page == 1 else "Typ_kursu_02.png"
         self.refresh_layout(bg, "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.add_list_logic(self.select_typ_kursu, back_func=self.show_wybor_pojazdu, has_paging=True)
 
     def select_typ_kursu(self, index):
@@ -208,7 +248,16 @@ class DriverPanel(Screen):
         self.start_special_drive(special_key)
 
     def show_numpad_linia(self):
+        SESSION["settings_back_func"] = self.show_numpad_linia
+        SESSION["current_view"] = "settings"
         self.refresh_layout("Linia.png", "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.input_buffer = ""
         coords = [
             (248, 244, '1'), (381, 244, '2'), (515, 244, '3'), (649, 244, '4'),
@@ -216,7 +265,7 @@ class DriverPanel(Screen):
             (248, 482, 'C'), (381, 482, '0'), (515, 482, '9'), (649, 482, 'OK')
         ]
         for x, y, val in coords:
-            self.add_btn(x, y, 128, 112, lambda instance, v=val: self.handle_numpad(v))
+            self.add_btn(x, y, 128, 112, lambda instance, v=val: self.handle_numpad(v, back_func=self.show_typ_kursu))
         
         pos, size = self.pos_conv(254, 154, 250, 78)
         self.numpad_lbl = Label(text="", font_size='50sp', color=(1,1,1,1),
@@ -226,6 +275,13 @@ class DriverPanel(Screen):
 
     def show_numpad_special(self, special_key):
         self.refresh_layout("Linia.png", "settings")
+        
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         self.input_buffer = ""
         self.show_numpad_linia(callback=lambda: self.show_kierunek_special(special_key))
 
@@ -256,52 +312,73 @@ class DriverPanel(Screen):
             p_pos, p_size = self.pos_conv(248, 128, 530, 112)
             self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=p_pos, size=p_size, size_hint=(None, None)))
 
-    def handle_numpad(self, val):
+    def handle_numpad(self, val, back_func):
+        self.add_btn(260, 6, 55, 84, lambda x: back_func())
         if val == 'C':
             self.input_buffer = self.input_buffer[:-1]
         elif val == 'OK':
-            if self.input_buffer:
-                line_to_check = self.input_buffer
+            if len(self.input_buffer) == 7:
+                raw_line = self.input_buffer[:3]
+                raw_brygada = self.input_buffer[-3:]
 
-                rel_path = os.path.join(
-                    BASE_DIR,
-                    "routes", 
+                line_to_check = raw_line.lstrip("0")
+                if not line_to_check: line_to_check = "0"
+
+                routes_path = os.path.join(
+                    BASE_DIR, "routes", 
                     SESSION.get("operator_folder", ""),
                     SESSION.get("type_folder", ""),
                 )
-                routes_path = os.path.join(rel_path)
-                line_exists = False
+                
+                matched_folder = None
                 if os.path.exists(routes_path):
                     items = os.listdir(routes_path)
-                    line_exists = any(
-                        os.path.isdir(os.path.join(routes_path, f)) and f.startswith(line_to_check) 
-                        for f in items
-                    )
+                    for f in items:
+                        full_p = os.path.join(routes_path, f)
+                        if os.path.isdir(full_p):
+                            if f == line_to_check:
+                                matched_folder = f
+                                break
 
-                if line_exists:
+                if matched_folder:
+                    SESSION["line_folder"] = matched_folder
+                    SESSION["line_number"] = line_to_check
+                    SESSION["brygada_number"] = raw_brygada
+                    SESSION["full_input"] = self.input_buffer
                     self.show_kierunek()
+                    return
                 else:
-                    print(f"BŁĄD: Linia {line_to_check} nie została znaleziona w {routes_path}")
                     self.input_buffer = ""
-                
+                    return
+            else:
+                self.input_buffer = ""
+                return            
         else:
-            if len(self.input_buffer) < 4:
+            if len(self.input_buffer) < 7:
                 self.input_buffer += val
         
         self.numpad_lbl.text = self.input_buffer
 
     def show_kierunek(self):
+        SESSION["settings_back_func"] = self.show_kierunek
+        SESSION["current_view"] = "settings"
         self.refresh_layout("Kierunek.png", "settings")
         
-        rel_path = os.path.join(
-            BASE_DIR,
-            "routes", 
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
+        line_folder = SESSION.get("line_folder")
+        
+        full_path = os.path.join(
+            BASE_DIR, "routes", 
             SESSION.get("operator_folder", ""),
             SESSION.get("type_folder", ""),
-            self.input_buffer
+            line_folder
         )
-        full_path = os.path.join(rel_path)
-        
+
         if os.path.exists(full_path):
             pliki = [f for f in os.listdir(full_path) if f.endswith(".csv")]
             for i, plik in enumerate(pliki[:4]):
@@ -316,13 +393,17 @@ class DriverPanel(Screen):
                 
                 csv_full_path = os.path.join(full_path, plik)
                 self.add_btn(248, y, 530, 112, lambda inst, p=csv_full_path: self.confirm_route(p))
-        else:
-            p_pos, p_size = self.pos_conv(248, 128, 530, 112)
-            self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=p_pos, size=p_size, size_hint=(None, None)))
 
     def show_lektor_menu(self, *args):
+        SESSION["current_view"] = "lektor_menu"
         self.refresh_layout("Lektor.png", "settings")
         
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        self.layout.add_widget(self.clock_lbl)
+
         voice_options = list(VOICE_TYPES.keys())
         
         def select_voice(index):
@@ -334,23 +415,28 @@ class DriverPanel(Screen):
         self.add_list_logic(select_voice, back_func=self.start_drive)
 
     def confirm_route(self, full_path):
+        self.load_route_data_from_csv(full_path)
+
         raw_line = self.input_buffer
         formatted_line = raw_line.zfill(3)
 
         SESSION["selected_csv_path"] = full_path
         SESSION["line_number"] = formatted_line
         SESSION["current_stop_index"] = 0
-
+        
         sync_data = {
             "selected_csv_path": full_path,
             "line": formatted_line,
             "current_stop_index": 0,
             "last_update_source": "driver",
+            "full_route_data": self.stops,
             "special_key": SESSION.get("special_key")
         }
         try:
             with open("sync.json", "w", encoding="utf-8") as f:
-                json.dump(sync_data, f)
+                json.dump(sync_data, f, ensure_ascii=False)
+                f.flush()
+                os.fsync(f.fileno())
         except Exception as e:
             print(f"Błąd zapisu startowego: {e}")
             
@@ -362,36 +448,14 @@ class DriverPanel(Screen):
         SESSION["mode_type"] = "SPECIAL"
         SESSION["special_key"] = special_key
         SESSION["label"] = data["label"]
+        SESSION["is_running"] = True
+        SESSION["current_view"] = "drive"
         
         if special_key in ["TRAM_WYJAZD", "TRAM_ZJAZD"]:
             self.show_numpad_special(special_key)
             return
         
         self.refresh_layout("bg.png", "drive")
-
-        self.line_brygada_lbl.text = f"{data['line']}/---" if data['line'] else "---/---"
-        
-        l_pos, l_size = self.pos_conv(112, 250, 800, 100)
-
-        target_label = Label(
-            text=data["label"], font_size='40sp', bold=True,
-            size_hint=(None, None), size=l_size,
-            pos=l_pos
-        )
-        self.layout.add_widget(target_label)
-        
-        app = App.get_running_app()
-        if hasattr(app, 'sip_screen'):
-            app.sip_screen.setup_special_display(
-                target_name=data["label"], 
-                show_stops=False
-            )
-
-    def start_drive(self):
-        SESSION["is_running"] = True
-        self.refresh_layout("bg_01.png", "drive")
-
-        # self.update_top_bar(self.name)
 
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
@@ -405,14 +469,9 @@ class DriverPanel(Screen):
         self.line_brygada_lbl.pos = l_pos
         self.line_brygada_lbl.size = l_size
 
-        # m_pos, m_size = self.pos_conv(248, 91, 530, 505)
-        # with self.layout.canvas.after:
-        #     from kivy.graphics import Color, Rectangle
-        #     Color(self.color_black)
-        #     self.map_rect = Rectangle(pos=m_pos, size=m_size)
-
-        line_val = SESSION.get("line_number", "---")
-        self.line_brygada_lbl.text = f"{line_val}/---"
+        line_val = SESSION.get("full_input", "---")[:3]
+        brygada_val = SESSION.get("brygada_number", "---")
+        self.line_brygada_lbl.text = f"{line_val}/{brygada_val}"
 
         self.layout.add_widget(self.clock_lbl)
         self.layout.add_widget(self.delay_lbl)
@@ -421,15 +480,89 @@ class DriverPanel(Screen):
         self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
         self.add_btn(4, 244, 118, 112, self.toggle_map_view)
 
-        app = App.get_running_app()
+        target_label = Label(
+            text=data["label"], font_size='40sp', bold=True,
+            size_hint=(None, None), size=l_size,
+            pos=l_pos
+        )
+        self.layout.add_widget(target_label)
+        
+        if not SESSION.get("sip_launched", False):
+            subprocess.Popen([sys.executable, "system-universal.py", "sip"])
+            SESSION["sip_launched"] = True
+
+    def start_drive(self):
+        SESSION["is_running"] = True
+        SESSION["current_view"] = "drive"
+        self.refresh_layout("bg_01.png", "drive")
+
+        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        self.clock_lbl.pos = c_pos
+        self.clock_lbl.size = c_size
+        
+        d_pos, d_size = self.pos_conv(812, 138, 178, 66)
+        self.delay_lbl.pos = d_pos
+        self.delay_lbl.size = d_size
+        
+        l_pos, l_size = self.pos_conv(812, 31, 178, 66)
+        self.line_brygada_lbl.pos = l_pos
+        self.line_brygada_lbl.size = l_size
+
+        line_val = SESSION.get("full_input", "---")[:3]
+        brygada_val = SESSION.get("brygada_number", "---")
+        self.line_brygada_lbl.text = f"{line_val}/{brygada_val}"
+
+        self.layout.add_widget(self.clock_lbl)
+        self.layout.add_widget(self.delay_lbl)
+        self.layout.add_widget(self.line_brygada_lbl)
+
+        self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
+        self.add_btn(4, 244, 118, 112, self.toggle_map_view)
+
         csv_to_load = SESSION["selected_csv_path"]
 
-        if os.path.exists(csv_to_load):
-            if hasattr(app, 'sip_screen'):
-                app.sip_screen.setup_sip(csv_to_load)
-                self.show_list_elements(mode="stops")
+        if csv_to_load and os.path.exists(csv_to_load):
+            self.load_route_data_from_csv(csv_to_load)
+            Clock.schedule_once(lambda dt: self.show_list_elements(mode="stops"), 0.1)
+            if not SESSION.get("sip_launched", False):
+                subprocess.Popen([sys.executable, "system-universal.py", "sip"])
+                SESSION["sip_launched"] = True
         else:
             print(f"BŁĄD: Nie znaleziono trasy {csv_to_load}")
+
+    def load_route_data_from_csv(self, csv_path):
+        self.stops = []
+        try:
+            with open(csv_path, mode='r', encoding='utf-8-sig') as f:
+                filtered_lines = [line for line in f if line.strip() and not line.startswith('#')]
+                
+                if not filtered_lines:
+                    return
+                    
+                reader = csv.DictReader(filtered_lines, delimiter=';')
+                
+                SESSION["direction"] = "KIERUNEK"
+
+                for i, row in enumerate(reader):
+                    # Czyścimy klucze (usuwamy spacje)
+                    clean_row = {k.strip(): v.strip() for k, v in row.items() if k}
+                    
+                    # Jeśli to PIERWSZY wiersz (i == 0), pobierz kierunek
+                    if i == 0:
+                        kierunek = clean_row.get('Kierunek')
+                        if kierunek: # Jeśli nie jest puste lub None
+                            SESSION["direction"] = kierunek
+                            print(f"DRIVER: Ustawiono kierunek z CSV: {kierunek}")
+   
+                    self.stops.append({
+                        'name': clean_row.get('Nazwa', '---'),
+                        'time': clean_row.get('Czas', '--:--')
+                    })
+
+            SESSION["current_route_data"] = self.stops
+            
+        except Exception as e:
+            print(f"BŁĄD CSV: {e}")
 
     def update_top_bar(self, name_fallback):
         p_pos, p_size = self.pos_conv(248, 4, 530, 81)
@@ -496,10 +629,27 @@ class DriverPanel(Screen):
             self.add_btn(260, 399, 508, 66, lambda x: callback("paging"))
 
     def handle_speaker_btn(self, instance):
-        if SESSION.get("is_running"):
-            self.show_list_elements(mode="anns")
+        curr_view = SESSION.get("current_view")
+        
+        if SESSION.get("is_running") == True:
+            if curr_view == "anns":
+                self.show_list_elements(mode="stops")
+                SESSION["current_view"] = "drive"
+            else:
+                self.show_list_elements(mode="anns")
+                SESSION["current_view"] = "anns"
+
         else:
-            self.show_lektor_menu()
+            if curr_view == "lektor_menu":
+                back_func = SESSION.get("settings_back_func")
+                if back_func:
+                    back_func()
+                else:
+                    self.show_operator_selection()
+                
+                SESSION["current_view"] = "settings"
+            else:
+                self.show_lektor_menu()
 
     def handle_info(self, instance):
         if self.bg.source.endswith("Linia.png"):
@@ -519,8 +669,12 @@ class DriverPanel(Screen):
         return anns
     
     def show_list_elements(self, mode="stops"):
+        if mode == "anns":
+            SESSION["current_view"] = "anns"
+        else:
+            SESSION["current_view"] = "drive"
         self.force_sync_from_file()
-
+        
         list_coords = [
             (248, 480, 530, 116),
             (248, 360, 530, 116),
@@ -589,7 +743,7 @@ class DriverPanel(Screen):
         item_box.add_widget(time_lbl)
 
         if is_first:
-            target = SESSION.get("target_station", "KIERUNEK")
+            target = SESSION.get("direction", "KIERUNEK")
             target_lbl = Label(
                 text=target.upper(), font_size='55sp', color=self.color_blue,
                 size_hint=(0.85, 0.3), pos_hint={'x': 0.02, 'y': 0.05},
@@ -625,6 +779,14 @@ class DriverPanel(Screen):
         
     def toggle_map_view(self, instance):
         print("DEBUG: Przełączanie widoku mapy (OSM Placeholder)")
+        
+        self.update_top_bar(self.name)
+
+        # m_pos, m_size = self.pos_conv(248, 91, 530, 505)
+        # with self.layout.canvas.after:
+        #     from kivy.graphics import Color, Rectangle
+        #     Color(self.color_black)
+        #     self.map_rect = Rectangle(pos=m_pos, size=m_size)
 
     def init_shutdown(self, *args):
         self.layout.clear_widgets()
