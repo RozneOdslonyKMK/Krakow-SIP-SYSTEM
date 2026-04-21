@@ -48,7 +48,7 @@ Window.fullscreen = 'auto'
 Window.show_cursor = False 
 
 now = datetime.now()
-formatted_news = f"******* Jakość powietrza: DOBRA. Godzina pomiaru: {now.strftime('%H')}:00 {now.strftime('%d-%m-%Y')}. *******"
+formatted_news = f"Kraków * Data odczytu: {now.strftime('%d-%m-%Y')} {now.strftime('%H')}:00 * Jakość powietrza: Dobra * PM10: 22.8ug/m3 * Temp. 6.9 * Ciśnienie 1019.4 hPa *** Krakow * Measurement time: {now.strftime('%d-%m-%Y')} {now.strftime('%H')}:00 * Air quality: Good * PM10: 22.8ug/m3 * Temp. 6.9 * Pressure 1019.4 hPa *******  *******"
 
 OPERATORS = {
     "MPK Kraków": ["Tramwaj", "Autobus"],
