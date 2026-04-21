@@ -9,7 +9,11 @@ class CSVEditor:
     def __init__(self, root):
         self.root = root
         self.root.title("Generator tras")
-        self.root.iconbitmap("generator-icon-1024.ico")
+        try:
+            icon_img = tk.PhotoImage(file="generator-icon-1024.png")
+            self.root.iconphoto(True, icon_img)
+        except Exception as e:
+            print(f"Nie udało się załadować ikony: {e}")
         self.root.geometry("800x605")
 
         self.cols = ["Lp", "Nazwa", "Audio", "Kierunek", "Extras", "Czas"]
