@@ -83,6 +83,7 @@ SEARCH_ORDER = {
 
 SESSION = {
     "brygada_number": "",
+    "current_delay": "",
     "current_route_data": [],
     "current_stop_index": 0,
     "current_view": "",
@@ -98,6 +99,7 @@ SESSION = {
     "news_text": formatted_news,
     "operator": "",
     "operator_folder": "",
+    "route_start_datetime": "",
     "selected_csv_path": "",
     "settings_back_func": None,
     "sip_launched": False,

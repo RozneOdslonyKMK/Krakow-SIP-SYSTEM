@@ -361,7 +361,17 @@ class MainSIPLayout(FloatLayout):
             return
 
         try:
-            base_time = datetime.now()
+            try:
+                with open("sync.json", "r", encoding="utf-8") as f:
+                    sync_data = json.load(f)
+                start_iso = sync_data.get("route_start_datetime")
+                if start_iso:
+                    base_time = datetime.fromisoformat(start_iso)
+                else:
+                    base_time = datetime.now() # Failsafe
+            except:
+                base_time = datetime.now()
+
             with open(path, mode='r', encoding='utf-8') as f:
                 lines = f.readlines()
 
@@ -384,18 +394,22 @@ class MainSIPLayout(FloatLayout):
                     offset_minutes = int(clean_row.get('Czas', 0))
                     arrival_time = base_time + datetime.timedelta(minutes=offset_minutes)
                     formatted_time = arrival_time.strftime("%H:%M")
+                    timestamp_planowy = arrival_time.timestamp()
                 except:
                     formatted_time = "--:--"
+                    timestamp_planowy = 0
 
-                clean_row['name'] = clean_row.get('Nazwa', 'Brak Nazwy')
+                clean_row['name'] = clean_row.get('Nazwa', '')
                 clean_row['time'] = formatted_time
+                clean_row['Timestamp_Planowy'] = timestamp_planowy
                 clean_row['Extras'] = clean_row.get('Extras', '')
 
                 self.stops.append(clean_row)
                 
             if self.stops:
-                first_stop = self.stops[0].get('Nazwa', '')
-                self.update_stop_label(first_stop)
+                curr_idx = sync_data.get("current_stop_index", 0)
+                current_stop_name = self.stops[curr_idx].get('Nazwa', '')
+                self.update_stop_label(current_stop_name)
                 self.save_to_sync()
                 self.canvas.ask_update()
                 
