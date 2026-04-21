@@ -5,29 +5,29 @@
 # Route Info:
 # Line: 3   Direction: Krowodrza Górka P+R   Stops amount: 24   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Krowodrza Górka P+R;
-2;Ćwiklińskiej 02;Ćwiklińskiej;;
-3;Nowy Prokocim 02;Nowy Prokocim;;
-4;Teligi 02;Teligi;;
-5;Prokocim Szpital 02;Prokocim Szpital;;
-6;Prokocim 02;Prokocim;;
-7;Wlotowa 02;Wlotowa;;
-8;Bieżanowska 02;Bieżanowska;;
-9;Kabel 02;Kabel;;
-10;Dworcowa 02;Dworcowa;;
-11;Cmentarz Podgórski 02;Cmentarz Podgórski;;
-12;Podgórze SKA 02;Podgórze SKA;;
-13;Plac Bohaterów Getta 02;Plac Bohaterów Getta;;
-14;św. Wawrzyńca 02;Św. Wawrzyńca;;
-15;Miodowa 02;Miodowa;;
-16;Starowiślna 01;Starowiślna;;
-17;Poczta Główna 02;Poczta Główna;;
-18;Teatr Słowackiego 03;Teatr Słowackiego;;
-19;Dworzec Główny Zachód 02;Dworzec Główny Zachód;;
-20;Politechnika 01;Politechnika;;
-21;Dworzec Towarowy 01;Dworzec Towarowy;;
-22;Szpital Narutowicza 01;Szpital Narutowicza;;
-23;Bratysławska 01;Bratysławska;;
-24;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy
-# Generated at 2026-04-17 15:43
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Krowodrza Górka P+R;;0
+2;Ćwiklińskiej 02;Ćwiklińskiej;;;1
+3;Nowy Prokocim 02;Nowy Prokocim;;;2
+4;Teligi 02;Teligi;;;3
+5;Prokocim Szpital 02;Prokocim Szpital;;;4
+6;Prokocim 02;Prokocim;;;6
+7;Wlotowa 02;Wlotowa;;;7
+8;Bieżanowska 02;Bieżanowska;;;8
+9;Kabel 02;Kabel;;;10
+10;Dworcowa 02;Dworcowa;;;12
+11;Cmentarz Podgórski 02;Cmentarz Podgórski;;;14
+12;Podgórze SKA 02;Podgórze SKA;;;16
+13;Plac Bohaterów Getta 02;Plac Bohaterów Getta;;;18
+14;św. Wawrzyńca 02;Św. Wawrzyńca;;;21
+15;Miodowa 02;Miodowa;;;22
+16;Starowiślna 01;Starowiślna;;;25
+17;Poczta Główna 02;Poczta Główna;;;26
+18;Teatr Słowackiego 03;Teatr Słowackiego;;;28
+19;Dworzec Główny Zachód 02;Dworzec Główny Zachód;;;30
+20;Politechnika 01;Politechnika;;;32
+21;Dworzec Towarowy 01;Dworzec Towarowy;;;35
+22;Szpital Narutowicza 01;Szpital Narutowicza;;;37
+23;Bratysławska 01;Bratysławska;;;38
+24;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy;39
+# Generated at 2026-04-22 00:12
