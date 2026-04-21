@@ -2,7 +2,7 @@ import os
 import sys
 import random
 import subprocess
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from kivy.config import Config
 Config.set('graphics', 'width', '1024')
@@ -40,6 +40,8 @@ class DriverPanel(Screen):
         self.add_widget(self.layout)
         self.on_enter()
 
+        Clock.schedule_interval(self.update_delay_display, 10)
+        
     def pos_conv(self, x, y, w, h):
         win_w, win_h = Window.size
         scale_x = win_w / 1024
@@ -544,6 +546,10 @@ class DriverPanel(Screen):
         self.layout.add_widget(self.delay_lbl)
         self.layout.add_widget(self.line_brygada_lbl)
 
+        Clock.unschedule(self.update_delay_display) 
+        Clock.schedule_interval(self.update_delay_display, 10)
+        self.update_delay_display(0)
+
         self.add_btn(782, 480, 238, 116, self.handle_speaker_btn)
         self.add_btn(4, 244, 118, 112, self.toggle_map_view)
 
@@ -558,8 +564,50 @@ class DriverPanel(Screen):
         else:
             print(f"BŁĄD: Nie znaleziono trasy {csv_to_load}")
 
+    def get_delay_bg(self, delay_seconds):
+        abs_sec = abs(delay_seconds)
+        minutes = abs_sec // 60
+
+        if abs_sec == 0:
+            return "bg_01.png"
+
+        if delay_seconds < 0:
+            if minutes == 0: return "bg_+.png"
+            if minutes == 1: return "bg_+_01.png"
+            if minutes == 2: return "bg_+_02.png"
+            if minutes == 3: return "bg_+_03.png"
+            if minutes == 4: return "bg_+_04.png"
+            return "bg_+_05.png"
+
+        else:
+            if minutes == 0: return "bg_-.png"
+            if minutes == 1: return "bg_-_01.png"
+            if minutes == 2: return "bg_-_02.png"
+            if minutes == 3: return "bg_-_03.png"
+            if minutes == 4: return "bg_-_04.png"
+            return "bg_-_05.png"
+
+    def update_delay_display(self, dt):
+        if SESSION.get("is_running"):
+            delay_str, diff_seconds = self.calculate_delay_full() 
+            
+            if hasattr(self, 'delay_lbl'):
+                self.delay_lbl.text = delay_str
+                
+            new_bg = self.get_delay_bg(diff_seconds)
+            if hasattr(self, 'bg') and self.bg.source != new_bg:
+                self.bg.source = os.path.join(BASE_DIR, 'trapeze', new_bg)
+                self.current_bg_name = new_bg
+
     def load_route_data_from_csv(self, csv_path):
         self.stops = []
+        now = datetime.now()
+        if now.second < 30:
+            start_time = (now + timedelta(minutes=1)).replace(second=0, microsecond=0)
+        else:
+            start_time = (now + timedelta(minutes=2)).replace(second=0, microsecond=0)
+        SESSION["route_start_datetime"] = start_time.isoformat()
+
         try:
             with open(csv_path, mode='r', encoding='utf-8-sig') as f:
                 filtered_lines = [line for line in f if line.strip() and not line.startswith('#')]
@@ -572,25 +620,61 @@ class DriverPanel(Screen):
                 SESSION["direction"] = "KIERUNEK"
 
                 for i, row in enumerate(reader):
-                    # Czyścimy klucze (usuwamy spacje)
                     clean_row = {k.strip(): v.strip() for k, v in row.items() if k}
                     
-                    # Jeśli to PIERWSZY wiersz (i == 0), pobierz kierunek
                     if i == 0:
                         kierunek = clean_row.get('Kierunek')
-                        if kierunek: # Jeśli nie jest puste lub None
+                        if kierunek:
                             SESSION["direction"] = kierunek
                             print(f"DRIVER: Ustawiono kierunek z CSV: {kierunek}")
-   
+
+                    try:
+                        relative_minutes = int(clean_row.get('Czas', 0))
+                    except ValueError:
+                        relative_minutes = 0
+                    scheduled_time = start_time + timedelta(minutes=relative_minutes)
+
                     self.stops.append({
                         'name': clean_row.get('Nazwa', '---'),
-                        'time': clean_row.get('Czas', '--:--')
+                        'time': scheduled_time.strftime("%H:%M"),
+                        'Timestamp_Planowy': scheduled_time.timestamp()
                     })
 
             SESSION["current_route_data"] = self.stops
             
         except Exception as e:
             print(f"BŁĄD CSV: {e}")
+
+    def calculate_delay_full(self):
+        trasa = SESSION.get("current_route_data", self.stops)
+        curr_idx = SESSION.get("current_stop_index", 0)
+        
+        if not trasa or curr_idx >= len(trasa):
+            return "+00:00", 0
+
+        planned_ts = trasa[curr_idx].get('Timestamp_Planowy')
+        if planned_ts is None:
+            return "--:--", 0
+
+        now_ts = datetime.now().timestamp()
+        diff = planned_ts - now_ts
+        
+        abs_diff = abs(int(diff))
+        rounded_diff = (abs_diff // 10) * 10
+        
+        minutes = rounded_diff // 60
+        seconds = rounded_diff % 60
+        
+        if rounded_diff == 0:
+            sign = "+"
+        else:
+            sign = "+" if diff > 0 else "-"
+            
+        formatted = f"{sign}{minutes:02d}:{seconds:02d}"
+        
+        real_diff_for_bg = rounded_diff if diff > 0 else -rounded_diff
+        
+        return formatted, real_diff_for_bg
 
     def update_top_bar(self, name_fallback):
         p_pos, p_size = self.pos_conv(248, 4, 530, 81)
@@ -700,7 +784,9 @@ class DriverPanel(Screen):
             SESSION["current_view"] = "anns"
         else:
             SESSION["current_view"] = "drive"
-        self.force_sync_from_file()
+        
+        if not self.stops:
+            self.force_sync_from_file()
         
         list_coords = [
             (248, 480, 530, 116),
@@ -733,11 +819,12 @@ class DriverPanel(Screen):
                 
                 target_idx = curr_idx + offset
                 if 0 <= target_idx < len(trasa):
-                    name = trasa[target_idx].get('name', '---')
-                    time = trasa[target_idx].get('time', '--:--')
+                    stop_item = trasa[target_idx]
+                    name = stop_item.get('name', '---')
+                    planned_time = stop_item.get('time', '--:--')
                     
                     self.draw_list_item(
-                        name, time,
+                        name, planned_time,
                         x, y, w, h, 
                         is_first=(coord_idx == 4),
                         target_idx=target_idx
@@ -782,7 +869,7 @@ class DriverPanel(Screen):
 
     def change_stop_manually(self, new_idx):
         trasa = SESSION.get("current_route_data", [])
-        if not (0 <= new_idx < len(trasa)):
+        if not trasa or not (0 <= new_idx < len(trasa)):
             return
 
         print(f"Kierowca wybiera przystanek: {new_idx} ({trasa[new_idx]['name']})")
@@ -790,18 +877,24 @@ class DriverPanel(Screen):
         SESSION["current_stop_index"] = new_idx
         
         try:
-            with open("sync.json", "r", encoding="utf-8") as f:
-                data = json.load(f)
+            data = {}
+            if os.path.exists("sync.json"):
+                with open("sync.json", "r", encoding="utf-8") as f:
+                    data = json.load(f)
             
             data["current_stop_index"] = new_idx
             data["last_update_source"] = "driver"
             
+            if "full_route_data" not in data:
+                data["full_route_data"] = trasa
+
             with open("sync.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
         except Exception as e:
             print(f"Błąd zapisu rozkazu: {e}")
             
         self.show_list_elements(mode="stops")
+        self.update_delay_display(0)
         # self.update_top_bar("")
         
     def toggle_map_view(self, instance):
