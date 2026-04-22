@@ -5,33 +5,33 @@
 # Route Info:
 # Line: 4   Direction: Kombinat   Stops amount: 28   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Bronowice Małe 01;Bronowice Małe;Kombinat;
-2;Bronowice SKA 02;Bronowice SKA;;
-3;Wesele 02;Wesele;;
-4;Bronowice 02;Bronowice;;
-5;Głowackiego 02;Głowackiego;;
-6;UKEN 02;UKEN;;
-7;Biprostal 02;Biprostal;;
-8;Urzędnicza 02;Urzędnicza;;
-9;Plac Inwalidów 02;Plac Inwalidów;;
-10;Stefana Batorego 02;Stefana Batorego;;
-11;Teatr Bagatela 03;Teatr Bagatela;;
-12;Stary Kleparz 02;Stary Kleparz;;
-13;Teatr Słowackiego 02;Teatr Słowackiego;;
-14;Lubicz 02;Lubicz;;
-15;Rondo Mogilskie 02;Rondo Mogilskie;;
-16;Cystersów 01;Cystersów;;
-17;Białucha 01;Białucha;;
-18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
-19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
-20;AKF / PK 01;AKF PK;;
-21;Stella-Sawickiego 01;Stella-Sawickiego;;
-22;Czyżyny 01;Czyżyny;;
-23;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
-24;Os. Kolorowe 01;Os. Kolorowe;;
-25;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;
-26;Struga 01;Struga;;
-27;Zalew Nowohucki 01;Zalew Nowohucki;;
-28;Kombinat 01;Kombinat;;koniec_trasy
-# Generated at 2026-04-17 15:45
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Bronowice Małe 01;Bronowice Małe;Kombinat;;0
+2;Bronowice SKA 02;Bronowice SKA;;;1
+3;Wesele 02;Wesele;;;3
+4;Bronowice 02;Bronowice;;;4
+5;Głowackiego 02;Głowackiego;;;6
+6;UKEN 02;UKEN;;;7
+7;Biprostal 02;Biprostal;;;8
+8;Urzędnicza 02;Urzędnicza;;;9
+9;Plac Inwalidów 02;Plac Inwalidów;;;11
+10;Stefana Batorego 02;Stefana Batorego;;;12
+11;Teatr Bagatela 03;Teatr Bagatela;;;14
+12;Stary Kleparz 02;Stary Kleparz;;;16
+13;Teatr Słowackiego 02;Teatr Słowackiego;;;18
+14;Lubicz 02;Lubicz;;;20
+15;Rondo Mogilskie 02;Rondo Mogilskie;;;22
+16;Cystersów 01;Cystersów;;;23
+17;Białucha 01;Białucha;;;25
+18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;;27
+19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;;28
+20;AKF / PK 01;AKF PK;;;29
+21;Stella-Sawickiego 01;Stella-Sawickiego;;;31
+22;Czyżyny 01;Czyżyny;;;32
+23;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;;35
+24;Os. Kolorowe 01;Os. Kolorowe;;;36
+25;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;;39
+26;Struga 01;Struga;;;40
+27;Zalew Nowohucki 01;Zalew Nowohucki;;;41
+28;Kombinat 01;Kombinat;;koniec_trasy;43
+# Generated at 2026-04-22 17:46
