@@ -5,39 +5,39 @@
 # Route Info:
 # Line: 4   Direction: Bronowice Małe   Stops amount: 34   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Bronowice Małe;
-2;Jarzębiny 02;Jarzębiny;;
-3;Darwina 02;Darwina;;
-4;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy;;
-5;Elektromontaż (NŻ) 01;Elektromontaż;;
-6;Zajezdnia Nowa Huta 01;Zajezdnia Nowa Huta;;
-7;Kombinat 02;Kombinat;;
-8;Zalew Nowohucki 02;Zalew Nowohucki;;
-9;Struga 02;Struga;;
-10;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;
-11;Os. Kolorowe 02;Os. Kolorowe;;
-12;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
-13;Czyżyny 02;Czyżyny;;
-14;Stella-Sawickiego 02;Stella-Sawickiego;;
-15;AKF / PK 02;AKF PK;;
-16;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
-17;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
-18;Białucha 02;Białucha;;
-19;Cystersów 02;Cystersów;;
-20;Rondo Mogilskie 01;Rondo Mogilskie;;
-21;Lubicz 01;Lubicz;;
-22;Teatr Słowackiego 01;Teatr Słowackiego;;
-23;Stary Kleparz 01;Stary Kleparz;;
-24;Teatr Bagatela 02;Teatr Bagatela;;
-25;Stefana Batorego 01;Stefana Batorego;;
-26;Plac Inwalidów 01;Plac Inwalidów;;
-27;Urzędnicza 01;Urzędnicza;;
-28;Biprostal 01;Biprostal;;
-29;UKEN 01;UKEN;;
-30;Głowackiego 01;Głowackiego;;
-31;Bronowice 03;Bronowice;;
-32;Wesele 01;Wesele;;
-33;Bronowice SKA 01;Bronowice SKA;;
-34;Bronowice Małe 91;Bronowice Małe;;koniec_trasy
-# Generated at 2026-04-17 15:45
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Bronowice Małe;;0
+2;Jarzębiny 02;Jarzębiny;;;1
+3;Darwina 02;Darwina;;;2
+4;Grodzki Urząd Pracy 01;Grodzki Urząd Pracy;;;3
+5;Elektromontaż (NŻ) 01;Elektromontaż;;;4
+6;Zajezdnia Nowa Huta 01;Zajezdnia Nowa Huta;;;6
+7;Kombinat 02;Kombinat;;;7
+8;Zalew Nowohucki 02;Zalew Nowohucki;;;9
+9;Struga 02;Struga;;;10
+10;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;;13
+11;Os. Kolorowe 02;Os. Kolorowe;;;14
+12;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;;17
+13;Czyżyny 02;Czyżyny;;;18
+14;Stella-Sawickiego 02;Stella-Sawickiego;;;19
+15;AKF / PK 02;AKF PK;;;20
+16;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;;21
+17;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;;23
+18;Białucha 02;Białucha;;;24
+19;Cystersów 02;Cystersów;;;26
+20;Rondo Mogilskie 01;Rondo Mogilskie;;;28
+21;Lubicz 01;Lubicz;;;30
+22;Teatr Słowackiego 01;Teatr Słowackiego;;;33
+23;Stary Kleparz 01;Stary Kleparz;;;35
+24;Teatr Bagatela 02;Teatr Bagatela;;;37
+25;Stefana Batorego 01;Stefana Batorego;;;38
+26;Plac Inwalidów 01;Plac Inwalidów;;;40
+27;Urzędnicza 01;Urzędnicza;;;41
+28;Biprostal 01;Biprostal;;;42
+29;UKEN 01;UKEN;;;44
+30;Głowackiego 01;Głowackiego;;;45
+31;Bronowice 03;Bronowice;;;47
+32;Wesele 01;Wesele;;;48
+33;Bronowice SKA 01;Bronowice SKA;;;50
+34;Bronowice Małe 91;Bronowice Małe;;koniec_trasy;52
+# Generated at 2026-04-22 17:44
