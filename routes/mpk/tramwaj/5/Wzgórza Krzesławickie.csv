@@ -5,29 +5,29 @@
 # Route Info:
 # Line: 5   Direction: Wzgórza Krzesławickie   Stops amount: 24   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Wzgórza Krzesławickie;
-2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;
-3;Bratysławska 02;Bratysławska;;
-4;Szpital Narutowicza 02;Szpital Narutowicza;;
-5;Dworzec Towarowy 02;Dworzec Towarowy;;
-6;Politechnika 04;Politechnika;;
-7;Dworzec Główny Tunel 01;Dworzec Główny Tunel;;
-8;Rondo Mogilskie 02;Rondo Mogilskie;;
-9;Cystersów 01;Cystersów;;
-10;Białucha 01;Białucha;;
-11;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
-12;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
-13;AKF / PK 01;AKF PK;;
-14;Stella-Sawickiego 01;Stella-Sawickiego;;
-15;Czyżyny 01;Czyżyny;;
-16;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;
-17;Bieńczycka 02;Bieńczycka;;
-18;Rondo Kocmyrzowskie im. Ks. Gorzelanego 03;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
-19;Teatr Ludowy 02;Teatr Ludowy;;
-20;Cienista 02;Cienista;;
-21;Wańkowicza 02;Wańkowicza;;
-22;Darwina 01;Darwina;;
-23;Jarzębiny 01;Jarzębiny;;
-24;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;;koniec_trasy
-# Generated at 2026-04-17 15:46
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Wzgórza Krzesławickie;;0
+2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;;1
+3;Bratysławska 02;Bratysławska;;;2
+4;Szpital Narutowicza 02;Szpital Narutowicza;;;3
+5;Dworzec Towarowy 02;Dworzec Towarowy;;;6
+6;Politechnika 04;Politechnika;;;8
+7;Dworzec Główny Tunel 01;Dworzec Główny Tunel;;;9
+8;Rondo Mogilskie 02;Rondo Mogilskie;;;11
+9;Cystersów 01;Cystersów;;;12
+10;Białucha 01;Białucha;;;14
+11;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;;16
+12;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;;17
+13;AKF / PK 01;AKF PK;;;18
+14;Stella-Sawickiego 01;Stella-Sawickiego;;;20
+15;Czyżyny 01;Czyżyny;;;21
+16;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;;24
+17;Bieńczycka 02;Bieńczycka;;;25
+18;Rondo Kocmyrzowskie im. Ks. Gorzelanego 03;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;28
+19;Teatr Ludowy 02;Teatr Ludowy;;;29
+20;Cienista 02;Cienista;;;30
+21;Wańkowicza 02;Wańkowicza;;;32
+22;Darwina 01;Darwina;;;34
+23;Jarzębiny 01;Jarzębiny;;;35
+24;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;;koniec_trasy;37
+# Generated at 2026-04-22 17:53
