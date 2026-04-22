@@ -24,9 +24,15 @@ FOLDER_MAP = {
 class DriverPanel(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.screen_width = 1024
-        self.screen_height = 602
-        self.layout = FloatLayout(size=(self.screen_width, self.screen_height))
+        self.base_size = (1024, 602)
+        self.scatter = Scatter(
+            do_rotation=False, 
+            do_scale=False, 
+            do_translation=False,
+            size_hint=(None, None), 
+            size=self.base_size
+        )
+        self.layout = FloatLayout(size_hint=(None, None), size=self.base_size)
         self.input_buffer = ""
         self.current_page = 1
         self.color_white = (1, 1, 1, 1)
@@ -37,7 +43,8 @@ class DriverPanel(Screen):
                         allow_stretch=True, keep_ratio=False)
         self.layout.add_widget(self.bg)
         self.setup_labels()
-        self.add_widget(self.layout)
+        self.scatter.add_widget(self.layout)
+        self.add_widget(self.scatter)
         self.on_enter()
 
         Clock.schedule_interval(self.update_delay_display, 10)
