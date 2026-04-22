@@ -70,7 +70,7 @@ class DriverPanel(Screen):
 
     def setup_labels(self):
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
-        self.clock_lbl = Label(text="--:--:--", font_size='30sp', bold=True,
+        self.clock_lbl = Label(text="--:--:--", font_size='35sp', bold=True,
                                size_hint=(None, None), size=c_size,
                                pos=c_pos, halign='center', valign='middle')
         
@@ -850,13 +850,13 @@ class DriverPanel(Screen):
         item_box = FloatLayout(size_hint=(None, None), size=size, pos=pos)
         
         name_lbl = Label(
-            text=name.upper(), font_size='60sp', bold=True, color=self.color_white,
+            text=name.upper(), font_size='30sp', bold=True, color=self.color_white,
             size_hint=(0.85, 0.5), pos_hint={'x': 0.02, 'top': 0.95},
             halign='left', valign='top', text_size=(size[0]*0.85, size[1]*0.5)
         )
         
         time_lbl = Label(
-            text=time, font_size='60sp', color=self.color_blue,
+            text=time, font_size='30sp', color=self.color_blue,
             size_hint=(0.2, 0.5), pos_hint={'right': 0.98, 'top': 0.95},
             halign='right', valign='top', text_size=(size[0]*0.2, size[1]*0.5)
         )
@@ -873,7 +873,7 @@ class DriverPanel(Screen):
         if is_first:
             target = SESSION.get("direction", "KIERUNEK")
             target_lbl = Label(
-                text=target.upper(), font_size='55sp', color=self.color_blue,
+                text=target.upper(), font_size='27sp', color=self.color_blue,
                 size_hint=(0.85, 0.3), pos_hint={'x': 0.02, 'y': 0.05},
                 halign='left', valign='bottom', text_size=(size[0]*0.85, size[1]*0.3)
             )
