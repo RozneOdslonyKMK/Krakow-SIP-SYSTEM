@@ -62,17 +62,17 @@ class DriverPanel(Screen):
         return (final_x, final_y), (final_w, final_h)
 
     def setup_labels(self):
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl = Label(text="--:--:--", font_size='60sp', bold=True,
                                size_hint=(None, None), size=c_size,
                                pos=c_pos, halign='center', valign='middle')
         
-        d_pos, d_size = self.pos_conv(812, 138, 178, 66)
+        d_pos, d_size = (812, 138, 178, 66)
         self.delay_lbl = Label(text="--:--", font_size='60sp', bold=True,
                                size_hint=(None, None), size=d_size,
                                pos=d_pos)
 
-        l_pos, l_size = self.pos_conv(812, 31, 178, 66)
+        l_pos, l_size = (812, 31, 178, 66)
         self.line_brygada_lbl = Label(text="---/---", font_size='60sp',
                                       size_hint=(None, None), size=l_size,
                                       pos=l_pos)
@@ -102,7 +102,7 @@ class DriverPanel(Screen):
             print(f"Błąd odczytu sync.json: {e}")
 
     def add_btn(self, x, y, w, h, callback, disabled=False):
-        pos, size = self.pos_conv(x, y, w, h)
+        pos, size = (x, y, w, h)
         btn = Button(
             size_hint=(None, None),
             size=size,
@@ -147,7 +147,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "settings"
         self.refresh_layout("Tryb_Pracy.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -168,7 +168,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "settings"
         self.refresh_layout("Operator.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -190,7 +190,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "settings"
         self.refresh_layout("Pojazd.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -219,7 +219,7 @@ class DriverPanel(Screen):
         bg = "Typ_kursu_01.png" if self.current_page == 1 else "Typ_kursu_02.png"
         self.refresh_layout(bg, "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -270,7 +270,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "settings"
         self.refresh_layout("Linia.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -286,7 +286,7 @@ class DriverPanel(Screen):
         for x, y, val in coords:
             self.add_btn(x, y, 128, 112, lambda instance, v=val: self.handle_numpad(v, back_func=self.show_typ_kursu))
         
-        pos, size = self.pos_conv(254, 154, 250, 78)
+        pos, size = (254, 154, 250, 78)
         self.numpad_lbl = Label(text="", font_size='50sp', color=(1,1,1,1),
                                 size_hint=(None, None), size=size,
                                 pos=pos)
@@ -295,7 +295,7 @@ class DriverPanel(Screen):
     def show_numpad_special(self, special_key):
         self.refresh_layout("Linia.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -320,7 +320,7 @@ class DriverPanel(Screen):
                 y = [128, 244, 362, 482][i]
                 nazwa = plik.replace(".csv", "")
                 
-                btn_lbl = Label(text=nazwa, pos=self.pos_conv(248, y, 530, 112),
+                btn_lbl = Label(text=nazwa, pos=(248, y, 530, 112),
                                 size_hint=(None, None), size=(530, 112), 
                                 font_size='24sp', color=(1,1,1,1))
                 self.layout.add_widget(btn_lbl)
@@ -328,7 +328,7 @@ class DriverPanel(Screen):
                 csv_full_path = os.path.join(full_path, plik)
                 self.add_btn(248, y, 530, 112, lambda inst, p=csv_full_path: self.confirm_route(p))
         else:
-            p_pos, p_size = self.pos_conv(248, 128, 530, 112)
+            p_pos, p_size = (248, 128, 530, 112)
             self.layout.add_widget(Label(text="BŁĄD: BRAK LINII", pos=p_pos, size=p_size, size_hint=(None, None)))
 
     def handle_numpad(self, val, back_func):
@@ -383,7 +383,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "settings"
         self.refresh_layout("Kierunek.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -405,7 +405,7 @@ class DriverPanel(Screen):
                 y = [128, 244, 362, 482][i]
                 nazwa = plik.replace(".csv", "")
                 
-                pos, size = self.pos_conv(248, y, 530, 112)
+                pos, size = (248, y, 530, 112)
                 btn_lbl = Label(text=nazwa, pos=pos,
                                 size_hint=(None, None), size=size, 
                                 font_size='24sp', color=(1,1,1,1))
@@ -418,7 +418,7 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "lektor_menu"
         self.refresh_layout("Lektor.png", "settings")
         
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
@@ -494,15 +494,15 @@ class DriverPanel(Screen):
         
         self.refresh_layout("bg.png", "drive")
 
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
-        d_pos, d_size = self.pos_conv(812, 138, 178, 66)
+        d_pos, d_size = (812, 138, 178, 66)
         self.delay_lbl.pos = d_pos
         self.delay_lbl.size = d_size
         
-        l_pos, l_size = self.pos_conv(812, 31, 178, 66)
+        l_pos, l_size = (812, 31, 178, 66)
         self.line_brygada_lbl.pos = l_pos
         self.line_brygada_lbl.size = l_size
 
@@ -533,15 +533,15 @@ class DriverPanel(Screen):
         SESSION["current_view"] = "drive"
         self.refresh_layout("bg_01.png", "drive")
 
-        c_pos, c_size = self.pos_conv(4, 4, 240, 60)
+        c_pos, c_size = (4, 4, 240, 60)
         self.clock_lbl.pos = c_pos
         self.clock_lbl.size = c_size
         
-        d_pos, d_size = self.pos_conv(812, 138, 178, 66)
+        d_pos, d_size = (812, 138, 178, 66)
         self.delay_lbl.pos = d_pos
         self.delay_lbl.size = d_size
         
-        l_pos, l_size = self.pos_conv(812, 31, 178, 66)
+        l_pos, l_size = (812, 31, 178, 66)
         self.line_brygada_lbl.pos = l_pos
         self.line_brygada_lbl.size = l_size
 
@@ -684,7 +684,7 @@ class DriverPanel(Screen):
         return formatted, real_diff_for_bg
 
     def update_top_bar(self, name_fallback):
-        p_pos, p_size = self.pos_conv(248, 4, 530, 81)
+        p_pos, p_size = (248, 4, 530, 81)
         
         trasa = SESSION.get("current_route_data", [])
         idx = SESSION.get("current_stop_index", 0)
@@ -838,7 +838,7 @@ class DriverPanel(Screen):
                     )
     
     def draw_list_item(self, name, time, x, y, w, h, is_first=False, target_idx=None):
-        pos, size = self.pos_conv(x, y, w, h)
+        pos, size = (x, y, w, h)
         
         item_box = FloatLayout(size_hint=(None, None), size=size, pos=pos)
         
@@ -909,7 +909,7 @@ class DriverPanel(Screen):
         
         self.update_top_bar(self.name)
 
-        # m_pos, m_size = self.pos_conv(248, 91, 530, 505)
+        # m_pos, m_size = (248, 91, 530, 505)
         # with self.layout.canvas.after:
         #     from kivy.graphics import Color, Rectangle
         #     Color(self.color_black)
