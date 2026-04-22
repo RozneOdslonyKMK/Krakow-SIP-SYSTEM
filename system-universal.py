@@ -7,7 +7,7 @@ if mode == "sip":
     Config.set('graphics', 'width', '1920')
     Config.set('graphics', 'height', '1080')
     Config.set('graphics', 'fullscreen', '0')
-    Config.set('graphics', 'borderless', '1')
+    # Config.set('graphics', 'borderless', '1')
     Config.set('graphics', 'position', 'custom')
     Config.set('graphics', 'top', '0')
     Config.set('graphics', 'left', '1024') 
