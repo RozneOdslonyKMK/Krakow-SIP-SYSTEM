@@ -5,30 +5,30 @@
 # Route Info:
 # Line: 3   Direction: Nowy Bieżanów P+R   Stops amount: 25   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Nowy Bieżanów P+R;
-2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;
-3;Bratysławska 02;Bratysławska;;
-4;Szpital Narutowicza 02;Szpital Narutowicza;;
-5;Dworzec Towarowy 02;Dworzec Towarowy;;
-6;Politechnika 02;Politechnika;;
-7;Dworzec Główny Zachód 01;Dworzec Główny Zachód;;
-8;Teatr Słowackiego 04;Teatr Słowackiego;;
-9;Poczta Główna 01;Poczta Główna;;
-10;Starowiślna 02;Starowiślna;;
-11;Miodowa 01;Miodowa;;
-12;św. Wawrzyńca 01;Św. Wawrzyńca;;
-13;Plac Bohaterów Getta 01;Plac Bohaterów Getta;;
-14;Podgórze SKA 01;Podgórze SKA;;
-15;Cmentarz Podgórski 01;Cmentarz Podgórski;;
-16;Dworcowa 01;Dworcowa;;
-17;Kabel 01;Kabel;;
-18;Bieżanowska 01;Bieżanowska;;
-19;Wlotowa 01;Wlotowa;;
-20;Prokocim 01;Prokocim;;
-21;Prokocim Szpital 01;Prokocim Szpital;;
-22;Teligi 01;Teligi;;
-23;Nowy Prokocim 01;Nowy Prokocim;;
-24;Ćwiklińskiej 01;Ćwiklińskiej;;
-25;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R;;koniec_trasy
-# Generated at 2026-04-17 15:43
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Krowodrza Górka P+R 03;Krowodrza Górka P+R;Nowy Bieżanów P+R;;0
+2;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;;1
+3;Bratysławska 02;Bratysławska;;;2
+4;Szpital Narutowicza 02;Szpital Narutowicza;;;3
+5;Dworzec Towarowy 02;Dworzec Towarowy;;;6
+6;Politechnika 02;Politechnika;;;8
+7;Dworzec Główny Zachód 01;Dworzec Główny Zachód;;;9
+8;Teatr Słowackiego 04;Teatr Słowackiego;;;11
+9;Poczta Główna 01;Poczta Główna;;;13
+10;Starowiślna 02;Starowiślna;;;15
+11;Miodowa 01;Miodowa;;;17
+12;św. Wawrzyńca 01;Św. Wawrzyńca;;;18
+13;Plac Bohaterów Getta 01;Plac Bohaterów Getta;;;21
+14;Podgórze SKA 01;Podgórze SKA;;;23
+15;Cmentarz Podgórski 01;Cmentarz Podgórski;;;24
+16;Dworcowa 01;Dworcowa;;;26
+17;Kabel 01;Kabel;;;28
+18;Bieżanowska 01;Bieżanowska;;;31
+19;Wlotowa 01;Wlotowa;;;32
+20;Prokocim 01;Prokocim;;;33
+21;Prokocim Szpital 01;Prokocim Szpital;;;35
+22;Teligi 01;Teligi;;;37
+23;Nowy Prokocim 01;Nowy Prokocim;;;38
+24;Ćwiklińskiej 01;Ćwiklińskiej;;;39
+25;Nowy Bieżanów P+R 91;Nowy Bieżanów P+R;;koniec_trasy;40
+# Generated at 2026-04-22 17:40
