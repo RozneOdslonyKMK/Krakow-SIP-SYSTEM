@@ -5,28 +5,28 @@
 # Route Info:
 # Line: 5   Direction: Krowodrza Górka P+R   Stops amount: 23   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Krowodrza Górka P+R;
-2;Jarzębiny 02;Jarzębiny;;
-3;Darwina 02;Darwina;;
-4;Wańkowicza 01;Wańkowicza;;
-5;Cienista 01;Cienista;;
-6;Teatr Ludowy 01;Teatr Ludowy;;
-7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
-8;Bieńczycka 01;Bieńczycka;;
-9;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
-10;Czyżyny 02;Czyżyny;;
-11;Stella-Sawickiego 02;Stella-Sawickiego;;
-12;AKF / PK 02;AKF PK;;
-13;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
-14;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
-15;Białucha 02;Białucha;;
-16;Cystersów 02;Cystersów;;
-17;Rondo Mogilskie 05;Rondo Mogilskie;;
-18;Dworzec Główny Tunel 02;Dworzec Główny Tunel;;
-19;Politechnika 03;Politechnika;;
-20;Dworzec Towarowy 01;Dworzec Towarowy;;
-21;Szpital Narutowicza 01;Szpital Narutowicza;;
-22;Bratysławska 01;Bratysławska;;
-23;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy
-# Generated at 2026-04-17 15:46
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Wzgórza Krzesławickie 01;Wzgórza Krzesławickie;Krowodrza Górka P+R;;0
+2;Jarzębiny 02;Jarzębiny;;;1
+3;Darwina 02;Darwina;;;2
+4;Wańkowicza 01;Wańkowicza;;;4
+5;Cienista 01;Cienista;;;5
+6;Teatr Ludowy 01;Teatr Ludowy;;;6
+7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;9
+8;Bieńczycka 01;Bieńczycka;;;10
+9;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;;13
+10;Czyżyny 02;Czyżyny;;;14
+11;Stella-Sawickiego 02;Stella-Sawickiego;;;15
+12;AKF / PK 02;AKF PK;;;16
+13;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;;17
+14;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;;19
+15;Białucha 02;Białucha;;;20
+16;Cystersów 02;Cystersów;;;22
+17;Rondo Mogilskie 05;Rondo Mogilskie;;;25
+18;Dworzec Główny Tunel 02;Dworzec Główny Tunel;;;27
+19;Politechnika 03;Politechnika;;;28
+20;Dworzec Towarowy 01;Dworzec Towarowy;;;31
+21;Szpital Narutowicza 01;Szpital Narutowicza;;;33
+22;Bratysławska 01;Bratysławska;;;34
+23;Krowodrza Górka P+R 93;Krowodrza Górka P+R;;koniec_trasy;35
+# Generated at 2026-04-22 17:52
