@@ -70,17 +70,17 @@ class DriverPanel(Screen):
 
     def setup_labels(self):
         c_pos, c_size = self.pos_conv(4, 4, 240, 60)
-        self.clock_lbl = Label(text="--:--:--", font_size='60sp', bold=True,
+        self.clock_lbl = Label(text="--:--:--", font_size='30sp', bold=True,
                                size_hint=(None, None), size=c_size,
                                pos=c_pos, halign='center', valign='middle')
         
         d_pos, d_size = self.pos_conv(812, 138, 178, 66)
-        self.delay_lbl = Label(text="--:--", font_size='60sp', bold=True,
+        self.delay_lbl = Label(text="--:--", font_size='30sp', bold=True,
                                size_hint=(None, None), size=d_size,
                                pos=d_pos)
 
         l_pos, l_size = self.pos_conv(812, 31, 178, 66)
-        self.line_brygada_lbl = Label(text="---/---", font_size='60sp',
+        self.line_brygada_lbl = Label(text="---/---", font_size='30sp',
                                       size_hint=(None, None), size=l_size,
                                       pos=l_pos)
 
