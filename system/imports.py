@@ -30,6 +30,7 @@ from kivy.uix.label import Label
 from kivy.uix.video import Video
 from kivy.uix.image import Image
 from kivy.uix.textinput import TextInput
+from kivy.uix.scatter import Scatter
 from kivy.core.window import Window
 from kivy.core.audio import SoundLoader
 from kivy.clock import Clock

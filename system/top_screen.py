@@ -5,8 +5,17 @@ class MainSIPLayout(FloatLayout):
         super().__init__(**kwargs)
         
         self.base_size = (1920, 1080)
+
+        self.scatter = Scatter(
+            do_rotation=False, 
+            do_scale=False, 
+            do_translation=False,
+            size_hint=(None, None), 
+            size=self.base_size
+        )
         self.content_box = FloatLayout(size_hint=(None, None), size=self.base_size)
-        self.add_widget(self.content_box)
+        self.scatter.add_widget(self.content_box)
+        self.add_widget(self.scatter)
         
         Window.bind(on_resize=self._apply_scaling)
         Clock.schedule_once(self._apply_scaling, 0)
@@ -123,9 +132,12 @@ class MainSIPLayout(FloatLayout):
         
     def _apply_scaling(self, *args):
         win_w, win_h = Window.size
+        
         scale = min(win_w / self.base_size[0], win_h / self.base_size[1])
-        self.content_box.scale = scale
-        self.content_box.pos = (
+        
+        self.scatter.scale = scale
+        
+        self.scatter.pos = (
             (win_w - self.base_size[0] * scale) / 2,
             (win_h - self.base_size[1] * scale) / 2
         )
@@ -411,7 +423,7 @@ class MainSIPLayout(FloatLayout):
                 current_stop_name = self.stops[curr_idx].get('Nazwa', '')
                 self.update_stop_label(current_stop_name)
                 self.save_to_sync()
-                self.canvas.ask_update()
+                self.content_box.canvas.ask_update()
                 
         except Exception as e:
             print(f"BŁĄD SIP (load_route): {e}")
