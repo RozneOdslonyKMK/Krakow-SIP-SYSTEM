@@ -3,34 +3,35 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 8   Direction: Borek Fałęcki   Stops amount: 27   Route changed: False
+# Line: 8   Direction: BOREK FAŁĘCKI przez Westerplatte   Stops amount: 28   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Bronowice Małe 01;Bronowice Małe;Borek Fałęcki;
-2;Bronowice SKA 02;Bronowice SKA;;
-3;Wesele 02;Wesele;;
-4;Bronowice 02;Bronowice;;
-5;Głowackiego 02;Głowackiego;;
-6;UKEN 02;UKEN;;
-7;Biprostal 02;Biprostal;;
-8;Urzędnicza 02;Urzędnicza;;
-9;Plac Inwalidów 02;Plac Inwalidów;;
-10;Stefana Batorego 02;Stefana Batorego;;
-11;Teatr Bagatela 03;Teatr Bagatela;;
-12;Filharmonia 03;Filharmonia;;
-13;Plac Wszystkich Świętych 02;Teatr Słowackiego;;
-14;św. Gertrudy 02;Św. Gertrudy;;
-15;Wawel 02;Wawel;;
-16;Stradom 02;Stradom;;
-17;Plac Wolnica 01;Plac Wolnica;;
-18;Korona 03;Korona;;
-19;Smolki 01;Smolki;;
-20;Rondo Matecznego 01;Rondo Matecznego;;
-21;Rzemieślnicza 01;Rzemieślnicza;;
-22;Łagiewniki 01;Łagiewniki;;
-23;Łagiewniki ZUS 01;Łagiewniki ZUS;;
-24;Łagiewniki SKA 05;Łagiewniki SKA;;
-25;Kościuszkowców 01;Kościuszkowców;;
-26;Solvay 01;Solvay;;
-27;Borek Fałęcki 91;Borek Fałęcki;;koniec_trasy
-# Generated at 2026-04-17 16:19
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Bronowice Małe 01;Bronowice Małe;BOREK FAŁĘCKI przez Westerplatte;;0
+2;Bronowice SKA 02;Bronowice SKA;;;1
+3;Wesele 02;Wesele;;;3
+4;Bronowice 02;Bronowice;;;4
+5;Głowackiego 02;Głowackiego;;;6
+6;UKEN 02;UKEN;;;7
+7;Biprostal 02;Biprostal;;;8
+8;Urzędnicza 02;Urzędnicza;;;9
+9;Plac Inwalidów 02;Plac Inwalidów;;;11
+10;Stefana Batorego 02;Stefana Batorego;;;12
+11;Teatr Bagatela 03;Teatr Bagatela;;;14
+12;Stary Kleparz 02;Stary Kleparz;;;16
+13;Teatr Słowackiego 02;Teatr Słowackiego;;;18
+14;Poczta Główna 01;Poczta Główna;;;20
+15;św. Gertrudy 02;Św. Gertrudy;;;21
+16;Wawel 02;Wawel;;;22
+17;Stradom 02;Stradom;;;24
+18;Plac Wolnica 01;Plac Wolnica;;;26
+19;Korona 03;Korona;;;28
+20;Smolki 01;Smolki;;;29
+21;Rondo Matecznego 01;Rondo Matecznego;;;31
+22;Rzemieślnicza 01;Rzemieślnicza;;;33
+23;Łagiewniki 01;Łagiewniki;;;35
+24;Łagiewniki ZUS 01;Łagiewniki ZUS;;;37
+25;Łagiewniki SKA 05;Łagiewniki SKA;;;38
+26;Kościuszkowców 01;Kościuszkowców;;;40
+27;Solvay 01;Solvay;;;41
+28;Borek Fałęcki 91;Borek Fałęcki;;koniec_trasy;43
+# Generated at 2026-04-25 00:43
