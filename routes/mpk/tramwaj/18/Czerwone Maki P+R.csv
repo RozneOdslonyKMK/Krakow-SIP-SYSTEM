@@ -3,7 +3,7 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 18   Direction: Czerwone Maki P+R   Stops amount: 33   Route changed: True
+# Line: 18   Direction: Czerwone Maki P+R   Stops amount: 34   Route changed: False
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
 1;Górka Narodowa P+R 01;Górka Narodowa P+R;Czerwone Maki P+R;
@@ -21,22 +21,23 @@ Lp;Nazwa;Audio;Kierunek;Extras
 13;Nowy Kleparz 02;Nowy Kleparz;;
 14;Pędzichów 02;Pędzichów;;
 15;Stary Kleparz 03;Stary Kleparz;;
-16;Teatr Słowackiego 02;Teatr Słowackiego;;
-17;Poczta Główna 01;Poczta Główna;;
-18;św. Gertrudy 02;Św. Gertrudy;;
-19;Wawel 02;Wawel;;
-20;Stradom 02;Stradom;;
-21;Orzeszkowej 01;Orzeszkowej;;
-22;Rondo Grunwaldzkie 01;Rondo Grunwaldzkie;;
-23;Szwedzka 01;Szwedzka;;
-24;Kapelanka 01;Kapelanka;;
-25;Słomiana 01;Słomiana;;
-26;Kobierzyńska 01;Kobierzyńska;;
-27;Lipińskiego 01;Lipińskiego;;
-28;Grota-Roweckiego 01;Grota-Roweckiego;;
-29;Norymberska 01;Norymberska;;
-30;Ruczaj 01;Ruczaj;;
-31;Kampus UJ 01;Kampus UJ;;
-32;Kampus UP JP II 01;Kampus UP JP II;;
-33;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
-# Generated at 2026-04-17 15:56
+16;Teatr Bagatela 02;Teatr Bagatela;;
+17;Filharmonia 03;Filharmonia;;
+18;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;;
+19;św. Gertrudy 02;Św. Gertrudy;;
+20;Wawel 02;Wawel;;
+21;Stradom 02;Stradom;;
+22;Orzeszkowej 01;Orzeszkowej;;
+23;Rondo Grunwaldzkie 01;Rondo Grunwaldzkie;;
+24;Szwedzka 01;Szwedzka;;
+25;Kapelanka 01;Kapelanka;;
+26;Słomiana 01;Słomiana;;
+27;Kobierzyńska 01;Kobierzyńska;;
+28;Lipińskiego 01;Lipińskiego;;
+29;Grota-Roweckiego 01;Grota-Roweckiego;;
+30;Norymberska 01;Norymberska;;
+31;Ruczaj 01;Ruczaj;;
+32;Kampus UJ 01;Kampus UJ;;
+33;Kampus UP JP II 01;Kampus UP JP II;;
+34;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
+# Generated at 2026-04-17 16:48

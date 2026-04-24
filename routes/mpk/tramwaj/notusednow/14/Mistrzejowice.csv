@@ -3,39 +3,34 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 14   Direction: Mistrzejowice   Stops amount: 32   Route changed: False
+# Line: 14   Direction: Mistrzejowice   Stops amount: 27   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Bronowice 02;Bronowice;Mistrzejowice;
-2;Głowackiego 02;Głowackiego;;
-3;UKEN 02;UKEN;;
-4;Biprostal 02;Biprostal;;
-5;Urzędnicza 02;Urzędnicza;;
-6;Plac Inwalidów 02;Plac Inwalidów;;
-7;Stefana Batorego 02;Stefana Batorego;;
-8;Teatr Bagatela 03;Teatr Bagatela;;
-9;Stary Kleparz 02;Stary Kleparz;;
-10;Teatr Słowackiego 02;Teatr Słowackiego;;
-11;Lubicz 02;Lubicz;;
-12;Rondo Mogilskie 03;Rondo Mogilskie;;
-13;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;
-14;Teatr Variété 01;Teatr Variété;;
-15;Nullo 01;Nullo;;
-16;Fabryczna 01;Fabryczna;;
-17;Ofiar Dąbia 01;Ofiar Dąbia;;
-18;Dąbie 01;Dąbie;;
-19;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;
-20;Ogród Doświadczeń 01;Ogród Doświadczeń;;
-21;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;
-22;Gałczyńskiego 01;Gałczyńskiego;;
-23;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;
-24;Bieńczycka 02;Bieńczycka;;
-25;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
-26;DH Wanda 01;DH Wanda;;
-27;Rondo Hipokratesa 01;Rondo Hipokratesa;;
-28;Dunikowskiego 01;Dunikowskiego;;
-29;Rondo Piastowskie 01;Rondo Piastowskie;;
-30;Os. Złotego Wieku 01;Os. Złotego Wieku;;
-31;Miśnieńska 01;Miśnieńska;;
-32;Mistrzejowice 94;Mistrzejowice;;koniec_trasy
-# Generated at 2026-04-17 16:48
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Dworzec Towarowy 03;Dworzec Towarowy;Mistrzejowice;;0
+2;Nowy Kleparz 02;Nowy Kleparz;;;1
+3;Pędzichów 02;Pędzichów;;;3
+4;Stary Kleparz 03;Stary Kleparz;;;5
+5;Teatr Słowackiego 02;Teatr Słowackiego;;;7
+6;Lubicz 02;Lubicz;;;9
+7;Rondo Mogilskie 03;Rondo Mogilskie;;;11
+8;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;;14
+9;Teatr Variété 01;Teatr Variété;;;15
+10;Nullo 01;Nullo;;;16
+11;Fabryczna 01;Fabryczna;;;17
+12;Ofiar Dąbia 01;Ofiar Dąbia;;;18
+13;Dąbie 01;Dąbie;;;19
+14;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;;21
+15;Ogród Doświadczeń 01;Ogród Doświadczeń;;;23
+16;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;;25
+17;Gałczyńskiego 01;Gałczyńskiego;;;26
+18;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;;29
+19;Bieńczycka 02;Bieńczycka;;;30
+20;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;33
+21;DH Wanda 01;DH Wanda;;;34
+22;Rondo Hipokratesa 01;Rondo Hipokratesa;;;36
+23;Dunikowskiego 01;Dunikowskiego;;;37
+24;Rondo Piastowskie 01;Rondo Piastowskie;;;39
+25;Os. Złotego Wieku 01;Os. Złotego Wieku;;;40
+26;Miśnieńska 01;Miśnieńska;;;41
+27;Mistrzejowice 94;Mistrzejowice;;koniec_trasy;43
+# Generated at 2026-04-25 01:28

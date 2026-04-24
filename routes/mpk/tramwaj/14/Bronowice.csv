@@ -1,0 +1,41 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 14   Direction: Bronowice   Stops amount: 32   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Mistrzejowice 04;Mistrzejowice;Bronowice;
+2;Miśnieńska 02;Miśnieńska;;
+3;Os. Złotego Wieku 02;Os. Złotego Wieku;;
+4;Rondo Piastowskie 02;Rondo Piastowskie;;
+5;Dunikowskiego 02;Dunikowskiego;;
+6;Rondo Hipokratesa 02;Rondo Hipokratesa;;
+7;DH Wanda 02;DH Wanda;;
+8;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
+9;Bieńczycka 01;Bieńczycka;;
+10;Rondo Czyżyńskie 04;Rondo Czyżyńskie;;
+11;Gałczyńskiego 02;Gałczyńskiego;;
+12;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu;;
+13;Ogród Doświadczeń 02;Ogród Doświadczeń;;
+14;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju;;
+15;Dąbie 02;Dąbie;;
+16;Ofiar Dąbia 02;Ofiar Dąbia;;
+17;Fabryczna 02;Fabryczna;;
+18;Nullo 02;Nullo;;
+19;Teatr Variété 02;Teatr Variété;;
+20;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;
+21;Rondo Mogilskie 04;Rondo Mogilskie;;
+22;Lubicz 01;Lubicz;;
+23;Teatr Słowackiego 01;Teatr Słowackiego;;
+24;Stary Kleparz 01;Stary Kleparz;;
+25;Teatr Bagatela 02;Teatr Bagatela;;
+26;Stefana Batorego 01;Stefana Batorego;;
+27;Plac Inwalidów 01;Plac Inwalidów;;
+28;Urzędnicza 01;Urzędnicza;;
+29;Biprostal 01;Biprostal;;
+30;UKEN 01;UKEN;;
+31;Głowackiego 01;Głowackiego;;
+32;Bronowice 91;Bronowice;;koniec_trasy
+# Generated at 2026-04-17 16:48

@@ -3,41 +3,40 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 18   Direction: Czerwone Maki P+R   Stops amount: 34   Route changed: False
+# Line: 18   Direction: Czerwone Maki P+R   Stops amount: 33   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Górka Narodowa P+R 01;Górka Narodowa P+R;Czerwone Maki P+R;
-2;Papierni Prądnickich 02;Papierni Prądnickich;;
-3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej;;
-4;Bociana 02;Bociana;;
-5;Siewna Wiadukt 02;Siewna Wiadukt;;
-6;Górnickiego 01;Górnickiego;;
-7;Białoprądnicka 01;Białoprądnicka;;
-8;Pachońskiego P+R 02;Pachońskiego P+R;;
-9;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;
-10;Bratysławska 02;Bratysławska;;
-11;Szpital Narutowicza 02;Szpital Narutowicza;;
-12;Dworzec Towarowy 03;Dworzec Towarowy;;
-13;Nowy Kleparz 02;Nowy Kleparz;;
-14;Pędzichów 02;Pędzichów;;
-15;Stary Kleparz 03;Stary Kleparz;;
-16;Teatr Bagatela 02;Teatr Bagatela;;
-17;Filharmonia 03;Filharmonia;;
-18;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;;
-19;św. Gertrudy 02;Św. Gertrudy;;
-20;Wawel 02;Wawel;;
-21;Stradom 02;Stradom;;
-22;Orzeszkowej 01;Orzeszkowej;;
-23;Rondo Grunwaldzkie 01;Rondo Grunwaldzkie;;
-24;Szwedzka 01;Szwedzka;;
-25;Kapelanka 01;Kapelanka;;
-26;Słomiana 01;Słomiana;;
-27;Kobierzyńska 01;Kobierzyńska;;
-28;Lipińskiego 01;Lipińskiego;;
-29;Grota-Roweckiego 01;Grota-Roweckiego;;
-30;Norymberska 01;Norymberska;;
-31;Ruczaj 01;Ruczaj;;
-32;Kampus UJ 01;Kampus UJ;;
-33;Kampus UP JP II 01;Kampus UP JP II;;
-34;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
-# Generated at 2026-04-17 16:48
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Górka Narodowa P+R 01;Górka Narodowa P+R;Czerwone Maki P+R;;0
+2;Papierni Prądnickich 02;Papierni Prądnickich;;;1
+3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej;;;2
+4;Bociana 02;Bociana;;;3
+5;Siewna Wiadukt 02;Siewna Wiadukt;;;4
+6;Górnickiego 01;Górnickiego;;;6
+7;Białoprądnicka 01;Białoprądnicka;;;7
+8;Pachońskiego P+R 02;Pachońskiego P+R;;;8
+9;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;;10
+10;Bratysławska 02;Bratysławska;;;11
+11;Szpital Narutowicza 02;Szpital Narutowicza;;;12
+12;Dworzec Towarowy 03;Dworzec Towarowy;;;15
+13;Nowy Kleparz 02;Nowy Kleparz;;;16
+14;Pędzichów 02;Pędzichów;;;18
+15;Stary Kleparz 03;Stary Kleparz;;;20
+16;Teatr Słowackiego 02;Teatr Słowackiego;;;22
+17;Poczta Główna 01;Poczta Główna;;;24
+18;św. Gertrudy 02;Św. Gertrudy;;;25
+19;Wawel 02;Wawel;;;26
+20;Stradom 02;Stradom;;;28
+21;Orzeszkowej 01;Orzeszkowej;;;29
+22;Rondo Grunwaldzkie 01;Rondo Grunwaldzkie;;;32
+23;Szwedzka 01;Szwedzka;;;33
+24;Kapelanka 01;Kapelanka;;;35
+25;Słomiana 01;Słomiana;;;36
+26;Kobierzyńska 01;Kobierzyńska;;;38
+27;Lipińskiego 01;Lipińskiego;;;40
+28;Grota-Roweckiego 01;Grota-Roweckiego;;;41
+29;Norymberska 01;Norymberska;;;42
+30;Ruczaj 01;Ruczaj;;;44
+31;Kampus UJ 01;Kampus UJ;;;45
+32;Kampus UP JP II 01;Kampus UP JP II;;;46
+33;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy;48
+# Generated at 2026-04-25 01:55

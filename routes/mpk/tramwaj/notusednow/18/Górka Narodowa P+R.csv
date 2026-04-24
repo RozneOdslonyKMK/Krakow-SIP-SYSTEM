@@ -3,41 +3,39 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 18   Direction: Górka Narodowa P+R   Stops amount: 34   Route changed: False
+# Line: 18   Direction: Górka Narodowa P+R   Stops amount: 32   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Czerwone Maki P+R 01;Czerwone Maki P+R;Górka Narodowa P+R;
-2;Kampus UP JP II 02;Kampus UP JP II;;
-3;Kampus UJ 02;Kampus UJ;;
-4;Ruczaj 02;Ruczaj;;
-5;Norymberska 02;Norymberska;;
-6;Grota-Roweckiego 02;Grota-Roweckiego;;
-7;Lipińskiego 02;Lipińskiego;;
-8;Kobierzyńska 02;Kobierzyńska;;
-9;Słomiana 02;Słomiana;;
-10;Kapelanka 02;Kapelanka;;
-11;Szwedzka 02;Szwedzka;;
-12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;
-13;Orzeszkowej 02;Orzeszkowej;;
-14;Stradom 01;Stradom;;
-15;Wawel 01;Wawel;;
-16;św. Gertrudy 01;św. Gertrudy;;
-17;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;
-18;Filharmonia 01;Filharmonia;;
-19;Teatr Bagatela 01;Teatr Bagatela;;
-20;Stary Kleparz 01;Stary Kleparz;;
-21;Pędzichów 01;Pędzichów;;
-22;Nowy Kleparz 01;Nowy Kleparz;;
-23;Dworzec Towarowy 01;Dworzec Towarowy;;
-24;Szpital Narutowicza 01;Szpital Narutowicza;;
-25;Bratysławska 01;Bratysławska;;
-26;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;
-27;Pachońskiego P+R 01;Pachońskiego P+R;;
-28;Białoprądnicka 02;Białoprądnicka;;
-29;Górnickiego 02;Górnickiego;;
-30;Siewna Wiadukt 01;Siewna Wiadukt;;
-31;Bociana 01;Bociana;;
-32;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;
-33;Papierni Prądnickich 01;Papierni Prądnickich;;
-34;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy
-# Generated at 2026-04-17 16:48
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Czerwone Maki P+R 01;Czerwone Maki P+R;Górka Narodowa P+R;;0
+2;Kampus UP JP II 02;Kampus UP JP II;;;1
+3;Kampus UJ 02;Kampus UJ;;;2
+4;Ruczaj 02;Ruczaj;;;3
+5;Norymberska 02;Norymberska;;;4
+6;Grota-Roweckiego 02;Grota-Roweckiego;;;6
+7;Lipińskiego 02;Lipińskiego;;;8
+8;Kobierzyńska 02;Kobierzyńska;;;9
+9;Słomiana 02;Słomiana;;;11
+10;Kapelanka 02;Kapelanka;;;12
+11;Szwedzka 02;Szwedzka;;;13
+12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;;15
+13;Orzeszkowej 02;Orzeszkowej;;;16
+14;Stradom 01;Stradom;;;17
+15;Wawel 01;Wawel;;;19
+16;Poczta Główna 03;Poczta Główna;;;21
+17;Teatr Słowackiego 03;Teatr Słowackiego;;;23
+18;Stary Kleparz 01;Stary Kleparz;;;25
+19;Pędzichów 01;Pędzichów;;;26
+20;Nowy Kleparz 01;Nowy Kleparz;;;28
+21;Dworzec Towarowy 01;Dworzec Towarowy;;;31
+22;Szpital Narutowicza 01;Szpital Narutowicza;;;33
+23;Bratysławska 01;Bratysławska;;;34
+24;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;;35
+25;Pachońskiego P+R 01;Pachońskiego P+R;;;37
+26;Białoprądnicka 02;Białoprądnicka;;;38
+27;Górnickiego 02;Górnickiego;;;40
+28;Siewna Wiadukt 01;Siewna Wiadukt;;;41
+29;Bociana 01;Bociana;;;42
+30;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;;43
+31;Papierni Prądnickich 01;Papierni Prądnickich;;;44
+32;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy;46
+# Generated at 2026-04-25 01:51

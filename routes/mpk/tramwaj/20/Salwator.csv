@@ -1,0 +1,27 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 20   Direction: Cichy Kącik   Stops amount: 18   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Mały Płaszów P+R 01;Mały Płaszów P+R;Cichy Kącik;;0
+2;Rzebika 02;Rzebika;;;2
+3;Lipska 02;Lipska;;;3
+4;Gromadzka 02;Gromadzka;;;4
+5;Kuklińskiego 02;Kuklińskiego;;;5
+6;Klimeckiego 02;Klimeckiego;;;7
+7;Zabłocie 02;Zabłocie;;;8
+8;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;;12
+9;Rondo Mogilskie 04;Rondo Mogilskie;;;14
+10;Lubicz 01;Lubicz;;;16
+11;Teatr Słowackiego 01;Teatr Słowackiego;;;19
+12;Stary Kleparz 01;Stary Kleparz;;;21
+13;Teatr Bagatela 02;Teatr Bagatela;;;23
+14;Filharmonia 03;Filharmonia;;;25
+15;Jubilat 01;Jubilat;;;27
+16;Komorowskiego 01;Komorowskiego;;;29
+17;Salwator 03;Salwator;;;30
+18;Salwator 91;Salwator;;koniec_trasy;31
+# Generated at 2026-04-25 01:41

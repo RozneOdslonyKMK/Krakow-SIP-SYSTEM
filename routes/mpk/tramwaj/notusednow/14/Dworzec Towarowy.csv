@@ -1,0 +1,36 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 14   Direction: Dworzec Towarowy   Stops amount: 27   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Mistrzejowice 04;Mistrzejowice;Dworzec Towarowy;;0
+2;Miśnieńska 02;Miśnieńska;;;1
+3;Os. Złotego Wieku 02;Os. Złotego Wieku;;;2
+4;Rondo Piastowskie 02;Rondo Piastowskie;;;3
+5;Dunikowskiego 02;Dunikowskiego;;;5
+6;Rondo Hipokratesa 02;Rondo Hipokratesa;;;7
+7;DH Wanda 02;DH Wanda;;;8
+8;Rondo Kocmyrzowskie im. Ks. Gorzelanego 02;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;11
+9;Bieńczycka 01;Bieńczycka;;;12
+10;Rondo Czyżyńskie 04;Rondo Czyżyńskie;;;15
+11;Gałczyńskiego 02;Gałczyńskiego;;;16
+12;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu;;;17
+13;Ogród Doświadczeń 02;Ogród Doświadczeń;;;19
+14;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju;;;20
+15;Dąbie 02;Dąbie;;;22
+16;Ofiar Dąbia 02;Ofiar Dąbia;;;23
+17;Fabryczna 02;Fabryczna;;;24
+18;Nullo 02;Nullo;;;25
+19;Teatr Variété 02;Teatr Variété;;;26
+20;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;;28
+21;Rondo Mogilskie 04;Rondo Mogilskie;;;30
+22;Lubicz 01;Lubicz;;;32
+23;Teatr Słowackiego 01;Teatr Słowackiego;;;35
+24;Stary Kleparz 01;Stary Kleparz;;;37
+25;Pędzichów 01;Pędzichów;;;38
+26;Nowy Kleparz 01;Nowy Kleparz;;;40
+27;Dworzec Towarowy 93;Dworzec Towarowy;;koniec_trasy;43
+# Generated at 2026-04-25 01:26

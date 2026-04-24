@@ -1,0 +1,37 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 13   Direction: Bronowice   Stops amount: 28   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Nowy Bieżanów P+R 01;Nowy Bieżanów P+R;Bronowice;
+2;Ćwiklińskiej 02;Ćwiklińskiej;;
+3;Nowy Prokocim 02;Nowy Prokocim;;
+4;Teligi 02;Teligi;;
+5;Prokocim Szpital 02;Prokocim Szpital;;
+6;Prokocim 02;Prokocim;;
+7;Wlotowa 02;Wlotowa;;
+8;Bieżanowska 02;Bieżanowska;;
+9;Kabel 02;Kabel;;
+10;Dworcowa 02;Dworcowa;;
+11;Cmentarz Podgórski 02;Cmentarz Podgórski;;
+12;Podgórze SKA 02;Podgórze SKA;;
+13;Limanowskiego 02;Limanowskiego;;
+14;Korona 02;Korona;;
+15;Plac Wolnica 02;Plac Wolnica;;
+16;Stradom 04;Stradom;;
+17;Wawel 01;Wawel;;
+18;św. Gertrudy 01;Św. Gertrudy;;
+19;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;
+20;Filharmonia 01;Filharmonia;;
+21;Teatr Bagatela 01;Teatr Bagatela;;
+22;Stefana Batorego 01;Stefana Batorego;;
+23;Plac Inwalidów 01;Plac Inwalidów;;
+24;Urzędnicza 01;Urzędnicza;;
+25;Biprostal 01;Biprostal;;
+26;UKEN 01;UKEN;;
+27;Głowackiego 01;Głowackiego;;
+28;Bronowice 91;Bronowice;;koniec_trasy
+# Generated at 2026-04-17 16:47
