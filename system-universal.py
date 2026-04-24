@@ -17,6 +17,7 @@ else:
 
 from system.imports import *
 from system.top_screen import MainSIPLayout
+from system.top_screen_new import MainSIPLayoutNew
 from system.driver_panel import DriverPanel
 
 class SipScreen(Screen):
