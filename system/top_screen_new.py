@@ -125,6 +125,8 @@ class MainSIPLayoutNew(FloatLayout):
             line_type_bg = 'linia_cmentarna.png'
         elif line_display.startswith('9') and len(line_display) == 3:
             line_type_bg = 'linia_aglomeracyjna_nocna.png'
+        elif line_display.startswith('LR') and len(line_display) == 3:
+            line_type_bg = 'linia_rekreacyjna.png'
         
         if line_display.startswith('3') and len(line_display) == 3 and not SESSION["is_route_changed"]:
             line_special_bg = 'przyspieszona.png'
