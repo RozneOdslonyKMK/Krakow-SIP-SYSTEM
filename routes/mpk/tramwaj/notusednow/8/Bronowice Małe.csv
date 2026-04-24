@@ -3,33 +3,33 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 8   Direction: Bronowice Małe   Stops amount: 26   Route changed: False
+# Line: 8   Direction: BRONOWICE MAŁE przez Westerplatte   Stops amount: 26   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Borek Fałęcki 01;Borek Fałęcki;Bronowice Małe;
-2;Solvay 02;Solvay;;
-3;Kościuszkowców 02;Kościuszkowców;;
-4;Łagiewniki SKA 02;Łagiewniki SKA;;
-5;Łagiewniki 02;Łagiewniki;;
-6;Rzemieślnicza 02;Rzemieślnicza;;
-7;Rondo Matecznego 02;Rondo Matecznego;;
-8;Smolki 02;Smolki;;
-9;Korona 01;Korona;;
-10;Plac Wolnica 02;Plac Wolnica;;
-11;Stradom 04;Stradom;;
-12;Wawel 01;Wawel;;
-13;św. Gertrudy 01;Św. Gertrudy;;
-14;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;
-15;Filharmonia 01;Filharmonia;;
-16;Teatr Bagatela 02;Teatr Bagatela;;
-17;Stefana Batorego 01;Stefana Batorego;;
-18;Plac Inwalidów 01;Plac Inwalidów;;
-19;Urzędnicza 01;Urzędnicza;;
-20;Biprostal 01;Biprostal;;
-21;UKEN 01;UKEN;;
-22;Głowackiego 01;Głowackiego;;
-23;Bronowice 03;Bronowice;;
-24;Wesele 01;Wesele;;
-25;Bronowice SKA 01;Bronowice SKA;;
-26;Bronowice Małe 91;Bronowice Małe;;koniec_trasy
-# Generated at 2026-04-17 16:19
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Borek Fałęcki 01;Borek Fałęcki;BRONOWICE MAŁE przez Westerplatte;;0
+2;Solvay 02;Solvay;;;1
+3;Kościuszkowców 02;Kościuszkowców;;;2
+4;Łagiewniki SKA 02;Łagiewniki SKA;;;4
+5;Łagiewniki 02;Łagiewniki;;;7
+6;Rzemieślnicza 02;Rzemieślnicza;;;8
+7;Rondo Matecznego 02;Rondo Matecznego;;;9
+8;Smolki 02;Smolki;;;10
+9;Korona 01;Korona;;;12
+10;Plac Wolnica 02;Plac Wolnica;;;14
+11;Stradom 04;Stradom;;;16
+12;Wawel 01;Wawel;;;18
+13;Poczta Główna 03;Poczta Główna;;;20
+14;Teatr Słowackiego 03;Teatr Słowackiego;;;22
+15;Stary Kleparz 01;Stary Kleparz;;;24
+16;Teatr Bagatela 02;Teatr Bagatela;;;26
+17;Stefana Batorego 01;Stefana Batorego;;;27
+18;Plac Inwalidów 01;Plac Inwalidów;;;29
+19;Urzędnicza 01;Urzędnicza;;;30
+20;Biprostal 01;Biprostal;;;31
+21;UKEN 01;UKEN;;;33
+22;Głowackiego 01;Głowackiego;;;34
+23;Bronowice 03;Bronowice;;;36
+24;Wesele 01;Wesele;;;37
+25;Bronowice SKA 01;Bronowice SKA;;;39
+26;Bronowice Małe 91;Bronowice Małe;;koniec_trasy;41
+# Generated at 2026-04-25 00:47
