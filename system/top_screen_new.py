@@ -1,0 +1,835 @@
+from system.imports import *
+
+class MainSIPLayoutNew(FloatLayout):
+    def __init__(self, csv_file, **kwargs):
+        super().__init__(**kwargs)
+        
+        self.base_size = (1810, 574)
+
+        self.scatter = Scatter(
+            do_rotation=False, 
+            do_scale=False, 
+            do_translation=False,
+            size_hint=(None, None), 
+            size=self.base_size
+        )
+        self.content_box = FloatLayout(size_hint=(None, None), size=self.base_size)
+        self.scatter.add_widget(self.content_box)
+        self.add_widget(self.scatter)
+        
+        Window.bind(on_resize=self._apply_scaling)
+        Clock.schedule_once(self._apply_scaling, 0)
+        
+        self.audio_queue = []
+        self.is_audio_playing = False
+        self.current_sound = None
+        Window.show_cursor = False
+
+        self.ubuntu_font = os.path.join(BASE_DIR, 'fonts', 'Ubuntu-Regular.ttf')
+        self.arial_font = os.path.join(BASE_DIR, 'fonts', 'Arial.ttf')
+        self.arimo_font = os.path.join(BASE_DIR, 'fonts', 'Arimo.ttf')
+        self.museo_sans_300_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-300.ttf')
+        self.museo_sans_cond_300_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-Cond-300.ttf')
+        self.museo_sans_500_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-500.ttf')
+        self.museo_sans_cond_500_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-Cond-500.ttf')
+        self.museo_sans_700_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-700.ttf')
+        self.museo_sans_cond_700_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-Cond-700.ttf')
+        self.museo_sans_900_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-900.ttf')
+        self.museo_sans_cond_900_font = os.path.join(BASE_DIR, 'fonts', 'Museo-Sans-Cond-900.ttf')
+        self.krakow_blue = (0, 0.23, 0.45, 1)
+        self.white = (1, 1, 1, 1)
+        self.black = (0, 0, 0, 1)
+        self.screen_w = 1810
+        self.screen_h = 574
+
+        self.special_id = SESSION.get("special_key")
+        self.stops = []
+        self.stops_db = {}
+        self.current_idx = 0
+        self.is_at_stop = True
+        
+        self.load_stops_db()
+        self.load_route(csv_file)
+
+        ads_dir = os.path.join(BASE_DIR, 'ads')
+        self.ad_files = [os.path.join(ads_dir, f) for f in os.listdir(ads_dir) if f.endswith(('.mp4', '.mkv', '.avi'))]
+        self.ad_files.sort()
+        self.current_ad_idx = 0 
+        self._loading_ad = False
+        self.ads = None
+        
+        bg = '_podstawa.png'
+        bg_source = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', bg)
+        self.content_box.add_widget(Image(source=bg_source, allow_stretch=True, keep_ratio=False))
+
+        if self.ad_files:
+            Clock.schedule_once(self._rebuild_video_widget, 1.0)
+
+        route_changed_bg = 'zmiana_trasy.png'
+        route_changed_bg_source = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', route_changed_bg)
+
+        if SESSION["is_route_changed"]:
+            self.content_box.add_widget(Image(source=route_changed_bg_source, size_hint=(None, None), size=(284, 168), pos=(0, self.screen_h-168)))
+
+        line_display = ""
+        if self.special_id:
+            line_display = SPECIAL_MODES[self.special_id].get("line", "")
+            if not line_display and SESSION.get("line_number"):
+                line_display = SESSION.get("line_number")
+        elif csv_file:
+            path_parts = os.path.normpath(csv_file).split(os.sep)
+            line_display = path_parts[-2] if len(path_parts) >= 2 else ""
+
+        self.content_box.add_widget(Label(
+            text=str(line_display), font_size='150sp', font_name=self.museo_sans_700_font,
+            color=self.black, bold=True, size_hint=(None, None), size=(284, 168),
+            pos=(0, self.screen_h-168), halign='center', valign='middle', text_size=(284, 168)))
+
+        line_type_bg = ''
+        line_special_bg = ''
+        line_special_changed_bg = ''
+
+        if len(line_display) == 1:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('1') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('2') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('3') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('4') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('5') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('6') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska_nocna.png'
+        elif line_display.startswith('7') and len(line_display) == 2:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('8') and len(line_display) == 2:
+            line_type_bg = 'linia_cmentarna.png'
+        elif line_display.startswith('1') and len(line_display) == 3:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('2') and len(line_display) == 3:
+            line_type_bg = 'linia_aglomeracyjna.png'
+        elif line_display.startswith('3') and len(line_display) == 3:
+            line_type_bg = 'linia_aglomeracyjna.png'
+        elif line_display.startswith('4') and len(line_display) == 3:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('5') and len(line_display) == 3:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('6') and len(line_display) == 3:
+            line_type_bg = 'linia_miejska_nocna.png'
+        elif line_display.startswith('7') and len(line_display) == 3:
+            line_type_bg = 'linia_miejska.png'
+        elif line_display.startswith('8') and len(line_display) == 3:
+            line_type_bg = 'linia_cmentarna.png'
+        elif line_display.startswith('9') and len(line_display) == 3:
+            line_type_bg = 'linia_aglomeracyjna_nocna.png'
+        
+        if line_display.startswith('3') and len(line_display) == 3 and not SESSION["is_route_changed"]:
+            line_special_bg = 'przyspieszona.png'
+        elif line_display.startswith('5') and len(line_display) == 3 and not SESSION["is_route_changed"]:
+            line_special_bg = 'przyspieszona.png'
+        elif line_display.startswith('3') and len(line_display) == 3 and SESSION["is_route_changed"]:
+            line_special_bg = 'przyspieszona.png'
+            line_special_changed_bg = 'trasa_zmieniona.png'
+        elif line_display.startswith('5') and len(line_display) == 3 and SESSION["is_route_changed"]:
+            line_special_bg = 'przyspieszona.png'
+            line_special_changed_bg = 'trasa_zmieniona.png'
+        elif SESSION["is_route_changed"]:
+            line_special_bg = 'trasa_zmieniona.png'
+        else:
+            line_special_bg = ''
+            line_special_changed_bg = ''
+
+        line_type = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', line_type_bg)
+        line_special = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', line_special_bg)
+        line_special_changed = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', line_special_changed_bg)
+        self.content_box.add_widget(Image(source=line_type, size_hint=(None, None), size=(284, 39), pos=(0, self.screen_h-168-39)))
+        self.content_box.add_widget(Image(source=line_special, size_hint=(None, None), size=(284, 39), pos=(0, self.screen_h-207-39)))
+        self.content_box.add_widget(Image(source=line_special_changed, size_hint=(None, None), size=(284, 39), pos=(0, self.screen_h-246-39)))
+
+        limit_dest_width = 1316 
+        dest_pos_x, dest_pos_y = 309, 574 - 95
+        
+        self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 100),
+                                         pos=(dest_pos_x, dest_pos_y))
+
+        direction = self._get_direction_text(csv_file)
+        
+        self.dest_label = Label(text=direction.upper(), font_size='80sp', font_name=self.arimo_font,
+                                color=self.krakow_blue, bold=True, size_hint=(None, None),
+                                size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
+                                halign='left', valign='middle', text_size=(None, 100))
+        
+        self.dest_label.texture_update()
+        self.dest_label.width = self.dest_label.texture_size[0]
+        self.should_scroll_dest = self.dest_label.width > limit_dest_width
+        
+        self.dest_container.add_widget(self.dest_label)
+        self.content_box.add_widget(self.dest_container)
+
+        self.stencil = StencilView(size_hint=(None, None), size=(1726, 107), pos=(194, 574-973-107))
+        self.ticker = Label(text=SESSION["news_text"], font_name=self.arial_font, font_size='85sp',
+                            size_hint=(None, 1), halign='left', valign='middle', height=107)
+        self.ticker.x = 1810
+        self.stencil.add_widget(self.ticker)
+        self.content_box.add_widget(self.stencil)
+
+        self.clock_label = Label(text="01:00", font_size='54sp', font_name=self.museo_sans_700_font,
+                                 color=self.white,
+                                 size_hint=(None, None), size=(144, 41),
+                                 pos=(130, self.screen_h-522-41), halign='right', valign='middle',
+                                 text_size=(144, 41))
+        self.content_box.add_widget(self.clock_label)
+
+        self.day_label = Label(text="poniedziałek", font_size='18sp', font_name=self.museo_sans_500_font,
+                                color=self.white,
+                                size_hint=(None, None), size=(134, 22),
+                                pos=(12, self.screen_h-520-22), halign='left', valign='bottom',
+                                text_size=(134, 22))
+        self.content_box.add_widget(self.day_label)
+
+        self.date_label = Label(text="1.01.1970", font_size='20sp', font_name=self.museo_sans_700_font,
+                                color=self.white,
+                                size_hint=(None, None), size=(134, 21),
+                                pos=(12, 11), halign='left', valign='top',
+                                text_size=(134, 21))
+        self.content_box.add_widget(self.date_label)
+
+        Clock.schedule_interval(self.update_ui, 1)
+        Clock.schedule_interval(self.scroll_news, 0.02)
+        
+        if self.stops:
+            self.update_stop_label(self.stops[0]['Nazwa'])
+
+        Window.bind(on_key_down=self._on_keyboard_down)
+        
+        if SESSION["mode"] == "Pojazd" and GPS_AVAILABLE:
+            self._init_gps()
+
+        Clock.schedule_once(self.play_welcome_sequence, 1.5)
+
+    def get_sync_data(self):
+        try:
+            with open("sync.json", "r", encoding="utf-8") as f:
+                return json.load(f)
+        except:
+            return {}
+        
+    def _apply_scaling(self, *args):
+        win_w, win_h = Window.size
+        
+        scale = min(win_w / self.base_size[0], win_h / self.base_size[1])
+        
+        self.scatter.scale = scale
+        
+        self.scatter.pos = (
+            (win_w - self.base_size[0] * scale) / 2,
+            (win_h - self.base_size[1] * scale) / 2
+        )
+    
+    def _get_direction_text(self, csv_file):
+        if self.special_id == "TRAM_WYJAZD":
+            return self.stops[-1]['Nazwa'].rsplit(' ', 1)[0] if self.stops else "Wyjazd na linię"
+
+        elif self.special_id == "TRAM_ZJAZD":
+            if self.stops:
+                last_stop = self.stops[-1]['Nazwa'].upper()
+                if "PH" in last_stop or "HUTA" in last_stop: 
+                    return "Zajezdnia Nowa Huta"
+                if "PT" in last_stop or "PODGÓRZE" in last_stop: 
+                    return "Zajezdnia Podgórze"
+            return "Zjazd do zajezdni"
+
+        elif self.special_id:
+            return SPECIAL_MODES[self.special_id]["label"]
+
+        elif self.stops and self.stops[0].get('Kierunek'):
+            return self.stops[0]['Kierunek']
+            
+        if csv_file:
+            return os.path.basename(csv_file).replace('.csv', '').replace('_', ' ')
+            
+        return "Brak Trasy"
+    
+    def _on_keyboard_down(self, instance, keyboard, keycode, text, modifiers):
+        if 'ctrl' in modifiers:
+            if text == 't':
+                self.show_route_panel()
+                return True
+            elif text == 'k':
+                self.show_announcements_panel()
+                return True
+            elif text == 'p':
+                self.toggle_fullscreen()
+                return True
+        return True
+
+    def toggle_fullscreen(self):
+        if Window.fullscreen in (True, 'auto'):
+            Window.fullscreen = False
+            Window.show_cursor = True 
+        else:
+            Window.fullscreen = 'auto'
+            Window.show_cursor = False
+
+    def show_route_panel(self):
+        view = ModalView(size_hint=(0.8, 0.8), background_color=(0, 0, 0, 0.8))
+        layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        
+        layout.add_widget(Label(text="WYBÓR PRZYSTANKU", font_size='30sp', size_hint_y=None, height=50))
+
+        scroll = ScrollView()
+        list_layout = BoxLayout(orientation='vertical', size_hint_y=None, spacing=5)
+        list_layout.bind(minimum_height=list_layout.setter('height'))
+
+        for i, stop in enumerate(self.stops):
+            is_active = (i == self.current_idx)
+            btn_color = (0, 0.5, 1, 1) if is_active else (0.2, 0.2, 0.2, 1)
+            
+            btn = Button(text=f"{i+1}. {stop['Nazwa']}", size_hint_y=None, height=60,
+                         background_color=btn_color)
+            
+            btn.bind(on_release=lambda btn, idx=i: self.set_stop_manually(idx, view))
+            list_layout.add_widget(btn)
+
+        scroll.add_widget(list_layout)
+        layout.add_widget(scroll)
+
+        nav_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=80, spacing=10)
+        
+        prev_btn = Button(text="[ PREV ]", background_color=(0.7, 0.4, 0, 1), bold=True)
+        prev_btn.bind(on_release=lambda b: self.set_stop_manually(max(0, self.current_idx - 1), view))
+        
+        next_btn = Button(text="[ NEXT ]", background_color=(0, 0.6, 0.3, 1), bold=True)
+        next_btn.bind(on_release=lambda b: self.set_stop_manually(min(len(self.stops)-1, self.current_idx + 1), view))
+        
+        nav_layout.add_widget(prev_btn)
+        nav_layout.add_widget(next_btn)
+        layout.add_widget(nav_layout)
+
+        close_btn = Button(text="ZAMKNIJ", size_hint_y=None, height=50, background_color=(0.7, 0.2, 0.2, 1))
+        close_btn.bind(on_release=view.dismiss)
+        layout.add_widget(close_btn)
+        
+        view.add_widget(layout)
+        view.open()
+
+    def set_stop_manually(self, idx, view):
+        self.current_idx = idx
+        stop_data = self.stops[self.current_idx]
+
+        def after_audio():
+            self.update_stop_label(stop_data['Nazwa'])
+
+        audio_name = f"{stop_data['Audio']}.mp3"
+        self.play_sequence([audio_name], callback=after_audio)
+
+        view.dismiss()
+
+    def show_announcements_panel(self):
+        view = ModalView(size_hint=(0.8, 0.8), background_color=(0,0,0,0.8))
+        layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        
+        scroll = ScrollView()
+        list_layout = BoxLayout(orientation='vertical', size_hint_y=None, spacing=5)
+        list_layout.bind(minimum_height=list_layout.setter('height'))
+        
+        anns_path = os.path.join(BASE_DIR, 'dictionaries', 'anns.txt')
+
+        layout.add_widget(Label(text="WYBÓR KOMUNIKATU", font_size='30sp', size_hint_y=None, height=50))
+
+        if not os.path.exists(anns_path):
+            list_layout.add_widget(Label(text="Brak pliku anns.txt", size_hint_y=None, height=60))
+        else:
+            with open(anns_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    if '|' in line:
+                        title, filename = line.strip().split('|')
+                        
+                        btn = Button(
+                            text=title, 
+                            size_hint_y=None, 
+                            height=60, 
+                            background_color=(0.2, 0.2, 0.2, 1)
+                        )
+                        
+                        btn.bind(on_release=lambda b, f=filename: self.play_custom_audio(f, view))
+                        
+                        list_layout.add_widget(btn)
+
+        scroll.add_widget(list_layout)
+        layout.add_widget(scroll)
+        
+        close_btn = Button(text="ZAMKNIJ", size_hint_y=None, height=60, background_color=(0.7, 0.2, 0.2, 1))
+        close_btn.bind(on_release=view.dismiss)
+        layout.add_widget(close_btn)
+
+        view.add_widget(layout)
+        view.open()
+
+    def play_custom_audio(self, filename, view):
+        audio_path = os.path.join(BASE_DIR, 'audio', filename)
+        if os.path.exists(audio_path):
+            sound = SoundLoader.load(audio_path)
+            if sound:
+                sound.play()
+            view.dismiss()
+
+    def update_stop_label(self, full_name):
+        clean_name = full_name.rsplit(' ', 1)[0] if ' ' in full_name else full_name.upper()
+        
+        text_start_x = 418
+        stop_pos_y = 574 - 184
+        limit_width = 1187
+
+        if not hasattr(self, 'lbl_prefix'):
+            self.lbl_prefix = Label(
+                text="> ", font_size='80sp', font_name=self.arimo_font,
+                color=self.krakow_blue, size_hint=(None, None),
+                size=(60, 92), pos=(360, stop_pos_y),
+                halign='left', valign='middle', text_size=(60, 92)
+            )
+            self.content_box.add_widget(self.lbl_prefix)
+
+        if not hasattr(self, 'stop_container'):
+            self.stop_container = StencilView(
+                size_hint=(None, None), 
+                size=(limit_width, 92),
+                pos=(text_start_x, stop_pos_y)
+            )
+            
+            self.lbl_stop = Label(
+                text=clean_name.upper(), 
+                font_size='80sp', 
+                font_name=self.arimo_font,
+                color=self.krakow_blue, 
+                size_hint=(None, None),
+                height=92, 
+                pos=(text_start_x, stop_pos_y), 
+                halign='left', 
+                valign='middle',
+                text_size=(None, None),
+                shorten=False,
+                mipmap=True
+            )
+            
+            self.stop_container.add_widget(self.lbl_stop)
+            self.content_box.add_widget(self.stop_container)
+        else:
+            self.lbl_stop.text = clean_name.upper()
+
+        self.lbl_stop.text_size = (None, None)
+        self.lbl_stop.texture_update()
+        new_width = self.lbl_stop.texture_size[0]
+        
+        self.lbl_stop.width = new_width
+        
+        if new_width > limit_width:
+            self.should_scroll_stop = True
+            self.lbl_stop.text_size = (None, 92)
+        else:
+            self.should_scroll_stop = False
+            self.lbl_stop.width = limit_width
+            self.lbl_stop.text_size = (limit_width, 92)
+        
+        self.lbl_stop.x = text_start_x
+
+        self.content_box.remove_widget(self.stop_container)
+        self.content_box.add_widget(self.stop_container)
+        
+        if hasattr(self, 'lbl_prefix'):
+            self.content_box.remove_widget(self.lbl_prefix)
+            self.content_box.add_widget(self.lbl_prefix)
+            
+    def load_stops_db(self):
+        db_p = os.path.join(BASE_DIR, 'dictionaries', 'stops.csv')
+        if os.path.exists(db_p):
+            with open(db_p, mode='r', encoding='utf-8') as f:
+                reader = csv.DictReader(f, delimiter=';')
+                for row in reader:
+                    base_name = row['Nazwa'].rsplit(' ', 1)[0]
+                    self.stops_db[base_name] = {"lat": float(row['Lat']), "lon": float(row['Lon'])}
+
+    def load_route(self, csv_file):
+        self.stops = []
+        path = csv_file
+        if not path or not os.path.exists(path):
+            self.stops = [{'Nazwa': '', 'Audio': '', 'Kierunek': '', 'time': '--:--'}]
+            return
+
+        try:
+            try:
+                with open("sync.json", "r", encoding="utf-8") as f:
+                    sync_data = json.load(f)
+                start_iso = sync_data.get("route_start_datetime")
+                if start_iso:
+                    base_time = datetime.fromisoformat(start_iso)
+                else:
+                    base_time = datetime.now() # Failsafe
+            except:
+                base_time = datetime.now()
+
+            with open(path, mode='r', encoding='utf-8') as f:
+                lines = f.readlines()
+
+            csv_content = []
+            for line in lines:
+                if line.startswith('#'):
+                    if "Route changed:" in line:
+                        is_changed = "True" in line
+                        SESSION["is_route_changed"] = is_changed
+                    continue
+                
+                csv_content.append(line)
+
+            reader = csv.DictReader(csv_content, delimiter=';')
+
+            for row in reader:
+                clean_row = {k.strip(): v.strip() for k, v in row.items() if k is not None}
+                
+                try:
+                    offset_minutes = int(clean_row.get('Czas', 0))
+                    arrival_time = base_time + datetime.timedelta(minutes=offset_minutes)
+                    formatted_time = arrival_time.strftime("%H:%M")
+                    timestamp_planowy = arrival_time.timestamp()
+                except:
+                    formatted_time = "--:--"
+                    timestamp_planowy = 0
+
+                clean_row['name'] = clean_row.get('Nazwa', '')
+                clean_row['time'] = formatted_time
+                clean_row['Timestamp_Planowy'] = timestamp_planowy
+                clean_row['Extras'] = clean_row.get('Extras', '')
+
+                self.stops.append(clean_row)
+                
+            if self.stops:
+                curr_idx = sync_data.get("current_stop_index", 0)
+                current_stop_name = self.stops[curr_idx].get('Nazwa', '')
+                self.update_stop_label(current_stop_name)
+                self.save_to_sync()
+                self.content_box.canvas.ask_update()
+                
+        except Exception as e:
+            print(f"BŁĄD SIP (load_route): {e}")
+            self.stops = [{'Nazwa': 'BŁĄD STRUKTURY', 'Audio': '', 'Kierunek': '', 'Czas': '--:--'}]
+    
+    def save_to_sync(self):
+        try:
+            sync_file = "sync.json"
+            data = {}
+            if os.path.exists(sync_file):
+                with open(sync_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            
+            data["full_route_data"] = self.stops
+            data["last_update_source"] = "sip"
+            
+            with open(sync_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+        except Exception as e:
+            print(f"Błąd zapisu do sync.json: {e}")
+            
+    def get_audio_path(self, filename):
+        sync = self.get_sync_data()
+        v_path = sync.get("voice_path", SESSION.get("voice_path", "audio"))
+        s_order = sync.get("search_order", SEARCH_ORDER)
+        
+        folders = s_order.get(v_path, [v_path])
+        
+        for folder in folders:
+            full_path = os.path.join(BASE_DIR, folder, filename)
+            if os.path.exists(full_path):
+                return full_path
+        return None
+    
+    def play_welcome_sequence(self, dt):
+        if not self.stops: return
+        
+        sync = self.get_sync_data()
+        line_no = sync.get("line_number", "---")
+        
+        last_stop_audio = self.stops[-1]['Audio']
+        
+        seq = [
+            "Linia.mp3", 
+            f"{line_no}.mp3", 
+            "Kierunek.mp3", 
+            f"{last_stop_audio}.mp3"
+        ]
+        self.play_sequence(seq)
+    
+    def get_stop_audio_files(self, stop_data, is_next=True):
+        files = []
+        sync = self.get_sync_data()
+        
+        voice_mode = sync.get("voice_path", SESSION.get("voice_path", "audio"))
+        available_voices = sync.get("voice_types", {}).values()
+
+        if is_next:
+            files.append("Następny Przystanek.mp3")
+        else:
+            if voice_mode in available_voices and voice_mode != "audio":
+                files.append("Przystanek.mp3")
+
+        stop_filename = f"{stop_data['Audio']}.mp3"
+        path_to_stop = self.get_audio_path(stop_filename)
+        
+        if path_to_stop:
+            files.append(stop_filename)
+
+            if any(x in stop_data['Nazwa'].upper() for x in ["(NŻ)", "NŻ"]):
+                files.append("Na Żądanie.mp3")
+                
+            extras = stop_data['Extras'].lower()
+
+            transfer_map = {
+                "przesiadka_bus": "Możliwość przesiadki na inne linie a.mp3",
+                "przesiadka_tram": "Możliwość przesiadki na inne linie t.mp3",
+                "przesiadka_tram_bus": "Możliwość przesiadki na inne linie t lub a.mp3",
+                "przesiadka_train_tram_bus": "Możliwość przesiadki na pa oraz na inne linie t i a.mp3",
+                "przesiadka_train_bus": "Możliwość przesiadki na pa oraz na inne linie a.mp3",
+                "przesiadka_train_tram": "Możliwość przesiadki na pa oraz na inne linie t.mp3"
+            }
+            for key, audio in transfer_map.items():
+                if key in extras:
+                    files.append(audio)
+
+            if any(x in extras for x in ["main_station", "dworzec_główny", "dworzec_glowny"]):
+                files.append("Możliwość dojścia do Dworca Głównego.mp3")
+            
+            if any(x in extras for x in ["wrażliwy", "wrazliwy"]):
+                files.append("Bądź wrażliwy Ustąp miejsca.mp3")
+                
+            if voice_mode == "audio/new":
+                if "1_strefa" in extras:
+                    files.append("Uwaga Ostatni przystanek w I strefie biletowej.mp3")
+                elif "2_strefa" in extras:
+                    files.append("Uwaga Ostatni przystanek w II strefie biletowej.mp3")
+                elif "3_strefa" in extras:
+                    files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
+
+            if "koniec_trasy" in extras:
+                if voice_mode == "audio":
+                    files.append("Koniec trasy MPK.mp3")
+                elif voice_mode == "audio/new":
+                    files.append("Koniec trasy.mp3")
+                elif voice_mode == "audio/maklowicz":
+                    files.append("Koniec trasy KMK.mp3")
+        else:
+            if files:
+                files = [files[0]]
+            
+        return files
+
+    def calculate_distance(self, lat1, lon1, lat2, lon2):
+        phi1, phi2 = math.radians(lat1), math.radians(lat2)
+        dphi = math.radians(lat2 - lat1)
+        dlambda = math.radians(lon2 - lon1)
+        a = math.sin(dphi/2)**2 + math.cos(phi1)*math.cos(phi2)*math.sin(dlambda/2)**2
+        return 6371 * 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+
+    def scroll_news(self, dt):
+        self.ticker.texture_update()
+        self.ticker.width = self.ticker.texture_size[0]
+        self.ticker.x -= 6
+        if self.ticker.right < 0: self.ticker.x = 1726
+        
+        if hasattr(self, 'should_scroll_dest') and self.should_scroll_dest:
+            self.dest_label.x -= 6
+            if self.dest_label.right < 309:
+                self.dest_label.x = 309 + 1316
+        elif hasattr(self, 'dest_label'):
+            self.dest_label.x = 309
+
+        if hasattr(self, 'should_scroll_stop'):
+            if self.should_scroll_stop:
+                self.lbl_stop.x -= 6
+                if self.lbl_stop.right < 418:
+                    self.lbl_stop.x = 418 + 1187
+            else:
+                self.lbl_stop.x = 418
+        elif hasattr(self, 'lbl_stop'):
+            self.lbl_stop.x = 418
+
+    def next_ad(self, *args):
+        if hasattr(self, '_mute_checker'):
+            Clock.unschedule(self._mute_checker)
+
+        if hasattr(self, '_loading_ad') and self._loading_ad:
+            self._loading_ad = False 
+
+        if not self.ad_files:
+            return
+
+        if self.ads:
+            try:
+                self.ads.unbind(eos=self.next_ad)
+                self.ads.state = 'stop'
+                self.ads.unload()
+                if hasattr(self, 'video_container'):
+                    self.remove_widget(self.video_container)
+                else:
+                    self.remove_widget(self.ads)
+            except Exception as e:
+                print(f"Błąd przy usuwaniu reklamy: {e}")
+            
+            self.ads = None
+
+        self.current_ad_idx = (self.current_ad_idx + 1) % len(self.ad_files)
+        
+        Clock.schedule_once(self._rebuild_video_widget, 0.5)
+
+    def _rebuild_video_widget(self, dt):
+        if not self.ad_files:
+            return
+        
+        self._loading_ad = True
+
+        if hasattr(self, 'video_container') and self.video_container.parent:
+            self.content_box.remove_widget(self.video_container)
+
+        self.video_container = StencilView(
+            size_hint=(None, None),
+            size=(905, 510),
+            pos=(905, self.screen_h - 510)
+        )
+
+        self.ads = Video(
+            source=self.ad_files[self.current_ad_idx],
+            state='play',
+            allow_stretch=True,
+            keep_ratio=False,
+            size_hint=(None, None),
+            size=(905, 510),
+            pos=(905, self.screen_h - 510)
+        )
+        
+        self.ads.bind(eos=self.next_ad)
+        self.video_container.add_widget(self.ads)
+        self.content_box.add_widget(self.video_container)
+
+    def update_ui(self, *args):
+        now = datetime.now()
+        days_pl = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"]
+        months_pl = ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"]
+        self.clock_label.text = now.strftime("%H:%M")
+        self.day_label.text = f"{days_pl[now.weekday()]}"
+        self.date_label.text = f"{now.day}.{now.month}.{now.year}"
+
+    def gps_loop(self, dt):
+        if not GPS_AVAILABLE: return
+        try:
+            report = self.gpsd.next()
+            if report['class'] == 'TPV':
+                my_lat, my_lon = getattr(report, 'lat', 0.0), getattr(report, 'lon', 0.0)
+                if my_lat != 0.0: self.process_gps_logic(my_lat, my_lon)
+        except:
+            pass
+
+    def process_gps_logic(self, my_lat, my_lon):
+        target_idx = self.current_idx if self.is_at_stop else self.current_idx + 1
+        if target_idx >= len(self.stops): return
+
+        target_stop = self.stops[target_idx]
+        coords = self.stops_db.get(target_stop['Nazwa'].rsplit(' ', 1)[0])
+        if not coords: return
+
+        dist = self.calculate_distance(my_lat, my_lon, coords['lat'], coords['lon'])
+
+        if self.is_at_stop and dist > 0.040: 
+            self.is_at_stop = False
+            if self.current_idx < len(self.stops) - 1:
+                next_data = self.stops[self.current_idx + 1]
+                self.play_sequence(["Następny Przystanek.mp3", f"{next_data['Audio']}.mp3"], 
+                                callback=lambda: self.update_stop_label(next_data['Nazwa']))
+
+        elif not self.is_at_stop and dist < 0.025:
+            self.current_idx += 1
+            self.is_at_stop = True
+            self.play_sequence([f"{self.stops[self.current_idx]['Audio']}.mp3"])
+            
+    def play_sequence(self, file_list, callback=None, clear_queue=False):
+        if clear_queue:
+            if self.current_sound:
+                self.current_sound.stop()
+            self.audio_queue = []
+
+        self.audio_queue.extend(file_list)
+        if callback:
+            self.audio_queue.append(callback)
+            
+        if not self.is_audio_playing:
+            self.process_queue()
+    
+    def process_queue(self, *args):
+        if not self.audio_queue:
+            self.is_audio_playing = False
+            return
+
+        self.is_audio_playing = True
+        item = self.audio_queue.pop(0)
+
+        if callable(item):
+            item()
+            self.process_queue()
+            return
+
+        full_path = self.get_audio_path(item)
+        
+        if not full_path:
+            self.process_queue()
+            return
+
+        sound = SoundLoader.load(full_path)
+        if sound:
+            self.current_sound = sound
+            sound.bind(on_stop=self.process_queue)
+            sound.play()
+        else:
+            self.process_queue()
+
+    def on_touch_down(self, touch):
+        if SESSION["mode"] == "Dom":
+            if self.is_at_stop:
+                if self.current_idx < len(self.stops) - 1:
+                    self.is_at_stop = False
+                    next_stop = self.stops[self.current_idx + 1]
+                    
+                    files = self.get_stop_audio_files(next_stop, is_next=True)
+                    self.play_sequence(files, callback=lambda: self.update_stop_label(next_stop['Nazwa']))
+            else:
+                self.current_idx += 1
+                self.is_at_stop = True
+                curr_stop = self.stops[self.current_idx]
+                
+                files = self.get_stop_audio_files(curr_stop, is_next=False)
+                self.play_sequence(files)
+                
+        try:
+            with open("sync.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            data["current_stop_index"] = self.current_idx
+            data["last_update_source"] = "sip"
+            
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(data, f)
+        except:
+            pass
+        return True
+
+    def save_full_route_to_sync(self):
+        try:
+            data = {}
+            if os.path.exists("sync.json"):
+                with open("sync.json", "r") as f: data = json.load(f)
+            
+            data["full_route_data"] = self.stops 
+            
+            with open("sync.json", "w", encoding="utf-8") as f:
+                json.dump(data, f)
+        except:
+            pass
