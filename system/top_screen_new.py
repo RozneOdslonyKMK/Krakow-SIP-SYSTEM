@@ -59,7 +59,7 @@ class MainSIPLayoutNew(FloatLayout):
         self.ads = None
         
         bg = '_podstawa.png'
-        bg_source = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', bg)
+        bg_source = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', bg)
         self.content_box.add_widget(Image(source=bg_source, allow_stretch=True, keep_ratio=False))
 
         if self.ad_files:
@@ -151,25 +151,25 @@ class MainSIPLayoutNew(FloatLayout):
         self.content_box.add_widget(Image(source=line_special, size_hint=(None, None), size=(284, 39), pos=(0, self.screen_h-207-39)))
         self.content_box.add_widget(Image(source=line_special_changed, size_hint=(None, None), size=(284, 39), pos=(0, self.screen_h-246-39)))
 
-        limit_dest_width = 1316 
-        dest_pos_x, dest_pos_y = 309, 574 - 95
+        # limit_dest_width = 1316 
+        # dest_pos_x, dest_pos_y = 309, 574 - 95
         
-        self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 100),
-                                         pos=(dest_pos_x, dest_pos_y))
+        # self.dest_container = StencilView(size_hint=(None, None), size=(limit_dest_width, 100),
+        #                                  pos=(dest_pos_x, dest_pos_y))
 
-        direction = self._get_direction_text(csv_file)
+        # direction = self._get_direction_text(csv_file)
         
-        self.dest_label = Label(text=direction.upper(), font_size='80sp', font_name=self.arimo_font,
-                                color=self.krakow_blue, bold=True, size_hint=(None, None),
-                                size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
-                                halign='left', valign='middle', text_size=(None, 100))
+        # self.dest_label = Label(text=direction.upper(), font_size='80sp', font_name=self.arimo_font,
+        #                         color=self.krakow_blue, bold=True, size_hint=(None, None),
+        #                         size=(limit_dest_width, 100), pos=(dest_pos_x, dest_pos_y),
+        #                         halign='left', valign='middle', text_size=(None, 100))
         
-        self.dest_label.texture_update()
-        self.dest_label.width = self.dest_label.texture_size[0]
-        self.should_scroll_dest = self.dest_label.width > limit_dest_width
+        # self.dest_label.texture_update()
+        # self.dest_label.width = self.dest_label.texture_size[0]
+        # self.should_scroll_dest = self.dest_label.width > limit_dest_width
         
-        self.dest_container.add_widget(self.dest_label)
-        self.content_box.add_widget(self.dest_container)
+        # self.dest_container.add_widget(self.dest_label)
+        # self.content_box.add_widget(self.dest_container)
 
         self.stencil = StencilView(size_hint=(None, None), size=(1726, 107), pos=(194, 574-973-107))
         self.ticker = Label(text=SESSION["news_text"], font_name=self.arial_font, font_size='85sp',
@@ -720,6 +720,9 @@ class MainSIPLayoutNew(FloatLayout):
         self.clock_label.text = now.strftime("%H:%M")
         self.day_label.text = f"{days_pl[now.weekday()]}"
         self.date_label.text = f"{now.day}.{now.month}.{now.year}"
+        
+        self.draw_mini_choinka()
+
 
     def gps_loop(self, dt):
         if not GPS_AVAILABLE: return
@@ -835,3 +838,101 @@ class MainSIPLayoutNew(FloatLayout):
                 json.dump(data, f)
         except:
             pass
+
+    def draw_mini_choinka(self):
+        trasa = SESSION.get("current_route_data", [])
+        curr_idx = SESSION.get("current_stop_index", 0)
+        total_stops = len(trasa)
+        
+        active = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'active.png')
+        ex_first_half = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'ex first-half.png')
+        ex_first_last = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'ex first-last.png')
+        ex_first_to_x = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'ex first-to-x.png')
+        ex_from_middle = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'ex from middle.png')
+        ex_from_middle_on_demand = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'ex from middle on-demand.png')
+        first_last = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'first-last.png')
+        from_middle = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'from middle.png')
+        from_middle_on_demand = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'from middle on-demand.png')
+        second_half = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'second-half.png')
+        x_to_last = os.path.join(BASE_DIR, 'sip', '2024_standard', 'top', 'assets', 'x-to-last.png')
+        
+        display_stops = trasa[curr_idx : curr_idx + 5]
+        
+        active_coords = [
+            (336, 169), (336, 235), (336, 299), (336, 363), (336, 430)
+        ]
+        pos, size = self.pos_conv(336, 169, 535, 63)
+        self.content_box.add_widget(Image(
+            source=active, pos=pos, size=size, size_hint=(None, None)
+        ))
+
+        for i in range(len(display_stops)):
+            real_idx = curr_idx + i
+            is_past = False
+
+            if i == 0:
+                img = ex_first_last if is_past else first_last
+                pos, size = self.pos_conv(312, 181, 35, 35)
+                self.content_box.add_widget(Image(source=img, pos=pos, size=size, size_hint=(None, None)))
+            
+            elif i == 4 or (real_idx == total_stops - 1):
+                img = first_last
+                pos, size = self.pos_conv(312, 445, 35, 35)
+                self.content_box.add_widget(Image(source=img, pos=pos, size=size, size_hint=(None, None)))
+            
+            else:
+                img = ex_from_middle if is_past else from_middle
+                coords = {1: (314, 251), 2: (314, 315), 3: (314, 380)}
+                if i in coords:
+                    pos, size = self.pos_conv(coords[i][0], coords[i][1], 31, 31)
+                    self.content_box.add_widget(Image(source=img, pos=pos, size=size, size_hint=(None, None)))
+
+        pos, size = self.pos_conv(323, 215, 13, 20)
+        self.content_box.add_widget(Image(source=ex_first_half, pos=pos, size=size, size_hint=(None, None)))
+
+        if total_stops > 5 and curr_idx <= total_stops - 4:
+            pos, size = self.pos_conv(323, 215, 13, 37)
+            self.content_box.add_widget(Image(source=ex_first_to_x, pos=pos, size=size, size_hint=(None, None)))
+
+        if total_stops > 5 and curr_idx <= total_stops - 5:
+            pos, size = self.pos_conv(323, 409, 13, 17)
+            self.content_box.add_widget(Image(source=x_to_last, pos=pos, size=size, size_hint=(None, None)))
+
+        pos_bg, size_bg = self.pos_conv(323, 215, 13, 211)
+        self.content_box.add_widget(Image(source=ex_first_to_x and x_to_last, pos=pos_bg, size=size_bg, size_hint=(None, None)))
+        
+        pos_sh, size_sh = self.pos_conv(323, 235, 13, 17)
+        self.content_box.add_widget(Image(source=second_half, pos=pos_sh, size=size_sh, size_hint=(None, None)))
+        
+    def draw_stop_names(self):
+        trasa = SESSION.get("current_route_data", [])
+        curr_idx = SESSION.get("current_stop_index", 0)
+        display_stops = trasa[curr_idx : curr_idx + 5]
+        
+        y_coords = [169, 235, 299, 363, 430]
+        
+        for i, stop in enumerate(display_stops):
+            if i >= len(y_coords): break
+            
+            pos, size = self.pos_conv(360, y_coords[i], 535, 63)
+            
+            stop_name = stop.get('name', '').upper()
+            
+            lbl = Label(
+                text=stop_name,
+                font_name=self.museo_sans_500_font,
+                font_size='30sp',
+                color=(1, 1, 1, 1) if i > 0 else (0, 0, 0, 1),
+                size_hint=(None, None),
+                size=size,
+                pos=pos,
+                halign='left',
+                valign='middle',
+                text_size=size
+            )
+            self.content_box.add_widget(lbl)
+
+    def pos_conv(self, x, y, w, h):
+        final_x = x
+        final_y = self.base_size[1] - y - h
+        return (final_x, final_y), (w, h)
