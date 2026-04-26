@@ -1,0 +1,42 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 22   Direction: Kopiec Wandy   Stops amount: 33   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Borek Fałęcki 01;Borek Fałęcki;Kopiec Wandy;
+2;Solvay 02;Solvay;;
+3;Kościuszkowców 02;Kościuszkowców;;
+4;Łagiewniki SKA 02;Łagiewniki SKA;;
+5;Łagiewniki 05;Łagiewniki;;
+6;Brożka (NŻ) 02;Brożka;;
+7;Borsucza 02;Borsucza;;
+8;Kobierzyńska 02;Kobierzyńska;;
+9;Słomiana 02;Słomiana;;
+10;Kapelanka 02;Kapelanka;;
+11;Szwedzka 02;Szwedzka;;
+12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;
+13;Orzeszkowej 02;Orzeszkowej;;
+14;Stradom 01;Stradom;;
+15;Starowiślna 01;Starowiślna;;
+16;Hala Targowa 01;Hala Targowa;;
+17;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;
+18;Teatr Variété 01;Teatr Variété;;
+19;Nullo 01;Nullo;;
+20;Fabryczna 01;Fabryczna;;
+21;Ofiar Dąbia 01;Ofiar Dąbia;;
+22;Dąbie 01;Dąbie;;
+23;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;
+24;Ogród Doświadczeń 01;Ogród Doświadczeń;;
+25;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;
+26;Gałczyńskiego 01;Gałczyńskiego;;
+27;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
+28;Os. Kolorowe 01;Os. Kolorowe;;
+29;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;
+30;Struga 01;Struga;;
+31;Zalew Nowohucki 01;Zalew Nowohucki;;
+32;Kombinat 01;Kombinat;;
+33;Kopiec Wandy 92;Kopiec Wandy;;koniec_trasy
+# Generated at 2026-04-17 16:04
