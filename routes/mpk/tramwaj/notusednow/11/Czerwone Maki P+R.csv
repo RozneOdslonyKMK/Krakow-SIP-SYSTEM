@@ -1,0 +1,34 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 11   Direction: Czerwone Maki P+R   Stops amount: 25   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Mały Płaszów P+R 01;Mały Płaszów P+R;Czerwone Maki P+R;
+2;Rzebika 02;Rzebika;;
+3;Lipska 03;Lipska;;
+4;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada;;
+5;Kabel 01;Kabel;;
+6;Bieżanowska 03;Bieżanowska;;
+7;Dauna 01;Dauna;;
+8;Piaski Nowe 01;Piaski Nowe;;
+9;Nowosądecka 01;Nowosądecka;;
+10;Witosa 01;Witosa;;
+11;Kurdwanów P+R 08;Kurdwanów P+R;;
+12;Kurdwanów P+R 10;Kurdwanów P+R;;
+13;Turowicza 02;Turowicza;;
+14;Sanktuarium Bożego Miłosierdzia 02;Sanktuarium Bożego Miłosierdzia;;
+15;Łagiewniki SKA 02;Łagiewniki SKA;;
+16;Łagiewniki 05;Łagiewniki;;
+17;Brożka (NŻ) 02;Brożka;;
+18;Borsucza 02;Borsucza;;
+19;Lipińskiego 01;Lipińskiego;;
+20;Grota-Roweckiego 01;Grota-Roweckiego;;
+21;Norymberska 01;Norymberska;;
+22;Ruczaj 01;Ruczaj;;
+23;Kampus UJ 01;Kampus UJ;;
+24;Kampus UP JP II 01;Kampus UP JP II;;
+25;Czerwone Maki P+R 91;Czerwone Maki P+R;;koniec_trasy
+# Generated at 2026-04-17 15:52
