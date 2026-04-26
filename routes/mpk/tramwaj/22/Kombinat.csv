@@ -3,39 +3,37 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 22   Direction: Kombinat   Stops amount: 32   Route changed: False
+# Line: 22   Direction: Kombinat   Stops amount: 30   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Borek Fałęcki 01;Borek Fałęcki;Kombinat;
-2;Solvay 02;Solvay;;
-3;Kościuszkowców 02;Kościuszkowców;;
-4;Łagiewniki SKA 02;Łagiewniki SKA;;
-5;Łagiewniki 05;Łagiewniki;;
-6;Brożka (NŻ) 02;Brożka;;
-7;Borsucza 02;Borsucza;;
-8;Kobierzyńska 02;Kobierzyńska;;
-9;Słomiana 02;Słomiana;;
-10;Kapelanka 02;Kapelanka;;
-11;Szwedzka 02;Szwedzka;;
-12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;
-13;Orzeszkowej 02;Orzeszkowej;;
-14;Stradom 01;Stradom;;
-15;Starowiślna 01;Starowiślna;;
-16;Hala Targowa 01;Hala Targowa;;
-17;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;
-18;Teatr Variété 01;Teatr Variété;;
-19;Nullo 01;Nullo;;
-20;Fabryczna 01;Fabryczna;;
-21;Ofiar Dąbia 01;Ofiar Dąbia;;
-22;Dąbie 01;Dąbie;;
-23;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;
-24;Ogród Doświadczeń 01;Ogród Doświadczeń;;
-25;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;
-26;Gałczyńskiego 01;Gałczyńskiego;;
-27;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
-28;Os. Kolorowe 01;Os. Kolorowe;;
-29;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;
-30;Struga 01;Struga;;
-31;Zalew Nowohucki 01;Zalew Nowohucki;;
-32;Kombinat 01;Kombinat;;koniec_trasy
-# Generated at 2026-04-17 16:04
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Borek Fałęcki 01;Borek Fałęcki;Kombinat;;0
+2;Solvay 02;Solvay;;;1
+3;Kościuszkowców 02;Kościuszkowców;;;2
+4;Łagiewniki SKA 02;Łagiewniki SKA;;;4
+5;Łagiewniki 02;Łagiewniki;;;7
+6;Rzemieślnicza 02;Rzemieślnicza;;;8
+7;Rondo Matecznego 02;Rondo Matecznego;;;9
+8;Smolki 02;Smolki;;;10
+9;Korona 01;Korona;;;12
+10;Plac Bohaterów Getta 02;Plac Bohaterów Getta;;;14
+11;św. Wawrzyńca 02;Św. Wawrzyńca;;;17
+12;Miodowa 02;Miodowa;;;18
+13;Starowiślna 03;Starowiślna;;;20
+14;Hala Targowa 01;Hala Targowa;;;21
+15;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;;25
+16;Teatr Variété 01;Teatr Variété;;;26
+17;Nullo 01;Nullo;;;27
+18;Fabryczna 01;Fabryczna;;;28
+19;Ofiar Dąbia 01;Ofiar Dąbia;;;29
+20;Dąbie 01;Dąbie;;;30
+21;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;;32
+22;Ogród Doświadczeń 01;Ogród Doświadczeń;;;34
+23;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;;36
+24;Gałczyńskiego 01;Gałczyńskiego;;;37
+25;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;;40
+26;Os. Kolorowe 01;Os. Kolorowe;;;41
+27;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;;44
+28;Struga 01;Struga;;;45
+29;Zalew Nowohucki 01;Zalew Nowohucki;;;46
+30;Kombinat 01;Kombinat;;koniec_trasy;48
+# Generated at 2026-04-26 13:29
