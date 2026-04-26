@@ -3,32 +3,28 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 17   Direction: Dworzec Towarowy   Stops amount: 25   Route changed: False
+# Line: 17   Direction: Dworzec Towarowy   Stops amount: 21   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Czerwone Maki P+R 01;Czerwone Maki P+R;Dworzec Towarowy;
-2;Kampus UP JP II 02;Kampus UP JP II;;
-3;Kampus UJ 02;Kampus UJ;;
-4;Ruczaj 02;Ruczaj;;
-5;Norymberska 02;Norymberska;;
-6;Grota-Roweckiego 02;Grota-Roweckiego;;
-7;Lipińskiego 02;Lipińskiego;;
-8;Borsucza 01;Borsucza;;
-9;Brożka (NŻ) 01;Brożka;;
-10;Łagiewniki 04;Łagiewniki;;
-11;Łagiewniki 02;Łagiewniki;;
-12;Rzemieślnicza 02;Rzemieślnicza;;
-13;Rondo Matecznego 02;Rondo Matecznego;;
-14;Smolki 02;Smolki;;
-15;Korona 01;Korona;;
-16;Plac Bohaterów Getta 02;Plac Bohaterów Getta;;
-17;św. Wawrzyńca 02;Św. Wawrzyńca;;
-18;Miodowa 02;Miodowa;;
-19;Starowiślna 03;Starowiślna;;
-20;Hala Targowa 01;Hala Targowa;;
-21;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;
-22;Rondo Mogilskie 05;Rondo Mogilskie;;
-23;Dworzec Główny Tunel 02;Dworzec Główny Tunel;;
-24;Politechnika 03;Politechnika;;
-25;Dworzec Towarowy 92;Dworzec Towarowy;;koniec_trasy
-# Generated at 2026-04-17 15:56
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Czerwone Maki P+R 01;Czerwone Maki P+R;Dworzec Towarowy;;0
+2;Kampus UP JP II 02;Kampus UP JP II;;;1
+3;Kampus UJ 02;Kampus UJ;;;2
+4;Ruczaj 02;Ruczaj;;;3
+5;Norymberska 02;Norymberska;;;4
+6;Grota-Roweckiego 02;Grota-Roweckiego;;;6
+7;Lipińskiego 02;Lipińskiego;;;8
+8;Kobierzyńska 02;Kobierzyńska;;;9
+9;Słomiana 02;Słomiana;;;11
+10;Kapelanka 02;Kapelanka;;;12
+11;Szwedzka 02;Szwedzka;;;13
+12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;;15
+13;Orzeszkowej 02;Orzeszkowej;;;16
+14;Stradom 01;Stradom;;;17
+15;Starowiślna 03;Starowiślna;;;20
+16;Hala Targowa 01;Hala Targowa;;;21
+17;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;;24
+18;Rondo Mogilskie 05;Rondo Mogilskie;;;26
+19;Dworzec Główny Tunel 02;Dworzec Główny Tunel;;;28
+20;Politechnika 03;Politechnika;;;29
+21;Dworzec Towarowy 92;Dworzec Towarowy;;koniec_trasy;32
+# Generated at 2026-04-26 13:14
