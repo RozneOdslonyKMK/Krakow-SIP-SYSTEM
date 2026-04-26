@@ -1,0 +1,27 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 11   Direction: Borek Fałęcki   Stops amount: 18   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Mały Płaszów P+R 01;Mały Płaszów P+R;Borek Fałęcki;;0
+2;Rzebika 02;Rzebika;;;2
+3;Lipska 03;Lipska;;;4
+4;Dworzec Płaszów Estakada 02;Dworzec Płaszów Estakada;;;6
+5;Kabel 01;Kabel;;;8
+6;Bieżanowska 03;Bieżanowska;;;10
+7;Dauna 01;Dauna;;;12
+8;Piaski Nowe 01;Piaski Nowe;;;14
+9;Nowosądecka 01;Nowosądecka;;;15
+10;Witosa 01;Witosa;;;17
+11;Kurdwanów P+R 08;Kurdwanów P+R;;;18
+12;Kurdwanów P+R 10;Kurdwanów P+R;;;20
+13;Turowicza 02;Turowicza;;;21
+14;Sanktuarium Bożego Miłosierdzia 02;Sanktuarium Bożego Miłosierdzia;;;23
+15;Łagiewniki SKA 01;Łagiewniki SKA;;;25
+16;Kościuszkowców 01;Kościuszkowców;;;26
+17;Solvay 01;Solvay;;;27
+18;Borek Fałęcki 91;Borek Fałęcki;;;29
+# Generated at 2026-04-26 13:22
