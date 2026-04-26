@@ -3,41 +3,39 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 22   Direction: Borek Fałęcki   Stops amount: 34   Route changed: False
+# Line: 22   Direction: Borek Fałęcki   Stops amount: 32   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Kopiec Wandy 02;Kopiec Wandy;Borek Fałęcki;
-2;Kombinat 03;Kombinat;;
-3;Zalew Nowohucki 02;Zalew Nowohucki;;
-4;Struga 02;Struga;;
-5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;
-6;Os. Kolorowe 02;Os. Kolorowe;;
-7;Rondo Czyżyńskie 04;Rondo Czyżyńskie;;
-8;Gałczyńskiego 02;Gałczyńskiego;;
-9;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu;;
-10;Ogród Doświadczeń 02;Ogród Doświadczeń;;
-11;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju;;
-12;Dąbie 02;Dąbie;;
-13;Ofiar Dąbia 02;Ofiar Dąbia;;
-14;Fabryczna 02;Fabryczna;;
-15;Nullo 02;Nullo;;
-16;Teatr Variété 02;Teatr Variété;;
-17;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;;
-18;Hala Targowa 02;Hala Targowa;;
-19;Starowiślna 04;Starowiślna;;
-20;Stradom 03;Stradom;;
-21;Orzeszkowej 01;Orzeszkowej;;
-22;Rondo Grunwaldzkie 01;Rondo Grunwaldzkie;;
-23;Szwedzka 01;Szwedzka;;
-24;Kapelanka 01;Kapelanka;;
-25;Słomiana 01;Słomiana;;
-26;Kobierzyńska 01;Kobierzyńska;;
-27;Borsucza 01;Borsucza;;
-28;Brożka (NŻ) 01;Brożka;;
-29;Łagiewniki 04;Łagiewniki;;
-30;Łagiewniki ZUS 01;Łagiewniki ZUS;;
-31;Łagiewniki SKA 05;Łagiewniki SKA;;
-32;Kościuszkowców 01;Kościuszkowców;;
-33;Solvay 01;Solvay;;
-34;Borek Fałęcki 91;Borek Fałęcki;;koniec_trasy
-# Generated at 2026-04-17 16:04
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Kopiec Wandy 02;Kopiec Wandy;Borek Fałęcki;;0
+2;Kombinat 03;Kombinat;;;2
+3;Zalew Nowohucki 02;Zalew Nowohucki;;;4
+4;Struga 02;Struga;;;5
+5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;;8
+6;Os. Kolorowe 02;Os. Kolorowe;;;9
+7;Rondo Czyżyńskie 04;Rondo Czyżyńskie;;;12
+8;Gałczyńskiego 02;Gałczyńskiego;;;13
+9;Rondo 308. Dywizjonu 02;Rondo 308. Dywizjonu;;;14
+10;Ogród Doświadczeń 02;Ogród Doświadczeń;;;16
+11;TAURON Arena Kraków al. Pokoju 02;TAURON Arena Kraków Al. Pokoju;;;17
+12;Dąbie 02;Dąbie;;;19
+13;Ofiar Dąbia 02;Ofiar Dąbia;;;20
+14;Fabryczna 02;Fabryczna;;;21
+15;Nullo 02;Nullo;;;22
+16;Teatr Variété 02;Teatr Variété;;;23
+17;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;;;26
+18;Hala Targowa 02;Hala Targowa;;;28
+19;Starowiślna 04;Starowiślna;;;29
+20;Miodowa 01;Miodowa;;;31
+21;św. Wawrzyńca 01;Św. Wawrzyńca;;;32
+22;Plac Bohaterów Getta 01;Plac Bohaterów Getta;;;35
+23;Korona 02;Korona;;;38
+24;Smolki 01;Smolki;;;39
+25;Rondo Matecznego 01;Rondo Matecznego;;;41
+26;Rzemieślnicza 01;Rzemieślnicza;;;43
+27;Łagiewniki 01;Łagiewniki;;;45
+28;Łagiewniki ZUS 01;Łagiewniki ZUS;;;47
+29;Łagiewniki SKA 05;Łagiewniki SKA;;;48
+30;Kościuszkowców 01;Kościuszkowców;;;50
+31;Solvay 01;Solvay;;;51
+32;Borek Fałęcki 91;Borek Fałęcki;;koniec_trasy;53
+# Generated at 2026-04-26 13:33
