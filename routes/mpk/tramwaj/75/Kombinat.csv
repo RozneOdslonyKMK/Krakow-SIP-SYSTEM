@@ -3,10 +3,10 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line:    Direction: Kopiec Wandy   Stops amount: 32   Route changed: False
+# Line:    Direction: Kombinat   Stops amount: 31   Route changed: False
 # Line operator:    Vehicle type: 
 Lp;Nazwa;Audio;Kierunek;Extras;Czas
-1;Górka Narodowa P+R 01;Górka Narodowa P+R;Kopiec Wandy;;
+1;Górka Narodowa P+R 01;Górka Narodowa P+R;Kombinat;;
 2;Papierni Prądnickich 02;Papierni Prądnickich;;;
 3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej;;;
 4;Bociana 02;Bociana;;;
@@ -36,6 +36,5 @@ Lp;Nazwa;Audio;Kierunek;Extras;Czas
 28;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;;
 29;Struga 01;Struga;;;
 30;Zalew Nowohucki 01;Zalew Nowohucki;;;
-31;Kombinat 01;Kombinat;;;
-32;Kopiec Wandy 92;Kopiec Wandy;;koniec_trasy;
+31;Kombinat 01;Kombinat;;koniec_trasy;
 # Generated at 2026-04-29 14:50

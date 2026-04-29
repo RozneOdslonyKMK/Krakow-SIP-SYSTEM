@@ -3,39 +3,39 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 75   Direction: Górka Narodowa P+R   Stops amount: 32   Route changed: False
-# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Bardosa 02;Bardosa;Górka Narodowa P+R;
-2;Suche Stawy 02;Suche Stawy;;
-3;Klasztorna 02;Klasztorna;;
-4;Os. Na Skarpie 02;Os. Na Skarpie;;
-5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;
-6;Os. Kolorowe 02;Os. Kolorowe;;
-7;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;
-8;Czyżyny 02;Czyżyny;;
-9;Stella-Sawickiego 02;Stella-Sawickiego;;
-10;AKF / PK 02;AKF PK;;
-11;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;
-12;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
-13;Białucha 02;Białucha;;
-14;Cystersów 02;Cystersów;;
-15;Rondo Mogilskie 01;Rondo Mogilskie;;
-16;Lubicz 01;Lubicz;;
-17;Teatr Słowackiego 01;Teatr Słowackiego;;
-18;Stary Kleparz 01;Stary Kleparz;;
-19;Pędzichów 01;Pędzichów;;
-20;Nowy Kleparz 01;Nowy Kleparz;;
-21;Dworzec Towarowy 01;Dworzec Towarowy;;
-22;Szpital Narutowicza 01;Szpital Narutowicza;;
-23;Bratysławska 01;Bratysławska;;
-24;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;
-25;Pachońskiego P+R 01;Pachońskiego P+R;;
-26;Białoprądnicka 02;Białoprądnicka;;
-27;Górnickiego 02;Górnickiego;;
-28;Siewna Wiadukt 01;Siewna Wiadukt;;
-29;Bociana 01;Bociana;;
-30;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;
-31;Papierni Prądnickich 01;Papierni Prądnickich;;
-32;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy
-# Generated at 2026-04-17 16:14
+# Line:    Direction: Górka Narodowa P+R   Stops amount: 32   Route changed: False
+# Line operator:    Vehicle type: 
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Kopiec Wandy 02;Kopiec Wandy;Górka Narodowa P+R;;
+2;Kombinat 03;Kombinat;;;
+3;Zalew Nowohucki 02;Zalew Nowohucki;;;
+4;Struga 02;Struga;;;
+5;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;;
+6;Os. Kolorowe 02;Os. Kolorowe;;;
+7;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;;
+8;Czyżyny 02;Czyżyny;;;
+9;Stella-Sawickiego 02;Stella-Sawickiego;;;
+10;AKF / PK 02;AKF PK;;;
+11;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;;
+12;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;;
+13;Białucha 02;Białucha;;;
+14;Cystersów 02;Cystersów;;;
+15;Rondo Mogilskie 01;Rondo Mogilskie;;;
+16;Lubicz 01;Lubicz;;;
+17;Teatr Słowackiego 01;Teatr Słowackiego;;;
+18;Stary Kleparz 01;Stary Kleparz;;;
+19;Pędzichów 01;Pędzichów;;;
+20;Nowy Kleparz 01;Nowy Kleparz;;;
+21;Dworzec Towarowy 01;Dworzec Towarowy;;;
+22;Szpital Narutowicza 01;Szpital Narutowicza;;;
+23;Bratysławska 01;Bratysławska;;;
+24;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;;
+25;Pachońskiego P+R 01;Pachońskiego P+R;;;
+26;Białoprądnicka 02;Białoprądnicka;;;
+27;Górnickiego 02;Górnickiego;;;
+28;Siewna Wiadukt 01;Siewna Wiadukt;;;
+29;Bociana 01;Bociana;;;
+30;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;;
+31;Papierni Prądnickich 01;Papierni Prądnickich;;;
+32;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy;
+# Generated at 2026-04-29 14:52
