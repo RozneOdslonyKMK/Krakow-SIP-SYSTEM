@@ -3,7 +3,7 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 0   Direction: Górka Narodowa P+R   Stops amount: 30   Route changed: True
+# Line: 75   Direction: Górka Narodowa P+R   Stops amount: 30   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras;Czas
 1;Zalew Nowohucki 02;Zalew Nowohucki;Górka Narodowa P+R;;0
@@ -36,4 +36,4 @@ Lp;Nazwa;Audio;Kierunek;Extras;Czas
 28;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;;44
 29;Papierni Prądnickich 01;Papierni Prądnickich;;;45
 30;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy;47
-# Generated at 2026-05-01 22:07
+# Generated at 2026-05-01 22:09
