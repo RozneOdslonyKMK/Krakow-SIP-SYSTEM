@@ -1,0 +1,39 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 0   Direction: Górka Narodowa P+R   Stops amount: 30   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Zalew Nowohucki 02;Zalew Nowohucki;Górka Narodowa P+R;;0
+2;Struga 02;Struga;;;1
+3;Plac Centralny im. R.Reagana 01;Plac Centralny im. R.Reagana;;;4
+4;Os. Kolorowe 02;Os. Kolorowe;;;5
+5;Rondo Czyżyńskie 02;Rondo Czyżyńskie;;;8
+6;Czyżyny 02;Czyżyny;;;9
+7;Stella-Sawickiego 02;Stella-Sawickiego;;;10
+8;AKF / PK 02;AKF PK;;;11
+9;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;;12
+10;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;;14
+11;Białucha 02;Białucha;;;15
+12;Cystersów 02;Cystersów;;;17
+13;Rondo Mogilskie 01;Rondo Mogilskie;;;19
+14;Lubicz 01;Lubicz;;;21
+15;Teatr Słowackiego 01;Teatr Słowackiego;;;24
+16;Stary Kleparz 01;Stary Kleparz;;;26
+17;Pędzichów 01;Pędzichów;;;27
+18;Nowy Kleparz 01;Nowy Kleparz;;;29
+19;Dworzec Towarowy 01;Dworzec Towarowy;;;32
+20;Szpital Narutowicza 01;Szpital Narutowicza;;;34
+21;Bratysławska 01;Bratysławska;;;35
+22;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;;36
+23;Pachońskiego P+R 01;Pachońskiego P+R;;;38
+24;Białoprądnicka 02;Białoprądnicka;;;39
+25;Górnickiego 02;Górnickiego;;;41
+26;Siewna Wiadukt 01;Siewna Wiadukt;;;42
+27;Bociana 01;Bociana;;;43
+28;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;;44
+29;Papierni Prądnickich 01;Papierni Prądnickich;;;45
+30;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy;47
+# Generated at 2026-05-01 22:07
