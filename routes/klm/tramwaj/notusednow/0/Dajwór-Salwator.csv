@@ -1,0 +1,22 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 0   Direction: Salwator   Stops amount: 13   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras
+1;Dajwór 01;Dajwór;Salwator;
+2;Plac Bohaterów Getta 01;Plac Bohaterów Getta;;
+3;Korona 02;Korona;;
+4;Plac Wolnica 02;Plac Wolnica;;
+5;Stradom 04;Stradom;;
+6;Wawel 01;Wawel;;
+7;św. Gertrudy 01;Św. Gertrudy;;
+8;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;
+9;Filharmonia 01;Filharmonia;;
+10;Jubilat 01;Jubilat;;
+11;Komorowskiego 01;Komorowskiego;;
+12;Salwator 03;Salwator;;
+13;Salwator 91;Salwator;;koniec_trasy
+# Generated at 2026-04-17 17:06
