@@ -1,0 +1,42 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 22   Direction: Zajezdnia Nowa Huta   Stops amount: 33   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Borek Fałęcki 01;Borek Fałęcki;Zajezdnia Nowa Huta;;0
+2;Solvay 02;Solvay;;;1
+3;Kościuszkowców 02;Kościuszkowców;;;2
+4;Łagiewniki SKA 02;Łagiewniki SKA;;;4
+5;Łagiewniki 05;Łagiewniki;;;7
+6;Brożka (NŻ) 02;Brożka;;;8
+7;Borsucza 02;Borsucza;;;9
+8;Kobierzyńska 02;Kobierzyńska;;;11
+9;Słomiana 02;Słomiana;;;13
+10;Kapelanka 02;Kapelanka;;;14
+11;Szwedzka 02;Szwedzka;;;15
+12;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;;17
+13;Orzeszkowej 02;Orzeszkowej;;;18
+14;Stradom 01;Stradom;;;19
+15;Starowiślna 01;Starowiślna;;;22
+16;Hala Targowa 01;Hala Targowa;;;23
+17;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;;27
+18;Teatr Variété 01;Teatr Variété;;;28
+19;Nullo 01;Nullo;;;29
+20;Fabryczna 01;Fabryczna;;;30
+21;Ofiar Dąbia 01;Ofiar Dąbia;;;31
+22;Dąbie 01;Dąbie;;;32
+23;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków Al. Pokoju;;;34
+24;Ogród Doświadczeń 01;Ogród Doświadczeń;;;36
+25;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;;38
+26;Gałczyńskiego 01;Gałczyńskiego;;;39
+27;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;;42
+28;Os. Kolorowe 01;Os. Kolorowe;;;43
+29;Plac Centralny im. R.Reagana 03;Plac Centralny im. R.Reagana;;;46
+30;Struga 01;Struga;;;47
+31;Zalew Nowohucki 01;Zalew Nowohucki;;;48
+32;Kombinat 01;Kombinat;;;50
+33;Zajezdnia Nowa Huta 02;Zajezdnia Nowa Huta;;koniec_trasy;52
+# Generated at 2026-05-31 20:25
