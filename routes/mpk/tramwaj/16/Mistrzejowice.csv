@@ -3,21 +3,21 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 16   Direction: Mistrzejowice   Stops amount: 14   Route changed: False
+# Line: 16   Direction: Mistrzejowice   Stops amount: 14   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Bardosa 02;Bardosa;Mistrzejowice;
-2;Suche Stawy 02;Suche Stawy;;
-3;Klasztorna 02;Klasztorna;;
-4;Os. Na Skarpie 02;Os. Na Skarpie;;
-5;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;;
-6;Os. Zgody 02;Os. Zgody;;
-7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
-8;DH Wanda 01;DH Wanda;;
-9;Rondo Hipokratesa 01;Rondo Hipokratesa;;
-10;Dunikowskiego 01;Dunikowskiego;;
-11;Rondo Piastowskie 01;Rondo Piastowskie;;
-12;Os. Złotego Wieku 01;Os. Złotego Wieku;;
-13;Miśnieńska 01;Miśnieńska;;
-14;Mistrzejowice 94;Mistrzejowice;;koniec_trasy
-# Generated at 2026-04-17 15:54
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Zajezdnia Nowa Huta 01;Zajezdnia Nowa Huta;Mistrzejowice;;0
+2;Kombinat 02;Kombinat;;;1
+3;Zalew Nowohucki 02;Zalew Nowohucki;;;3
+4;Struga 02;Struga;;;4
+5;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;;;6
+6;Os. Zgody 02;Os. Zgody;;;7
+7;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;10
+8;DH Wanda 01;DH Wanda;;;11
+9;Rondo Hipokratesa 01;Rondo Hipokratesa;;;13
+10;Dunikowskiego 01;Dunikowskiego;;;14
+11;Rondo Piastowskie 01;Rondo Piastowskie;;;16
+12;Os. Złotego Wieku 01;Os. Złotego Wieku;;;17
+13;Miśnieńska 01;Miśnieńska;;;18
+14;Mistrzejowice 94;Mistrzejowice;;koniec_trasy;20
+# Generated at 2026-05-31 20:01
