@@ -80,7 +80,7 @@ class DriverPanel(Screen):
                                pos=d_pos)
 
         l_pos, l_size = self.pos_conv(812, 31, 178, 66)
-        self.line_brygada_lbl = Label(text="---/---", font_size='30sp',
+        self.line_brygada_lbl = Label(text="---/--", font_size='30sp',
                                       size_hint=(None, None), size=l_size,
                                       pos=l_pos)
 
@@ -345,7 +345,7 @@ class DriverPanel(Screen):
         elif val == 'OK':
             if len(self.input_buffer) == 7:
                 raw_line = self.input_buffer[:3]
-                raw_brygada = self.input_buffer[-3:]
+                raw_brygada = self.input_buffer[-2:]
 
                 lr_prefix = "LR"
                 if raw_line.startswith("99"):
@@ -519,7 +519,7 @@ class DriverPanel(Screen):
         self.line_brygada_lbl.size = l_size
 
         line_val = SESSION.get("full_input", "---")[:3]
-        brygada_val = SESSION.get("brygada_number", "---")
+        brygada_val = SESSION.get("brygada_number", "--")
         self.line_brygada_lbl.text = f"{line_val}/{brygada_val}"
 
         self.layout.add_widget(self.clock_lbl)
@@ -558,7 +558,7 @@ class DriverPanel(Screen):
         self.line_brygada_lbl.size = l_size
 
         line_val = SESSION.get("full_input", "---")[:3]
-        brygada_val = SESSION.get("brygada_number", "---")
+        brygada_val = SESSION.get("brygada_number", "--")
         self.line_brygada_lbl.text = f"{line_val}/{brygada_val}"
 
         self.layout.add_widget(self.clock_lbl)
@@ -591,20 +591,20 @@ class DriverPanel(Screen):
             return "bg_01.png"
 
         if delay_seconds < 0:
-            if minutes == 0: return "bg_+.png"
-            if minutes == 1: return "bg_+_01.png"
-            if minutes == 2: return "bg_+_02.png"
-            if minutes == 3: return "bg_+_03.png"
-            if minutes == 4: return "bg_+_04.png"
-            return "bg_+_05.png"
-
-        else:
             if minutes == 0: return "bg_-.png"
             if minutes == 1: return "bg_-_01.png"
             if minutes == 2: return "bg_-_02.png"
             if minutes == 3: return "bg_-_03.png"
             if minutes == 4: return "bg_-_04.png"
             return "bg_-_05.png"
+
+        else:
+            if minutes == 0: return "bg_+.png"
+            if minutes == 1: return "bg_+_01.png"
+            if minutes == 2: return "bg_+_02.png"
+            if minutes == 3: return "bg_+_03.png"
+            if minutes == 4: return "bg_+_04.png"
+            return "bg_+_05.png"
 
     def update_delay_display(self, dt):
         if SESSION.get("is_running"):
