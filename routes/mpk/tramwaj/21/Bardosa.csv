@@ -3,10 +3,10 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 21   Direction: Pleszów   Stops amount: 20   Route changed: True
+# Line: 21   Direction: Bardosa   Stops amount: 13   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras;Czas
-1;Os. Piastów 01;Os. Piastów;Pleszów;;0
+1;Os. Piastów 01;Os. Piastów;Bardosa;;0
 2;Piasta Kołodzieja 02;Piasta Kołodzieja;;;1
 3;Kleeberga 02;Kleeberga;;;2
 4;Dunikowskiego 02;Dunikowskiego;;;4
@@ -18,12 +18,5 @@ Lp;Nazwa;Audio;Kierunek;Extras;Czas
 10;Os. Na Skarpie 01;Os. Na Skarpie;;;15
 11;Klasztorna 01;Klasztorna;;;17
 12;Suche Stawy 01;Suche Stawy;;;18
-13;Bardosa 01;Bardosa;;;19
-14;Fort Mogiła (NŻ) 01;Fort Mogiła;;;21
-15;Brama nr 4 (NŻ) 01;Brama nr 4;;;22
-16;Giedroycia (NŻ) 01;Giedroycia;;;23
-17;Brama nr 5 (NŻ) 01;Brama nr 5;;;24
-18;Meksyk (NŻ) 01;Meksyk;;;25
-19;Koksochemia (NŻ) 01;Koksochemia;;;26
-20;Pleszów 91;Pleszów;;koniec_trasy;28
-# Generated at 2026-05-31 20:06
+13;Bardosa 92;Bardosa;;koniec_trasy;19
+# Generated at 2026-05-31 20:07

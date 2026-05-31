@@ -3,27 +3,27 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 21   Direction: Os. Piastów   Stops amount: 20   Route changed: False
+# Line: 21   Direction: Os. Piastów   Stops amount: 20   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
-Lp;Nazwa;Audio;Kierunek;Extras
-1;Pleszów 01;Pleszów;Os. Piastów;
-2;Koksochemia (NŻ) 02;Koksochemia;;
-3;Meksyk (NŻ) 02;Meksyk;;
-4;Brama nr 5 (NŻ) 02;Brama nr 5;;
-5;Giedroycia (NŻ) 02;Giedroycia;;
-6;Brama nr 4 (NŻ) 02;Brama nr 4;;
-7;Fort Mogiła (NŻ) 02;Fort Mogiła;;
-8;Kopiec Wandy 02;Kopiec Wandy;;
-9;Kombinat 03;Kombinat;;
-10;Zalew Nowohucki 02;Zalew Nowohucki;;
-11;Struga 02;Struga;;
-12;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;;
-13;Os. Zgody 02;Os. Zgody;;
-14;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;
-15;DH Wanda 01;DH Wanda;;
-16;Rondo Hipokratesa 01;Rondo Hipokratesa;;
-17;Dunikowskiego 01;Dunikowskiego;;
-18;Kleeberga 01;Kleeberga;;
-19;Piasta Kołodzieja 01;Piasta Kołodzieja;;
-20;Os. Piastów 91;Os. Piastów;;koniec_trasy
-# Generated at 2026-04-17 16:00
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Pleszów 01;Pleszów;Os. Piastów;;0
+2;Koksochemia (NŻ) 02;Koksochemia;;;1
+3;Meksyk (NŻ) 02;Meksyk;;;2
+4;Brama nr 5 (NŻ) 02;Brama nr 5;;;3
+5;Giedroycia (NŻ) 02;Giedroycia;;;4
+6;Brama nr 4 (NŻ) 02;Brama nr 4;;;5
+7;Fort Mogiła (NŻ) 02;Fort Mogiła;;;6
+8;Bardosa 02;Bardosa;;;8
+9;Suche Stawy 02;Suche Stawy;;;9
+10;Klasztorna 02;Klasztorna;;;10
+11;Os. Na Skarpie 02;Os. Na Skarpie;;;11
+12;Plac Centralny im. R.Reagana 02;Plac Centralny im. R.Reagana;;;15
+13;Os. Zgody 02;Os. Zgody;;;16
+14;Rondo Kocmyrzowskie im. Ks. Gorzelanego 01;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;19
+15;DH Wanda 01;DH Wanda;;;20
+16;Rondo Hipokratesa 01;Rondo Hipokratesa;;;22
+17;Dunikowskiego 01;Dunikowskiego;;;23
+18;Kleeberga 01;Kleeberga;;;25
+19;Piasta Kołodzieja 01;Piasta Kołodzieja;;;26
+20;Os. Piastów 91;Os. Piastów;;koniec_trasy;28
+# Generated at 2026-05-31 20:11
