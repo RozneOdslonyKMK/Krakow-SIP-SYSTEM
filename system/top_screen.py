@@ -528,7 +528,7 @@ class MainSIPLayout(FloatLayout):
                 if voice_mode == "audio":
                     files.append("Koniec trasy MPK.mp3")
                 elif voice_mode == "audio/new":
-                    files.append("Koniec trasy.mp3")
+                    files.append("Koniec trasy KMK.mp3")
                 elif voice_mode == "audio/maklowicz":
                     files.append("Koniec trasy KMK.mp3")
         else:
