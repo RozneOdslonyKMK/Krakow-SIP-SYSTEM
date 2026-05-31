@@ -1,0 +1,41 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 75   Direction: Bardosa   Stops amount: 32   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Górka Narodowa P+R 01;Górka Narodowa P+R;Bardosa;;0
+2;Papierni Prądnickich 02;Papierni Prądnickich;;;1
+3;Kuźnicy Kołłątajowskiej 02;Kuźnicy Kołłątajowskiej;;;2
+4;Bociana 02;Bociana;;;3
+5;Siewna Wiadukt 02;Siewna Wiadukt;;;4
+6;Górnickiego 01;Górnickiego;;;6
+7;Białoprądnicka 01;Białoprądnicka;;;7
+8;Pachońskiego P+R 02;Pachońskiego P+R;;;8
+9;Krowodrza Górka P+R 02;Krowodrza Górka P+R;;;10
+10;Bratysławska 02;Bratysławska;;;11
+11;Szpital Narutowicza 02;Szpital Narutowicza;;;12
+12;Dworzec Towarowy 03;Dworzec Towarowy;;;15
+13;Nowy Kleparz 02;Nowy Kleparz;;;16
+14;Pędzichów 02;Pędzichów;;;18
+15;Stary Kleparz 03;Stary Kleparz;;;20
+16;Teatr Słowackiego 02;Teatr Słowackiego;;;22
+17;Lubicz 02;Lubicz;;;24
+18;Rondo Mogilskie 02;Rondo Mogilskie;;;26
+19;Cystersów 01;Cystersów;;;27
+20;Białucha 01;Białucha;;;29
+21;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;;31
+22;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;;32
+23;AKF / PK 01;AKF PK;;;33
+24;Stella-Sawickiego 01;Stella-Sawickiego;;;35
+25;Czyżyny 01;Czyżyny;;;36
+26;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;;39
+27;Os. Kolorowe 01;Os. Kolorowe;;;40
+28;Plac Centralny im. R.Reagana 04;Plac Centralny im. R.Reagana;;;43
+29;Os. Na Skarpie 01;Os. Na Skarpie;;;44
+30;Klasztorna 01;Klasztorna;;;46
+31;Suche Stawy 01;Suche Stawy;;;47
+32;Bardosa 92;Bardosa;;koniec_trasy;48
+# Generated at 2026-05-31 20:45

@@ -1,0 +1,35 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 75   Direction: Górka Narodowa P+R   Stops amount: 26   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Rondo Czyżyńskie 02;Rondo Czyżyńskie;Górka Narodowa P+R;;0
+2;Czyżyny 02;Czyżyny;;;1
+3;Stella-Sawickiego 02;Stella-Sawickiego;;;2
+4;AKF / PK 02;AKF PK;;;3
+5;Muzeum Lotnictwa Polskiego 02;Muzeum Lotnictwa Polskiego;;;4
+6;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;;6
+7;Białucha 02;Białucha;;;7
+8;Cystersów 02;Cystersów;;;9
+9;Rondo Mogilskie 01;Rondo Mogilskie;;;11
+10;Lubicz 01;Lubicz;;;13
+11;Teatr Słowackiego 01;Teatr Słowackiego;;;16
+12;Stary Kleparz 01;Stary Kleparz;;;18
+13;Pędzichów 01;Pędzichów;;;19
+14;Nowy Kleparz 01;Nowy Kleparz;;;21
+15;Dworzec Towarowy 01;Dworzec Towarowy;;;24
+16;Szpital Narutowicza 01;Szpital Narutowicza;;;26
+17;Bratysławska 01;Bratysławska;;;27
+18;Krowodrza Górka P+R 01;Krowodrza Górka P+R;;;28
+19;Pachońskiego P+R 01;Pachońskiego P+R;;;30
+20;Białoprądnicka 02;Białoprądnicka;;;31
+21;Górnickiego 02;Górnickiego;;;33
+22;Siewna Wiadukt 01;Siewna Wiadukt;;;34
+23;Bociana 01;Bociana;;;35
+24;Kuźnicy Kołłątajowskiej 01;Kuźnicy Kołłątajowskiej;;;36
+25;Papierni Prądnickich 01;Papierni Prądnickich;;;37
+26;Górka Narodowa P+R 91;Górka Narodowa P+R;;koniec_trasy;39
+# Generated at 2026-05-31 20:51
