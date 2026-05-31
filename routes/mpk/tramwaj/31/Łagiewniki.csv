@@ -1,0 +1,19 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 31   Direction: Łagiewniki   Stops amount: 10   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Teatr Słowackiego 02;Teatr Słowackiego;Łagiewniki;;0
+2;Poczta Główna 01;Poczta Główna;;;2
+3;Starowiślna 02;Starowiślna;;;4
+4;Stradom 03;Stradom;;;6
+5;Plac Wolnica 01;Plac Wolnica;;;8
+6;Korona 03;Korona;;;10
+7;Smolki 01;Smolki;;;11
+8;Rondo Matecznego 01;Rondo Matecznego;;;13
+9;Rzemieślnicza 01;Rzemieślnicza;;;15
+10;Łagiewniki 04;Łagiewniki;;koniec_trasy;20
+# Generated at 2026-05-31 19:43
