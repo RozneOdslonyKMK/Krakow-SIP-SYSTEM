@@ -4,7 +4,7 @@
 #
 # Route Info:
 # Line: 61   Direction: Salwator   Stops amount: 13   Route changed: False
-# Line operator: KLM   Vehicle type: Tram
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras;Czas
 1;Cmentarz Rakowicki 01;Cmentarz Rakowicki;Salwator;;0
 2;Cmentarz Rakowicki 02;Cmentarz Rakowicki;;;1
