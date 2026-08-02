@@ -1,0 +1,21 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 61   Direction: Cmentarz Rakowicki   Stops amount: 12   Route changed: False
+# Line operator: KLM   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Salwator 01;Salwator;Cmentarz Rakowicki;;0
+2;Salwator 02;Salwator;;;1
+3;Komorowskiego 02;Komorowskiego;;;2
+4;Jubilat 02;Jubilat;;;3
+5;Filharmonia 02;Filharmonia;;;6
+6;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;;;7
+7;Poczta Główna 03;Poczta Główna;;;9
+8;Teatr Słowackiego 03;Teatr Słowackiego;;;11
+9;Lubicz 02;Lubicz;;;13
+10;Uniwersytet Ekonomiczny 01;Uniwersytet Ekonomiczny;;;15
+11;Muzeum Fotografii 01;Muzeum Fotografii;;;16
+12;Cmentarz Rakowicki 91;Cmentarz Rakowicki;;;17
+# Generated at 2026-08-01 21:12
