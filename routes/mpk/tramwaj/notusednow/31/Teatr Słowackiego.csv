@@ -1,0 +1,26 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 31   Direction: Teatr Słowackiego   Stops amount: 17   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Łagiewniki 03;Łagiewniki;Teatr Słowackiego;;0
+2;Brożka (NŻ) 02;Brożka;;;1
+3;Borsucza 02;Borsucza;;;2
+4;Kobierzyńska 02;Kobierzyńska;;;4
+5;Słomiana 02;Słomiana;;;6
+6;Kapelanka 02;Kapelanka;;;7
+7;Szwedzka 02;Szwedzka;;;8
+8;Rondo Grunwaldzkie 02;Rondo Grunwaldzkie;;;10
+9;Orzeszkowej 02;Orzeszkowej;;;11
+10;Stradom 01;Stradom;;;12
+11;Wawel 01;Wawel;;;14
+12;św. Gertrudy 01;Św. Gertrudy;;;15
+13;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;;17
+14;Filharmonia 01;Filharmonia;;;19
+15;Teatr Bagatela 01;Teatr Bagatela;;;21
+16;Stary Kleparz 02;Stary Kleparz;;;23
+17;Teatr Słowackiego 02;Teatr Słowackiego;;koniec_trasy;25
+# Generated at 2026-05-31 19:44
