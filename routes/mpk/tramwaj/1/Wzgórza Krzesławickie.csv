@@ -1,0 +1,38 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: 1   Direction: Wzgórza Krzesławickie   Stops amount: 29   Route changed: True
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Salwator 01;Salwator;Wzgórza Krzesławickie;;0
+2;Salwator 02;Salwator;;;1
+3;Komorowskiego 02;Komorowskiego;;;2
+4;Jubilat 02;Jubilat;;;3
+5;Filharmonia 02;Filharmonia;;;6
+6;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;;;7
+7;Poczta Główna 03;Poczta Główna;;;9
+8;Teatr Słowackiego 03;Teatr Słowackiego;;;11
+9;Lubicz 02;Lubicz;;;13
+10;Rondo Mogilskie 03;Rondo Mogilskie;;;15
+11;Rondo Grzegórzeckie 01;Rondo Grzegórzeckie;;;18
+12;Teatr Variété 01;Teatr Variété;;;19
+13;Nullo 01;Nullo;;;20
+14;Fabryczna 01;Fabryczna;;;21
+15;Ofiar Dąbia 01;Ofiar Dąbia;;;22
+16;Dąbie 01;Dąbie;;;23
+17;TAURON Arena Kraków al. Pokoju 01;TAURON Arena Kraków al. Pokoju;;;25
+18;Ogród Doświadczeń 01;Ogród Doświadczeń;;;27
+19;Rondo 308. Dywizjonu 01;Rondo 308. Dywizjonu;;;29
+20;Gałczyńskiego 01;Gałczyńskiego;;;30
+21;Rondo Czyżyńskie 03;Rondo Czyżyńskie;;;33
+22;Bieńczycka 02;Bieńczycka;;;34
+23;Rondo Kocmyrzowskie im. Ks. Gorzelanego 03;Rondo Kocmyrzowskie im. Ks. Gorzelanego;;;37
+24;Teatr Ludowy 02;Teatr Ludowy;;;38
+25;Cienista 02;Cienista;;;39
+26;Wańkowicza 02;Wańkowicza;;;41
+27;Darwina 01;Darwina;;;43
+28;Jarzębiny 01;Jarzębiny;;;44
+29;Wzgórza Krzesławickie 91;Wzgórza Krzesławickie;;koniec_trasy;46
+# Generated at 2026-08-02 22:21
