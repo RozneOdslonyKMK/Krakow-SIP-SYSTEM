@@ -517,11 +517,11 @@ class MainSIPLayout(FloatLayout):
                 files.append("Bądź wrażliwy Ustąp miejsca.mp3")
                 
             if voice_mode == "audio/new":
-                if "1_strefa" in extras:
+                if "i_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w I strefie biletowej.mp3")
-                elif "2_strefa" in extras:
+                elif "ii_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w II strefie biletowej.mp3")
-                elif "3_strefa" in extras:
+                elif "iii_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
 
             if "koniec_trasy" in extras:
