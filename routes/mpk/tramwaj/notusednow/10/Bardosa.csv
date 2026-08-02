@@ -3,10 +3,10 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 10   Direction: Bardosa   Stops amount: 30   Route changed: False
+# Line: 10   Direction: BARDOSA przez Grzegórzecką   Stops amount: 29   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
-1;Kurdwanów P+R 10;Kurdwanów P+R;Bardosa;
+1;Kurdwanów P+R 10;Kurdwanów P+R;BARDOSA przez Grzegórzecką;
 2;Turowicza 02;Turowicza;;
 3;Sanktuarium Bożego Miłosierdzia 02;Sanktuarium Bożego Miłosierdzia;;
 4;Łagiewniki SKA 02;Łagiewniki SKA;;
@@ -17,23 +17,22 @@ Lp;Nazwa;Audio;Kierunek;Extras
 9;Korona 01;Korona;;
 10;Plac Wolnica 02;Plac Wolnica;;
 11;Stradom 04;Stradom;;
-12;Starowiślna 01;Starowiślna;;
-13;Poczta Główna 02;Poczta Główna;;
-14;Teatr Słowackiego 03;Teatr Słowackiego;;
-15;Lubicz 02;Lubicz;;
-16;Rondo Mogilskie 02;Rondo Mogilskie;;
-17;Cystersów 01;Cystersów;;
-18;Białucha 01;Białucha;;
-19;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
-20;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
-21;AKF / PK 01;AKF PK;;
-22;Stella-Sawickiego 01;Stella-Sawickiego;;
-23;Czyżyny 01;Czyżyny;;
-24;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
-25;Os. Kolorowe 01;Os. Kolorowe;;
-26;Plac Centralny im. R.Reagana 04;Plac Centralny im. R.Reagana;;
-27;Os. Na Skarpie 01;Os. Na Skarpie;;
-28;Klasztorna 01;Klasztorna;;
-29;Suche Stawy 01;Suche Stawy;;
-30;Bardosa 01;Bardosa;;koniec_trasy
-# Generated at 2026-04-17 16:19
+12;Starowiślna 03;Starowiślna;;
+13;Hala Targowa 01;Hala Targowa;;
+14;Rondo Grzegórzeckie 03;Rondo Grzegórzeckie;;
+15;Rondo Mogilskie 02;Rondo Mogilskie;;
+16;Cystersów 01;Cystersów;;
+17;Białucha 01;Białucha;;
+18;TAURON Arena Kraków Wieczysta 01;TAURON Arena Kraków Wieczysta;;
+19;Muzeum Lotnictwa Polskiego 01;Muzeum Lotnictwa Polskiego;;
+20;AKF / PK 01;AKF PK;;
+21;Stella-Sawickiego 01;Stella-Sawickiego;;
+22;Czyżyny 01;Czyżyny;;
+23;Rondo Czyżyńskie 01;Rondo Czyżyńskie;;
+24;Os. Kolorowe 01;Os. Kolorowe;;
+25;Plac Centralny im. R.Reagana 04;Plac Centralny im. R.Reagana;;
+26;Os. Na Skarpie 01;Os. Na Skarpie;;
+27;Klasztorna 01;Klasztorna;;
+28;Suche Stawy 01;Suche Stawy;;
+29;Bardosa 01;Bardosa;;koniec_trasy
+# Generated at 2026-04-17 15:50

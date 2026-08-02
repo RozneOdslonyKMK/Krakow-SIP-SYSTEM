@@ -3,10 +3,10 @@
 # Generated with Routes-Generator for SIP by ROKMK.
 #
 # Route Info:
-# Line: 10   Direction: Kurdwanów P+R   Stops amount: 38   Route changed: False
+# Line: 10   Direction: KURDWANÓW P+R przez Grzegórzecką   Stops amount: 37   Route changed: True
 # Line operator: MPK S.A. w Krakowie   Vehicle type: Tram
 Lp;Nazwa;Audio;Kierunek;Extras
-1;Pleszów 01;Pleszów;Kurdwanów P+R;
+1;Pleszów 01;Pleszów;KURDWANÓW P+R przez Grzegórzecką;
 2;Koksochemia (NŻ) 02;Koksochemia;;
 3;Meksyk (NŻ) 02;Meksyk;;
 4;Brama nr 5 (NŻ) 02;Brama nr 5;;
@@ -27,21 +27,20 @@ Lp;Nazwa;Audio;Kierunek;Extras
 19;TAURON Arena Kraków Wieczysta 02;TAURON Arena Kraków Wieczysta;;
 20;Białucha 02;Białucha;;
 21;Cystersów 02;Cystersów;;
-22;Rondo Mogilskie 01;Rondo Mogilskie;;
-23;Lubicz 01;Lubicz;;
-24;Teatr Słowackiego 01;Teatr Słowackiego;;
-25;Poczta Główna 01;Poczta Główna;;
-26;Starowiślna 02;Starowiślna;;
-27;Stradom 03;Stradom;;
-28;Plac Wolnica 01;Plac Wolnica;;
-29;Korona 03;Korona;;
-30;Smolki 01;Smolki;;
-31;Rondo Matecznego 01;Rondo Matecznego;;
-32;Rzemieślnicza 01;Rzemieślnicza;;
-33;Łagiewniki 01;Łagiewniki;;
-34;Łagiewniki ZUS 01;Łagiewniki ZUS;;
-35;Łagiewniki SKA 05;Łagiewniki SKA;;
-36;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia;;
-37;Turowicza 01;Turowicza;;
-38;Kurdwanów P+R 90;Kurdwanów P+R;;koniec_trasy
-# Generated at 2026-04-17 16:21
+22;Rondo Mogilskie 03;Rondo Mogilskie;;
+23;Rondo Grzegórzeckie 02;Rondo Grzegórzeckie;;
+24;Hala Targowa 02;Hala Targowa;;
+25;Starowiślna 04;Starowiślna;;
+26;Stradom 03;Stradom;;
+27;Plac Wolnica 01;Plac Wolnica;;
+28;Korona 03;Korona;;
+29;Smolki 01;Smolki;;
+30;Rondo Matecznego 01;Rondo Matecznego;;
+31;Rzemieślnicza 01;Rzemieślnicza;;
+32;Łagiewniki 01;Łagiewniki;;
+33;Łagiewniki ZUS 01;Łagiewniki ZUS;;
+34;Łagiewniki SKA 05;Łagiewniki SKA;;
+35;Sanktuarium Bożego Miłosierdzia 01;Sanktuarium Bożego Miłosierdzia;;
+36;Turowicza 01;Turowicza;;
+37;Kurdwanów P+R 90;Kurdwanów P+R;;koniec_trasy
+# Generated at 2026-04-17 15:51
