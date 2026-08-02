@@ -521,7 +521,7 @@ class MainSIPLayout(FloatLayout):
                     files.append("Uwaga Ostatni przystanek w I strefie biletowej.mp3")
                 elif "2_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w II strefie biletowej.mp3")
-                elif "_strefa" in extras:
+                elif "3_strefa" in extras:
                     files.append("Uwaga Ostatni przystanek w III strefie biletowej.mp3")
 
             if "koniec_trasy" in extras:
