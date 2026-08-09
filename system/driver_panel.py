@@ -351,6 +351,10 @@ class DriverPanel(Screen):
                 if raw_line.startswith("99"):
                     raw_line = raw_line[-1:]
                     raw_line = lr_prefix + raw_line
+                
+                line_letter = "H"
+                if raw_line == "989":
+                    raw_line = line_letter
                     
                 line_to_check = raw_line.lstrip("0")
                 if not line_to_check: line_to_check = "0"
