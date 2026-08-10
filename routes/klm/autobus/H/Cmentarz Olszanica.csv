@@ -1,0 +1,19 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: H   Direction: Cmentarz Olszanica   Stops amount: 10   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Mały Płaszów P+R 05;Mały Płaszów P+R;Cmentarz Olszanica;;0
+2;Podgórze SKA 04;Podgórze SKA;;;8
+3;św. Wawrzyńca 02;Św. Wawrzyńca;;;11
+4;Starowiślna 07;Starowiślna;;;13
+5;Plac Wszystkich Świętych 01;Plac Wszystkich Świętych;;;16
+6;UJ / AST 01;UJ AST;;;19
+7;Piastowska 01;Piastowska;;;24
+8;Park Decjusza 01;Park Decjusza;;;29
+9;Chełm 04;Chełm;;;33
+10;Cmentarz Olszanica 04;Cmentarz Olszanica;;;37
+# Generated at 2026-08-09 16:43

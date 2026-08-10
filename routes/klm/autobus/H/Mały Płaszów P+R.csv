@@ -1,0 +1,19 @@
+# Copyright:
+# (c) ROKMK 2026 - All rights reserved.
+# Generated with Routes-Generator for SIP by ROKMK.
+#
+# Route Info:
+# Line: H   Direction: Mały Płaszów P+R   Stops amount: 10   Route changed: False
+# Line operator: MPK S.A. w Krakowie   Vehicle type: Bus
+Lp;Nazwa;Audio;Kierunek;Extras;Czas
+1;Cmentarz Olszanica 04;Cmentarz Olszanica;Mały Płaszów P+R;;0
+2;Chełm 01;Chełm;;;4
+3;Park Decjusza 02;Park Decjusza;;;8
+4;Piastowska 02;Piastowska;;;14
+5;UJ / AST 02;UJ AST;;;20
+6;Plac Wszystkich Świętych 02;Plac Wszystkich Świętych;;;22
+7;Starowiślna 02;Starowiślna;;;25
+8;św. Wawrzyńca 01;Św. Wawrzyńca;;;27
+9;Podgórze SKA 08;Podgórze SKA;;;32
+10;Mały Płaszów P+R 05;Mały Płaszów P+R;;;39
+# Generated at 2026-08-09 16:48
